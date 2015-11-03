@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sql -->
+      <package
+            uri="http://www.emftext.org/language/sql/datatype"
+            class="org.emftext.language.sql.datatype.DatatypePackage"
+            genModel="model/sql.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sql -->
+      <package
+            uri="http://www.emftext.org/language/sql/schema"
+            class="org.emftext.language.sql.schema.SchemaPackage"
+            genModel="model/sql.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sql -->
+      <package
+            uri="http://www.emftext.org/language/sql/common"
+            class="org.emftext.language.sql.common.CommonPackage"
+            genModel="model/sql.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sql -->
+      <package
+            uri="http://www.emftext.org/language/sql/literal"
+            class="org.emftext.language.sql.literal.LiteralPackage"
+            genModel="model/sql.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sql -->
+      <package
+            uri="http://www.emftext.org/language/sql/function"
+            class="org.emftext.language.sql.function.FunctionPackage"
+            genModel="model/sql.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sql -->
+      <package
+            uri="http://www.emftext.org/language/sql/expression"
+            class="org.emftext.language.sql.expression.ExpressionPackage"
+            genModel="model/sql.genmodel"/>
+   </extension>
+</plugin>
