@@ -16,7 +16,7 @@ import org.emftext.language.sql.expression.ImplicitlyTypedValueSpecification;
  *
  * @generated
  */
-public class ImplicitlyTypedValueSpecificationImpl extends MinimalEObjectImpl.Container
+public abstract class ImplicitlyTypedValueSpecificationImpl extends MinimalEObjectImpl.Container
         implements ImplicitlyTypedValueSpecification {
     /**
      * <!-- begin-user-doc -->

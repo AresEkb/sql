@@ -228,7 +228,7 @@ public class ExpressionPackageImpl extends EPackageImpl implements ExpressionPac
 
         // Initialize classes, features, and operations; add parameters
         initEClass(implicitlyTypedValueSpecificationEClass, ImplicitlyTypedValueSpecification.class,
-                "ImplicitlyTypedValueSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "ImplicitlyTypedValueSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(nullSpecificationEClass, NullSpecification.class, "NullSpecification", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);

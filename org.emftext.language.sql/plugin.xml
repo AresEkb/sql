@@ -53,4 +53,11 @@
             class="org.emftext.language.sql.expression.ExpressionPackage"
             genModel="model/sql.genmodel"/>
    </extension>
+   <extension
+         point="org.eclipse.emf.ecore.conversion_delegate">
+      <factory
+            class="org.emftext.language.sql.ConversionDelegateFactory"
+            uri="org.emftext.language.sql.conversionDelegateFactory">
+      </factory>
+   </extension>
 </plugin>

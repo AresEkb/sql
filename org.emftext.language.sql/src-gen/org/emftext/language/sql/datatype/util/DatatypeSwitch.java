@@ -181,6 +181,45 @@ public class DatatypeSwitch<T> extends Switch<T> {
                 result = defaultCase(theEObject);
             return result;
         }
+        case DatatypePackage.DATE_TYPE: {
+            DateType dateType = (DateType) theEObject;
+            T result = caseDateType(dateType);
+            if (result == null)
+                result = caseDatetimeType(dateType);
+            if (result == null)
+                result = casePredefinedType(dateType);
+            if (result == null)
+                result = caseDataType(dateType);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case DatatypePackage.TIME_TYPE: {
+            TimeType timeType = (TimeType) theEObject;
+            T result = caseTimeType(timeType);
+            if (result == null)
+                result = caseDatetimeType(timeType);
+            if (result == null)
+                result = casePredefinedType(timeType);
+            if (result == null)
+                result = caseDataType(timeType);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case DatatypePackage.TIMESTAMP_TYPE: {
+            TimestampType timestampType = (TimestampType) theEObject;
+            T result = caseTimestampType(timestampType);
+            if (result == null)
+                result = caseDatetimeType(timestampType);
+            if (result == null)
+                result = casePredefinedType(timestampType);
+            if (result == null)
+                result = caseDataType(timestampType);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
         default:
             return defaultCase(theEObject);
         }
@@ -348,6 +387,51 @@ public class DatatypeSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseLargeObjectLength(LargeObjectLength object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Date Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Date Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDateType(DateType object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Time Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Time Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseTimeType(TimeType object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Timestamp Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Timestamp Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseTimestampType(TimestampType object) {
         return null;
     }
 

@@ -3,12 +3,14 @@
 package org.emftext.language.sql.schema.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.emftext.language.sql.SchemaQualifiedName;
+import org.emftext.language.sql.common.SchemaQualifiedName;
 
 import org.emftext.language.sql.schema.SchemaPackage;
 import org.emftext.language.sql.schema.TableConstraint;
@@ -21,31 +23,21 @@ import org.emftext.language.sql.schema.TableConstraint;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.emftext.language.sql.schema.impl.TableConstraintImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.emftext.language.sql.schema.impl.TableConstraintImpl#getSchemaQualifiedName <em>Schema Qualified Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class TableConstraintImpl extends TableElementImpl implements TableConstraint {
     /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * The cached value of the '{@link #getSchemaQualifiedName() <em>Schema Qualified Name</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getName()
+     * @see #getSchemaQualifiedName()
      * @generated
      * @ordered
      */
-    protected static final SchemaQualifiedName NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected SchemaQualifiedName name = NAME_EDEFAULT;
+    protected SchemaQualifiedName schemaQualifiedName;
 
     /**
      * <!-- begin-user-doc -->
@@ -71,8 +63,8 @@ public abstract class TableConstraintImpl extends TableElementImpl implements Ta
      * <!-- end-user-doc -->
      * @generated
      */
-    public SchemaQualifiedName getName() {
-        return name;
+    public SchemaQualifiedName getSchemaQualifiedName() {
+        return schemaQualifiedName;
     }
 
     /**
@@ -80,11 +72,56 @@ public abstract class TableConstraintImpl extends TableElementImpl implements Ta
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName(SchemaQualifiedName newName) {
-        SchemaQualifiedName oldName = name;
-        name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SchemaPackage.TABLE_CONSTRAINT__NAME, oldName, name));
+    public NotificationChain basicSetSchemaQualifiedName(SchemaQualifiedName newSchemaQualifiedName,
+            NotificationChain msgs) {
+        SchemaQualifiedName oldSchemaQualifiedName = schemaQualifiedName;
+        schemaQualifiedName = newSchemaQualifiedName;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    SchemaPackage.TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME, oldSchemaQualifiedName,
+                    newSchemaQualifiedName);
+            if (msgs == null)
+                msgs = notification;
+            else
+                msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSchemaQualifiedName(SchemaQualifiedName newSchemaQualifiedName) {
+        if (newSchemaQualifiedName != schemaQualifiedName) {
+            NotificationChain msgs = null;
+            if (schemaQualifiedName != null)
+                msgs = ((InternalEObject) schemaQualifiedName).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - SchemaPackage.TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME, null, msgs);
+            if (newSchemaQualifiedName != null)
+                msgs = ((InternalEObject) newSchemaQualifiedName).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - SchemaPackage.TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME, null, msgs);
+            msgs = basicSetSchemaQualifiedName(newSchemaQualifiedName, msgs);
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SchemaPackage.TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME,
+                    newSchemaQualifiedName, newSchemaQualifiedName));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+        case SchemaPackage.TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME:
+            return basicSetSchemaQualifiedName(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
@@ -95,8 +132,8 @@ public abstract class TableConstraintImpl extends TableElementImpl implements Ta
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-        case SchemaPackage.TABLE_CONSTRAINT__NAME:
-            return getName();
+        case SchemaPackage.TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME:
+            return getSchemaQualifiedName();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -109,8 +146,8 @@ public abstract class TableConstraintImpl extends TableElementImpl implements Ta
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-        case SchemaPackage.TABLE_CONSTRAINT__NAME:
-            setName((SchemaQualifiedName) newValue);
+        case SchemaPackage.TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME:
+            setSchemaQualifiedName((SchemaQualifiedName) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -124,8 +161,8 @@ public abstract class TableConstraintImpl extends TableElementImpl implements Ta
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-        case SchemaPackage.TABLE_CONSTRAINT__NAME:
-            setName(NAME_EDEFAULT);
+        case SchemaPackage.TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME:
+            setSchemaQualifiedName((SchemaQualifiedName) null);
             return;
         }
         super.eUnset(featureID);
@@ -139,27 +176,10 @@ public abstract class TableConstraintImpl extends TableElementImpl implements Ta
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-        case SchemaPackage.TABLE_CONSTRAINT__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+        case SchemaPackage.TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME:
+            return schemaQualifiedName != null;
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy())
-            return super.toString();
-
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: ");
-        result.append(name);
-        result.append(')');
-        return result.toString();
     }
 
 } //TableConstraintImpl

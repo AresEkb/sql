@@ -26,7 +26,7 @@ public enum BinaryLargeObjectStringTypeKind implements Enumerator {
      * @generated
      * @ordered
      */
-    BINARY_LARGE_OBJECT(0, "BINARY_LARGE_OBJECT", "BINARY LARGE OBJECT"),
+    BINARY_LARGE_OBJECT(0, "BINARY_LARGE_OBJECT", "BINARY_LARGE_OBJECT"),
 
     /**
      * The '<em><b>BLOB</b></em>' literal object.
@@ -47,7 +47,7 @@ public enum BinaryLargeObjectStringTypeKind implements Enumerator {
      * </p>
      * <!-- end-user-doc -->
      * @see #BINARY_LARGE_OBJECT
-     * @model literal="BINARY LARGE OBJECT"
+     * @model
      * @generated
      * @ordered
      */

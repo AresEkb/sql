@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.emftext.language.sql.common.CommonPackage;
@@ -24,23 +25,20 @@ import org.emftext.language.sql.function.FunctionPackage;
 
 import org.emftext.language.sql.function.impl.FunctionPackageImpl;
 
-import org.emftext.language.sql.literal.BinaryStringLiteral;
+import org.emftext.language.sql.literal.ApproximateNumericLiteral;
 import org.emftext.language.sql.literal.BooleanLiteral;
 import org.emftext.language.sql.literal.CharacterStringLiteral;
 import org.emftext.language.sql.literal.DateLiteral;
 import org.emftext.language.sql.literal.DatetimeLiteral;
+import org.emftext.language.sql.literal.ExactNumericLiteral;
 import org.emftext.language.sql.literal.GeneralLiteral;
-import org.emftext.language.sql.literal.IntervalLiteral;
 import org.emftext.language.sql.literal.Literal;
 import org.emftext.language.sql.literal.LiteralFactory;
 import org.emftext.language.sql.literal.LiteralPackage;
 import org.emftext.language.sql.literal.NationalCharacterStringLiteral;
-import org.emftext.language.sql.literal.SignedNumericLiteral;
+import org.emftext.language.sql.literal.NumericLiteral;
 import org.emftext.language.sql.literal.TimeLiteral;
 import org.emftext.language.sql.literal.TimestampLiteral;
-import org.emftext.language.sql.literal.UnicodeCharacterStringLiteral;
-import org.emftext.language.sql.literal.UnsignedLiteral;
-import org.emftext.language.sql.literal.UnsignedNumericLiteral;
 
 import org.emftext.language.sql.schema.SchemaPackage;
 
@@ -59,13 +57,6 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
      * @generated
      */
     private EClass literalEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass signedNumericLiteralEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -93,20 +84,6 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass unicodeCharacterStringLiteralEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass binaryStringLiteralEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EClass datetimeLiteralEClass = null;
 
     /**
@@ -114,28 +91,7 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass intervalLiteralEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EClass booleanLiteralEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass unsignedLiteralEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass unsignedNumericLiteralEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -157,6 +113,27 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
      * @generated
      */
     private EClass timestampLiteralEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass exactNumericLiteralEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass approximateNumericLiteralEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass numericLiteralEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -263,15 +240,6 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getSignedNumericLiteral() {
-        return signedNumericLiteralEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getGeneralLiteral() {
         return generalLiteralEClass;
     }
@@ -290,6 +258,15 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getCharacterStringLiteral_CharacterSetName() {
+        return (EReference) characterStringLiteralEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getNationalCharacterStringLiteral() {
         return nationalCharacterStringLiteralEClass;
     }
@@ -299,8 +276,8 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getUnicodeCharacterStringLiteral() {
-        return unicodeCharacterStringLiteralEClass;
+    public EAttribute getNationalCharacterStringLiteral_Values() {
+        return (EAttribute) nationalCharacterStringLiteralEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -308,8 +285,8 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getBinaryStringLiteral() {
-        return binaryStringLiteralEClass;
+    public EReference getNationalCharacterStringLiteral_Separators() {
+        return (EReference) nationalCharacterStringLiteralEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -319,33 +296,6 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
      */
     public EClass getDatetimeLiteral() {
         return datetimeLiteralEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getDatetimeLiteral_Value() {
-        return (EAttribute) datetimeLiteralEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getIntervalLiteral() {
-        return intervalLiteralEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getIntervalLiteral_IsPositive() {
-        return (EAttribute) intervalLiteralEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -371,26 +321,17 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getUnsignedLiteral() {
-        return unsignedLiteralEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getUnsignedNumericLiteral() {
-        return unsignedNumericLiteralEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getDateLiteral() {
         return dateLiteralEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDateLiteral_Value() {
+        return (EAttribute) dateLiteralEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -407,8 +348,71 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getTimeLiteral_Value() {
+        return (EAttribute) timeLiteralEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getTimestampLiteral() {
         return timestampLiteralEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTimestampLiteral_Value() {
+        return (EAttribute) timestampLiteralEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getExactNumericLiteral() {
+        return exactNumericLiteralEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExactNumericLiteral_Value() {
+        return (EAttribute) exactNumericLiteralEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getApproximateNumericLiteral() {
+        return approximateNumericLiteralEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getApproximateNumericLiteral_Value() {
+        return (EAttribute) approximateNumericLiteralEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getNumericLiteral() {
+        return numericLiteralEClass;
     }
 
     /**
@@ -442,36 +446,36 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
         // Create classes and their features
         literalEClass = createEClass(LITERAL);
 
-        signedNumericLiteralEClass = createEClass(SIGNED_NUMERIC_LITERAL);
-
         generalLiteralEClass = createEClass(GENERAL_LITERAL);
 
         characterStringLiteralEClass = createEClass(CHARACTER_STRING_LITERAL);
+        createEReference(characterStringLiteralEClass, CHARACTER_STRING_LITERAL__CHARACTER_SET_NAME);
 
         nationalCharacterStringLiteralEClass = createEClass(NATIONAL_CHARACTER_STRING_LITERAL);
-
-        unicodeCharacterStringLiteralEClass = createEClass(UNICODE_CHARACTER_STRING_LITERAL);
-
-        binaryStringLiteralEClass = createEClass(BINARY_STRING_LITERAL);
+        createEAttribute(nationalCharacterStringLiteralEClass, NATIONAL_CHARACTER_STRING_LITERAL__VALUES);
+        createEReference(nationalCharacterStringLiteralEClass, NATIONAL_CHARACTER_STRING_LITERAL__SEPARATORS);
 
         datetimeLiteralEClass = createEClass(DATETIME_LITERAL);
-        createEAttribute(datetimeLiteralEClass, DATETIME_LITERAL__VALUE);
-
-        intervalLiteralEClass = createEClass(INTERVAL_LITERAL);
-        createEAttribute(intervalLiteralEClass, INTERVAL_LITERAL__IS_POSITIVE);
 
         booleanLiteralEClass = createEClass(BOOLEAN_LITERAL);
         createEAttribute(booleanLiteralEClass, BOOLEAN_LITERAL__VALUE);
 
-        unsignedLiteralEClass = createEClass(UNSIGNED_LITERAL);
-
-        unsignedNumericLiteralEClass = createEClass(UNSIGNED_NUMERIC_LITERAL);
-
         dateLiteralEClass = createEClass(DATE_LITERAL);
+        createEAttribute(dateLiteralEClass, DATE_LITERAL__VALUE);
 
         timeLiteralEClass = createEClass(TIME_LITERAL);
+        createEAttribute(timeLiteralEClass, TIME_LITERAL__VALUE);
 
         timestampLiteralEClass = createEClass(TIMESTAMP_LITERAL);
+        createEAttribute(timestampLiteralEClass, TIMESTAMP_LITERAL__VALUE);
+
+        exactNumericLiteralEClass = createEClass(EXACT_NUMERIC_LITERAL);
+        createEAttribute(exactNumericLiteralEClass, EXACT_NUMERIC_LITERAL__VALUE);
+
+        approximateNumericLiteralEClass = createEClass(APPROXIMATE_NUMERIC_LITERAL);
+        createEAttribute(approximateNumericLiteralEClass, APPROXIMATE_NUMERIC_LITERAL__VALUE);
+
+        numericLiteralEClass = createEClass(NUMERIC_LITERAL);
     }
 
     /**
@@ -498,57 +502,49 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
         setNsPrefix(eNS_PREFIX);
         setNsURI(eNS_URI);
 
+        // Obtain other dependent packages
+        CommonPackage theCommonPackage = (CommonPackage) EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
+
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        signedNumericLiteralEClass.getESuperTypes().add(this.getLiteral());
         generalLiteralEClass.getESuperTypes().add(this.getLiteral());
-        generalLiteralEClass.getESuperTypes().add(this.getUnsignedLiteral());
-        characterStringLiteralEClass.getESuperTypes().add(this.getGeneralLiteral());
+        characterStringLiteralEClass.getESuperTypes().add(this.getNationalCharacterStringLiteral());
         nationalCharacterStringLiteralEClass.getESuperTypes().add(this.getGeneralLiteral());
-        unicodeCharacterStringLiteralEClass.getESuperTypes().add(this.getGeneralLiteral());
-        binaryStringLiteralEClass.getESuperTypes().add(this.getGeneralLiteral());
         datetimeLiteralEClass.getESuperTypes().add(this.getGeneralLiteral());
-        intervalLiteralEClass.getESuperTypes().add(this.getGeneralLiteral());
         booleanLiteralEClass.getESuperTypes().add(this.getGeneralLiteral());
-        unsignedNumericLiteralEClass.getESuperTypes().add(this.getUnsignedLiteral());
         dateLiteralEClass.getESuperTypes().add(this.getDatetimeLiteral());
         timeLiteralEClass.getESuperTypes().add(this.getDatetimeLiteral());
         timestampLiteralEClass.getESuperTypes().add(this.getDatetimeLiteral());
+        exactNumericLiteralEClass.getESuperTypes().add(this.getNumericLiteral());
+        approximateNumericLiteralEClass.getESuperTypes().add(this.getNumericLiteral());
+        numericLiteralEClass.getESuperTypes().add(this.getLiteral());
 
         // Initialize classes, features, and operations; add parameters
         initEClass(literalEClass, Literal.class, "Literal", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(signedNumericLiteralEClass, SignedNumericLiteral.class, "SignedNumericLiteral", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(generalLiteralEClass, GeneralLiteral.class, "GeneralLiteral", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(characterStringLiteralEClass, CharacterStringLiteral.class, "CharacterStringLiteral", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getCharacterStringLiteral_CharacterSetName(), theCommonPackage.getSchemaQualifiedName(), null,
+                "characterSetName", null, 0, 1, CharacterStringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(nationalCharacterStringLiteralEClass, NationalCharacterStringLiteral.class,
                 "NationalCharacterStringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(unicodeCharacterStringLiteralEClass, UnicodeCharacterStringLiteral.class,
-                "UnicodeCharacterStringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(binaryStringLiteralEClass, BinaryStringLiteral.class, "BinaryStringLiteral", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getNationalCharacterStringLiteral_Values(), ecorePackage.getEString(), "values", null, 1, -1,
+                NationalCharacterStringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getNationalCharacterStringLiteral_Separators(), theCommonPackage.getSeparator(), null,
+                "separators", null, 0, -1, NationalCharacterStringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(datetimeLiteralEClass, DatetimeLiteral.class, "DatetimeLiteral", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getDatetimeLiteral_Value(), ecorePackage.getEDate(), "value", null, 1, 1, DatetimeLiteral.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        initEClass(intervalLiteralEClass, IntervalLiteral.class, "IntervalLiteral", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getIntervalLiteral_IsPositive(), ecorePackage.getEBoolean(), "isPositive", "true", 1, 1,
-                IntervalLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
 
         initEClass(booleanLiteralEClass, BooleanLiteral.class, "BooleanLiteral", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -556,19 +552,35 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
                 BooleanLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED);
 
-        initEClass(unsignedLiteralEClass, UnsignedLiteral.class, "UnsignedLiteral", IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(unsignedNumericLiteralEClass, UnsignedNumericLiteral.class, "UnsignedNumericLiteral", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
         initEClass(dateLiteralEClass, DateLiteral.class, "DateLiteral", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getDateLiteral_Value(), theCommonPackage.getDateType(), "value", null, 1, 1, DateLiteral.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(timeLiteralEClass, TimeLiteral.class, "TimeLiteral", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getTimeLiteral_Value(), theCommonPackage.getTimeType(), "value", null, 1, 1, TimeLiteral.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(timestampLiteralEClass, TimestampLiteral.class, "TimestampLiteral", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getTimestampLiteral_Value(), theCommonPackage.getTimestampType(), "value", null, 1, 1,
+                TimestampLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED);
+
+        initEClass(exactNumericLiteralEClass, ExactNumericLiteral.class, "ExactNumericLiteral", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getExactNumericLiteral_Value(), ecorePackage.getEBigDecimal(), "value", null, 1, 1,
+                ExactNumericLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(approximateNumericLiteralEClass, ApproximateNumericLiteral.class, "ApproximateNumericLiteral",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getApproximateNumericLiteral_Value(), ecorePackage.getEDouble(), "value", null, 1, 1,
+                ApproximateNumericLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(numericLiteralEClass, NumericLiteral.class, "NumericLiteral", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
 
         // Create resource

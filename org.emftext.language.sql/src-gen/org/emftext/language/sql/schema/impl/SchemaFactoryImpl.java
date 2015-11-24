@@ -79,6 +79,8 @@ public class SchemaFactoryImpl extends EFactoryImpl implements SchemaFactory {
             return createUniqueTableConstraint();
         case SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT:
             return createReferentialTableConstraint();
+        case SchemaPackage.TABLE_REFERENCE:
+            return createTableReference();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -94,8 +96,6 @@ public class SchemaFactoryImpl extends EFactoryImpl implements SchemaFactory {
         switch (eDataType.getClassifierID()) {
         case SchemaPackage.TABLE_SCOPE:
             return createTableScopeFromString(eDataType, initialValue);
-        case SchemaPackage.TABLE_COMMIT_ACTION:
-            return createTableCommitActionFromString(eDataType, initialValue);
         case SchemaPackage.UNIQUE_SPECIFICATION_KIND:
             return createUniqueSpecificationKindFromString(eDataType, initialValue);
         default:
@@ -113,8 +113,6 @@ public class SchemaFactoryImpl extends EFactoryImpl implements SchemaFactory {
         switch (eDataType.getClassifierID()) {
         case SchemaPackage.TABLE_SCOPE:
             return convertTableScopeToString(eDataType, instanceValue);
-        case SchemaPackage.TABLE_COMMIT_ACTION:
-            return convertTableCommitActionToString(eDataType, instanceValue);
         case SchemaPackage.UNIQUE_SPECIFICATION_KIND:
             return convertUniqueSpecificationKindToString(eDataType, instanceValue);
         default:
@@ -237,6 +235,16 @@ public class SchemaFactoryImpl extends EFactoryImpl implements SchemaFactory {
      * <!-- end-user-doc -->
      * @generated
      */
+    public TableReference createTableReference() {
+        TableReferenceImpl tableReference = new TableReferenceImpl();
+        return tableReference;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public TableScope createTableScopeFromString(EDataType eDataType, String initialValue) {
         TableScope result = TableScope.get(initialValue);
         if (result == null)
@@ -251,28 +259,6 @@ public class SchemaFactoryImpl extends EFactoryImpl implements SchemaFactory {
      * @generated
      */
     public String convertTableScopeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public TableCommitAction createTableCommitActionFromString(EDataType eDataType, String initialValue) {
-        TableCommitAction result = TableCommitAction.get(initialValue);
-        if (result == null)
-            throw new IllegalArgumentException(
-                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertTableCommitActionToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 

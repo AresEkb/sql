@@ -5,9 +5,11 @@ package org.emftext.language.sql.schema.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.emftext.language.sql.common.CommonPackage;
@@ -44,17 +46,19 @@ import org.emftext.language.sql.schema.SQLSchemaDefinitionStatement;
 import org.emftext.language.sql.schema.SQLSchemaStatement;
 import org.emftext.language.sql.schema.SchemaFactory;
 import org.emftext.language.sql.schema.SchemaPackage;
-import org.emftext.language.sql.schema.TableCommitAction;
+import org.emftext.language.sql.schema.TableColumnsConstraint;
 import org.emftext.language.sql.schema.TableConstraint;
 import org.emftext.language.sql.schema.TableContentsSource;
 import org.emftext.language.sql.schema.TableDefinition;
 import org.emftext.language.sql.schema.TableElement;
 import org.emftext.language.sql.schema.TableElementList;
+import org.emftext.language.sql.schema.TableReference;
 import org.emftext.language.sql.schema.TableScope;
 import org.emftext.language.sql.schema.UniqueColumnConstraint;
 import org.emftext.language.sql.schema.UniqueConstraint;
 import org.emftext.language.sql.schema.UniqueSpecificationKind;
 import org.emftext.language.sql.schema.UniqueTableConstraint;
+import org.emftext.language.sql.schema.util.SchemaValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -208,14 +212,21 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EEnum tableScopeEEnum = null;
+    private EClass tableReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EEnum tableCommitActionEEnum = null;
+    private EClass tableColumnsConstraintEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum tableScopeEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -307,6 +318,13 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
         theFunctionPackage.initializePackageContents();
         theExpressionPackage.initializePackageContents();
 
+        // Register package validator
+        EValidator.Registry.INSTANCE.put(theSchemaPackage, new EValidator.Descriptor() {
+            public EValidator getEValidator() {
+                return SchemaValidator.INSTANCE;
+            }
+        });
+
         // Mark meta-data to indicate it can't be changed
         theSchemaPackage.freeze();
 
@@ -329,17 +347,8 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTableDefinition_Name() {
-        return (EAttribute) tableDefinitionEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getTableDefinition_ContentsSource() {
-        return (EReference) tableDefinitionEClass.getEStructuralFeatures().get(1);
+        return (EReference) tableDefinitionEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -356,8 +365,17 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTableDefinition_CommitAction() {
-        return (EAttribute) tableDefinitionEClass.getEStructuralFeatures().get(3);
+    public EReference getTableDefinition_SchemaQualifiedName() {
+        return (EReference) tableDefinitionEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTableDefinition_Label() {
+        return (EAttribute) tableDefinitionEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -446,8 +464,8 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getColumn_CollationName() {
-        return (EAttribute) columnEClass.getEStructuralFeatures().get(4);
+    public EReference getColumn_CollationName() {
+        return (EReference) columnEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -464,8 +482,8 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTableConstraint_Name() {
-        return (EAttribute) tableConstraintEClass.getEStructuralFeatures().get(0);
+    public EReference getTableConstraint_SchemaQualifiedName() {
+        return (EReference) tableConstraintEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -527,8 +545,8 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getColumnConstraint_Name() {
-        return (EAttribute) columnConstraintEClass.getEStructuralFeatures().get(1);
+    public EReference getColumnConstraint_SchemaQualifiedName() {
+        return (EReference) columnConstraintEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -644,15 +662,6 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getUniqueTableConstraint_Columns() {
-        return (EReference) uniqueTableConstraintEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getReferentialTableConstraint() {
         return referentialTableConstraintEClass;
     }
@@ -662,8 +671,8 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getReferentialTableConstraint_Columns() {
-        return (EReference) referentialTableConstraintEClass.getEStructuralFeatures().get(0);
+    public EOperation getReferentialTableConstraint__ColumnsMustBeCompatible2__DiagnosticChain_Map() {
+        return referentialTableConstraintEClass.getEOperations().get(0);
     }
 
     /**
@@ -716,8 +725,8 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EEnum getTableScope() {
-        return tableScopeEEnum;
+    public EClass getTableReference() {
+        return tableReferenceEClass;
     }
 
     /**
@@ -725,8 +734,53 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EEnum getTableCommitAction() {
-        return tableCommitActionEEnum;
+    public EAttribute getTableReference_CatalogName() {
+        return (EAttribute) tableReferenceEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTableReference_SchemaName() {
+        return (EAttribute) tableReferenceEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getTableReference_Target() {
+        return (EReference) tableReferenceEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getTableColumnsConstraint() {
+        return tableColumnsConstraintEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getTableColumnsConstraint_Columns() {
+        return (EReference) tableColumnsConstraintEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getTableScope() {
+        return tableScopeEEnum;
     }
 
     /**
@@ -768,10 +822,10 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
 
         // Create classes and their features
         tableDefinitionEClass = createEClass(TABLE_DEFINITION);
-        createEAttribute(tableDefinitionEClass, TABLE_DEFINITION__NAME);
-        createEReference(tableDefinitionEClass, TABLE_DEFINITION__CONTENTS_SOURCE);
+        createEAttribute(tableDefinitionEClass, TABLE_DEFINITION__LABEL);
+        createEReference(tableDefinitionEClass, TABLE_DEFINITION__SCHEMA_QUALIFIED_NAME);
         createEAttribute(tableDefinitionEClass, TABLE_DEFINITION__SCOPE);
-        createEAttribute(tableDefinitionEClass, TABLE_DEFINITION__COMMIT_ACTION);
+        createEReference(tableDefinitionEClass, TABLE_DEFINITION__CONTENTS_SOURCE);
 
         tableElementListEClass = createEClass(TABLE_ELEMENT_LIST);
         createEReference(tableElementListEClass, TABLE_ELEMENT_LIST__ELEMENTS);
@@ -784,10 +838,10 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
         createEReference(columnEClass, COLUMN__DATA_TYPE);
         createEReference(columnEClass, COLUMN__DEFAULT_OPTION);
         createEReference(columnEClass, COLUMN__CONSTRAINT_DEFINITION);
-        createEAttribute(columnEClass, COLUMN__COLLATION_NAME);
+        createEReference(columnEClass, COLUMN__COLLATION_NAME);
 
         tableConstraintEClass = createEClass(TABLE_CONSTRAINT);
-        createEAttribute(tableConstraintEClass, TABLE_CONSTRAINT__NAME);
+        createEReference(tableConstraintEClass, TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME);
 
         tableContentsSourceEClass = createEClass(TABLE_CONTENTS_SOURCE);
         createEReference(tableContentsSourceEClass, TABLE_CONTENTS_SOURCE__OWNER);
@@ -797,7 +851,7 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
 
         columnConstraintEClass = createEClass(COLUMN_CONSTRAINT);
         createEReference(columnConstraintEClass, COLUMN_CONSTRAINT__OWNER);
-        createEAttribute(columnConstraintEClass, COLUMN_CONSTRAINT__NAME);
+        createEReference(columnConstraintEClass, COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME);
 
         notNullColumnConstraintEClass = createEClass(NOT_NULL_COLUMN_CONSTRAINT);
 
@@ -821,10 +875,10 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
                 IMPLICITLY_TYPED_VALUE_SPECIFICATION_DEFAULT_OPTION__SPECIFICATION);
 
         uniqueTableConstraintEClass = createEClass(UNIQUE_TABLE_CONSTRAINT);
-        createEReference(uniqueTableConstraintEClass, UNIQUE_TABLE_CONSTRAINT__COLUMNS);
 
         referentialTableConstraintEClass = createEClass(REFERENTIAL_TABLE_CONSTRAINT);
-        createEReference(referentialTableConstraintEClass, REFERENTIAL_TABLE_CONSTRAINT__COLUMNS);
+        createEOperation(referentialTableConstraintEClass,
+                REFERENTIAL_TABLE_CONSTRAINT___COLUMNS_MUST_BE_COMPATIBLE2__DIAGNOSTICCHAIN_MAP);
 
         uniqueConstraintEClass = createEClass(UNIQUE_CONSTRAINT);
         createEAttribute(uniqueConstraintEClass, UNIQUE_CONSTRAINT__KIND);
@@ -833,9 +887,16 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
         createEReference(referentialConstraintEClass, REFERENTIAL_CONSTRAINT__REFERENCED_COLUMNS);
         createEReference(referentialConstraintEClass, REFERENTIAL_CONSTRAINT__REFERENCED_TABLE);
 
+        tableReferenceEClass = createEClass(TABLE_REFERENCE);
+        createEAttribute(tableReferenceEClass, TABLE_REFERENCE__CATALOG_NAME);
+        createEAttribute(tableReferenceEClass, TABLE_REFERENCE__SCHEMA_NAME);
+        createEReference(tableReferenceEClass, TABLE_REFERENCE__TARGET);
+
+        tableColumnsConstraintEClass = createEClass(TABLE_COLUMNS_CONSTRAINT);
+        createEReference(tableColumnsConstraintEClass, TABLE_COLUMNS_CONSTRAINT__COLUMNS);
+
         // Create enums
         tableScopeEEnum = createEEnum(TABLE_SCOPE);
-        tableCommitActionEEnum = createEEnum(TABLE_COMMIT_ACTION);
         uniqueSpecificationKindEEnum = createEEnum(UNIQUE_SPECIFICATION_KIND);
     }
 
@@ -880,9 +941,12 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
 
         // Add supertypes to classes
         tableDefinitionEClass.getESuperTypes().add(this.getSQLSchemaDefinitionStatement());
+        tableDefinitionEClass.getESuperTypes().add(ecorePackage.getEObject());
         tableElementListEClass.getESuperTypes().add(this.getTableContentsSource());
         columnEClass.getESuperTypes().add(this.getTableElement());
         tableConstraintEClass.getESuperTypes().add(this.getTableElement());
+        tableConstraintEClass.getESuperTypes().add(ecorePackage.getEObject());
+        columnConstraintEClass.getESuperTypes().add(ecorePackage.getEObject());
         notNullColumnConstraintEClass.getESuperTypes().add(this.getColumnConstraint());
         uniqueColumnConstraintEClass.getESuperTypes().add(this.getUniqueConstraint());
         uniqueColumnConstraintEClass.getESuperTypes().add(this.getColumnConstraint());
@@ -893,26 +957,27 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
         literalDefaultOptionEClass.getESuperTypes().add(this.getDefaultOption());
         datetimeValueFunctionDefaultOptionEClass.getESuperTypes().add(this.getDefaultOption());
         implicitlyTypedValueSpecificationDefaultOptionEClass.getESuperTypes().add(this.getDefaultOption());
-        uniqueTableConstraintEClass.getESuperTypes().add(this.getTableConstraint());
         uniqueTableConstraintEClass.getESuperTypes().add(this.getUniqueConstraint());
-        referentialTableConstraintEClass.getESuperTypes().add(this.getTableConstraint());
+        uniqueTableConstraintEClass.getESuperTypes().add(this.getTableColumnsConstraint());
         referentialTableConstraintEClass.getESuperTypes().add(this.getReferentialConstraint());
+        referentialTableConstraintEClass.getESuperTypes().add(this.getTableColumnsConstraint());
+        tableColumnsConstraintEClass.getESuperTypes().add(this.getTableConstraint());
 
         // Initialize classes, features, and operations; add parameters
         initEClass(tableDefinitionEClass, TableDefinition.class, "TableDefinition", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getTableDefinition_Name(), theCommonPackage.getLocalOrSchemaQualifiedName(), "name", null, 1, 1,
-                TableDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getTableDefinition_Label(), ecorePackage.getEString(), "label", null, 1, 1,
+                TableDefinition.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                IS_DERIVED, IS_ORDERED);
+        initEReference(getTableDefinition_SchemaQualifiedName(), theCommonPackage.getSchemaQualifiedName(), null,
+                "schemaQualifiedName", null, 1, 1, TableDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getTableDefinition_Scope(), this.getTableScope(), "scope", null, 1, 1, TableDefinition.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTableDefinition_ContentsSource(), this.getTableContentsSource(),
                 this.getTableContentsSource_Owner(), "contentsSource", null, 1, 1, TableDefinition.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED);
-        initEAttribute(getTableDefinition_Scope(), this.getTableScope(), "scope", null, 0, 1, TableDefinition.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTableDefinition_CommitAction(), this.getTableCommitAction(), "commitAction", null, 0, 1,
-                TableDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
 
         initEClass(tableElementListEClass, TableElementList.class, "TableElementList", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -927,8 +992,8 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getColumn_Name(), theCommonPackage.getIdentifier(), "name", null, 1, 1, Column.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getColumn_Name(), ecorePackage.getEString(), "name", null, 1, 1, Column.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getColumn_DataType(), theDatatypePackage.getDataType(), null, "dataType", null, 1, 1,
                 Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -938,15 +1003,15 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
         initEReference(getColumn_ConstraintDefinition(), this.getColumnConstraint(), this.getColumnConstraint_Owner(),
                 "constraintDefinition", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getColumn_CollationName(), theCommonPackage.getSchemaQualifiedName(), "collationName", null, 0,
-                1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
+        initEReference(getColumn_CollationName(), theCommonPackage.getSchemaQualifiedName(), null, "collationName",
+                null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(tableConstraintEClass, TableConstraint.class, "TableConstraint", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getTableConstraint_Name(), theCommonPackage.getSchemaQualifiedName(), "name", null, 0, 1,
-                TableConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
+        initEReference(getTableConstraint_SchemaQualifiedName(), theCommonPackage.getSchemaQualifiedName(), null,
+                "schemaQualifiedName", null, 0, 1, TableConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(tableContentsSourceEClass, TableContentsSource.class, "TableContentsSource", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -966,9 +1031,9 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
         initEReference(getColumnConstraint_Owner(), this.getColumn(), this.getColumn_ConstraintDefinition(), "owner",
                 null, 1, 1, ColumnConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getColumnConstraint_Name(), theCommonPackage.getSchemaQualifiedName(), "name", null, 0, 1,
-                ColumnConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
+        initEReference(getColumnConstraint_SchemaQualifiedName(), theCommonPackage.getSchemaQualifiedName(), null,
+                "schemaQualifiedName", null, 0, 1, ColumnConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(notNullColumnConstraintEClass, NotNullColumnConstraint.class, "NotNullColumnConstraint",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1007,15 +1072,19 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
 
         initEClass(uniqueTableConstraintEClass, UniqueTableConstraint.class, "UniqueTableConstraint", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getUniqueTableConstraint_Columns(), this.getColumn(), null, "columns", null, 1, -1,
-                UniqueTableConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(referentialTableConstraintEClass, ReferentialTableConstraint.class, "ReferentialTableConstraint",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getReferentialTableConstraint_Columns(), this.getColumn(), null, "columns", null, 1, -1,
-                ReferentialTableConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        EOperation op = initEOperation(getReferentialTableConstraint__ColumnsMustBeCompatible2__DiagnosticChain_Map(),
+                ecorePackage.getEBoolean(), "columnsMustBeCompatible2", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+        EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g1.getETypeArguments().add(g2);
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g1.getETypeArguments().add(g2);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         initEClass(uniqueConstraintEClass, UniqueConstraint.class, "UniqueConstraint", IS_ABSTRACT, IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -1028,8 +1097,26 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
         initEReference(getReferentialConstraint_ReferencedColumns(), this.getColumn(), null, "referencedColumns", null,
                 0, -1, ReferentialConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getReferentialConstraint_ReferencedTable(), this.getTableDefinition(), null, "referencedTable",
-                null, 1, 1, ReferentialConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+        initEReference(getReferentialConstraint_ReferencedTable(), this.getTableReference(), null, "referencedTable",
+                null, 1, 1, ReferentialConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(tableReferenceEClass, TableReference.class, "TableReference", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getTableReference_CatalogName(), ecorePackage.getEString(), "catalogName", null, 0, 1,
+                TableReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getTableReference_SchemaName(), ecorePackage.getEString(), "schemaName", null, 0, 1,
+                TableReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED);
+        initEReference(getTableReference_Target(), this.getTableDefinition(), null, "target", null, 0, 1,
+                TableReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(tableColumnsConstraintEClass, TableColumnsConstraint.class, "TableColumnsConstraint", IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getTableColumnsConstraint_Columns(), this.getColumn(), null, "columns", null, 1, -1,
+                TableColumnsConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
@@ -1038,17 +1125,50 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
         addEEnumLiteral(tableScopeEEnum, TableScope.GLOBAL_TEMPORARY);
         addEEnumLiteral(tableScopeEEnum, TableScope.LOCAL_TEMPORARY);
 
-        initEEnum(tableCommitActionEEnum, TableCommitAction.class, "TableCommitAction");
-        addEEnumLiteral(tableCommitActionEEnum, TableCommitAction.UNSPECIFIED);
-        addEEnumLiteral(tableCommitActionEEnum, TableCommitAction.PRESERVE_ROWS);
-        addEEnumLiteral(tableCommitActionEEnum, TableCommitAction.DELETE_ROWS);
-
         initEEnum(uniqueSpecificationKindEEnum, UniqueSpecificationKind.class, "UniqueSpecificationKind");
         addEEnumLiteral(uniqueSpecificationKindEEnum, UniqueSpecificationKind.UNIQUE);
         addEEnumLiteral(uniqueSpecificationKindEEnum, UniqueSpecificationKind.PRIMARY_KEY);
 
         // Create resource
         createResource(eNS_URI);
+
+        // Create annotations
+        // http://www.eclipse.org/emf/2002/Ecore
+        createEcoreAnnotations();
+        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+        createPivotAnnotations();
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createEcoreAnnotations() {
+        String source = "http://www.eclipse.org/emf/2002/Ecore";
+        addAnnotation(this, source,
+                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
+                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
+        addAnnotation(referentialTableConstraintEClass, source,
+                new String[] { "constraints", "columnsMustBeCompatible" });
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createPivotAnnotations() {
+        String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
+        addAnnotation(getTableDefinition_Label(), source, new String[] { "derivation",
+                "if schemaQualifiedName.oclIsUndefined() then \'\' else schemaQualifiedName.name endif" });
+        addAnnotation(referentialTableConstraintEClass, source,
+                new String[] { "columnsMustBeCompatible", "columns->size() = referencedColumns->size()" });
+        addAnnotation(getReferentialTableConstraint__ColumnsMustBeCompatible2__DiagnosticChain_Map(), source,
+                new String[] { "body", "columns->size() = referencedColumns->size()" });
     }
 
 } //SchemaPackageImpl

@@ -36,7 +36,7 @@ public enum CharLengthUnits implements Enumerator {
      * @generated
      * @ordered
      */
-    CODE_UNITS(1, "CODE_UNITS", "CODE UNITS"),
+    CODE_UNITS(1, "CODE_UNITS", "CODE_UNITS"),
 
     /**
      * The '<em><b>OCTETS</b></em>' literal object.
@@ -72,7 +72,7 @@ public enum CharLengthUnits implements Enumerator {
      * </p>
      * <!-- end-user-doc -->
      * @see #CODE_UNITS
-     * @model literal="CODE UNITS"
+     * @model
      * @generated
      * @ordered
      */

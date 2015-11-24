@@ -11,36 +11,56 @@
       ecorePackage="sql.ecore#/">
     <nestedGenPackages prefix="Common" disposableProviderFactory="true" ecorePackage="sql.ecore#//common">
       <genDataTypes ecoreDataType="sql.ecore#//common/UnsignedInteger"/>
-      <genDataTypes ecoreDataType="sql.ecore#//common/Identifier"/>
-      <genDataTypes ecoreDataType="sql.ecore#//common/SchemaQualifiedName"/>
-      <genDataTypes ecoreDataType="sql.ecore#//common/LocalOrSchemaQualifiedName"/>
+      <genDataTypes ecoreDataType="sql.ecore#//common/DateType"/>
+      <genDataTypes ecoreDataType="sql.ecore#//common/TimeType"/>
+      <genDataTypes ecoreDataType="sql.ecore#//common/TimestampType"/>
       <genClasses ecoreClass="sql.ecore#//common/SQLScript">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//common/SQLScript/statements"/>
       </genClasses>
       <genClasses image="false" ecoreClass="sql.ecore#//common/DirectSQLStatement"/>
+      <genClasses image="false" ecoreClass="sql.ecore#//common/Separator"/>
+      <genClasses ecoreClass="sql.ecore#//common/Comment">
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute sql.ecore#//common/Comment/value"/>
+      </genClasses>
+      <genClasses ecoreClass="sql.ecore#//common/SimpleComment"/>
+      <genClasses ecoreClass="sql.ecore#//common/BracketedComment"/>
+      <genClasses ecoreClass="sql.ecore#//common/Statement"/>
+      <genClasses ecoreClass="sql.ecore#//common/SchemaQualifiedName">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//common/SchemaQualifiedName/catalogName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//common/SchemaQualifiedName/schemaName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//common/SchemaQualifiedName/name"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Literal" disposableProviderFactory="true" ecorePackage="sql.ecore#//literal">
       <genClasses image="false" ecoreClass="sql.ecore#//literal/Literal"/>
-      <genClasses ecoreClass="sql.ecore#//literal/SignedNumericLiteral"/>
       <genClasses image="false" ecoreClass="sql.ecore#//literal/GeneralLiteral"/>
-      <genClasses ecoreClass="sql.ecore#//literal/CharacterStringLiteral"/>
-      <genClasses ecoreClass="sql.ecore#//literal/NationalCharacterStringLiteral"/>
-      <genClasses ecoreClass="sql.ecore#//literal/UnicodeCharacterStringLiteral"/>
-      <genClasses ecoreClass="sql.ecore#//literal/BinaryStringLiteral"/>
-      <genClasses image="false" ecoreClass="sql.ecore#//literal/DatetimeLiteral">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//literal/DatetimeLiteral/value"/>
+      <genClasses ecoreClass="sql.ecore#//literal/CharacterStringLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference sql.ecore#//literal/CharacterStringLiteral/characterSetName"/>
       </genClasses>
-      <genClasses ecoreClass="sql.ecore#//literal/IntervalLiteral">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//literal/IntervalLiteral/isPositive"/>
+      <genClasses ecoreClass="sql.ecore#//literal/NationalCharacterStringLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//literal/NationalCharacterStringLiteral/values"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//literal/NationalCharacterStringLiteral/separators"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="sql.ecore#//literal/DatetimeLiteral"/>
       <genClasses ecoreClass="sql.ecore#//literal/BooleanLiteral">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//literal/BooleanLiteral/value"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="sql.ecore#//literal/UnsignedLiteral"/>
-      <genClasses ecoreClass="sql.ecore#//literal/UnsignedNumericLiteral"/>
-      <genClasses ecoreClass="sql.ecore#//literal/DateLiteral"/>
-      <genClasses ecoreClass="sql.ecore#//literal/TimeLiteral"/>
-      <genClasses ecoreClass="sql.ecore#//literal/TimestampLiteral"/>
+      <genClasses ecoreClass="sql.ecore#//literal/DateLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//literal/DateLiteral/value"/>
+      </genClasses>
+      <genClasses ecoreClass="sql.ecore#//literal/TimeLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//literal/TimeLiteral/value"/>
+      </genClasses>
+      <genClasses ecoreClass="sql.ecore#//literal/TimestampLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//literal/TimestampLiteral/value"/>
+      </genClasses>
+      <genClasses ecoreClass="sql.ecore#//literal/ExactNumericLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//literal/ExactNumericLiteral/value"/>
+      </genClasses>
+      <genClasses ecoreClass="sql.ecore#//literal/ApproximateNumericLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//literal/ApproximateNumericLiteral/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="sql.ecore#//literal/NumericLiteral"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Datatype" disposableProviderFactory="true" ecorePackage="sql.ecore#//datatype">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="sql.ecore#//datatype/CharacterStringTypeKind">
@@ -95,14 +115,14 @@
       <genClasses image="false" ecoreClass="sql.ecore#//datatype/PredefinedType"/>
       <genClasses ecoreClass="sql.ecore#//datatype/CharacterStringType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/CharacterStringType/kind"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/CharacterStringType/characterSetName"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/CharacterStringType/collationName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/CharacterStringType/length"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference sql.ecore#//datatype/CharacterStringType/characterSetName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference sql.ecore#//datatype/CharacterStringType/collationName"/>
       </genClasses>
       <genClasses ecoreClass="sql.ecore#//datatype/NationalCharacterStringType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/NationalCharacterStringType/kind"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/NationalCharacterStringType/length"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/NationalCharacterStringType/collationName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference sql.ecore#//datatype/NationalCharacterStringType/collationName"/>
       </genClasses>
       <genClasses ecoreClass="sql.ecore#//datatype/BinaryLargeObjectStringType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/BinaryLargeObjectStringType/kind"/>
@@ -111,11 +131,7 @@
       </genClasses>
       <genClasses image="false" ecoreClass="sql.ecore#//datatype/NumericType"/>
       <genClasses ecoreClass="sql.ecore#//datatype/BooleanType"/>
-      <genClasses ecoreClass="sql.ecore#//datatype/DatetimeType">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/DatetimeType/kind"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/DatetimeType/precision"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/DatetimeType/withTimeZone"/>
-      </genClasses>
+      <genClasses ecoreClass="sql.ecore#//datatype/DatetimeType"/>
       <genClasses ecoreClass="sql.ecore#//datatype/ExactNumericType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/ExactNumericType/kind"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/ExactNumericType/precision"/>
@@ -129,6 +145,15 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/LargeObjectLength/value"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/LargeObjectLength/multiplier"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/LargeObjectLength/units"/>
+      </genClasses>
+      <genClasses ecoreClass="sql.ecore#//datatype/DateType"/>
+      <genClasses ecoreClass="sql.ecore#//datatype/TimeType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/TimeType/precision"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/TimeType/withTimeZone"/>
+      </genClasses>
+      <genClasses ecoreClass="sql.ecore#//datatype/TimestampType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/TimestampType/precision"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/TimestampType/withTimeZone"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Function" disposableProviderFactory="true" ecorePackage="sql.ecore#//function">
@@ -154,20 +179,15 @@
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//schema/TableScope/GLOBAL_TEMPORARY"/>
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//schema/TableScope/LOCAL_TEMPORARY"/>
       </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="sql.ecore#//schema/TableCommitAction">
-        <genEnumLiterals ecoreEnumLiteral="sql.ecore#//schema/TableCommitAction/UNSPECIFIED"/>
-        <genEnumLiterals ecoreEnumLiteral="sql.ecore#//schema/TableCommitAction/PRESERVE_ROWS"/>
-        <genEnumLiterals ecoreEnumLiteral="sql.ecore#//schema/TableCommitAction/DELETE_ROWS"/>
-      </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="sql.ecore#//schema/UniqueSpecificationKind">
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//schema/UniqueSpecificationKind/UNIQUE"/>
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//schema/UniqueSpecificationKind/PRIMARY_KEY"/>
       </genEnums>
-      <genClasses ecoreClass="sql.ecore#//schema/TableDefinition">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//schema/TableDefinition/name"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/TableDefinition/contentsSource"/>
+      <genClasses ecoreClass="sql.ecore#//schema/TableDefinition" labelFeature="#//sql/schema/TableDefinition/label">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//schema/TableDefinition/label"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/TableDefinition/schemaQualifiedName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//schema/TableDefinition/scope"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//schema/TableDefinition/commitAction"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/TableDefinition/contentsSource"/>
       </genClasses>
       <genClasses ecoreClass="sql.ecore#//schema/TableElementList">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/TableElementList/elements"/>
@@ -180,10 +200,10 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/Column/dataType"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/Column/defaultOption"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/Column/constraintDefinition"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//schema/Column/collationName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference sql.ecore#//schema/Column/collationName"/>
       </genClasses>
       <genClasses image="false" ecoreClass="sql.ecore#//schema/TableConstraint">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//schema/TableConstraint/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/TableConstraint/schemaQualifiedName"/>
       </genClasses>
       <genClasses image="false" ecoreClass="sql.ecore#//schema/TableContentsSource">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sql.ecore#//schema/TableContentsSource/owner"/>
@@ -193,7 +213,7 @@
       </genClasses>
       <genClasses image="false" ecoreClass="sql.ecore#//schema/ColumnConstraint">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sql.ecore#//schema/ColumnConstraint/owner"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//schema/ColumnConstraint/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/ColumnConstraint/schemaQualifiedName"/>
       </genClasses>
       <genClasses ecoreClass="sql.ecore#//schema/NotNullColumnConstraint"/>
       <genClasses ecoreClass="sql.ecore#//schema/UniqueColumnConstraint"/>
@@ -209,13 +229,12 @@
       <genClasses ecoreClass="sql.ecore#//schema/ImplicitlyTypedValueSpecificationDefaultOption">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/ImplicitlyTypedValueSpecificationDefaultOption/specification"/>
       </genClasses>
-      <genClasses ecoreClass="sql.ecore#//schema/UniqueTableConstraint">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference sql.ecore#//schema/UniqueTableConstraint/columns"/>
-      </genClasses>
+      <genClasses ecoreClass="sql.ecore#//schema/UniqueTableConstraint"/>
       <genClasses ecoreClass="sql.ecore#//schema/ReferentialTableConstraint">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference sql.ecore#//schema/ReferentialTableConstraint/columns"/>
+        <genOperations ecoreOperation="sql.ecore#//schema/ReferentialTableConstraint/columnsMustBeCompatible2">
+          <genParameters ecoreParameter="sql.ecore#//schema/ReferentialTableConstraint/columnsMustBeCompatible2/diagnostics"/>
+          <genParameters ecoreParameter="sql.ecore#//schema/ReferentialTableConstraint/columnsMustBeCompatible2/context"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="sql.ecore#//schema/UniqueConstraint">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//schema/UniqueConstraint/kind"/>
@@ -225,6 +244,16 @@
             ecoreFeature="ecore:EReference sql.ecore#//schema/ReferentialConstraint/referencedColumns"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference sql.ecore#//schema/ReferentialConstraint/referencedTable"/>
+      </genClasses>
+      <genClasses ecoreClass="sql.ecore#//schema/TableReference">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//schema/TableReference/catalogName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//schema/TableReference/schemaName"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference sql.ecore#//schema/TableReference/target"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="sql.ecore#//schema/TableColumnsConstraint">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference sql.ecore#//schema/TableColumnsConstraint/columns"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

@@ -36,7 +36,7 @@ public enum TableScope implements Enumerator {
      * @generated
      * @ordered
      */
-    GLOBAL_TEMPORARY(1, "GLOBAL_TEMPORARY", "GLOBAL TEMPORARY"),
+    GLOBAL_TEMPORARY(1, "GLOBAL_TEMPORARY", "GLOBAL_TEMPORARY"),
 
     /**
      * The '<em><b>LOCAL TEMPORARY</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum TableScope implements Enumerator {
      * @generated
      * @ordered
      */
-    LOCAL_TEMPORARY(2, "LOCAL_TEMPORARY", "LOCAL TEMPORARY");
+    LOCAL_TEMPORARY(2, "LOCAL_TEMPORARY", "LOCAL_TEMPORARY");
 
     /**
      * The '<em><b>PERSISTENT</b></em>' literal value.
@@ -72,7 +72,7 @@ public enum TableScope implements Enumerator {
      * </p>
      * <!-- end-user-doc -->
      * @see #GLOBAL_TEMPORARY
-     * @model literal="GLOBAL TEMPORARY"
+     * @model
      * @generated
      * @ordered
      */
@@ -87,7 +87,7 @@ public enum TableScope implements Enumerator {
      * </p>
      * <!-- end-user-doc -->
      * @see #LOCAL_TEMPORARY
-     * @model literal="LOCAL TEMPORARY"
+     * @model
      * @generated
      * @ordered
      */

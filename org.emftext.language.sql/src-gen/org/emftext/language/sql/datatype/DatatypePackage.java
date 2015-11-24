@@ -133,31 +133,31 @@ public interface DatatypePackage extends EPackage {
     int CHARACTER_STRING_TYPE__KIND = PREDEFINED_TYPE_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Character Set Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CHARACTER_STRING_TYPE__CHARACTER_SET_NAME = PREDEFINED_TYPE_FEATURE_COUNT + 1;
-
-    /**
-     * The feature id for the '<em><b>Collation Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CHARACTER_STRING_TYPE__COLLATION_NAME = PREDEFINED_TYPE_FEATURE_COUNT + 2;
-
-    /**
      * The feature id for the '<em><b>Length</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CHARACTER_STRING_TYPE__LENGTH = PREDEFINED_TYPE_FEATURE_COUNT + 3;
+    int CHARACTER_STRING_TYPE__LENGTH = PREDEFINED_TYPE_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Character Set Name</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHARACTER_STRING_TYPE__CHARACTER_SET_NAME = PREDEFINED_TYPE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Collation Name</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHARACTER_STRING_TYPE__COLLATION_NAME = PREDEFINED_TYPE_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Character String Type</em>' class.
@@ -206,7 +206,7 @@ public interface DatatypePackage extends EPackage {
     int NATIONAL_CHARACTER_STRING_TYPE__LENGTH = PREDEFINED_TYPE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Collation Name</b></em>' attribute.
+     * The feature id for the '<em><b>Collation Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -345,40 +345,13 @@ public interface DatatypePackage extends EPackage {
     int DATETIME_TYPE = 7;
 
     /**
-     * The feature id for the '<em><b>Kind</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATETIME_TYPE__KIND = PREDEFINED_TYPE_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Precision</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATETIME_TYPE__PRECISION = PREDEFINED_TYPE_FEATURE_COUNT + 1;
-
-    /**
-     * The feature id for the '<em><b>With Time Zone</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATETIME_TYPE__WITH_TIME_ZONE = PREDEFINED_TYPE_FEATURE_COUNT + 2;
-
-    /**
      * The number of structural features of the '<em>Datetime Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATETIME_TYPE_FEATURE_COUNT = PREDEFINED_TYPE_FEATURE_COUNT + 3;
+    int DATETIME_TYPE_FEATURE_COUNT = PREDEFINED_TYPE_FEATURE_COUNT + 0;
 
     /**
      * The number of operations of the '<em>Datetime Type</em>' class.
@@ -546,6 +519,126 @@ public interface DatatypePackage extends EPackage {
     int LARGE_OBJECT_LENGTH_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.emftext.language.sql.datatype.impl.DateTypeImpl <em>Date Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.emftext.language.sql.datatype.impl.DateTypeImpl
+     * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getDateType()
+     * @generated
+     */
+    int DATE_TYPE = 11;
+
+    /**
+     * The number of structural features of the '<em>Date Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATE_TYPE_FEATURE_COUNT = DATETIME_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Date Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATE_TYPE_OPERATION_COUNT = DATETIME_TYPE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.emftext.language.sql.datatype.impl.TimeTypeImpl <em>Time Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.emftext.language.sql.datatype.impl.TimeTypeImpl
+     * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getTimeType()
+     * @generated
+     */
+    int TIME_TYPE = 12;
+
+    /**
+     * The feature id for the '<em><b>Precision</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIME_TYPE__PRECISION = DATETIME_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>With Time Zone</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIME_TYPE__WITH_TIME_ZONE = DATETIME_TYPE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Time Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIME_TYPE_FEATURE_COUNT = DATETIME_TYPE_FEATURE_COUNT + 2;
+
+    /**
+     * The number of operations of the '<em>Time Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIME_TYPE_OPERATION_COUNT = DATETIME_TYPE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.emftext.language.sql.datatype.impl.TimestampTypeImpl <em>Timestamp Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.emftext.language.sql.datatype.impl.TimestampTypeImpl
+     * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getTimestampType()
+     * @generated
+     */
+    int TIMESTAMP_TYPE = 13;
+
+    /**
+     * The feature id for the '<em><b>Precision</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIMESTAMP_TYPE__PRECISION = DATETIME_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>With Time Zone</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIMESTAMP_TYPE__WITH_TIME_ZONE = DATETIME_TYPE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Timestamp Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIMESTAMP_TYPE_FEATURE_COUNT = DATETIME_TYPE_FEATURE_COUNT + 2;
+
+    /**
+     * The number of operations of the '<em>Timestamp Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIMESTAMP_TYPE_OPERATION_COUNT = DATETIME_TYPE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.emftext.language.sql.datatype.CharacterStringTypeKind <em>Character String Type Kind</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -553,7 +646,7 @@ public interface DatatypePackage extends EPackage {
      * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getCharacterStringTypeKind()
      * @generated
      */
-    int CHARACTER_STRING_TYPE_KIND = 11;
+    int CHARACTER_STRING_TYPE_KIND = 14;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.datatype.NationalCharacterStringTypeKind <em>National Character String Type Kind</em>}' enum.
@@ -563,7 +656,7 @@ public interface DatatypePackage extends EPackage {
      * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getNationalCharacterStringTypeKind()
      * @generated
      */
-    int NATIONAL_CHARACTER_STRING_TYPE_KIND = 12;
+    int NATIONAL_CHARACTER_STRING_TYPE_KIND = 15;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.datatype.BinaryLargeObjectStringTypeKind <em>Binary Large Object String Type Kind</em>}' enum.
@@ -573,7 +666,7 @@ public interface DatatypePackage extends EPackage {
      * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getBinaryLargeObjectStringTypeKind()
      * @generated
      */
-    int BINARY_LARGE_OBJECT_STRING_TYPE_KIND = 13;
+    int BINARY_LARGE_OBJECT_STRING_TYPE_KIND = 16;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.datatype.ExactNumericTypeKind <em>Exact Numeric Type Kind</em>}' enum.
@@ -583,7 +676,7 @@ public interface DatatypePackage extends EPackage {
      * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getExactNumericTypeKind()
      * @generated
      */
-    int EXACT_NUMERIC_TYPE_KIND = 14;
+    int EXACT_NUMERIC_TYPE_KIND = 17;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.datatype.ApproximateNumericTypeKind <em>Approximate Numeric Type Kind</em>}' enum.
@@ -593,7 +686,7 @@ public interface DatatypePackage extends EPackage {
      * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getApproximateNumericTypeKind()
      * @generated
      */
-    int APPROXIMATE_NUMERIC_TYPE_KIND = 15;
+    int APPROXIMATE_NUMERIC_TYPE_KIND = 18;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.datatype.DatetimeTypeKind <em>Datetime Type Kind</em>}' enum.
@@ -603,7 +696,7 @@ public interface DatatypePackage extends EPackage {
      * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getDatetimeTypeKind()
      * @generated
      */
-    int DATETIME_TYPE_KIND = 16;
+    int DATETIME_TYPE_KIND = 19;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.datatype.Multiplier <em>Multiplier</em>}' enum.
@@ -613,7 +706,7 @@ public interface DatatypePackage extends EPackage {
      * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getMultiplier()
      * @generated
      */
-    int MULTIPLIER = 17;
+    int MULTIPLIER = 20;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.datatype.CharLengthUnits <em>Char Length Units</em>}' enum.
@@ -623,7 +716,7 @@ public interface DatatypePackage extends EPackage {
      * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getCharLengthUnits()
      * @generated
      */
-    int CHAR_LENGTH_UNITS = 18;
+    int CHAR_LENGTH_UNITS = 21;
 
     /**
      * Returns the meta object for class '{@link org.emftext.language.sql.datatype.DataType <em>Data Type</em>}'.
@@ -667,26 +760,26 @@ public interface DatatypePackage extends EPackage {
     EAttribute getCharacterStringType_Kind();
 
     /**
-     * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.CharacterStringType#getCharacterSetName <em>Character Set Name</em>}'.
+     * Returns the meta object for the containment reference '{@link org.emftext.language.sql.datatype.CharacterStringType#getCharacterSetName <em>Character Set Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Character Set Name</em>'.
+     * @return the meta object for the containment reference '<em>Character Set Name</em>'.
      * @see org.emftext.language.sql.datatype.CharacterStringType#getCharacterSetName()
      * @see #getCharacterStringType()
      * @generated
      */
-    EAttribute getCharacterStringType_CharacterSetName();
+    EReference getCharacterStringType_CharacterSetName();
 
     /**
-     * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.CharacterStringType#getCollationName <em>Collation Name</em>}'.
+     * Returns the meta object for the containment reference '{@link org.emftext.language.sql.datatype.CharacterStringType#getCollationName <em>Collation Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Collation Name</em>'.
+     * @return the meta object for the containment reference '<em>Collation Name</em>'.
      * @see org.emftext.language.sql.datatype.CharacterStringType#getCollationName()
      * @see #getCharacterStringType()
      * @generated
      */
-    EAttribute getCharacterStringType_CollationName();
+    EReference getCharacterStringType_CollationName();
 
     /**
      * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.CharacterStringType#getLength <em>Length</em>}'.
@@ -732,15 +825,15 @@ public interface DatatypePackage extends EPackage {
     EAttribute getNationalCharacterStringType_Length();
 
     /**
-     * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.NationalCharacterStringType#getCollationName <em>Collation Name</em>}'.
+     * Returns the meta object for the containment reference '{@link org.emftext.language.sql.datatype.NationalCharacterStringType#getCollationName <em>Collation Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Collation Name</em>'.
+     * @return the meta object for the containment reference '<em>Collation Name</em>'.
      * @see org.emftext.language.sql.datatype.NationalCharacterStringType#getCollationName()
      * @see #getNationalCharacterStringType()
      * @generated
      */
-    EAttribute getNationalCharacterStringType_CollationName();
+    EReference getNationalCharacterStringType_CollationName();
 
     /**
      * Returns the meta object for class '{@link org.emftext.language.sql.datatype.BinaryLargeObjectStringType <em>Binary Large Object String Type</em>}'.
@@ -803,39 +896,6 @@ public interface DatatypePackage extends EPackage {
      * @generated
      */
     EClass getDatetimeType();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.DatetimeType#getKind <em>Kind</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Kind</em>'.
-     * @see org.emftext.language.sql.datatype.DatetimeType#getKind()
-     * @see #getDatetimeType()
-     * @generated
-     */
-    EAttribute getDatetimeType_Kind();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.DatetimeType#getPrecision <em>Precision</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Precision</em>'.
-     * @see org.emftext.language.sql.datatype.DatetimeType#getPrecision()
-     * @see #getDatetimeType()
-     * @generated
-     */
-    EAttribute getDatetimeType_Precision();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.DatetimeType#getWithTimeZone <em>With Time Zone</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>With Time Zone</em>'.
-     * @see org.emftext.language.sql.datatype.DatetimeType#getWithTimeZone()
-     * @see #getDatetimeType()
-     * @generated
-     */
-    EAttribute getDatetimeType_WithTimeZone();
 
     /**
      * Returns the meta object for class '{@link org.emftext.language.sql.datatype.ExactNumericType <em>Exact Numeric Type</em>}'.
@@ -954,6 +1014,80 @@ public interface DatatypePackage extends EPackage {
      * @generated
      */
     EAttribute getLargeObjectLength_Units();
+
+    /**
+     * Returns the meta object for class '{@link org.emftext.language.sql.datatype.DateType <em>Date Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Date Type</em>'.
+     * @see org.emftext.language.sql.datatype.DateType
+     * @generated
+     */
+    EClass getDateType();
+
+    /**
+     * Returns the meta object for class '{@link org.emftext.language.sql.datatype.TimeType <em>Time Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Time Type</em>'.
+     * @see org.emftext.language.sql.datatype.TimeType
+     * @generated
+     */
+    EClass getTimeType();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.TimeType#getPrecision <em>Precision</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Precision</em>'.
+     * @see org.emftext.language.sql.datatype.TimeType#getPrecision()
+     * @see #getTimeType()
+     * @generated
+     */
+    EAttribute getTimeType_Precision();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.TimeType#getWithTimeZone <em>With Time Zone</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>With Time Zone</em>'.
+     * @see org.emftext.language.sql.datatype.TimeType#getWithTimeZone()
+     * @see #getTimeType()
+     * @generated
+     */
+    EAttribute getTimeType_WithTimeZone();
+
+    /**
+     * Returns the meta object for class '{@link org.emftext.language.sql.datatype.TimestampType <em>Timestamp Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Timestamp Type</em>'.
+     * @see org.emftext.language.sql.datatype.TimestampType
+     * @generated
+     */
+    EClass getTimestampType();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.TimestampType#getPrecision <em>Precision</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Precision</em>'.
+     * @see org.emftext.language.sql.datatype.TimestampType#getPrecision()
+     * @see #getTimestampType()
+     * @generated
+     */
+    EAttribute getTimestampType_Precision();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.TimestampType#getWithTimeZone <em>With Time Zone</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>With Time Zone</em>'.
+     * @see org.emftext.language.sql.datatype.TimestampType#getWithTimeZone()
+     * @see #getTimestampType()
+     * @generated
+     */
+    EAttribute getTimestampType_WithTimeZone();
 
     /**
      * Returns the meta object for enum '{@link org.emftext.language.sql.datatype.CharacterStringTypeKind <em>Character String Type Kind</em>}'.
@@ -1097,20 +1231,20 @@ public interface DatatypePackage extends EPackage {
         EAttribute CHARACTER_STRING_TYPE__KIND = eINSTANCE.getCharacterStringType_Kind();
 
         /**
-        	 * The meta object literal for the '<em><b>Character Set Name</b></em>' attribute feature.
+        	 * The meta object literal for the '<em><b>Character Set Name</b></em>' containment reference feature.
         	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
         	 * @generated
         	 */
-        EAttribute CHARACTER_STRING_TYPE__CHARACTER_SET_NAME = eINSTANCE.getCharacterStringType_CharacterSetName();
+        EReference CHARACTER_STRING_TYPE__CHARACTER_SET_NAME = eINSTANCE.getCharacterStringType_CharacterSetName();
 
         /**
-        	 * The meta object literal for the '<em><b>Collation Name</b></em>' attribute feature.
+        	 * The meta object literal for the '<em><b>Collation Name</b></em>' containment reference feature.
         	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
         	 * @generated
         	 */
-        EAttribute CHARACTER_STRING_TYPE__COLLATION_NAME = eINSTANCE.getCharacterStringType_CollationName();
+        EReference CHARACTER_STRING_TYPE__COLLATION_NAME = eINSTANCE.getCharacterStringType_CollationName();
 
         /**
         	 * The meta object literal for the '<em><b>Length</b></em>' attribute feature.
@@ -1147,12 +1281,12 @@ public interface DatatypePackage extends EPackage {
         EAttribute NATIONAL_CHARACTER_STRING_TYPE__LENGTH = eINSTANCE.getNationalCharacterStringType_Length();
 
         /**
-        	 * The meta object literal for the '<em><b>Collation Name</b></em>' attribute feature.
+        	 * The meta object literal for the '<em><b>Collation Name</b></em>' containment reference feature.
         	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
         	 * @generated
         	 */
-        EAttribute NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME = eINSTANCE
+        EReference NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME = eINSTANCE
                 .getNationalCharacterStringType_CollationName();
 
         /**
@@ -1210,30 +1344,6 @@ public interface DatatypePackage extends EPackage {
         	 * @generated
         	 */
         EClass DATETIME_TYPE = eINSTANCE.getDatetimeType();
-
-        /**
-        	 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
-        	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-        	 * @generated
-        	 */
-        EAttribute DATETIME_TYPE__KIND = eINSTANCE.getDatetimeType_Kind();
-
-        /**
-        	 * The meta object literal for the '<em><b>Precision</b></em>' attribute feature.
-        	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-        	 * @generated
-        	 */
-        EAttribute DATETIME_TYPE__PRECISION = eINSTANCE.getDatetimeType_Precision();
-
-        /**
-        	 * The meta object literal for the '<em><b>With Time Zone</b></em>' attribute feature.
-        	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-        	 * @generated
-        	 */
-        EAttribute DATETIME_TYPE__WITH_TIME_ZONE = eINSTANCE.getDatetimeType_WithTimeZone();
 
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.datatype.impl.ExactNumericTypeImpl <em>Exact Numeric Type</em>}' class.
@@ -1328,6 +1438,68 @@ public interface DatatypePackage extends EPackage {
         	 * @generated
         	 */
         EAttribute LARGE_OBJECT_LENGTH__UNITS = eINSTANCE.getLargeObjectLength_Units();
+
+        /**
+        	 * The meta object literal for the '{@link org.emftext.language.sql.datatype.impl.DateTypeImpl <em>Date Type</em>}' class.
+        	 * <!-- begin-user-doc -->
+        	 * <!-- end-user-doc -->
+        	 * @see org.emftext.language.sql.datatype.impl.DateTypeImpl
+        	 * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getDateType()
+        	 * @generated
+        	 */
+        EClass DATE_TYPE = eINSTANCE.getDateType();
+
+        /**
+        	 * The meta object literal for the '{@link org.emftext.language.sql.datatype.impl.TimeTypeImpl <em>Time Type</em>}' class.
+        	 * <!-- begin-user-doc -->
+        	 * <!-- end-user-doc -->
+        	 * @see org.emftext.language.sql.datatype.impl.TimeTypeImpl
+        	 * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getTimeType()
+        	 * @generated
+        	 */
+        EClass TIME_TYPE = eINSTANCE.getTimeType();
+
+        /**
+        	 * The meta object literal for the '<em><b>Precision</b></em>' attribute feature.
+        	 * <!-- begin-user-doc -->
+        	 * <!-- end-user-doc -->
+        	 * @generated
+        	 */
+        EAttribute TIME_TYPE__PRECISION = eINSTANCE.getTimeType_Precision();
+
+        /**
+        	 * The meta object literal for the '<em><b>With Time Zone</b></em>' attribute feature.
+        	 * <!-- begin-user-doc -->
+        	 * <!-- end-user-doc -->
+        	 * @generated
+        	 */
+        EAttribute TIME_TYPE__WITH_TIME_ZONE = eINSTANCE.getTimeType_WithTimeZone();
+
+        /**
+        	 * The meta object literal for the '{@link org.emftext.language.sql.datatype.impl.TimestampTypeImpl <em>Timestamp Type</em>}' class.
+        	 * <!-- begin-user-doc -->
+        	 * <!-- end-user-doc -->
+        	 * @see org.emftext.language.sql.datatype.impl.TimestampTypeImpl
+        	 * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getTimestampType()
+        	 * @generated
+        	 */
+        EClass TIMESTAMP_TYPE = eINSTANCE.getTimestampType();
+
+        /**
+        	 * The meta object literal for the '<em><b>Precision</b></em>' attribute feature.
+        	 * <!-- begin-user-doc -->
+        	 * <!-- end-user-doc -->
+        	 * @generated
+        	 */
+        EAttribute TIMESTAMP_TYPE__PRECISION = eINSTANCE.getTimestampType_Precision();
+
+        /**
+        	 * The meta object literal for the '<em><b>With Time Zone</b></em>' attribute feature.
+        	 * <!-- begin-user-doc -->
+        	 * <!-- end-user-doc -->
+        	 * @generated
+        	 */
+        EAttribute TIMESTAMP_TYPE__WITH_TIME_ZONE = eINSTANCE.getTimestampType_WithTimeZone();
 
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.datatype.CharacterStringTypeKind <em>Character String Type Kind</em>}' enum.

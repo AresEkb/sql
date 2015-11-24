@@ -5,8 +5,10 @@ package org.emftext.language.sql.schema;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 
 import org.emftext.language.sql.common.CommonPackage;
 
@@ -24,6 +26,7 @@ import org.emftext.language.sql.common.CommonPackage;
  * <!-- end-user-doc -->
  * @see org.emftext.language.sql.schema.SchemaFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface SchemaPackage extends EPackage {
@@ -126,22 +129,22 @@ public interface SchemaPackage extends EPackage {
     int TABLE_DEFINITION = 0;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * The feature id for the '<em><b>Label</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TABLE_DEFINITION__NAME = SQL_SCHEMA_DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+    int TABLE_DEFINITION__LABEL = SQL_SCHEMA_DEFINITION_STATEMENT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Contents Source</b></em>' containment reference.
+     * The feature id for the '<em><b>Schema Qualified Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TABLE_DEFINITION__CONTENTS_SOURCE = SQL_SCHEMA_DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+    int TABLE_DEFINITION__SCHEMA_QUALIFIED_NAME = SQL_SCHEMA_DEFINITION_STATEMENT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Scope</b></em>' attribute.
@@ -153,13 +156,13 @@ public interface SchemaPackage extends EPackage {
     int TABLE_DEFINITION__SCOPE = SQL_SCHEMA_DEFINITION_STATEMENT_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Commit Action</b></em>' attribute.
+     * The feature id for the '<em><b>Contents Source</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TABLE_DEFINITION__COMMIT_ACTION = SQL_SCHEMA_DEFINITION_STATEMENT_FEATURE_COUNT + 3;
+    int TABLE_DEFINITION__CONTENTS_SOURCE = SQL_SCHEMA_DEFINITION_STATEMENT_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Table Definition</em>' class.
@@ -171,13 +174,148 @@ public interface SchemaPackage extends EPackage {
     int TABLE_DEFINITION_FEATURE_COUNT = SQL_SCHEMA_DEFINITION_STATEMENT_FEATURE_COUNT + 4;
 
     /**
+     * The operation id for the '<em>EClass</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___ECLASS = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>EIs Proxy</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___EIS_PROXY = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>EResource</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___ERESOURCE = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>EContainer</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___ECONTAINER = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>EContaining Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___ECONTAINING_FEATURE = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 4;
+
+    /**
+     * The operation id for the '<em>EContainment Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___ECONTAINMENT_FEATURE = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 5;
+
+    /**
+     * The operation id for the '<em>EContents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___ECONTENTS = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 6;
+
+    /**
+     * The operation id for the '<em>EAll Contents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___EALL_CONTENTS = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 7;
+
+    /**
+     * The operation id for the '<em>ECross References</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___ECROSS_REFERENCES = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 8;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___EGET__ESTRUCTURALFEATURE = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 9;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___EGET__ESTRUCTURALFEATURE_BOOLEAN = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 10;
+
+    /**
+     * The operation id for the '<em>ESet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___ESET__ESTRUCTURALFEATURE_OBJECT = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 11;
+
+    /**
+     * The operation id for the '<em>EIs Set</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___EIS_SET__ESTRUCTURALFEATURE = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 12;
+
+    /**
+     * The operation id for the '<em>EUnset</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___EUNSET__ESTRUCTURALFEATURE = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 13;
+
+    /**
+     * The operation id for the '<em>EInvoke</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_DEFINITION___EINVOKE__EOPERATION_ELIST = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 14;
+
+    /**
      * The number of operations of the '<em>Table Definition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TABLE_DEFINITION_OPERATION_COUNT = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 0;
+    int TABLE_DEFINITION_OPERATION_COUNT = SQL_SCHEMA_DEFINITION_STATEMENT_OPERATION_COUNT + 15;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.schema.impl.TableContentsSourceImpl <em>Table Contents Source</em>}' class.
@@ -355,7 +493,7 @@ public interface SchemaPackage extends EPackage {
     int COLUMN__CONSTRAINT_DEFINITION = TABLE_ELEMENT_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>Collation Name</b></em>' attribute.
+     * The feature id for the '<em><b>Collation Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -401,13 +539,13 @@ public interface SchemaPackage extends EPackage {
     int TABLE_CONSTRAINT__OWNER = TABLE_ELEMENT__OWNER;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * The feature id for the '<em><b>Schema Qualified Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TABLE_CONSTRAINT__NAME = TABLE_ELEMENT_FEATURE_COUNT + 0;
+    int TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME = TABLE_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Table Constraint</em>' class.
@@ -419,13 +557,148 @@ public interface SchemaPackage extends EPackage {
     int TABLE_CONSTRAINT_FEATURE_COUNT = TABLE_ELEMENT_FEATURE_COUNT + 1;
 
     /**
+     * The operation id for the '<em>EClass</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___ECLASS = TABLE_ELEMENT_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>EIs Proxy</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___EIS_PROXY = TABLE_ELEMENT_OPERATION_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>EResource</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___ERESOURCE = TABLE_ELEMENT_OPERATION_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>EContainer</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___ECONTAINER = TABLE_ELEMENT_OPERATION_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>EContaining Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___ECONTAINING_FEATURE = TABLE_ELEMENT_OPERATION_COUNT + 4;
+
+    /**
+     * The operation id for the '<em>EContainment Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___ECONTAINMENT_FEATURE = TABLE_ELEMENT_OPERATION_COUNT + 5;
+
+    /**
+     * The operation id for the '<em>EContents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___ECONTENTS = TABLE_ELEMENT_OPERATION_COUNT + 6;
+
+    /**
+     * The operation id for the '<em>EAll Contents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___EALL_CONTENTS = TABLE_ELEMENT_OPERATION_COUNT + 7;
+
+    /**
+     * The operation id for the '<em>ECross References</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___ECROSS_REFERENCES = TABLE_ELEMENT_OPERATION_COUNT + 8;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___EGET__ESTRUCTURALFEATURE = TABLE_ELEMENT_OPERATION_COUNT + 9;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___EGET__ESTRUCTURALFEATURE_BOOLEAN = TABLE_ELEMENT_OPERATION_COUNT + 10;
+
+    /**
+     * The operation id for the '<em>ESet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___ESET__ESTRUCTURALFEATURE_OBJECT = TABLE_ELEMENT_OPERATION_COUNT + 11;
+
+    /**
+     * The operation id for the '<em>EIs Set</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___EIS_SET__ESTRUCTURALFEATURE = TABLE_ELEMENT_OPERATION_COUNT + 12;
+
+    /**
+     * The operation id for the '<em>EUnset</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___EUNSET__ESTRUCTURALFEATURE = TABLE_ELEMENT_OPERATION_COUNT + 13;
+
+    /**
+     * The operation id for the '<em>EInvoke</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_CONSTRAINT___EINVOKE__EOPERATION_ELIST = TABLE_ELEMENT_OPERATION_COUNT + 14;
+
+    /**
      * The number of operations of the '<em>Table Constraint</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TABLE_CONSTRAINT_OPERATION_COUNT = TABLE_ELEMENT_OPERATION_COUNT + 0;
+    int TABLE_CONSTRAINT_OPERATION_COUNT = TABLE_ELEMENT_OPERATION_COUNT + 15;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.schema.impl.DefaultOptionImpl <em>Default Option</em>}' class.
@@ -481,16 +754,16 @@ public interface SchemaPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COLUMN_CONSTRAINT__OWNER = 0;
+    int COLUMN_CONSTRAINT__OWNER = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * The feature id for the '<em><b>Schema Qualified Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COLUMN_CONSTRAINT__NAME = 1;
+    int COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Column Constraint</em>' class.
@@ -499,7 +772,142 @@ public interface SchemaPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COLUMN_CONSTRAINT_FEATURE_COUNT = 2;
+    int COLUMN_CONSTRAINT_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>EClass</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___ECLASS = EcorePackage.EOBJECT___ECLASS;
+
+    /**
+     * The operation id for the '<em>EIs Proxy</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___EIS_PROXY = EcorePackage.EOBJECT___EIS_PROXY;
+
+    /**
+     * The operation id for the '<em>EResource</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___ERESOURCE = EcorePackage.EOBJECT___ERESOURCE;
+
+    /**
+     * The operation id for the '<em>EContainer</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___ECONTAINER = EcorePackage.EOBJECT___ECONTAINER;
+
+    /**
+     * The operation id for the '<em>EContaining Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___ECONTAINING_FEATURE = EcorePackage.EOBJECT___ECONTAINING_FEATURE;
+
+    /**
+     * The operation id for the '<em>EContainment Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___ECONTAINMENT_FEATURE = EcorePackage.EOBJECT___ECONTAINMENT_FEATURE;
+
+    /**
+     * The operation id for the '<em>EContents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___ECONTENTS = EcorePackage.EOBJECT___ECONTENTS;
+
+    /**
+     * The operation id for the '<em>EAll Contents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___EALL_CONTENTS = EcorePackage.EOBJECT___EALL_CONTENTS;
+
+    /**
+     * The operation id for the '<em>ECross References</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___ECROSS_REFERENCES = EcorePackage.EOBJECT___ECROSS_REFERENCES;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___EGET__ESTRUCTURALFEATURE = EcorePackage.EOBJECT___EGET__ESTRUCTURALFEATURE;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___EGET__ESTRUCTURALFEATURE_BOOLEAN = EcorePackage.EOBJECT___EGET__ESTRUCTURALFEATURE_BOOLEAN;
+
+    /**
+     * The operation id for the '<em>ESet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___ESET__ESTRUCTURALFEATURE_OBJECT = EcorePackage.EOBJECT___ESET__ESTRUCTURALFEATURE_OBJECT;
+
+    /**
+     * The operation id for the '<em>EIs Set</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___EIS_SET__ESTRUCTURALFEATURE = EcorePackage.EOBJECT___EIS_SET__ESTRUCTURALFEATURE;
+
+    /**
+     * The operation id for the '<em>EUnset</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___EUNSET__ESTRUCTURALFEATURE = EcorePackage.EOBJECT___EUNSET__ESTRUCTURALFEATURE;
+
+    /**
+     * The operation id for the '<em>EInvoke</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLUMN_CONSTRAINT___EINVOKE__EOPERATION_ELIST = EcorePackage.EOBJECT___EINVOKE__EOPERATION_ELIST;
 
     /**
      * The number of operations of the '<em>Column Constraint</em>' class.
@@ -508,7 +916,7 @@ public interface SchemaPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COLUMN_CONSTRAINT_OPERATION_COUNT = 0;
+    int COLUMN_CONSTRAINT_OPERATION_COUNT = EcorePackage.EOBJECT_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.schema.impl.NotNullColumnConstraintImpl <em>Not Null Column Constraint</em>}' class.
@@ -530,13 +938,13 @@ public interface SchemaPackage extends EPackage {
     int NOT_NULL_COLUMN_CONSTRAINT__OWNER = COLUMN_CONSTRAINT__OWNER;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * The feature id for the '<em><b>Schema Qualified Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NOT_NULL_COLUMN_CONSTRAINT__NAME = COLUMN_CONSTRAINT__NAME;
+    int NOT_NULL_COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME = COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME;
 
     /**
      * The number of structural features of the '<em>Not Null Column Constraint</em>' class.
@@ -546,6 +954,141 @@ public interface SchemaPackage extends EPackage {
      * @ordered
      */
     int NOT_NULL_COLUMN_CONSTRAINT_FEATURE_COUNT = COLUMN_CONSTRAINT_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>EClass</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___ECLASS = COLUMN_CONSTRAINT___ECLASS;
+
+    /**
+     * The operation id for the '<em>EIs Proxy</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___EIS_PROXY = COLUMN_CONSTRAINT___EIS_PROXY;
+
+    /**
+     * The operation id for the '<em>EResource</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___ERESOURCE = COLUMN_CONSTRAINT___ERESOURCE;
+
+    /**
+     * The operation id for the '<em>EContainer</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___ECONTAINER = COLUMN_CONSTRAINT___ECONTAINER;
+
+    /**
+     * The operation id for the '<em>EContaining Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___ECONTAINING_FEATURE = COLUMN_CONSTRAINT___ECONTAINING_FEATURE;
+
+    /**
+     * The operation id for the '<em>EContainment Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___ECONTAINMENT_FEATURE = COLUMN_CONSTRAINT___ECONTAINMENT_FEATURE;
+
+    /**
+     * The operation id for the '<em>EContents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___ECONTENTS = COLUMN_CONSTRAINT___ECONTENTS;
+
+    /**
+     * The operation id for the '<em>EAll Contents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___EALL_CONTENTS = COLUMN_CONSTRAINT___EALL_CONTENTS;
+
+    /**
+     * The operation id for the '<em>ECross References</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___ECROSS_REFERENCES = COLUMN_CONSTRAINT___ECROSS_REFERENCES;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___EGET__ESTRUCTURALFEATURE = COLUMN_CONSTRAINT___EGET__ESTRUCTURALFEATURE;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___EGET__ESTRUCTURALFEATURE_BOOLEAN = COLUMN_CONSTRAINT___EGET__ESTRUCTURALFEATURE_BOOLEAN;
+
+    /**
+     * The operation id for the '<em>ESet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___ESET__ESTRUCTURALFEATURE_OBJECT = COLUMN_CONSTRAINT___ESET__ESTRUCTURALFEATURE_OBJECT;
+
+    /**
+     * The operation id for the '<em>EIs Set</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___EIS_SET__ESTRUCTURALFEATURE = COLUMN_CONSTRAINT___EIS_SET__ESTRUCTURALFEATURE;
+
+    /**
+     * The operation id for the '<em>EUnset</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___EUNSET__ESTRUCTURALFEATURE = COLUMN_CONSTRAINT___EUNSET__ESTRUCTURALFEATURE;
+
+    /**
+     * The operation id for the '<em>EInvoke</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NOT_NULL_COLUMN_CONSTRAINT___EINVOKE__EOPERATION_ELIST = COLUMN_CONSTRAINT___EINVOKE__EOPERATION_ELIST;
 
     /**
      * The number of operations of the '<em>Not Null Column Constraint</em>' class.
@@ -622,13 +1165,13 @@ public interface SchemaPackage extends EPackage {
     int UNIQUE_COLUMN_CONSTRAINT__OWNER = UNIQUE_CONSTRAINT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * The feature id for the '<em><b>Schema Qualified Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int UNIQUE_COLUMN_CONSTRAINT__NAME = UNIQUE_CONSTRAINT_FEATURE_COUNT + 1;
+    int UNIQUE_COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME = UNIQUE_CONSTRAINT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Unique Column Constraint</em>' class.
@@ -640,13 +1183,148 @@ public interface SchemaPackage extends EPackage {
     int UNIQUE_COLUMN_CONSTRAINT_FEATURE_COUNT = UNIQUE_CONSTRAINT_FEATURE_COUNT + 2;
 
     /**
+     * The operation id for the '<em>EClass</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___ECLASS = UNIQUE_CONSTRAINT_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>EIs Proxy</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___EIS_PROXY = UNIQUE_CONSTRAINT_OPERATION_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>EResource</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___ERESOURCE = UNIQUE_CONSTRAINT_OPERATION_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>EContainer</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___ECONTAINER = UNIQUE_CONSTRAINT_OPERATION_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>EContaining Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___ECONTAINING_FEATURE = UNIQUE_CONSTRAINT_OPERATION_COUNT + 4;
+
+    /**
+     * The operation id for the '<em>EContainment Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___ECONTAINMENT_FEATURE = UNIQUE_CONSTRAINT_OPERATION_COUNT + 5;
+
+    /**
+     * The operation id for the '<em>EContents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___ECONTENTS = UNIQUE_CONSTRAINT_OPERATION_COUNT + 6;
+
+    /**
+     * The operation id for the '<em>EAll Contents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___EALL_CONTENTS = UNIQUE_CONSTRAINT_OPERATION_COUNT + 7;
+
+    /**
+     * The operation id for the '<em>ECross References</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___ECROSS_REFERENCES = UNIQUE_CONSTRAINT_OPERATION_COUNT + 8;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___EGET__ESTRUCTURALFEATURE = UNIQUE_CONSTRAINT_OPERATION_COUNT + 9;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___EGET__ESTRUCTURALFEATURE_BOOLEAN = UNIQUE_CONSTRAINT_OPERATION_COUNT + 10;
+
+    /**
+     * The operation id for the '<em>ESet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___ESET__ESTRUCTURALFEATURE_OBJECT = UNIQUE_CONSTRAINT_OPERATION_COUNT + 11;
+
+    /**
+     * The operation id for the '<em>EIs Set</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___EIS_SET__ESTRUCTURALFEATURE = UNIQUE_CONSTRAINT_OPERATION_COUNT + 12;
+
+    /**
+     * The operation id for the '<em>EUnset</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___EUNSET__ESTRUCTURALFEATURE = UNIQUE_CONSTRAINT_OPERATION_COUNT + 13;
+
+    /**
+     * The operation id for the '<em>EInvoke</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_COLUMN_CONSTRAINT___EINVOKE__EOPERATION_ELIST = UNIQUE_CONSTRAINT_OPERATION_COUNT + 14;
+
+    /**
      * The number of operations of the '<em>Unique Column Constraint</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int UNIQUE_COLUMN_CONSTRAINT_OPERATION_COUNT = UNIQUE_CONSTRAINT_OPERATION_COUNT + 0;
+    int UNIQUE_COLUMN_CONSTRAINT_OPERATION_COUNT = UNIQUE_CONSTRAINT_OPERATION_COUNT + 15;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.schema.ReferentialConstraint <em>Referential Constraint</em>}' class.
@@ -668,7 +1346,7 @@ public interface SchemaPackage extends EPackage {
     int REFERENTIAL_CONSTRAINT__REFERENCED_COLUMNS = 0;
 
     /**
-     * The feature id for the '<em><b>Referenced Table</b></em>' reference.
+     * The feature id for the '<em><b>Referenced Table</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -714,7 +1392,7 @@ public interface SchemaPackage extends EPackage {
     int REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS = REFERENTIAL_CONSTRAINT__REFERENCED_COLUMNS;
 
     /**
-     * The feature id for the '<em><b>Referenced Table</b></em>' reference.
+     * The feature id for the '<em><b>Referenced Table</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -732,13 +1410,13 @@ public interface SchemaPackage extends EPackage {
     int REFERENTIAL_COLUMN_CONSTRAINT__OWNER = REFERENTIAL_CONSTRAINT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * The feature id for the '<em><b>Schema Qualified Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REFERENTIAL_COLUMN_CONSTRAINT__NAME = REFERENTIAL_CONSTRAINT_FEATURE_COUNT + 1;
+    int REFERENTIAL_COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME = REFERENTIAL_CONSTRAINT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Referential Column Constraint</em>' class.
@@ -750,13 +1428,148 @@ public interface SchemaPackage extends EPackage {
     int REFERENTIAL_COLUMN_CONSTRAINT_FEATURE_COUNT = REFERENTIAL_CONSTRAINT_FEATURE_COUNT + 2;
 
     /**
+     * The operation id for the '<em>EClass</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___ECLASS = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>EIs Proxy</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___EIS_PROXY = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>EResource</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___ERESOURCE = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>EContainer</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___ECONTAINER = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>EContaining Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___ECONTAINING_FEATURE = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 4;
+
+    /**
+     * The operation id for the '<em>EContainment Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___ECONTAINMENT_FEATURE = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 5;
+
+    /**
+     * The operation id for the '<em>EContents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___ECONTENTS = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 6;
+
+    /**
+     * The operation id for the '<em>EAll Contents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___EALL_CONTENTS = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 7;
+
+    /**
+     * The operation id for the '<em>ECross References</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___ECROSS_REFERENCES = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 8;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___EGET__ESTRUCTURALFEATURE = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 9;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___EGET__ESTRUCTURALFEATURE_BOOLEAN = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 10;
+
+    /**
+     * The operation id for the '<em>ESet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___ESET__ESTRUCTURALFEATURE_OBJECT = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 11;
+
+    /**
+     * The operation id for the '<em>EIs Set</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___EIS_SET__ESTRUCTURALFEATURE = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 12;
+
+    /**
+     * The operation id for the '<em>EUnset</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___EUNSET__ESTRUCTURALFEATURE = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 13;
+
+    /**
+     * The operation id for the '<em>EInvoke</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_COLUMN_CONSTRAINT___EINVOKE__EOPERATION_ELIST = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 14;
+
+    /**
      * The number of operations of the '<em>Referential Column Constraint</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REFERENTIAL_COLUMN_CONSTRAINT_OPERATION_COUNT = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 0;
+    int REFERENTIAL_COLUMN_CONSTRAINT_OPERATION_COUNT = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 15;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.schema.impl.LiteralDefaultOptionImpl <em>Literal Default Option</em>}' class.
@@ -907,31 +1720,31 @@ public interface SchemaPackage extends EPackage {
     int UNIQUE_TABLE_CONSTRAINT = 16;
 
     /**
-     * The feature id for the '<em><b>Owner</b></em>' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int UNIQUE_TABLE_CONSTRAINT__OWNER = TABLE_CONSTRAINT__OWNER;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int UNIQUE_TABLE_CONSTRAINT__NAME = TABLE_CONSTRAINT__NAME;
-
-    /**
      * The feature id for the '<em><b>Kind</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int UNIQUE_TABLE_CONSTRAINT__KIND = TABLE_CONSTRAINT_FEATURE_COUNT + 0;
+    int UNIQUE_TABLE_CONSTRAINT__KIND = UNIQUE_CONSTRAINT__KIND;
+
+    /**
+     * The feature id for the '<em><b>Owner</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT__OWNER = UNIQUE_CONSTRAINT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Schema Qualified Name</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME = UNIQUE_CONSTRAINT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Columns</b></em>' reference list.
@@ -940,7 +1753,7 @@ public interface SchemaPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int UNIQUE_TABLE_CONSTRAINT__COLUMNS = TABLE_CONSTRAINT_FEATURE_COUNT + 1;
+    int UNIQUE_TABLE_CONSTRAINT__COLUMNS = UNIQUE_CONSTRAINT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Unique Table Constraint</em>' class.
@@ -949,7 +1762,142 @@ public interface SchemaPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int UNIQUE_TABLE_CONSTRAINT_FEATURE_COUNT = TABLE_CONSTRAINT_FEATURE_COUNT + 2;
+    int UNIQUE_TABLE_CONSTRAINT_FEATURE_COUNT = UNIQUE_CONSTRAINT_FEATURE_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>EClass</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___ECLASS = UNIQUE_CONSTRAINT_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>EIs Proxy</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___EIS_PROXY = UNIQUE_CONSTRAINT_OPERATION_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>EResource</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___ERESOURCE = UNIQUE_CONSTRAINT_OPERATION_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>EContainer</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___ECONTAINER = UNIQUE_CONSTRAINT_OPERATION_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>EContaining Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___ECONTAINING_FEATURE = UNIQUE_CONSTRAINT_OPERATION_COUNT + 4;
+
+    /**
+     * The operation id for the '<em>EContainment Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___ECONTAINMENT_FEATURE = UNIQUE_CONSTRAINT_OPERATION_COUNT + 5;
+
+    /**
+     * The operation id for the '<em>EContents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___ECONTENTS = UNIQUE_CONSTRAINT_OPERATION_COUNT + 6;
+
+    /**
+     * The operation id for the '<em>EAll Contents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___EALL_CONTENTS = UNIQUE_CONSTRAINT_OPERATION_COUNT + 7;
+
+    /**
+     * The operation id for the '<em>ECross References</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___ECROSS_REFERENCES = UNIQUE_CONSTRAINT_OPERATION_COUNT + 8;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___EGET__ESTRUCTURALFEATURE = UNIQUE_CONSTRAINT_OPERATION_COUNT + 9;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___EGET__ESTRUCTURALFEATURE_BOOLEAN = UNIQUE_CONSTRAINT_OPERATION_COUNT + 10;
+
+    /**
+     * The operation id for the '<em>ESet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___ESET__ESTRUCTURALFEATURE_OBJECT = UNIQUE_CONSTRAINT_OPERATION_COUNT + 11;
+
+    /**
+     * The operation id for the '<em>EIs Set</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___EIS_SET__ESTRUCTURALFEATURE = UNIQUE_CONSTRAINT_OPERATION_COUNT + 12;
+
+    /**
+     * The operation id for the '<em>EUnset</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___EUNSET__ESTRUCTURALFEATURE = UNIQUE_CONSTRAINT_OPERATION_COUNT + 13;
+
+    /**
+     * The operation id for the '<em>EInvoke</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNIQUE_TABLE_CONSTRAINT___EINVOKE__EOPERATION_ELIST = UNIQUE_CONSTRAINT_OPERATION_COUNT + 14;
 
     /**
      * The number of operations of the '<em>Unique Table Constraint</em>' class.
@@ -958,7 +1906,7 @@ public interface SchemaPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int UNIQUE_TABLE_CONSTRAINT_OPERATION_COUNT = TABLE_CONSTRAINT_OPERATION_COUNT + 0;
+    int UNIQUE_TABLE_CONSTRAINT_OPERATION_COUNT = UNIQUE_CONSTRAINT_OPERATION_COUNT + 15;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.schema.impl.ReferentialTableConstraintImpl <em>Referential Table Constraint</em>}' class.
@@ -971,40 +1919,40 @@ public interface SchemaPackage extends EPackage {
     int REFERENTIAL_TABLE_CONSTRAINT = 17;
 
     /**
-     * The feature id for the '<em><b>Owner</b></em>' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int REFERENTIAL_TABLE_CONSTRAINT__OWNER = TABLE_CONSTRAINT__OWNER;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int REFERENTIAL_TABLE_CONSTRAINT__NAME = TABLE_CONSTRAINT__NAME;
-
-    /**
      * The feature id for the '<em><b>Referenced Columns</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS = TABLE_CONSTRAINT_FEATURE_COUNT + 0;
+    int REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS = REFERENTIAL_CONSTRAINT__REFERENCED_COLUMNS;
 
     /**
-     * The feature id for the '<em><b>Referenced Table</b></em>' reference.
+     * The feature id for the '<em><b>Referenced Table</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_TABLE = TABLE_CONSTRAINT_FEATURE_COUNT + 1;
+    int REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_TABLE = REFERENTIAL_CONSTRAINT__REFERENCED_TABLE;
+
+    /**
+     * The feature id for the '<em><b>Owner</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT__OWNER = REFERENTIAL_CONSTRAINT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Schema Qualified Name</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME = REFERENTIAL_CONSTRAINT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Columns</b></em>' reference list.
@@ -1013,7 +1961,7 @@ public interface SchemaPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REFERENTIAL_TABLE_CONSTRAINT__COLUMNS = TABLE_CONSTRAINT_FEATURE_COUNT + 2;
+    int REFERENTIAL_TABLE_CONSTRAINT__COLUMNS = REFERENTIAL_CONSTRAINT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Referential Table Constraint</em>' class.
@@ -1022,7 +1970,152 @@ public interface SchemaPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REFERENTIAL_TABLE_CONSTRAINT_FEATURE_COUNT = TABLE_CONSTRAINT_FEATURE_COUNT + 3;
+    int REFERENTIAL_TABLE_CONSTRAINT_FEATURE_COUNT = REFERENTIAL_CONSTRAINT_FEATURE_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>EClass</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___ECLASS = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>EIs Proxy</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___EIS_PROXY = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>EResource</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___ERESOURCE = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>EContainer</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___ECONTAINER = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>EContaining Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___ECONTAINING_FEATURE = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 4;
+
+    /**
+     * The operation id for the '<em>EContainment Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___ECONTAINMENT_FEATURE = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 5;
+
+    /**
+     * The operation id for the '<em>EContents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___ECONTENTS = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 6;
+
+    /**
+     * The operation id for the '<em>EAll Contents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___EALL_CONTENTS = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 7;
+
+    /**
+     * The operation id for the '<em>ECross References</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___ECROSS_REFERENCES = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 8;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___EGET__ESTRUCTURALFEATURE = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 9;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___EGET__ESTRUCTURALFEATURE_BOOLEAN = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 10;
+
+    /**
+     * The operation id for the '<em>ESet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___ESET__ESTRUCTURALFEATURE_OBJECT = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 11;
+
+    /**
+     * The operation id for the '<em>EIs Set</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___EIS_SET__ESTRUCTURALFEATURE = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 12;
+
+    /**
+     * The operation id for the '<em>EUnset</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___EUNSET__ESTRUCTURALFEATURE = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 13;
+
+    /**
+     * The operation id for the '<em>EInvoke</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___EINVOKE__EOPERATION_ELIST = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 14;
+
+    /**
+     * The operation id for the '<em>Columns Must Be Compatible2</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENTIAL_TABLE_CONSTRAINT___COLUMNS_MUST_BE_COMPATIBLE2__DIAGNOSTICCHAIN_MAP = REFERENTIAL_CONSTRAINT_OPERATION_COUNT
+            + 15;
 
     /**
      * The number of operations of the '<em>Referential Table Constraint</em>' class.
@@ -1031,7 +2124,252 @@ public interface SchemaPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REFERENTIAL_TABLE_CONSTRAINT_OPERATION_COUNT = TABLE_CONSTRAINT_OPERATION_COUNT + 0;
+    int REFERENTIAL_TABLE_CONSTRAINT_OPERATION_COUNT = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 16;
+
+    /**
+     * The meta object id for the '{@link org.emftext.language.sql.schema.impl.TableReferenceImpl <em>Table Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.emftext.language.sql.schema.impl.TableReferenceImpl
+     * @see org.emftext.language.sql.schema.impl.SchemaPackageImpl#getTableReference()
+     * @generated
+     */
+    int TABLE_REFERENCE = 20;
+
+    /**
+     * The feature id for the '<em><b>Catalog Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_REFERENCE__CATALOG_NAME = 0;
+
+    /**
+     * The feature id for the '<em><b>Schema Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_REFERENCE__SCHEMA_NAME = 1;
+
+    /**
+     * The feature id for the '<em><b>Target</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_REFERENCE__TARGET = 2;
+
+    /**
+     * The number of structural features of the '<em>Table Reference</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_REFERENCE_FEATURE_COUNT = 3;
+
+    /**
+     * The number of operations of the '<em>Table Reference</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_REFERENCE_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.emftext.language.sql.schema.impl.TableColumnsConstraintImpl <em>Table Columns Constraint</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.emftext.language.sql.schema.impl.TableColumnsConstraintImpl
+     * @see org.emftext.language.sql.schema.impl.SchemaPackageImpl#getTableColumnsConstraint()
+     * @generated
+     */
+    int TABLE_COLUMNS_CONSTRAINT = 21;
+
+    /**
+     * The feature id for the '<em><b>Owner</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT__OWNER = TABLE_CONSTRAINT__OWNER;
+
+    /**
+     * The feature id for the '<em><b>Schema Qualified Name</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT__SCHEMA_QUALIFIED_NAME = TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME;
+
+    /**
+     * The feature id for the '<em><b>Columns</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT__COLUMNS = TABLE_CONSTRAINT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Table Columns Constraint</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT_FEATURE_COUNT = TABLE_CONSTRAINT_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>EClass</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___ECLASS = TABLE_CONSTRAINT___ECLASS;
+
+    /**
+     * The operation id for the '<em>EIs Proxy</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___EIS_PROXY = TABLE_CONSTRAINT___EIS_PROXY;
+
+    /**
+     * The operation id for the '<em>EResource</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___ERESOURCE = TABLE_CONSTRAINT___ERESOURCE;
+
+    /**
+     * The operation id for the '<em>EContainer</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___ECONTAINER = TABLE_CONSTRAINT___ECONTAINER;
+
+    /**
+     * The operation id for the '<em>EContaining Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___ECONTAINING_FEATURE = TABLE_CONSTRAINT___ECONTAINING_FEATURE;
+
+    /**
+     * The operation id for the '<em>EContainment Feature</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___ECONTAINMENT_FEATURE = TABLE_CONSTRAINT___ECONTAINMENT_FEATURE;
+
+    /**
+     * The operation id for the '<em>EContents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___ECONTENTS = TABLE_CONSTRAINT___ECONTENTS;
+
+    /**
+     * The operation id for the '<em>EAll Contents</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___EALL_CONTENTS = TABLE_CONSTRAINT___EALL_CONTENTS;
+
+    /**
+     * The operation id for the '<em>ECross References</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___ECROSS_REFERENCES = TABLE_CONSTRAINT___ECROSS_REFERENCES;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___EGET__ESTRUCTURALFEATURE = TABLE_CONSTRAINT___EGET__ESTRUCTURALFEATURE;
+
+    /**
+     * The operation id for the '<em>EGet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___EGET__ESTRUCTURALFEATURE_BOOLEAN = TABLE_CONSTRAINT___EGET__ESTRUCTURALFEATURE_BOOLEAN;
+
+    /**
+     * The operation id for the '<em>ESet</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___ESET__ESTRUCTURALFEATURE_OBJECT = TABLE_CONSTRAINT___ESET__ESTRUCTURALFEATURE_OBJECT;
+
+    /**
+     * The operation id for the '<em>EIs Set</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___EIS_SET__ESTRUCTURALFEATURE = TABLE_CONSTRAINT___EIS_SET__ESTRUCTURALFEATURE;
+
+    /**
+     * The operation id for the '<em>EUnset</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___EUNSET__ESTRUCTURALFEATURE = TABLE_CONSTRAINT___EUNSET__ESTRUCTURALFEATURE;
+
+    /**
+     * The operation id for the '<em>EInvoke</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT___EINVOKE__EOPERATION_ELIST = TABLE_CONSTRAINT___EINVOKE__EOPERATION_ELIST;
+
+    /**
+     * The number of operations of the '<em>Table Columns Constraint</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABLE_COLUMNS_CONSTRAINT_OPERATION_COUNT = TABLE_CONSTRAINT_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.schema.TableScope <em>Table Scope</em>}' enum.
@@ -1041,17 +2379,7 @@ public interface SchemaPackage extends EPackage {
      * @see org.emftext.language.sql.schema.impl.SchemaPackageImpl#getTableScope()
      * @generated
      */
-    int TABLE_SCOPE = 20;
-
-    /**
-     * The meta object id for the '{@link org.emftext.language.sql.schema.TableCommitAction <em>Table Commit Action</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.emftext.language.sql.schema.TableCommitAction
-     * @see org.emftext.language.sql.schema.impl.SchemaPackageImpl#getTableCommitAction()
-     * @generated
-     */
-    int TABLE_COMMIT_ACTION = 21;
+    int TABLE_SCOPE = 22;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.schema.UniqueSpecificationKind <em>Unique Specification Kind</em>}' enum.
@@ -1061,7 +2389,7 @@ public interface SchemaPackage extends EPackage {
      * @see org.emftext.language.sql.schema.impl.SchemaPackageImpl#getUniqueSpecificationKind()
      * @generated
      */
-    int UNIQUE_SPECIFICATION_KIND = 22;
+    int UNIQUE_SPECIFICATION_KIND = 23;
 
     /**
      * Returns the meta object for class '{@link org.emftext.language.sql.schema.TableDefinition <em>Table Definition</em>}'.
@@ -1072,17 +2400,6 @@ public interface SchemaPackage extends EPackage {
      * @generated
      */
     EClass getTableDefinition();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.emftext.language.sql.schema.TableDefinition#getName <em>Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see org.emftext.language.sql.schema.TableDefinition#getName()
-     * @see #getTableDefinition()
-     * @generated
-     */
-    EAttribute getTableDefinition_Name();
 
     /**
      * Returns the meta object for the containment reference '{@link org.emftext.language.sql.schema.TableDefinition#getContentsSource <em>Contents Source</em>}'.
@@ -1107,15 +2424,26 @@ public interface SchemaPackage extends EPackage {
     EAttribute getTableDefinition_Scope();
 
     /**
-     * Returns the meta object for the attribute '{@link org.emftext.language.sql.schema.TableDefinition#getCommitAction <em>Commit Action</em>}'.
+     * Returns the meta object for the containment reference '{@link org.emftext.language.sql.schema.TableDefinition#getSchemaQualifiedName <em>Schema Qualified Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Commit Action</em>'.
-     * @see org.emftext.language.sql.schema.TableDefinition#getCommitAction()
+     * @return the meta object for the containment reference '<em>Schema Qualified Name</em>'.
+     * @see org.emftext.language.sql.schema.TableDefinition#getSchemaQualifiedName()
      * @see #getTableDefinition()
      * @generated
      */
-    EAttribute getTableDefinition_CommitAction();
+    EReference getTableDefinition_SchemaQualifiedName();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.emftext.language.sql.schema.TableDefinition#getLabel <em>Label</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Label</em>'.
+     * @see org.emftext.language.sql.schema.TableDefinition#getLabel()
+     * @see #getTableDefinition()
+     * @generated
+     */
+    EAttribute getTableDefinition_Label();
 
     /**
      * Returns the meta object for class '{@link org.emftext.language.sql.schema.TableElementList <em>Table Element List</em>}'.
@@ -1214,15 +2542,15 @@ public interface SchemaPackage extends EPackage {
     EReference getColumn_ConstraintDefinition();
 
     /**
-     * Returns the meta object for the attribute '{@link org.emftext.language.sql.schema.Column#getCollationName <em>Collation Name</em>}'.
+     * Returns the meta object for the containment reference '{@link org.emftext.language.sql.schema.Column#getCollationName <em>Collation Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Collation Name</em>'.
+     * @return the meta object for the containment reference '<em>Collation Name</em>'.
      * @see org.emftext.language.sql.schema.Column#getCollationName()
      * @see #getColumn()
      * @generated
      */
-    EAttribute getColumn_CollationName();
+    EReference getColumn_CollationName();
 
     /**
      * Returns the meta object for class '{@link org.emftext.language.sql.schema.TableConstraint <em>Table Constraint</em>}'.
@@ -1235,15 +2563,15 @@ public interface SchemaPackage extends EPackage {
     EClass getTableConstraint();
 
     /**
-     * Returns the meta object for the attribute '{@link org.emftext.language.sql.schema.TableConstraint#getName <em>Name</em>}'.
+     * Returns the meta object for the containment reference '{@link org.emftext.language.sql.schema.TableConstraint#getSchemaQualifiedName <em>Schema Qualified Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see org.emftext.language.sql.schema.TableConstraint#getName()
+     * @return the meta object for the containment reference '<em>Schema Qualified Name</em>'.
+     * @see org.emftext.language.sql.schema.TableConstraint#getSchemaQualifiedName()
      * @see #getTableConstraint()
      * @generated
      */
-    EAttribute getTableConstraint_Name();
+    EReference getTableConstraint_SchemaQualifiedName();
 
     /**
      * Returns the meta object for class '{@link org.emftext.language.sql.schema.TableContentsSource <em>Table Contents Source</em>}'.
@@ -1309,15 +2637,15 @@ public interface SchemaPackage extends EPackage {
     EReference getColumnConstraint_Owner();
 
     /**
-     * Returns the meta object for the attribute '{@link org.emftext.language.sql.schema.ColumnConstraint#getName <em>Name</em>}'.
+     * Returns the meta object for the containment reference '{@link org.emftext.language.sql.schema.ColumnConstraint#getSchemaQualifiedName <em>Schema Qualified Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see org.emftext.language.sql.schema.ColumnConstraint#getName()
+     * @return the meta object for the containment reference '<em>Schema Qualified Name</em>'.
+     * @see org.emftext.language.sql.schema.ColumnConstraint#getSchemaQualifiedName()
      * @see #getColumnConstraint()
      * @generated
      */
-    EAttribute getColumnConstraint_Name();
+    EReference getColumnConstraint_SchemaQualifiedName();
 
     /**
      * Returns the meta object for class '{@link org.emftext.language.sql.schema.NotNullColumnConstraint <em>Not Null Column Constraint</em>}'.
@@ -1443,17 +2771,6 @@ public interface SchemaPackage extends EPackage {
     EClass getUniqueTableConstraint();
 
     /**
-     * Returns the meta object for the reference list '{@link org.emftext.language.sql.schema.UniqueTableConstraint#getColumns <em>Columns</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Columns</em>'.
-     * @see org.emftext.language.sql.schema.UniqueTableConstraint#getColumns()
-     * @see #getUniqueTableConstraint()
-     * @generated
-     */
-    EReference getUniqueTableConstraint_Columns();
-
-    /**
      * Returns the meta object for class '{@link org.emftext.language.sql.schema.ReferentialTableConstraint <em>Referential Table Constraint</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1464,15 +2781,14 @@ public interface SchemaPackage extends EPackage {
     EClass getReferentialTableConstraint();
 
     /**
-     * Returns the meta object for the reference list '{@link org.emftext.language.sql.schema.ReferentialTableConstraint#getColumns <em>Columns</em>}'.
+     * Returns the meta object for the '{@link org.emftext.language.sql.schema.ReferentialTableConstraint#columnsMustBeCompatible2(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Columns Must Be Compatible2</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Columns</em>'.
-     * @see org.emftext.language.sql.schema.ReferentialTableConstraint#getColumns()
-     * @see #getReferentialTableConstraint()
+     * @return the meta object for the '<em>Columns Must Be Compatible2</em>' operation.
+     * @see org.emftext.language.sql.schema.ReferentialTableConstraint#columnsMustBeCompatible2(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      */
-    EReference getReferentialTableConstraint_Columns();
+    EOperation getReferentialTableConstraint__ColumnsMustBeCompatible2__DiagnosticChain_Map();
 
     /**
      * Returns the meta object for class '{@link org.emftext.language.sql.schema.UniqueConstraint <em>Unique Constraint</em>}'.
@@ -1517,15 +2833,79 @@ public interface SchemaPackage extends EPackage {
     EReference getReferentialConstraint_ReferencedColumns();
 
     /**
-     * Returns the meta object for the reference '{@link org.emftext.language.sql.schema.ReferentialConstraint#getReferencedTable <em>Referenced Table</em>}'.
+     * Returns the meta object for the containment reference '{@link org.emftext.language.sql.schema.ReferentialConstraint#getReferencedTable <em>Referenced Table</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Referenced Table</em>'.
+     * @return the meta object for the containment reference '<em>Referenced Table</em>'.
      * @see org.emftext.language.sql.schema.ReferentialConstraint#getReferencedTable()
      * @see #getReferentialConstraint()
      * @generated
      */
     EReference getReferentialConstraint_ReferencedTable();
+
+    /**
+     * Returns the meta object for class '{@link org.emftext.language.sql.schema.TableReference <em>Table Reference</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Table Reference</em>'.
+     * @see org.emftext.language.sql.schema.TableReference
+     * @generated
+     */
+    EClass getTableReference();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.emftext.language.sql.schema.TableReference#getCatalogName <em>Catalog Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Catalog Name</em>'.
+     * @see org.emftext.language.sql.schema.TableReference#getCatalogName()
+     * @see #getTableReference()
+     * @generated
+     */
+    EAttribute getTableReference_CatalogName();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.emftext.language.sql.schema.TableReference#getSchemaName <em>Schema Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Schema Name</em>'.
+     * @see org.emftext.language.sql.schema.TableReference#getSchemaName()
+     * @see #getTableReference()
+     * @generated
+     */
+    EAttribute getTableReference_SchemaName();
+
+    /**
+     * Returns the meta object for the reference '{@link org.emftext.language.sql.schema.TableReference#getTarget <em>Target</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Target</em>'.
+     * @see org.emftext.language.sql.schema.TableReference#getTarget()
+     * @see #getTableReference()
+     * @generated
+     */
+    EReference getTableReference_Target();
+
+    /**
+     * Returns the meta object for class '{@link org.emftext.language.sql.schema.TableColumnsConstraint <em>Table Columns Constraint</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Table Columns Constraint</em>'.
+     * @see org.emftext.language.sql.schema.TableColumnsConstraint
+     * @generated
+     */
+    EClass getTableColumnsConstraint();
+
+    /**
+     * Returns the meta object for the reference list '{@link org.emftext.language.sql.schema.TableColumnsConstraint#getColumns <em>Columns</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Columns</em>'.
+     * @see org.emftext.language.sql.schema.TableColumnsConstraint#getColumns()
+     * @see #getTableColumnsConstraint()
+     * @generated
+     */
+    EReference getTableColumnsConstraint_Columns();
 
     /**
      * Returns the meta object for enum '{@link org.emftext.language.sql.schema.TableScope <em>Table Scope</em>}'.
@@ -1536,16 +2916,6 @@ public interface SchemaPackage extends EPackage {
      * @generated
      */
     EEnum getTableScope();
-
-    /**
-     * Returns the meta object for enum '{@link org.emftext.language.sql.schema.TableCommitAction <em>Table Commit Action</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for enum '<em>Table Commit Action</em>'.
-     * @see org.emftext.language.sql.schema.TableCommitAction
-     * @generated
-     */
-    EEnum getTableCommitAction();
 
     /**
      * Returns the meta object for enum '{@link org.emftext.language.sql.schema.UniqueSpecificationKind <em>Unique Specification Kind</em>}'.
@@ -1591,14 +2961,6 @@ public interface SchemaPackage extends EPackage {
         EClass TABLE_DEFINITION = eINSTANCE.getTableDefinition();
 
         /**
-        	 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-        	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-        	 * @generated
-        	 */
-        EAttribute TABLE_DEFINITION__NAME = eINSTANCE.getTableDefinition_Name();
-
-        /**
         	 * The meta object literal for the '<em><b>Contents Source</b></em>' containment reference feature.
         	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1615,12 +2977,20 @@ public interface SchemaPackage extends EPackage {
         EAttribute TABLE_DEFINITION__SCOPE = eINSTANCE.getTableDefinition_Scope();
 
         /**
-        	 * The meta object literal for the '<em><b>Commit Action</b></em>' attribute feature.
+        	 * The meta object literal for the '<em><b>Schema Qualified Name</b></em>' containment reference feature.
         	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
         	 * @generated
         	 */
-        EAttribute TABLE_DEFINITION__COMMIT_ACTION = eINSTANCE.getTableDefinition_CommitAction();
+        EReference TABLE_DEFINITION__SCHEMA_QUALIFIED_NAME = eINSTANCE.getTableDefinition_SchemaQualifiedName();
+
+        /**
+        	 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+        	 * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+        	 * @generated
+        	 */
+        EAttribute TABLE_DEFINITION__LABEL = eINSTANCE.getTableDefinition_Label();
 
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.schema.impl.TableElementListImpl <em>Table Element List</em>}' class.
@@ -1701,12 +3071,12 @@ public interface SchemaPackage extends EPackage {
         EReference COLUMN__CONSTRAINT_DEFINITION = eINSTANCE.getColumn_ConstraintDefinition();
 
         /**
-        	 * The meta object literal for the '<em><b>Collation Name</b></em>' attribute feature.
+        	 * The meta object literal for the '<em><b>Collation Name</b></em>' containment reference feature.
         	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
         	 * @generated
         	 */
-        EAttribute COLUMN__COLLATION_NAME = eINSTANCE.getColumn_CollationName();
+        EReference COLUMN__COLLATION_NAME = eINSTANCE.getColumn_CollationName();
 
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.schema.impl.TableConstraintImpl <em>Table Constraint</em>}' class.
@@ -1719,12 +3089,12 @@ public interface SchemaPackage extends EPackage {
         EClass TABLE_CONSTRAINT = eINSTANCE.getTableConstraint();
 
         /**
-        	 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+        	 * The meta object literal for the '<em><b>Schema Qualified Name</b></em>' containment reference feature.
         	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
         	 * @generated
         	 */
-        EAttribute TABLE_CONSTRAINT__NAME = eINSTANCE.getTableConstraint_Name();
+        EReference TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME = eINSTANCE.getTableConstraint_SchemaQualifiedName();
 
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.schema.impl.TableContentsSourceImpl <em>Table Contents Source</em>}' class.
@@ -1781,12 +3151,12 @@ public interface SchemaPackage extends EPackage {
         EReference COLUMN_CONSTRAINT__OWNER = eINSTANCE.getColumnConstraint_Owner();
 
         /**
-        	 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+        	 * The meta object literal for the '<em><b>Schema Qualified Name</b></em>' containment reference feature.
         	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
         	 * @generated
         	 */
-        EAttribute COLUMN_CONSTRAINT__NAME = eINSTANCE.getColumnConstraint_Name();
+        EReference COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME = eINSTANCE.getColumnConstraint_SchemaQualifiedName();
 
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.schema.impl.NotNullColumnConstraintImpl <em>Not Null Column Constraint</em>}' class.
@@ -1906,14 +3276,6 @@ public interface SchemaPackage extends EPackage {
         EClass UNIQUE_TABLE_CONSTRAINT = eINSTANCE.getUniqueTableConstraint();
 
         /**
-        	 * The meta object literal for the '<em><b>Columns</b></em>' reference list feature.
-        	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-        	 * @generated
-        	 */
-        EReference UNIQUE_TABLE_CONSTRAINT__COLUMNS = eINSTANCE.getUniqueTableConstraint_Columns();
-
-        /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.schema.impl.ReferentialTableConstraintImpl <em>Referential Table Constraint</em>}' class.
         	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1924,12 +3286,13 @@ public interface SchemaPackage extends EPackage {
         EClass REFERENTIAL_TABLE_CONSTRAINT = eINSTANCE.getReferentialTableConstraint();
 
         /**
-        	 * The meta object literal for the '<em><b>Columns</b></em>' reference list feature.
+        	 * The meta object literal for the '<em><b>Columns Must Be Compatible2</b></em>' operation.
         	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+        	 * <!-- end-user-doc -->
         	 * @generated
         	 */
-        EReference REFERENTIAL_TABLE_CONSTRAINT__COLUMNS = eINSTANCE.getReferentialTableConstraint_Columns();
+        EOperation REFERENTIAL_TABLE_CONSTRAINT___COLUMNS_MUST_BE_COMPATIBLE2__DIAGNOSTICCHAIN_MAP = eINSTANCE
+                .getReferentialTableConstraint__ColumnsMustBeCompatible2__DiagnosticChain_Map();
 
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.schema.UniqueConstraint <em>Unique Constraint</em>}' class.
@@ -1968,12 +3331,64 @@ public interface SchemaPackage extends EPackage {
         EReference REFERENTIAL_CONSTRAINT__REFERENCED_COLUMNS = eINSTANCE.getReferentialConstraint_ReferencedColumns();
 
         /**
-        	 * The meta object literal for the '<em><b>Referenced Table</b></em>' reference feature.
+        	 * The meta object literal for the '<em><b>Referenced Table</b></em>' containment reference feature.
         	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
         	 * @generated
         	 */
         EReference REFERENTIAL_CONSTRAINT__REFERENCED_TABLE = eINSTANCE.getReferentialConstraint_ReferencedTable();
+
+        /**
+        	 * The meta object literal for the '{@link org.emftext.language.sql.schema.impl.TableReferenceImpl <em>Table Reference</em>}' class.
+        	 * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+        	 * @see org.emftext.language.sql.schema.impl.TableReferenceImpl
+        	 * @see org.emftext.language.sql.schema.impl.SchemaPackageImpl#getTableReference()
+        	 * @generated
+        	 */
+        EClass TABLE_REFERENCE = eINSTANCE.getTableReference();
+
+        /**
+        	 * The meta object literal for the '<em><b>Catalog Name</b></em>' attribute feature.
+        	 * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+        	 * @generated
+        	 */
+        EAttribute TABLE_REFERENCE__CATALOG_NAME = eINSTANCE.getTableReference_CatalogName();
+
+        /**
+        	 * The meta object literal for the '<em><b>Schema Name</b></em>' attribute feature.
+        	 * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+        	 * @generated
+        	 */
+        EAttribute TABLE_REFERENCE__SCHEMA_NAME = eINSTANCE.getTableReference_SchemaName();
+
+        /**
+        	 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+        	 * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+        	 * @generated
+        	 */
+        EReference TABLE_REFERENCE__TARGET = eINSTANCE.getTableReference_Target();
+
+        /**
+        	 * The meta object literal for the '{@link org.emftext.language.sql.schema.impl.TableColumnsConstraintImpl <em>Table Columns Constraint</em>}' class.
+        	 * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+        	 * @see org.emftext.language.sql.schema.impl.TableColumnsConstraintImpl
+        	 * @see org.emftext.language.sql.schema.impl.SchemaPackageImpl#getTableColumnsConstraint()
+        	 * @generated
+        	 */
+        EClass TABLE_COLUMNS_CONSTRAINT = eINSTANCE.getTableColumnsConstraint();
+
+        /**
+        	 * The meta object literal for the '<em><b>Columns</b></em>' reference list feature.
+        	 * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+        	 * @generated
+        	 */
+        EReference TABLE_COLUMNS_CONSTRAINT__COLUMNS = eINSTANCE.getTableColumnsConstraint_Columns();
 
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.schema.TableScope <em>Table Scope</em>}' enum.
@@ -1984,16 +3399,6 @@ public interface SchemaPackage extends EPackage {
         	 * @generated
         	 */
         EEnum TABLE_SCOPE = eINSTANCE.getTableScope();
-
-        /**
-        	 * The meta object literal for the '{@link org.emftext.language.sql.schema.TableCommitAction <em>Table Commit Action</em>}' enum.
-        	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-        	 * @see org.emftext.language.sql.schema.TableCommitAction
-        	 * @see org.emftext.language.sql.schema.impl.SchemaPackageImpl#getTableCommitAction()
-        	 * @generated
-        	 */
-        EEnum TABLE_COMMIT_ACTION = eINSTANCE.getTableCommitAction();
 
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.schema.UniqueSpecificationKind <em>Unique Specification Kind</em>}' enum.

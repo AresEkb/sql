@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.emftext.language.sql.common.DirectSQLStatement;
+import org.emftext.language.sql.common.Statement;
 
 import org.emftext.language.sql.schema.*;
 
@@ -77,6 +78,8 @@ public class SchemaSwitch<T> extends Switch<T> {
                 result = caseSQLSchemaStatement(tableDefinition);
             if (result == null)
                 result = caseDirectSQLStatement(tableDefinition);
+            if (result == null)
+                result = caseStatement(tableDefinition);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -173,6 +176,8 @@ public class SchemaSwitch<T> extends Switch<T> {
             if (result == null)
                 result = caseDirectSQLStatement(sqlSchemaStatement);
             if (result == null)
+                result = caseStatement(sqlSchemaStatement);
+            if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
@@ -183,6 +188,8 @@ public class SchemaSwitch<T> extends Switch<T> {
                 result = caseSQLSchemaStatement(sqlSchemaDefinitionStatement);
             if (result == null)
                 result = caseDirectSQLStatement(sqlSchemaDefinitionStatement);
+            if (result == null)
+                result = caseStatement(sqlSchemaDefinitionStatement);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -219,9 +226,11 @@ public class SchemaSwitch<T> extends Switch<T> {
             UniqueTableConstraint uniqueTableConstraint = (UniqueTableConstraint) theEObject;
             T result = caseUniqueTableConstraint(uniqueTableConstraint);
             if (result == null)
-                result = caseTableConstraint(uniqueTableConstraint);
-            if (result == null)
                 result = caseUniqueConstraint(uniqueTableConstraint);
+            if (result == null)
+                result = caseTableColumnsConstraint(uniqueTableConstraint);
+            if (result == null)
+                result = caseTableConstraint(uniqueTableConstraint);
             if (result == null)
                 result = caseTableElement(uniqueTableConstraint);
             if (result == null)
@@ -232,9 +241,11 @@ public class SchemaSwitch<T> extends Switch<T> {
             ReferentialTableConstraint referentialTableConstraint = (ReferentialTableConstraint) theEObject;
             T result = caseReferentialTableConstraint(referentialTableConstraint);
             if (result == null)
-                result = caseTableConstraint(referentialTableConstraint);
-            if (result == null)
                 result = caseReferentialConstraint(referentialTableConstraint);
+            if (result == null)
+                result = caseTableColumnsConstraint(referentialTableConstraint);
+            if (result == null)
+                result = caseTableConstraint(referentialTableConstraint);
             if (result == null)
                 result = caseTableElement(referentialTableConstraint);
             if (result == null)
@@ -251,6 +262,24 @@ public class SchemaSwitch<T> extends Switch<T> {
         case SchemaPackage.REFERENTIAL_CONSTRAINT: {
             ReferentialConstraint referentialConstraint = (ReferentialConstraint) theEObject;
             T result = caseReferentialConstraint(referentialConstraint);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case SchemaPackage.TABLE_REFERENCE: {
+            TableReference tableReference = (TableReference) theEObject;
+            T result = caseTableReference(tableReference);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case SchemaPackage.TABLE_COLUMNS_CONSTRAINT: {
+            TableColumnsConstraint tableColumnsConstraint = (TableColumnsConstraint) theEObject;
+            T result = caseTableColumnsConstraint(tableColumnsConstraint);
+            if (result == null)
+                result = caseTableConstraint(tableColumnsConstraint);
+            if (result == null)
+                result = caseTableElement(tableColumnsConstraint);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -557,6 +586,51 @@ public class SchemaSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseReferentialConstraint(ReferentialConstraint object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Table Reference</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Table Reference</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseTableReference(TableReference object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Table Columns Constraint</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Table Columns Constraint</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseTableColumnsConstraint(TableColumnsConstraint object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseStatement(Statement object) {
         return null;
     }
 

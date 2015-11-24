@@ -12,5 +12,5 @@ package org.emftext.language.sql.literal;
  * @model abstract="true"
  * @generated
  */
-public interface GeneralLiteral extends Literal, UnsignedLiteral {
+public interface GeneralLiteral extends Literal {
 } // GeneralLiteral

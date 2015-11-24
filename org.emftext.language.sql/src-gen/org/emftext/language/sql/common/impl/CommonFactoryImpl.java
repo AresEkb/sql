@@ -2,6 +2,9 @@
  */
 package org.emftext.language.sql.common.impl;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -11,8 +14,6 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.emftext.language.sql.Identifier;
-import org.emftext.language.sql.SchemaQualifiedName;
 import org.emftext.language.sql.UnsignedInteger;
 
 import org.emftext.language.sql.common.*;
@@ -63,6 +64,12 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
         switch (eClass.getClassifierID()) {
         case CommonPackage.SQL_SCRIPT:
             return createSQLScript();
+        case CommonPackage.SIMPLE_COMMENT:
+            return createSimpleComment();
+        case CommonPackage.BRACKETED_COMMENT:
+            return createBracketedComment();
+        case CommonPackage.SCHEMA_QUALIFIED_NAME:
+            return createSchemaQualifiedName();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -78,12 +85,12 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
         switch (eDataType.getClassifierID()) {
         case CommonPackage.UNSIGNED_INTEGER:
             return createUnsignedIntegerFromString(eDataType, initialValue);
-        case CommonPackage.IDENTIFIER:
-            return createIdentifierFromString(eDataType, initialValue);
-        case CommonPackage.SCHEMA_QUALIFIED_NAME:
-            return createSchemaQualifiedNameFromString(eDataType, initialValue);
-        case CommonPackage.LOCAL_OR_SCHEMA_QUALIFIED_NAME:
-            return createLocalOrSchemaQualifiedNameFromString(eDataType, initialValue);
+        case CommonPackage.DATE_TYPE:
+            return createDateTypeFromString(eDataType, initialValue);
+        case CommonPackage.TIME_TYPE:
+            return createTimeTypeFromString(eDataType, initialValue);
+        case CommonPackage.TIMESTAMP_TYPE:
+            return createTimestampTypeFromString(eDataType, initialValue);
         default:
             throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -99,12 +106,12 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
         switch (eDataType.getClassifierID()) {
         case CommonPackage.UNSIGNED_INTEGER:
             return convertUnsignedIntegerToString(eDataType, instanceValue);
-        case CommonPackage.IDENTIFIER:
-            return convertIdentifierToString(eDataType, instanceValue);
-        case CommonPackage.SCHEMA_QUALIFIED_NAME:
-            return convertSchemaQualifiedNameToString(eDataType, instanceValue);
-        case CommonPackage.LOCAL_OR_SCHEMA_QUALIFIED_NAME:
-            return convertLocalOrSchemaQualifiedNameToString(eDataType, instanceValue);
+        case CommonPackage.DATE_TYPE:
+            return convertDateTypeToString(eDataType, instanceValue);
+        case CommonPackage.TIME_TYPE:
+            return convertTimeTypeToString(eDataType, instanceValue);
+        case CommonPackage.TIMESTAMP_TYPE:
+            return convertTimestampTypeToString(eDataType, instanceValue);
         default:
             throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -118,6 +125,36 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
     public SQLScript createSQLScript() {
         SQLScriptImpl sqlScript = new SQLScriptImpl();
         return sqlScript;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SimpleComment createSimpleComment() {
+        SimpleCommentImpl simpleComment = new SimpleCommentImpl();
+        return simpleComment;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public BracketedComment createBracketedComment() {
+        BracketedCommentImpl bracketedComment = new BracketedCommentImpl();
+        return bracketedComment;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SchemaQualifiedName createSchemaQualifiedName() {
+        SchemaQualifiedNameImpl schemaQualifiedName = new SchemaQualifiedNameImpl();
+        return schemaQualifiedName;
     }
 
     /**
@@ -143,8 +180,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Identifier createIdentifierFromString(EDataType eDataType, String initialValue) {
-        return (Identifier) super.createFromString(eDataType, initialValue);
+    public LocalDate createDateTypeFromString(EDataType eDataType, String initialValue) {
+        return (LocalDate) super.createFromString(eDataType, initialValue);
     }
 
     /**
@@ -152,7 +189,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertIdentifierToString(EDataType eDataType, Object instanceValue) {
+    public String convertDateTypeToString(EDataType eDataType, Object instanceValue) {
         return super.convertToString(eDataType, instanceValue);
     }
 
@@ -161,8 +198,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public SchemaQualifiedName createSchemaQualifiedNameFromString(EDataType eDataType, String initialValue) {
-        return (SchemaQualifiedName) super.createFromString(eDataType, initialValue);
+    public LocalTime createTimeTypeFromString(EDataType eDataType, String initialValue) {
+        return (LocalTime) super.createFromString(eDataType, initialValue);
     }
 
     /**
@@ -170,7 +207,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertSchemaQualifiedNameToString(EDataType eDataType, Object instanceValue) {
+    public String convertTimeTypeToString(EDataType eDataType, Object instanceValue) {
         return super.convertToString(eDataType, instanceValue);
     }
 
@@ -179,8 +216,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public SchemaQualifiedName createLocalOrSchemaQualifiedNameFromString(EDataType eDataType, String initialValue) {
-        return (SchemaQualifiedName) super.createFromString(eDataType, initialValue);
+    public ZonedDateTime createTimestampTypeFromString(EDataType eDataType, String initialValue) {
+        return (ZonedDateTime) super.createFromString(eDataType, initialValue);
     }
 
     /**
@@ -188,7 +225,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertLocalOrSchemaQualifiedNameToString(EDataType eDataType, Object instanceValue) {
+    public String convertTimestampTypeToString(EDataType eDataType, Object instanceValue) {
         return super.convertToString(eDataType, instanceValue);
     }
 

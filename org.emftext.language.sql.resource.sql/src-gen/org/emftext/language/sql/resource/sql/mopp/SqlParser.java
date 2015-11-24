@@ -33,14 +33,10 @@ import java.util.HashMap;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class SqlParser extends SqlANTLRParserBase {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "BOOLEAN_LITERAL", "IDENTIFIER", "KEYWORD_BOOLEAN", "KEYWORD_CHARACTER", "KEYWORD_COLLATE", "KEYWORD_COMMIT", "KEYWORD_CONSTRAINT", "KEYWORD_CREATE", "KEYWORD_DATE", "KEYWORD_DEFAULT", "KEYWORD_FOREIGN", "KEYWORD_INTERVAL", "KEYWORD_KEY", "KEYWORD_NOT", "KEYWORD_NULL", "KEYWORD_ON", "KEYWORD_REFERENCES", "KEYWORD_ROWS", "KEYWORD_SET", "KEYWORD_TABLE", "KEYWORD_TEMPORARY", "KEYWORD_TIME", "KEYWORD_TIMESTAMP", "LETTER_A", "LETTER_B", "LETTER_C", "LETTER_D", "LETTER_E", "LETTER_F", "LETTER_G", "LETTER_H", "LETTER_I", "LETTER_J", "LETTER_K", "LETTER_L", "LETTER_M", "LETTER_N", "LETTER_O", "LETTER_P", "LETTER_Q", "LETTER_R", "LETTER_S", "LETTER_T", "LETTER_U", "LETTER_V", "LETTER_W", "LETTER_X", "LETTER_Y", "LETTER_Z", "LINEBREAK", "SCHEMA_QUALIFIED_NAME", "TEXT", "UNSIGNED_INTEGER", "WHITESPACE", "'('", "')'", "'+'", "','", "'-'", "';'", "'BIGINT'", "'BINARY LARGE OBJECT'", "'BLOB'", "'CHAR VARYING'", "'CHAR'", "'CHARACTER VARYING'", "'CHARACTER'", "'CHARACTERS'", "'CODE_UNITS'", "'CURRENT_DATE'", "'CURRENT_TIME'", "'CURRENT_TIMESTAMP'", "'DATE'", "'DEC'", "'DECIMAL'", "'DELETE'", "'DOUBLE_PRECISION'", "'FALSE'", "'FLOAT'", "'G'", "'GLOBAL'", "'INT'", "'INTEGER'", "'K'", "'LOCAL'", "'LOCALTIME'", "'LOCALTIMESTAMP'", "'M'", "'NATIONAL CHAR VARYING'", "'NATIONAL CHAR'", "'NATIONAL CHARACTER VARYING'", "'NATIONAL CHARACTER'", "'NCHAR VARYING'", "'NCHAR'", "'NUMERIC'", "'OCTETS'", "'PRESERVE'", "'PRIMARY KEY'", "'REAL'", "'SMALLINT'", "'TIME'", "'TIMESTAMP'", "'TRUE'", "'UNIQUE'", "'VARCHAR'", "'WITH TIME ZONE'", "'WITHOUT TIME ZONE'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "APPROXIMATE_NUMERIC_LITERAL", "BRACKETED_COMMENT", "EXACT_NUMERIC_LITERAL", "IDENTIFIER", "KEYWORD_BOOLEAN", "KEYWORD_CHARACTER", "KEYWORD_COLLATE", "KEYWORD_CONSTRAINT", "KEYWORD_CREATE", "KEYWORD_DATE", "KEYWORD_DEFAULT", "KEYWORD_FOREIGN", "KEYWORD_KEY", "KEYWORD_LARGE", "KEYWORD_N", "KEYWORD_NATIONAL", "KEYWORD_NOT", "KEYWORD_NULL", "KEYWORD_OBJECT", "KEYWORD_PRECISION", "KEYWORD_REFERENCES", "KEYWORD_SET", "KEYWORD_TABLE", "KEYWORD_TEMPORARY", "KEYWORD_TIME", "KEYWORD_TIMESTAMP", "KEYWORD_VARYING", "KEYWORD_ZONE", "LETTER_A", "LETTER_B", "LETTER_C", "LETTER_D", "LETTER_E", "LETTER_F", "LETTER_G", "LETTER_H", "LETTER_I", "LETTER_J", "LETTER_K", "LETTER_L", "LETTER_M", "LETTER_N", "LETTER_O", "LETTER_P", "LETTER_Q", "LETTER_R", "LETTER_S", "LETTER_T", "LETTER_U", "LETTER_V", "LETTER_W", "LETTER_X", "LETTER_Y", "LETTER_Z", "QUOTED_STRING", "SIMPLE_COMMENT", "UNSIGNED_INTEGER", "WHITESPACE", "'('", "')'", "','", "'.'", "';'", "'BIGINT'", "'BINARY'", "'BLOB'", "'CHAR'", "'CHARACTER'", "'CHARACTERS'", "'CODE_UNITS'", "'CURRENT_DATE'", "'CURRENT_TIME'", "'CURRENT_TIMESTAMP'", "'DEC'", "'DECIMAL'", "'DOUBLE'", "'FALSE'", "'FLOAT'", "'G'", "'GLOBAL'", "'INT'", "'INTEGER'", "'K'", "'LOCAL'", "'LOCALTIME'", "'LOCALTIMESTAMP'", "'M'", "'NCHAR'", "'NUMERIC'", "'OCTETS'", "'PRIMARY KEY'", "'REAL'", "'SMALLINT'", "'TRUE'", "'UNIQUE'", "'VARCHAR'", "'WITH'", "'WITHOUT'", "'_'"
     };
 
     public static final int EOF=-1;
-    public static final int T__58=58;
-    public static final int T__59=59;
-    public static final int T__60=60;
-    public static final int T__61=61;
     public static final int T__62=62;
     public static final int T__63=63;
     public static final int T__64=64;
@@ -82,68 +78,64 @@ public class SqlParser extends SqlANTLRParserBase {
     public static final int T__100=100;
     public static final int T__101=101;
     public static final int T__102=102;
-    public static final int T__103=103;
-    public static final int T__104=104;
-    public static final int T__105=105;
-    public static final int T__106=106;
-    public static final int T__107=107;
-    public static final int T__108=108;
-    public static final int T__109=109;
-    public static final int T__110=110;
-    public static final int BOOLEAN_LITERAL=4;
-    public static final int IDENTIFIER=5;
-    public static final int KEYWORD_BOOLEAN=6;
-    public static final int KEYWORD_CHARACTER=7;
-    public static final int KEYWORD_COLLATE=8;
-    public static final int KEYWORD_COMMIT=9;
-    public static final int KEYWORD_CONSTRAINT=10;
-    public static final int KEYWORD_CREATE=11;
-    public static final int KEYWORD_DATE=12;
-    public static final int KEYWORD_DEFAULT=13;
-    public static final int KEYWORD_FOREIGN=14;
-    public static final int KEYWORD_INTERVAL=15;
+    public static final int APPROXIMATE_NUMERIC_LITERAL=4;
+    public static final int BRACKETED_COMMENT=5;
+    public static final int EXACT_NUMERIC_LITERAL=6;
+    public static final int IDENTIFIER=7;
+    public static final int KEYWORD_BOOLEAN=8;
+    public static final int KEYWORD_CHARACTER=9;
+    public static final int KEYWORD_COLLATE=10;
+    public static final int KEYWORD_CONSTRAINT=11;
+    public static final int KEYWORD_CREATE=12;
+    public static final int KEYWORD_DATE=13;
+    public static final int KEYWORD_DEFAULT=14;
+    public static final int KEYWORD_FOREIGN=15;
     public static final int KEYWORD_KEY=16;
-    public static final int KEYWORD_NOT=17;
-    public static final int KEYWORD_NULL=18;
-    public static final int KEYWORD_ON=19;
-    public static final int KEYWORD_REFERENCES=20;
-    public static final int KEYWORD_ROWS=21;
-    public static final int KEYWORD_SET=22;
-    public static final int KEYWORD_TABLE=23;
-    public static final int KEYWORD_TEMPORARY=24;
-    public static final int KEYWORD_TIME=25;
-    public static final int KEYWORD_TIMESTAMP=26;
-    public static final int LETTER_A=27;
-    public static final int LETTER_B=28;
-    public static final int LETTER_C=29;
-    public static final int LETTER_D=30;
-    public static final int LETTER_E=31;
-    public static final int LETTER_F=32;
-    public static final int LETTER_G=33;
-    public static final int LETTER_H=34;
-    public static final int LETTER_I=35;
-    public static final int LETTER_J=36;
-    public static final int LETTER_K=37;
-    public static final int LETTER_L=38;
-    public static final int LETTER_M=39;
-    public static final int LETTER_N=40;
-    public static final int LETTER_O=41;
-    public static final int LETTER_P=42;
-    public static final int LETTER_Q=43;
-    public static final int LETTER_R=44;
-    public static final int LETTER_S=45;
-    public static final int LETTER_T=46;
-    public static final int LETTER_U=47;
-    public static final int LETTER_V=48;
-    public static final int LETTER_W=49;
-    public static final int LETTER_X=50;
-    public static final int LETTER_Y=51;
-    public static final int LETTER_Z=52;
-    public static final int LINEBREAK=53;
-    public static final int SCHEMA_QUALIFIED_NAME=54;
-    public static final int TEXT=55;
-    public static final int UNSIGNED_INTEGER=56;
-    public static final int WHITESPACE=57;
+    public static final int KEYWORD_LARGE=17;
+    public static final int KEYWORD_N=18;
+    public static final int KEYWORD_NATIONAL=19;
+    public static final int KEYWORD_NOT=20;
+    public static final int KEYWORD_NULL=21;
+    public static final int KEYWORD_OBJECT=22;
+    public static final int KEYWORD_PRECISION=23;
+    public static final int KEYWORD_REFERENCES=24;
+    public static final int KEYWORD_SET=25;
+    public static final int KEYWORD_TABLE=26;
+    public static final int KEYWORD_TEMPORARY=27;
+    public static final int KEYWORD_TIME=28;
+    public static final int KEYWORD_TIMESTAMP=29;
+    public static final int KEYWORD_VARYING=30;
+    public static final int KEYWORD_ZONE=31;
+    public static final int LETTER_A=32;
+    public static final int LETTER_B=33;
+    public static final int LETTER_C=34;
+    public static final int LETTER_D=35;
+    public static final int LETTER_E=36;
+    public static final int LETTER_F=37;
+    public static final int LETTER_G=38;
+    public static final int LETTER_H=39;
+    public static final int LETTER_I=40;
+    public static final int LETTER_J=41;
+    public static final int LETTER_K=42;
+    public static final int LETTER_L=43;
+    public static final int LETTER_M=44;
+    public static final int LETTER_N=45;
+    public static final int LETTER_O=46;
+    public static final int LETTER_P=47;
+    public static final int LETTER_Q=48;
+    public static final int LETTER_R=49;
+    public static final int LETTER_S=50;
+    public static final int LETTER_T=51;
+    public static final int LETTER_U=52;
+    public static final int LETTER_V=53;
+    public static final int LETTER_W=54;
+    public static final int LETTER_X=55;
+    public static final int LETTER_Y=56;
+    public static final int LETTER_Z=57;
+    public static final int QUOTED_STRING=58;
+    public static final int SIMPLE_COMMENT=59;
+    public static final int UNSIGNED_INTEGER=60;
+    public static final int WHITESPACE=61;
 
     // delegates
     public SqlANTLRParserBase[] getDelegates() {
@@ -158,7 +150,7 @@ public class SqlParser extends SqlANTLRParserBase {
     }
     public SqlParser(TokenStream input, RecognizerSharedState state) {
         super(input, state);
-        this.state.initializeRuleMemo(129 + 1);
+        this.state.initializeRuleMemo(146 + 1);
          
 
     }
@@ -401,6 +393,42 @@ public class SqlParser extends SqlANTLRParserBase {
     			if (type.getInstanceClass() == org.emftext.language.sql.common.SQLScript.class) {
     				return parse_org_emftext_language_sql_common_SQLScript();
     			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.common.SimpleComment.class) {
+    				return parse_org_emftext_language_sql_common_SimpleComment();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.common.BracketedComment.class) {
+    				return parse_org_emftext_language_sql_common_BracketedComment();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.common.SchemaQualifiedName.class) {
+    				return parse_org_emftext_language_sql_common_SchemaQualifiedName();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.literal.ExactNumericLiteral.class) {
+    				return parse_org_emftext_language_sql_literal_ExactNumericLiteral();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.literal.ApproximateNumericLiteral.class) {
+    				return parse_org_emftext_language_sql_literal_ApproximateNumericLiteral();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.literal.CharacterStringLiteral.class) {
+    				return parse_org_emftext_language_sql_literal_CharacterStringLiteral();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.literal.NationalCharacterStringLiteral.class) {
+    				return parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.literal.DateLiteral.class) {
+    				return parse_org_emftext_language_sql_literal_DateLiteral();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.literal.TimeLiteral.class) {
+    				return parse_org_emftext_language_sql_literal_TimeLiteral();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.literal.TimestampLiteral.class) {
+    				return parse_org_emftext_language_sql_literal_TimestampLiteral();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.literal.BooleanLiteral.class) {
+    				return parse_org_emftext_language_sql_literal_BooleanLiteral();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.schema.TableReference.class) {
+    				return parse_org_emftext_language_sql_schema_TableReference();
+    			}
     			if (type.getInstanceClass() == org.emftext.language.sql.schema.TableDefinition.class) {
     				return parse_org_emftext_language_sql_schema_TableDefinition();
     			}
@@ -434,20 +462,11 @@ public class SqlParser extends SqlANTLRParserBase {
     			if (type.getInstanceClass() == org.emftext.language.sql.schema.ReferentialTableConstraint.class) {
     				return parse_org_emftext_language_sql_schema_ReferentialTableConstraint();
     			}
-    			if (type.getInstanceClass() == org.emftext.language.sql.literal.DateLiteral.class) {
-    				return parse_org_emftext_language_sql_literal_DateLiteral();
+    			if (type.getInstanceClass() == org.emftext.language.sql.datatype.ExactNumericType.class) {
+    				return parse_org_emftext_language_sql_datatype_ExactNumericType();
     			}
-    			if (type.getInstanceClass() == org.emftext.language.sql.literal.TimeLiteral.class) {
-    				return parse_org_emftext_language_sql_literal_TimeLiteral();
-    			}
-    			if (type.getInstanceClass() == org.emftext.language.sql.literal.TimestampLiteral.class) {
-    				return parse_org_emftext_language_sql_literal_TimestampLiteral();
-    			}
-    			if (type.getInstanceClass() == org.emftext.language.sql.literal.IntervalLiteral.class) {
-    				return parse_org_emftext_language_sql_literal_IntervalLiteral();
-    			}
-    			if (type.getInstanceClass() == org.emftext.language.sql.literal.BooleanLiteral.class) {
-    				return parse_org_emftext_language_sql_literal_BooleanLiteral();
+    			if (type.getInstanceClass() == org.emftext.language.sql.datatype.ApproximateNumericType.class) {
+    				return parse_org_emftext_language_sql_datatype_ApproximateNumericType();
     			}
     			if (type.getInstanceClass() == org.emftext.language.sql.datatype.CharacterStringType.class) {
     				return parse_org_emftext_language_sql_datatype_CharacterStringType();
@@ -461,17 +480,17 @@ public class SqlParser extends SqlANTLRParserBase {
     			if (type.getInstanceClass() == org.emftext.language.sql.datatype.LargeObjectLength.class) {
     				return parse_org_emftext_language_sql_datatype_LargeObjectLength();
     			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.datatype.DateType.class) {
+    				return parse_org_emftext_language_sql_datatype_DateType();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.datatype.TimeType.class) {
+    				return parse_org_emftext_language_sql_datatype_TimeType();
+    			}
+    			if (type.getInstanceClass() == org.emftext.language.sql.datatype.TimestampType.class) {
+    				return parse_org_emftext_language_sql_datatype_TimestampType();
+    			}
     			if (type.getInstanceClass() == org.emftext.language.sql.datatype.BooleanType.class) {
     				return parse_org_emftext_language_sql_datatype_BooleanType();
-    			}
-    			if (type.getInstanceClass() == org.emftext.language.sql.datatype.ExactNumericType.class) {
-    				return parse_org_emftext_language_sql_datatype_ExactNumericType();
-    			}
-    			if (type.getInstanceClass() == org.emftext.language.sql.datatype.ApproximateNumericType.class) {
-    				return parse_org_emftext_language_sql_datatype_ApproximateNumericType();
-    			}
-    			if (type.getInstanceClass() == org.emftext.language.sql.datatype.DatetimeType.class) {
-    				return parse_org_emftext_language_sql_datatype_DatetimeType();
     			}
     			if (type.getInstanceClass() == org.emftext.language.sql.function.DatetimeValueFunction.class) {
     				return parse_org_emftext_language_sql_function_DatetimeValueFunction();
@@ -579,7 +598,7 @@ public class SqlParser extends SqlANTLRParserBase {
     				break;
     			}
     		}
-    		int followSetID = 166;
+    		int followSetID = 204;
     		int i;
     		for (i = tokenIndexOfLastCompleteElement; i < tokenStream.size(); i++) {
     			CommonToken nextToken = (CommonToken) tokenStream.get(i);
@@ -677,7 +696,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "start"
-    // Sql.g:560:1: start returns [ EObject element = null] : (c0= parse_org_emftext_language_sql_common_SQLScript ) EOF ;
+    // Sql.g:587:1: start returns [ EObject element = null] : (c0= parse_org_emftext_language_sql_common_SQLScript ) EOF ;
     public final EObject start() throws RecognitionException {
         EObject element =  null;
 
@@ -689,17 +708,17 @@ public class SqlParser extends SqlANTLRParserBase {
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 1) ) { return element; }
 
-            // Sql.g:561:2: ( (c0= parse_org_emftext_language_sql_common_SQLScript ) EOF )
-            // Sql.g:562:2: (c0= parse_org_emftext_language_sql_common_SQLScript ) EOF
+            // Sql.g:588:2: ( (c0= parse_org_emftext_language_sql_common_SQLScript ) EOF )
+            // Sql.g:589:2: (c0= parse_org_emftext_language_sql_common_SQLScript ) EOF
             {
             if ( state.backtracking==0 ) {
             		// follow set for start rule(s)
-            		addExpectedElement(org.emftext.language.sql.common.CommonPackage.eINSTANCE.getSQLScript(), 0);
-            		expectedElementsIndexOfLastCompleteElement = 0;
+            		addExpectedElement(org.emftext.language.sql.common.CommonPackage.eINSTANCE.getSQLScript(), 0, 2);
+            		expectedElementsIndexOfLastCompleteElement = 2;
             	}
 
-            // Sql.g:567:2: (c0= parse_org_emftext_language_sql_common_SQLScript )
-            // Sql.g:568:3: c0= parse_org_emftext_language_sql_common_SQLScript
+            // Sql.g:594:2: (c0= parse_org_emftext_language_sql_common_SQLScript )
+            // Sql.g:595:3: c0= parse_org_emftext_language_sql_common_SQLScript
             {
             pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SQLScript_in_start82);
             c0=parse_org_emftext_language_sql_common_SQLScript();
@@ -738,14 +757,13 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_sql_common_SQLScript"
-    // Sql.g:576:1: parse_org_emftext_language_sql_common_SQLScript returns [org.emftext.language.sql.common.SQLScript element = null] : ( ( (a0_0= parse_org_emftext_language_sql_common_DirectSQLStatement ) a1= ';' ) )* ;
+    // Sql.g:603:1: parse_org_emftext_language_sql_common_SQLScript returns [org.emftext.language.sql.common.SQLScript element = null] : ( ( (a0_0= parse_org_emftext_language_sql_common_Statement ) ) )* ;
     public final org.emftext.language.sql.common.SQLScript parse_org_emftext_language_sql_common_SQLScript() throws RecognitionException {
         org.emftext.language.sql.common.SQLScript element =  null;
 
         int parse_org_emftext_language_sql_common_SQLScript_StartIndex = input.index();
 
-        Token a1=null;
-        org.emftext.language.sql.common.DirectSQLStatement a0_0 =null;
+        org.emftext.language.sql.common.Statement a0_0 =null;
 
 
 
@@ -753,32 +771,32 @@ public class SqlParser extends SqlANTLRParserBase {
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return element; }
 
-            // Sql.g:579:2: ( ( ( (a0_0= parse_org_emftext_language_sql_common_DirectSQLStatement ) a1= ';' ) )* )
-            // Sql.g:580:2: ( ( (a0_0= parse_org_emftext_language_sql_common_DirectSQLStatement ) a1= ';' ) )*
+            // Sql.g:606:2: ( ( ( (a0_0= parse_org_emftext_language_sql_common_Statement ) ) )* )
+            // Sql.g:607:2: ( ( (a0_0= parse_org_emftext_language_sql_common_Statement ) ) )*
             {
-            // Sql.g:580:2: ( ( (a0_0= parse_org_emftext_language_sql_common_DirectSQLStatement ) a1= ';' ) )*
+            // Sql.g:607:2: ( ( (a0_0= parse_org_emftext_language_sql_common_Statement ) ) )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==KEYWORD_CREATE) ) {
+                if ( (LA1_0==BRACKETED_COMMENT||LA1_0==KEYWORD_CREATE||LA1_0==SIMPLE_COMMENT) ) {
                     alt1=1;
                 }
 
 
                 switch (alt1) {
             	case 1 :
-            	    // Sql.g:581:3: ( (a0_0= parse_org_emftext_language_sql_common_DirectSQLStatement ) a1= ';' )
+            	    // Sql.g:608:3: ( (a0_0= parse_org_emftext_language_sql_common_Statement ) )
             	    {
-            	    // Sql.g:581:3: ( (a0_0= parse_org_emftext_language_sql_common_DirectSQLStatement ) a1= ';' )
-            	    // Sql.g:582:4: (a0_0= parse_org_emftext_language_sql_common_DirectSQLStatement ) a1= ';'
+            	    // Sql.g:608:3: ( (a0_0= parse_org_emftext_language_sql_common_Statement ) )
+            	    // Sql.g:609:4: (a0_0= parse_org_emftext_language_sql_common_Statement )
             	    {
-            	    // Sql.g:582:4: (a0_0= parse_org_emftext_language_sql_common_DirectSQLStatement )
-            	    // Sql.g:583:5: a0_0= parse_org_emftext_language_sql_common_DirectSQLStatement
+            	    // Sql.g:609:4: (a0_0= parse_org_emftext_language_sql_common_Statement )
+            	    // Sql.g:610:5: a0_0= parse_org_emftext_language_sql_common_Statement
             	    {
-            	    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_DirectSQLStatement_in_parse_org_emftext_language_sql_common_SQLScript130);
-            	    a0_0=parse_org_emftext_language_sql_common_DirectSQLStatement();
+            	    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_Statement_in_parse_org_emftext_language_sql_common_SQLScript130);
+            	    a0_0=parse_org_emftext_language_sql_common_Statement();
 
             	    state._fsp--;
             	    if (state.failed) return element;
@@ -808,27 +826,10 @@ public class SqlParser extends SqlANTLRParserBase {
 
             	    if ( state.backtracking==0 ) {
             	    				// expected elements (follow set)
-            	    				addExpectedElement(null, 1);
-            	    			}
-
-            	    a1=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_common_SQLScript158); if (state.failed) return element;
-
-            	    if ( state.backtracking==0 ) {
-            	    				if (element == null) {
-            	    					element = org.emftext.language.sql.common.CommonFactory.eINSTANCE.createSQLScript();
-            	    					startIncompleteElement(element);
-            	    				}
-            	    				collectHiddenTokens(element);
-            	    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_0_0_0_0_0_0_1, null, true);
-            	    				copyLocalizationInfos((CommonToken)a1, element);
-            	    			}
-
-            	    if ( state.backtracking==0 ) {
-            	    				// expected elements (follow set)
             	    				// We've found the last token for this rule. The constructed EObject is now
             	    				// complete.
             	    				completedElement(element, true);
-            	    				addExpectedElement(org.emftext.language.sql.common.CommonPackage.eINSTANCE.getSQLScript(), 2);
+            	    				addExpectedElement(org.emftext.language.sql.common.CommonPackage.eINSTANCE.getSQLScript(), 3, 5);
             	    			}
 
             	    }
@@ -848,7 +849,7 @@ public class SqlParser extends SqlANTLRParserBase {
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(org.emftext.language.sql.common.CommonPackage.eINSTANCE.getSQLScript(), 3);
+            		addExpectedElement(org.emftext.language.sql.common.CommonPackage.eINSTANCE.getSQLScript(), 6, 8);
             	}
 
             }
@@ -870,158 +871,365 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
 
-    // $ANTLR start "parse_org_emftext_language_sql_schema_TableDefinition"
-    // Sql.g:637:1: parse_org_emftext_language_sql_schema_TableDefinition returns [org.emftext.language.sql.schema.TableDefinition element = null] : a0= KEYWORD_CREATE ( ( ( (a1= 'GLOBAL' |a2= 'LOCAL' ) ) a5= KEYWORD_TEMPORARY ) )? a6= KEYWORD_TABLE ( (a7= IDENTIFIER ) | (a8= SCHEMA_QUALIFIED_NAME ) ) (a9_0= parse_org_emftext_language_sql_schema_TableContentsSource ) ( (a10= KEYWORD_ON a11= KEYWORD_COMMIT ( (a12= 'PRESERVE' |a13= 'DELETE' ) ) a16= KEYWORD_ROWS ) )? ;
-    public final org.emftext.language.sql.schema.TableDefinition parse_org_emftext_language_sql_schema_TableDefinition() throws RecognitionException {
-        org.emftext.language.sql.schema.TableDefinition element =  null;
+    // $ANTLR start "parse_org_emftext_language_sql_common_SimpleComment"
+    // Sql.g:650:1: parse_org_emftext_language_sql_common_SimpleComment returns [org.emftext.language.sql.common.SimpleComment element = null] : (a0= SIMPLE_COMMENT ) ;
+    public final org.emftext.language.sql.common.SimpleComment parse_org_emftext_language_sql_common_SimpleComment() throws RecognitionException {
+        org.emftext.language.sql.common.SimpleComment element =  null;
 
-        int parse_org_emftext_language_sql_schema_TableDefinition_StartIndex = input.index();
+        int parse_org_emftext_language_sql_common_SimpleComment_StartIndex = input.index();
 
         Token a0=null;
-        Token a1=null;
-        Token a2=null;
-        Token a5=null;
-        Token a6=null;
-        Token a7=null;
-        Token a8=null;
-        Token a10=null;
-        Token a11=null;
-        Token a12=null;
-        Token a13=null;
-        Token a16=null;
-        org.emftext.language.sql.schema.TableContentsSource a9_0 =null;
-
 
 
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 3) ) { return element; }
 
-            // Sql.g:640:2: (a0= KEYWORD_CREATE ( ( ( (a1= 'GLOBAL' |a2= 'LOCAL' ) ) a5= KEYWORD_TEMPORARY ) )? a6= KEYWORD_TABLE ( (a7= IDENTIFIER ) | (a8= SCHEMA_QUALIFIED_NAME ) ) (a9_0= parse_org_emftext_language_sql_schema_TableContentsSource ) ( (a10= KEYWORD_ON a11= KEYWORD_COMMIT ( (a12= 'PRESERVE' |a13= 'DELETE' ) ) a16= KEYWORD_ROWS ) )? )
-            // Sql.g:641:2: a0= KEYWORD_CREATE ( ( ( (a1= 'GLOBAL' |a2= 'LOCAL' ) ) a5= KEYWORD_TEMPORARY ) )? a6= KEYWORD_TABLE ( (a7= IDENTIFIER ) | (a8= SCHEMA_QUALIFIED_NAME ) ) (a9_0= parse_org_emftext_language_sql_schema_TableContentsSource ) ( (a10= KEYWORD_ON a11= KEYWORD_COMMIT ( (a12= 'PRESERVE' |a13= 'DELETE' ) ) a16= KEYWORD_ROWS ) )?
+            // Sql.g:653:2: ( (a0= SIMPLE_COMMENT ) )
+            // Sql.g:654:2: (a0= SIMPLE_COMMENT )
             {
-            a0=(Token)match(input,KEYWORD_CREATE,FOLLOW_KEYWORD_CREATE_in_parse_org_emftext_language_sql_schema_TableDefinition206); if (state.failed) return element;
+            // Sql.g:654:2: (a0= SIMPLE_COMMENT )
+            // Sql.g:655:3: a0= SIMPLE_COMMENT
+            {
+            a0=(Token)match(input,SIMPLE_COMMENT,FOLLOW_SIMPLE_COMMENT_in_parse_org_emftext_language_sql_common_SimpleComment190); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-            			startIncompleteElement(element);
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.common.CommonFactory.eINSTANCE.createSimpleComment();
+            				startIncompleteElement(element);
+            			}
+            			if (a0 != null) {
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("SIMPLE_COMMENT");
+            				tokenResolver.setOptions(getOptions());
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+            				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.common.CommonPackage.SIMPLE_COMMENT__VALUE), result);
+            				Object resolvedObject = result.getResolvedToken();
+            				if (resolvedObject == null) {
+            					addErrorToResource(result.getErrorMessage(), ((CommonToken) a0).getLine(), ((CommonToken) a0).getCharPositionInLine(), ((CommonToken) a0).getStartIndex(), ((CommonToken) a0).getStopIndex());
+            				}
+            				java.lang.String resolved = (java.lang.String) resolvedObject;
+            				if (resolved != null) {
+            					Object value = resolved;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.common.CommonPackage.SIMPLE_COMMENT__VALUE), value);
+            					completedElement(value, false);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_0, resolved, true);
+            				copyLocalizationInfos((CommonToken) a0, element);
+            			}
             		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_0, null, true);
-            		copyLocalizationInfos((CommonToken)a0, element);
-            	}
+
+            }
+
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 4, 5);
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(org.emftext.language.sql.common.CommonPackage.eINSTANCE.getSQLScript(), 9, 11);
+            		addExpectedElement(null, 12, 13);
             	}
 
-            // Sql.g:655:2: ( ( ( (a1= 'GLOBAL' |a2= 'LOCAL' ) ) a5= KEYWORD_TEMPORARY ) )?
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 3, parse_org_emftext_language_sql_common_SimpleComment_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_common_SimpleComment"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_common_BracketedComment"
+    // Sql.g:696:1: parse_org_emftext_language_sql_common_BracketedComment returns [org.emftext.language.sql.common.BracketedComment element = null] : (a0= BRACKETED_COMMENT ) ;
+    public final org.emftext.language.sql.common.BracketedComment parse_org_emftext_language_sql_common_BracketedComment() throws RecognitionException {
+        org.emftext.language.sql.common.BracketedComment element =  null;
+
+        int parse_org_emftext_language_sql_common_BracketedComment_StartIndex = input.index();
+
+        Token a0=null;
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 4) ) { return element; }
+
+            // Sql.g:699:2: ( (a0= BRACKETED_COMMENT ) )
+            // Sql.g:700:2: (a0= BRACKETED_COMMENT )
+            {
+            // Sql.g:700:2: (a0= BRACKETED_COMMENT )
+            // Sql.g:701:3: a0= BRACKETED_COMMENT
+            {
+            a0=(Token)match(input,BRACKETED_COMMENT,FOLLOW_BRACKETED_COMMENT_in_parse_org_emftext_language_sql_common_BracketedComment230); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.common.CommonFactory.eINSTANCE.createBracketedComment();
+            				startIncompleteElement(element);
+            			}
+            			if (a0 != null) {
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("BRACKETED_COMMENT");
+            				tokenResolver.setOptions(getOptions());
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+            				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.common.CommonPackage.BRACKETED_COMMENT__VALUE), result);
+            				Object resolvedObject = result.getResolvedToken();
+            				if (resolvedObject == null) {
+            					addErrorToResource(result.getErrorMessage(), ((CommonToken) a0).getLine(), ((CommonToken) a0).getCharPositionInLine(), ((CommonToken) a0).getStartIndex(), ((CommonToken) a0).getStopIndex());
+            				}
+            				java.lang.String resolved = (java.lang.String) resolvedObject;
+            				if (resolved != null) {
+            					Object value = resolved;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.common.CommonPackage.BRACKETED_COMMENT__VALUE), value);
+            					completedElement(value, false);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_2_0_0_0, resolved, true);
+            				copyLocalizationInfos((CommonToken) a0, element);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(org.emftext.language.sql.common.CommonPackage.eINSTANCE.getSQLScript(), 14, 16);
+            		addExpectedElement(null, 17, 18);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 4, parse_org_emftext_language_sql_common_BracketedComment_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_common_BracketedComment"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_common_SchemaQualifiedName"
+    // Sql.g:742:1: parse_org_emftext_language_sql_common_SchemaQualifiedName returns [org.emftext.language.sql.common.SchemaQualifiedName element = null] : ( ( ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.' ) )? (a4= IDENTIFIER ) ;
+    public final org.emftext.language.sql.common.SchemaQualifiedName parse_org_emftext_language_sql_common_SchemaQualifiedName() throws RecognitionException {
+        org.emftext.language.sql.common.SchemaQualifiedName element =  null;
+
+        int parse_org_emftext_language_sql_common_SchemaQualifiedName_StartIndex = input.index();
+
+        Token a0=null;
+        Token a1=null;
+        Token a2=null;
+        Token a3=null;
+        Token a4=null;
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return element; }
+
+            // Sql.g:745:2: ( ( ( ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.' ) )? (a4= IDENTIFIER ) )
+            // Sql.g:746:2: ( ( ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.' ) )? (a4= IDENTIFIER )
+            {
+            // Sql.g:746:2: ( ( ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.' ) )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==84||LA3_0==88) ) {
-                alt3=1;
+            if ( (LA3_0==IDENTIFIER) ) {
+                int LA3_1 = input.LA(2);
+
+                if ( (LA3_1==65) ) {
+                    alt3=1;
+                }
             }
             switch (alt3) {
                 case 1 :
-                    // Sql.g:656:3: ( ( (a1= 'GLOBAL' |a2= 'LOCAL' ) ) a5= KEYWORD_TEMPORARY )
+                    // Sql.g:747:3: ( ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.' )
                     {
-                    // Sql.g:656:3: ( ( (a1= 'GLOBAL' |a2= 'LOCAL' ) ) a5= KEYWORD_TEMPORARY )
-                    // Sql.g:657:4: ( (a1= 'GLOBAL' |a2= 'LOCAL' ) ) a5= KEYWORD_TEMPORARY
+                    // Sql.g:747:3: ( ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.' )
+                    // Sql.g:748:4: ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.'
                     {
-                    // Sql.g:657:4: ( (a1= 'GLOBAL' |a2= 'LOCAL' ) )
-                    // Sql.g:658:5: (a1= 'GLOBAL' |a2= 'LOCAL' )
-                    {
-                    // Sql.g:658:5: (a1= 'GLOBAL' |a2= 'LOCAL' )
+                    // Sql.g:748:4: ( ( (a0= IDENTIFIER ) a1= '.' ) )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
-                    if ( (LA2_0==84) ) {
-                        alt2=1;
-                    }
-                    else if ( (LA2_0==88) ) {
-                        alt2=2;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return element;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 2, 0, input);
+                    if ( (LA2_0==IDENTIFIER) ) {
+                        int LA2_1 = input.LA(2);
 
-                        throw nvae;
+                        if ( (LA2_1==65) ) {
+                            int LA2_2 = input.LA(3);
 
+                            if ( (LA2_2==IDENTIFIER) ) {
+                                int LA2_3 = input.LA(4);
+
+                                if ( (LA2_3==65) ) {
+                                    alt2=1;
+                                }
+                            }
+                        }
                     }
                     switch (alt2) {
                         case 1 :
-                            // Sql.g:659:6: a1= 'GLOBAL'
+                            // Sql.g:749:5: ( (a0= IDENTIFIER ) a1= '.' )
                             {
-                            a1=(Token)match(input,84,FOLLOW_84_in_parse_org_emftext_language_sql_schema_TableDefinition242); if (state.failed) return element;
+                            // Sql.g:749:5: ( (a0= IDENTIFIER ) a1= '.' )
+                            // Sql.g:750:6: (a0= IDENTIFIER ) a1= '.'
+                            {
+                            // Sql.g:750:6: (a0= IDENTIFIER )
+                            // Sql.g:751:7: a0= IDENTIFIER
+                            {
+                            a0=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_common_SchemaQualifiedName296); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            							if (terminateParsing) {
+                            								throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                            							}
+                            							if (element == null) {
+                            								element = org.emftext.language.sql.common.CommonFactory.eINSTANCE.createSchemaQualifiedName();
+                            								startIncompleteElement(element);
+                            							}
+                            							if (a0 != null) {
+                            								org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+                            								tokenResolver.setOptions(getOptions());
+                            								org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                            								tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.common.CommonPackage.SCHEMA_QUALIFIED_NAME__CATALOG_NAME), result);
+                            								Object resolvedObject = result.getResolvedToken();
+                            								if (resolvedObject == null) {
+                            									addErrorToResource(result.getErrorMessage(), ((CommonToken) a0).getLine(), ((CommonToken) a0).getCharPositionInLine(), ((CommonToken) a0).getStartIndex(), ((CommonToken) a0).getStopIndex());
+                            								}
+                            								java.lang.String resolved = (java.lang.String) resolvedObject;
+                            								if (resolved != null) {
+                            									Object value = resolved;
+                            									element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.common.CommonPackage.SCHEMA_QUALIFIED_NAME__CATALOG_NAME), value);
+                            									completedElement(value, false);
+                            								}
+                            								collectHiddenTokens(element);
+                            								retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_0_0_0_0_0_0_0, resolved, true);
+                            								copyLocalizationInfos((CommonToken) a0, element);
+                            							}
+                            						}
+
+                            }
+
+
+                            if ( state.backtracking==0 ) {
+                            						// expected elements (follow set)
+                            						addExpectedElement(null, 19);
+                            					}
+
+                            a1=(Token)match(input,65,FOLLOW_65_in_parse_org_emftext_language_sql_common_SchemaQualifiedName341); if (state.failed) return element;
 
                             if ( state.backtracking==0 ) {
                             						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
+                            							element = org.emftext.language.sql.common.CommonFactory.eINSTANCE.createSchemaQualifiedName();
                             							startIncompleteElement(element);
                             						}
                             						collectHiddenTokens(element);
-                            						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_1_0_0_0, null, true);
+                            						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_0_0_0_0_0_0_1, null, true);
                             						copyLocalizationInfos((CommonToken)a1, element);
-                            						// set value of enumeration attribute
-                            						Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableScope().getEEnumLiteral(org.emftext.language.sql.schema.TableScope.GLOBAL_TEMPORARY_VALUE).getInstance();
-                            						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE), value);
-                            						completedElement(value, false);
                             					}
-
-                            }
-                            break;
-                        case 2 :
-                            // Sql.g:672:12: a2= 'LOCAL'
-                            {
-                            a2=(Token)match(input,88,FOLLOW_88_in_parse_org_emftext_language_sql_schema_TableDefinition261); if (state.failed) return element;
 
                             if ( state.backtracking==0 ) {
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-                            							startIncompleteElement(element);
-                            						}
-                            						collectHiddenTokens(element);
-                            						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_1_0_0_0, null, true);
-                            						copyLocalizationInfos((CommonToken)a2, element);
-                            						// set value of enumeration attribute
-                            						Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableScope().getEEnumLiteral(org.emftext.language.sql.schema.TableScope.LOCAL_TEMPORARY_VALUE).getInstance();
-                            						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE), value);
-                            						completedElement(value, false);
+                            						// expected elements (follow set)
+                            						addExpectedElement(null, 20);
                             					}
 
                             }
+
+
+                            }
                             break;
-
-                    }
-
 
                     }
 
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(null, 6);
+                    				addExpectedElement(null, 21);
                     			}
 
-                    a5=(Token)match(input,KEYWORD_TEMPORARY,FOLLOW_KEYWORD_TEMPORARY_in_parse_org_emftext_language_sql_schema_TableDefinition292); if (state.failed) return element;
+                    // Sql.g:807:4: (a2= IDENTIFIER )
+                    // Sql.g:808:5: a2= IDENTIFIER
+                    {
+                    a2=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_common_SchemaQualifiedName396); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.common.CommonFactory.eINSTANCE.createSchemaQualifiedName();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a2 != null) {
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+                    						tokenResolver.setOptions(getOptions());
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    						tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.common.CommonPackage.SCHEMA_QUALIFIED_NAME__SCHEMA_NAME), result);
+                    						Object resolvedObject = result.getResolvedToken();
+                    						if (resolvedObject == null) {
+                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a2).getLine(), ((CommonToken) a2).getCharPositionInLine(), ((CommonToken) a2).getStartIndex(), ((CommonToken) a2).getStopIndex());
+                    						}
+                    						java.lang.String resolved = (java.lang.String) resolvedObject;
+                    						if (resolved != null) {
+                    							Object value = resolved;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.common.CommonPackage.SCHEMA_QUALIFIED_NAME__SCHEMA_NAME), value);
+                    							completedElement(value, false);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_0_0_0_1, resolved, true);
+                    						copyLocalizationInfos((CommonToken) a2, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 22);
+                    			}
+
+                    a3=(Token)match(input,65,FOLLOW_65_in_parse_org_emftext_language_sql_common_SchemaQualifiedName429); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
+                    					element = org.emftext.language.sql.common.CommonFactory.eINSTANCE.createSchemaQualifiedName();
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_1_0_0_1, null, true);
-                    				copyLocalizationInfos((CommonToken)a5, element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_0_0_0_2, null, true);
+                    				copyLocalizationInfos((CommonToken)a3, element);
                     			}
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(null, 7);
+                    				addExpectedElement(null, 23);
                     			}
 
                     }
@@ -1035,34 +1243,98 @@ public class SqlParser extends SqlANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 8);
+            		addExpectedElement(null, 24);
             	}
 
-            a6=(Token)match(input,KEYWORD_TABLE,FOLLOW_KEYWORD_TABLE_in_parse_org_emftext_language_sql_schema_TableDefinition325); if (state.failed) return element;
+            // Sql.g:864:2: (a4= IDENTIFIER )
+            // Sql.g:865:3: a4= IDENTIFIER
+            {
+            a4=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_common_SchemaQualifiedName466); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-            			startIncompleteElement(element);
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.common.CommonFactory.eINSTANCE.createSchemaQualifiedName();
+            				startIncompleteElement(element);
+            			}
+            			if (a4 != null) {
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+            				tokenResolver.setOptions(getOptions());
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+            				tokenResolver.resolve(a4.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.common.CommonPackage.SCHEMA_QUALIFIED_NAME__NAME), result);
+            				Object resolvedObject = result.getResolvedToken();
+            				if (resolvedObject == null) {
+            					addErrorToResource(result.getErrorMessage(), ((CommonToken) a4).getLine(), ((CommonToken) a4).getCharPositionInLine(), ((CommonToken) a4).getStartIndex(), ((CommonToken) a4).getStopIndex());
+            				}
+            				java.lang.String resolved = (java.lang.String) resolvedObject;
+            				if (resolved != null) {
+            					Object value = resolved;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.common.CommonPackage.SCHEMA_QUALIFIED_NAME__NAME), value);
+            					completedElement(value, false);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_1, resolved, true);
+            				copyLocalizationInfos((CommonToken) a4, element);
+            			}
             		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_2, null, true);
-            		copyLocalizationInfos((CommonToken)a6, element);
-            	}
+
+            }
+
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 9, 10);
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 25);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableDefinition(), 26);
+            		addExpectedElement(null, 27, 34);
             	}
 
-            // Sql.g:727:2: ( (a7= IDENTIFIER ) | (a8= SCHEMA_QUALIFIED_NAME ) )
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 5, parse_org_emftext_language_sql_common_SchemaQualifiedName_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_common_SchemaQualifiedName"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_literal_ExactNumericLiteral"
+    // Sql.g:907:1: parse_org_emftext_language_sql_literal_ExactNumericLiteral returns [org.emftext.language.sql.literal.ExactNumericLiteral element = null] : ( (a0= EXACT_NUMERIC_LITERAL ) | (a1= UNSIGNED_INTEGER ) );
+    public final org.emftext.language.sql.literal.ExactNumericLiteral parse_org_emftext_language_sql_literal_ExactNumericLiteral() throws RecognitionException {
+        org.emftext.language.sql.literal.ExactNumericLiteral element =  null;
+
+        int parse_org_emftext_language_sql_literal_ExactNumericLiteral_StartIndex = input.index();
+
+        Token a0=null;
+        Token a1=null;
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return element; }
+
+            // Sql.g:910:2: ( (a0= EXACT_NUMERIC_LITERAL ) | (a1= UNSIGNED_INTEGER ) )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==IDENTIFIER) ) {
+            if ( (LA4_0==EXACT_NUMERIC_LITERAL) ) {
                 alt4=1;
             }
-            else if ( (LA4_0==SCHEMA_QUALIFIED_NAME) ) {
+            else if ( (LA4_0==UNSIGNED_INTEGER) ) {
                 alt4=2;
             }
             else {
@@ -1075,308 +1347,106 @@ public class SqlParser extends SqlANTLRParserBase {
             }
             switch (alt4) {
                 case 1 :
-                    // Sql.g:728:3: (a7= IDENTIFIER )
+                    // Sql.g:911:2: (a0= EXACT_NUMERIC_LITERAL )
                     {
-                    // Sql.g:728:3: (a7= IDENTIFIER )
-                    // Sql.g:729:4: a7= IDENTIFIER
+                    // Sql.g:911:2: (a0= EXACT_NUMERIC_LITERAL )
+                    // Sql.g:912:3: a0= EXACT_NUMERIC_LITERAL
                     {
-                    a7=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_TableDefinition348); if (state.failed) return element;
+                    a0=(Token)match(input,EXACT_NUMERIC_LITERAL,FOLLOW_EXACT_NUMERIC_LITERAL_in_parse_org_emftext_language_sql_literal_ExactNumericLiteral506); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
-                    				if (terminateParsing) {
-                    					throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    				}
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-                    					startIncompleteElement(element);
-                    				}
-                    				if (a7 != null) {
-                    					org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                    					tokenResolver.setOptions(getOptions());
-                    					org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    					tokenResolver.resolve(a7.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__NAME), result);
-                    					Object resolvedObject = result.getResolvedToken();
-                    					if (resolvedObject == null) {
-                    						addErrorToResource(result.getErrorMessage(), ((CommonToken) a7).getLine(), ((CommonToken) a7).getCharPositionInLine(), ((CommonToken) a7).getStartIndex(), ((CommonToken) a7).getStopIndex());
-                    					}
-                    					org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                    					if (resolved != null) {
-                    						Object value = resolved;
-                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__NAME), value);
-                    						completedElement(value, false);
-                    					}
-                    					collectHiddenTokens(element);
-                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_3_0_0_0, resolved, true);
-                    					copyLocalizationInfos((CommonToken) a7, element);
-                    				}
+                    			if (terminateParsing) {
+                    				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
                     			}
+                    			if (element == null) {
+                    				element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createExactNumericLiteral();
+                    				startIncompleteElement(element);
+                    			}
+                    			if (a0 != null) {
+                    				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("EXACT_NUMERIC_LITERAL");
+                    				tokenResolver.setOptions(getOptions());
+                    				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.EXACT_NUMERIC_LITERAL__VALUE), result);
+                    				Object resolvedObject = result.getResolvedToken();
+                    				if (resolvedObject == null) {
+                    					addErrorToResource(result.getErrorMessage(), ((CommonToken) a0).getLine(), ((CommonToken) a0).getCharPositionInLine(), ((CommonToken) a0).getStartIndex(), ((CommonToken) a0).getStopIndex());
+                    				}
+                    				java.math.BigDecimal resolved = (java.math.BigDecimal) resolvedObject;
+                    				if (resolved != null) {
+                    					Object value = resolved;
+                    					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.EXACT_NUMERIC_LITERAL__VALUE), value);
+                    					completedElement(value, false);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_4_0_0_0, resolved, true);
+                    				copyLocalizationInfos((CommonToken) a0, element);
+                    			}
+                    		}
 
                     }
 
 
                     if ( state.backtracking==0 ) {
-                    			// expected elements (follow set)
-                    			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableDefinition(), 11);
-                    		}
+                    		// expected elements (follow set)
+                    		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 35, 40);
+                    		addExpectedElement(null, 41, 43);
+                    	}
 
                     }
                     break;
                 case 2 :
-                    // Sql.g:765:6: (a8= SCHEMA_QUALIFIED_NAME )
+                    // Sql.g:949:4: (a1= UNSIGNED_INTEGER )
                     {
-                    // Sql.g:765:6: (a8= SCHEMA_QUALIFIED_NAME )
-                    // Sql.g:766:4: a8= SCHEMA_QUALIFIED_NAME
+                    // Sql.g:949:4: (a1= UNSIGNED_INTEGER )
+                    // Sql.g:950:3: a1= UNSIGNED_INTEGER
                     {
-                    a8=(Token)match(input,SCHEMA_QUALIFIED_NAME,FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_TableDefinition386); if (state.failed) return element;
+                    a1=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_literal_ExactNumericLiteral535); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
-                    				if (terminateParsing) {
-                    					throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    				}
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-                    					startIncompleteElement(element);
-                    				}
-                    				if (a8 != null) {
-                    					org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("SCHEMA_QUALIFIED_NAME");
-                    					tokenResolver.setOptions(getOptions());
-                    					org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    					tokenResolver.resolve(a8.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__NAME), result);
-                    					Object resolvedObject = result.getResolvedToken();
-                    					if (resolvedObject == null) {
-                    						addErrorToResource(result.getErrorMessage(), ((CommonToken) a8).getLine(), ((CommonToken) a8).getCharPositionInLine(), ((CommonToken) a8).getStartIndex(), ((CommonToken) a8).getStopIndex());
-                    					}
-                    					org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                    					if (resolved != null) {
-                    						Object value = resolved;
-                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__NAME), value);
-                    						completedElement(value, false);
-                    					}
-                    					collectHiddenTokens(element);
-                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_3_0_1_0, resolved, true);
-                    					copyLocalizationInfos((CommonToken) a8, element);
-                    				}
+                    			if (terminateParsing) {
+                    				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
                     			}
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    			// expected elements (follow set)
-                    			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableDefinition(), 12);
+                    			if (element == null) {
+                    				element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createExactNumericLiteral();
+                    				startIncompleteElement(element);
+                    			}
+                    			if (a1 != null) {
+                    				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
+                    				tokenResolver.setOptions(getOptions());
+                    				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.EXACT_NUMERIC_LITERAL__VALUE), result);
+                    				Object resolvedObject = result.getResolvedToken();
+                    				if (resolvedObject == null) {
+                    					addErrorToResource(result.getErrorMessage(), ((CommonToken) a1).getLine(), ((CommonToken) a1).getCharPositionInLine(), ((CommonToken) a1).getStartIndex(), ((CommonToken) a1).getStopIndex());
+                    				}
+                    				java.math.BigDecimal resolved = (java.math.BigDecimal) resolvedObject;
+                    				if (resolved != null) {
+                    					Object value = resolved;
+                    					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.EXACT_NUMERIC_LITERAL__VALUE), value);
+                    					completedElement(value, false);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_4_0_1_0, resolved, true);
+                    				copyLocalizationInfos((CommonToken) a1, element);
+                    			}
                     		}
 
                     }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableDefinition(), 13);
-            	}
-
-            // Sql.g:807:2: (a9_0= parse_org_emftext_language_sql_schema_TableContentsSource )
-            // Sql.g:808:3: a9_0= parse_org_emftext_language_sql_schema_TableContentsSource
-            {
-            pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_TableContentsSource_in_parse_org_emftext_language_sql_schema_TableDefinition424);
-            a9_0=parse_org_emftext_language_sql_schema_TableContentsSource();
-
-            state._fsp--;
-            if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            			if (terminateParsing) {
-            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-            			}
-            			if (element == null) {
-            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-            				startIncompleteElement(element);
-            			}
-            			if (a9_0 != null) {
-            				if (a9_0 != null) {
-            					Object value = a9_0;
-            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__CONTENTS_SOURCE), value);
-            					completedElement(value, true);
-            				}
-            				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_4, a9_0, true);
-            				copyLocalizationInfos(a9_0, element);
-            			}
-            		}
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 14, 15);
-            	}
-
-            // Sql.g:833:2: ( (a10= KEYWORD_ON a11= KEYWORD_COMMIT ( (a12= 'PRESERVE' |a13= 'DELETE' ) ) a16= KEYWORD_ROWS ) )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
-
-            if ( (LA6_0==KEYWORD_ON) ) {
-                alt6=1;
-            }
-            switch (alt6) {
-                case 1 :
-                    // Sql.g:834:3: (a10= KEYWORD_ON a11= KEYWORD_COMMIT ( (a12= 'PRESERVE' |a13= 'DELETE' ) ) a16= KEYWORD_ROWS )
-                    {
-                    // Sql.g:834:3: (a10= KEYWORD_ON a11= KEYWORD_COMMIT ( (a12= 'PRESERVE' |a13= 'DELETE' ) ) a16= KEYWORD_ROWS )
-                    // Sql.g:835:4: a10= KEYWORD_ON a11= KEYWORD_COMMIT ( (a12= 'PRESERVE' |a13= 'DELETE' ) ) a16= KEYWORD_ROWS
-                    {
-                    a10=(Token)match(input,KEYWORD_ON,FOLLOW_KEYWORD_ON_in_parse_org_emftext_language_sql_schema_TableDefinition451); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_5_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a10, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 16);
-                    			}
-
-                    a11=(Token)match(input,KEYWORD_COMMIT,FOLLOW_KEYWORD_COMMIT_in_parse_org_emftext_language_sql_schema_TableDefinition471); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_5_0_0_1, null, true);
-                    				copyLocalizationInfos((CommonToken)a11, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 17);
-                    			}
-
-                    // Sql.g:863:4: ( (a12= 'PRESERVE' |a13= 'DELETE' ) )
-                    // Sql.g:864:5: (a12= 'PRESERVE' |a13= 'DELETE' )
-                    {
-                    // Sql.g:864:5: (a12= 'PRESERVE' |a13= 'DELETE' )
-                    int alt5=2;
-                    int LA5_0 = input.LA(1);
-
-                    if ( (LA5_0==100) ) {
-                        alt5=1;
-                    }
-                    else if ( (LA5_0==79) ) {
-                        alt5=2;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return element;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 5, 0, input);
-
-                        throw nvae;
-
-                    }
-                    switch (alt5) {
-                        case 1 :
-                            // Sql.g:865:6: a12= 'PRESERVE'
-                            {
-                            a12=(Token)match(input,100,FOLLOW_100_in_parse_org_emftext_language_sql_schema_TableDefinition504); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-                            							startIncompleteElement(element);
-                            						}
-                            						collectHiddenTokens(element);
-                            						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_5_0_0_2, null, true);
-                            						copyLocalizationInfos((CommonToken)a12, element);
-                            						// set value of enumeration attribute
-                            						Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableCommitAction().getEEnumLiteral(org.emftext.language.sql.schema.TableCommitAction.PRESERVE_ROWS_VALUE).getInstance();
-                            						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__COMMIT_ACTION), value);
-                            						completedElement(value, false);
-                            					}
-
-                            }
-                            break;
-                        case 2 :
-                            // Sql.g:878:12: a13= 'DELETE'
-                            {
-                            a13=(Token)match(input,79,FOLLOW_79_in_parse_org_emftext_language_sql_schema_TableDefinition523); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-                            							startIncompleteElement(element);
-                            						}
-                            						collectHiddenTokens(element);
-                            						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_5_0_0_2, null, true);
-                            						copyLocalizationInfos((CommonToken)a13, element);
-                            						// set value of enumeration attribute
-                            						Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableCommitAction().getEEnumLiteral(org.emftext.language.sql.schema.TableCommitAction.DELETE_ROWS_VALUE).getInstance();
-                            						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__COMMIT_ACTION), value);
-                            						completedElement(value, false);
-                            					}
-
-                            }
-                            break;
-
-                    }
-
-
-                    }
 
 
                     if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 18);
-                    			}
-
-                    a16=(Token)match(input,KEYWORD_ROWS,FOLLOW_KEYWORD_ROWS_in_parse_org_emftext_language_sql_schema_TableDefinition554); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1_0_0_5_0_0_3, null, true);
-                    				copyLocalizationInfos((CommonToken)a16, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				// We've found the last token for this rule. The constructed EObject is now
-                    				// complete.
-                    				completedElement(element, true);
-                    				addExpectedElement(null, 19);
-                    			}
-
-                    }
-
+                    		// expected elements (follow set)
+                    		// We've found the last token for this rule. The constructed EObject is now
+                    		// complete.
+                    		completedElement(element, true);
+                    		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 44, 49);
+                    		addExpectedElement(null, 50, 52);
+                    	}
 
                     }
                     break;
 
             }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(null, 20);
-            	}
-
-            }
-
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -1385,277 +1455,62 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 3, parse_org_emftext_language_sql_schema_TableDefinition_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 6, parse_org_emftext_language_sql_literal_ExactNumericLiteral_StartIndex); }
 
         }
         return element;
     }
-    // $ANTLR end "parse_org_emftext_language_sql_schema_TableDefinition"
+    // $ANTLR end "parse_org_emftext_language_sql_literal_ExactNumericLiteral"
 
 
 
-    // $ANTLR start "parse_org_emftext_language_sql_schema_TableElementList"
-    // Sql.g:927:1: parse_org_emftext_language_sql_schema_TableElementList returns [org.emftext.language.sql.schema.TableElementList element = null] : a0= '(' (a1_0= parse_org_emftext_language_sql_schema_TableElement ) ( (a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement ) ) )* a4= ')' ;
-    public final org.emftext.language.sql.schema.TableElementList parse_org_emftext_language_sql_schema_TableElementList() throws RecognitionException {
-        org.emftext.language.sql.schema.TableElementList element =  null;
+    // $ANTLR start "parse_org_emftext_language_sql_literal_ApproximateNumericLiteral"
+    // Sql.g:991:1: parse_org_emftext_language_sql_literal_ApproximateNumericLiteral returns [org.emftext.language.sql.literal.ApproximateNumericLiteral element = null] : (a0= APPROXIMATE_NUMERIC_LITERAL ) ;
+    public final org.emftext.language.sql.literal.ApproximateNumericLiteral parse_org_emftext_language_sql_literal_ApproximateNumericLiteral() throws RecognitionException {
+        org.emftext.language.sql.literal.ApproximateNumericLiteral element =  null;
 
-        int parse_org_emftext_language_sql_schema_TableElementList_StartIndex = input.index();
+        int parse_org_emftext_language_sql_literal_ApproximateNumericLiteral_StartIndex = input.index();
 
         Token a0=null;
-        Token a2=null;
-        Token a4=null;
-        org.emftext.language.sql.schema.TableElement a1_0 =null;
-
-        org.emftext.language.sql.schema.TableElement a3_0 =null;
-
 
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 4) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return element; }
 
-            // Sql.g:930:2: (a0= '(' (a1_0= parse_org_emftext_language_sql_schema_TableElement ) ( (a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement ) ) )* a4= ')' )
-            // Sql.g:931:2: a0= '(' (a1_0= parse_org_emftext_language_sql_schema_TableElement ) ( (a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement ) ) )* a4= ')'
+            // Sql.g:994:2: ( (a0= APPROXIMATE_NUMERIC_LITERAL ) )
+            // Sql.g:995:2: (a0= APPROXIMATE_NUMERIC_LITERAL )
             {
-            a0=(Token)match(input,58,FOLLOW_58_in_parse_org_emftext_language_sql_schema_TableElementList602); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableElementList();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_2_0_0_0, null, true);
-            		copyLocalizationInfos((CommonToken)a0, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableElementList(), 21, 25);
-            	}
-
-            // Sql.g:945:2: (a1_0= parse_org_emftext_language_sql_schema_TableElement )
-            // Sql.g:946:3: a1_0= parse_org_emftext_language_sql_schema_TableElement
+            // Sql.g:995:2: (a0= APPROXIMATE_NUMERIC_LITERAL )
+            // Sql.g:996:3: a0= APPROXIMATE_NUMERIC_LITERAL
             {
-            pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_TableElement_in_parse_org_emftext_language_sql_schema_TableElementList620);
-            a1_0=parse_org_emftext_language_sql_schema_TableElement();
-
-            state._fsp--;
-            if (state.failed) return element;
+            a0=(Token)match(input,APPROXIMATE_NUMERIC_LITERAL,FOLLOW_APPROXIMATE_NUMERIC_LITERAL_in_parse_org_emftext_language_sql_literal_ApproximateNumericLiteral575); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
             				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
             			}
             			if (element == null) {
-            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableElementList();
-            				startIncompleteElement(element);
-            			}
-            			if (a1_0 != null) {
-            				if (a1_0 != null) {
-            					Object value = a1_0;
-            					addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.TABLE_ELEMENT_LIST__ELEMENTS, value);
-            					completedElement(value, true);
-            				}
-            				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_2_0_0_1, a1_0, true);
-            				copyLocalizationInfos(a1_0, element);
-            			}
-            		}
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 26, 27);
-            	}
-
-            // Sql.g:971:2: ( (a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement ) ) )*
-            loop7:
-            do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
-
-                if ( (LA7_0==61) ) {
-                    alt7=1;
-                }
-
-
-                switch (alt7) {
-            	case 1 :
-            	    // Sql.g:972:3: (a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement ) )
-            	    {
-            	    // Sql.g:972:3: (a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement ) )
-            	    // Sql.g:973:4: a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement )
-            	    {
-            	    a2=(Token)match(input,61,FOLLOW_61_in_parse_org_emftext_language_sql_schema_TableElementList647); if (state.failed) return element;
-
-            	    if ( state.backtracking==0 ) {
-            	    				if (element == null) {
-            	    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableElementList();
-            	    					startIncompleteElement(element);
-            	    				}
-            	    				collectHiddenTokens(element);
-            	    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_2_0_0_2_0_0_0, null, true);
-            	    				copyLocalizationInfos((CommonToken)a2, element);
-            	    			}
-
-            	    if ( state.backtracking==0 ) {
-            	    				// expected elements (follow set)
-            	    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableElementList(), 28, 32);
-            	    			}
-
-            	    // Sql.g:987:4: (a3_0= parse_org_emftext_language_sql_schema_TableElement )
-            	    // Sql.g:988:5: a3_0= parse_org_emftext_language_sql_schema_TableElement
-            	    {
-            	    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_TableElement_in_parse_org_emftext_language_sql_schema_TableElementList673);
-            	    a3_0=parse_org_emftext_language_sql_schema_TableElement();
-
-            	    state._fsp--;
-            	    if (state.failed) return element;
-
-            	    if ( state.backtracking==0 ) {
-            	    					if (terminateParsing) {
-            	    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-            	    					}
-            	    					if (element == null) {
-            	    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableElementList();
-            	    						startIncompleteElement(element);
-            	    					}
-            	    					if (a3_0 != null) {
-            	    						if (a3_0 != null) {
-            	    							Object value = a3_0;
-            	    							addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.TABLE_ELEMENT_LIST__ELEMENTS, value);
-            	    							completedElement(value, true);
-            	    						}
-            	    						collectHiddenTokens(element);
-            	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_2_0_0_2_0_0_1, a3_0, true);
-            	    						copyLocalizationInfos(a3_0, element);
-            	    					}
-            	    				}
-
-            	    }
-
-
-            	    if ( state.backtracking==0 ) {
-            	    				// expected elements (follow set)
-            	    				addExpectedElement(null, 33, 34);
-            	    			}
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop7;
-                }
-            } while (true);
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 35, 36);
-            	}
-
-            a4=(Token)match(input,59,FOLLOW_59_in_parse_org_emftext_language_sql_schema_TableElementList714); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableElementList();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_2_0_0_3, null, true);
-            		copyLocalizationInfos((CommonToken)a4, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(null, 37, 38);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 4, parse_org_emftext_language_sql_schema_TableElementList_StartIndex); }
-
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_emftext_language_sql_schema_TableElementList"
-
-
-
-    // $ANTLR start "parse_org_emftext_language_sql_schema_Column"
-    // Sql.g:1039:1: parse_org_emftext_language_sql_schema_Column returns [org.emftext.language.sql.schema.Column element = null] : (a0= IDENTIFIER ) (a1_0= parse_org_emftext_language_sql_datatype_DataType ) ( (a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption ) ) )? ( (a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint ) )? ( (a5= KEYWORD_COLLATE ( (a6= IDENTIFIER ) | (a7= SCHEMA_QUALIFIED_NAME ) ) ) )? ;
-    public final org.emftext.language.sql.schema.Column parse_org_emftext_language_sql_schema_Column() throws RecognitionException {
-        org.emftext.language.sql.schema.Column element =  null;
-
-        int parse_org_emftext_language_sql_schema_Column_StartIndex = input.index();
-
-        Token a0=null;
-        Token a2=null;
-        Token a5=null;
-        Token a6=null;
-        Token a7=null;
-        org.emftext.language.sql.datatype.DataType a1_0 =null;
-
-        org.emftext.language.sql.schema.DefaultOption a3_0 =null;
-
-        org.emftext.language.sql.schema.ColumnConstraint a4_0 =null;
-
-
-
-
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return element; }
-
-            // Sql.g:1042:2: ( (a0= IDENTIFIER ) (a1_0= parse_org_emftext_language_sql_datatype_DataType ) ( (a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption ) ) )? ( (a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint ) )? ( (a5= KEYWORD_COLLATE ( (a6= IDENTIFIER ) | (a7= SCHEMA_QUALIFIED_NAME ) ) ) )? )
-            // Sql.g:1043:2: (a0= IDENTIFIER ) (a1_0= parse_org_emftext_language_sql_datatype_DataType ) ( (a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption ) ) )? ( (a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint ) )? ( (a5= KEYWORD_COLLATE ( (a6= IDENTIFIER ) | (a7= SCHEMA_QUALIFIED_NAME ) ) ) )?
-            {
-            // Sql.g:1043:2: (a0= IDENTIFIER )
-            // Sql.g:1044:3: a0= IDENTIFIER
-            {
-            a0=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_Column747); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            			if (terminateParsing) {
-            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-            			}
-            			if (element == null) {
-            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+            				element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createApproximateNumericLiteral();
             				startIncompleteElement(element);
             			}
             			if (a0 != null) {
-            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("APPROXIMATE_NUMERIC_LITERAL");
             				tokenResolver.setOptions(getOptions());
             				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-            				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__NAME), result);
+            				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.APPROXIMATE_NUMERIC_LITERAL__VALUE), result);
             				Object resolvedObject = result.getResolvedToken();
             				if (resolvedObject == null) {
             					addErrorToResource(result.getErrorMessage(), ((CommonToken) a0).getLine(), ((CommonToken) a0).getCharPositionInLine(), ((CommonToken) a0).getStartIndex(), ((CommonToken) a0).getStopIndex());
             				}
-            				org.emftext.language.sql.Identifier resolved = (org.emftext.language.sql.Identifier) resolvedObject;
+            				java.lang.Double resolved = (java.lang.Double) resolvedObject;
             				if (resolved != null) {
             					Object value = resolved;
-            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__NAME), value);
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.APPROXIMATE_NUMERIC_LITERAL__VALUE), value);
             					completedElement(value, false);
             				}
             				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_0, resolved, true);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_5_0_0_0, resolved, true);
             				copyLocalizationInfos((CommonToken) a0, element);
             			}
             		}
@@ -1665,361 +1520,11 @@ public class SqlParser extends SqlANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 39, 45);
-            	}
-
-            // Sql.g:1079:2: (a1_0= parse_org_emftext_language_sql_datatype_DataType )
-            // Sql.g:1080:3: a1_0= parse_org_emftext_language_sql_datatype_DataType
-            {
-            pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_DataType_in_parse_org_emftext_language_sql_schema_Column772);
-            a1_0=parse_org_emftext_language_sql_datatype_DataType();
-
-            state._fsp--;
-            if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            			if (terminateParsing) {
-            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-            			}
-            			if (element == null) {
-            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-            				startIncompleteElement(element);
-            			}
-            			if (a1_0 != null) {
-            				if (a1_0 != null) {
-            					Object value = a1_0;
-            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__DATA_TYPE), value);
-            					completedElement(value, true);
-            				}
-            				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_1, a1_0, true);
-            				copyLocalizationInfos(a1_0, element);
-            			}
-            		}
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 46);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 47, 52);
-            		addExpectedElement(null, 53, 55);
-            	}
-
-            // Sql.g:1107:2: ( (a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption ) ) )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
-
-            if ( (LA8_0==KEYWORD_DEFAULT) ) {
-                alt8=1;
-            }
-            switch (alt8) {
-                case 1 :
-                    // Sql.g:1108:3: (a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption ) )
-                    {
-                    // Sql.g:1108:3: (a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption ) )
-                    // Sql.g:1109:4: a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption )
-                    {
-                    a2=(Token)match(input,KEYWORD_DEFAULT,FOLLOW_KEYWORD_DEFAULT_in_parse_org_emftext_language_sql_schema_Column799); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_2_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a2, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 56, 68);
-                    				addExpectedElement(null, 69, 71);
-                    			}
-
-                    // Sql.g:1124:4: (a3_0= parse_org_emftext_language_sql_schema_DefaultOption )
-                    // Sql.g:1125:5: a3_0= parse_org_emftext_language_sql_schema_DefaultOption
-                    {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_DefaultOption_in_parse_org_emftext_language_sql_schema_Column825);
-                    a3_0=parse_org_emftext_language_sql_schema_DefaultOption();
-
-                    state._fsp--;
-                    if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    					if (terminateParsing) {
-                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    					}
-                    					if (element == null) {
-                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-                    						startIncompleteElement(element);
-                    					}
-                    					if (a3_0 != null) {
-                    						if (a3_0 != null) {
-                    							Object value = a3_0;
-                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__DEFAULT_OPTION), value);
-                    							completedElement(value, true);
-                    						}
-                    						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_2_0_0_1, a3_0, true);
-                    						copyLocalizationInfos(a3_0, element);
-                    					}
-                    				}
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 72, 77);
-                    				addExpectedElement(null, 78, 80);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 81, 86);
-            		addExpectedElement(null, 87, 89);
-            	}
-
-            // Sql.g:1159:2: ( (a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint ) )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
-
-            if ( (LA9_0==KEYWORD_CONSTRAINT||LA9_0==KEYWORD_NOT||LA9_0==KEYWORD_REFERENCES||LA9_0==101||LA9_0==107) ) {
-                alt9=1;
-            }
-            switch (alt9) {
-                case 1 :
-                    // Sql.g:1160:3: (a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint )
-                    {
-                    // Sql.g:1160:3: (a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint )
-                    // Sql.g:1161:4: a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint
-                    {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_ColumnConstraint_in_parse_org_emftext_language_sql_schema_Column875);
-                    a4_0=parse_org_emftext_language_sql_schema_ColumnConstraint();
-
-                    state._fsp--;
-                    if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (terminateParsing) {
-                    					throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    				}
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-                    					startIncompleteElement(element);
-                    				}
-                    				if (a4_0 != null) {
-                    					if (a4_0 != null) {
-                    						Object value = a4_0;
-                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__CONSTRAINT_DEFINITION), value);
-                    						completedElement(value, true);
-                    					}
-                    					collectHiddenTokens(element);
-                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_3, a4_0, true);
-                    					copyLocalizationInfos(a4_0, element);
-                    				}
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 90, 92);
-            	}
-
-            // Sql.g:1187:2: ( (a5= KEYWORD_COLLATE ( (a6= IDENTIFIER ) | (a7= SCHEMA_QUALIFIED_NAME ) ) ) )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
-
-            if ( (LA11_0==KEYWORD_COLLATE) ) {
-                alt11=1;
-            }
-            switch (alt11) {
-                case 1 :
-                    // Sql.g:1188:3: (a5= KEYWORD_COLLATE ( (a6= IDENTIFIER ) | (a7= SCHEMA_QUALIFIED_NAME ) ) )
-                    {
-                    // Sql.g:1188:3: (a5= KEYWORD_COLLATE ( (a6= IDENTIFIER ) | (a7= SCHEMA_QUALIFIED_NAME ) ) )
-                    // Sql.g:1189:4: a5= KEYWORD_COLLATE ( (a6= IDENTIFIER ) | (a7= SCHEMA_QUALIFIED_NAME ) )
-                    {
-                    a5=(Token)match(input,KEYWORD_COLLATE,FOLLOW_KEYWORD_COLLATE_in_parse_org_emftext_language_sql_schema_Column910); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_4_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a5, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 93, 94);
-                    			}
-
-                    // Sql.g:1203:4: ( (a6= IDENTIFIER ) | (a7= SCHEMA_QUALIFIED_NAME ) )
-                    int alt10=2;
-                    int LA10_0 = input.LA(1);
-
-                    if ( (LA10_0==IDENTIFIER) ) {
-                        alt10=1;
-                    }
-                    else if ( (LA10_0==SCHEMA_QUALIFIED_NAME) ) {
-                        alt10=2;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return element;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 10, 0, input);
-
-                        throw nvae;
-
-                    }
-                    switch (alt10) {
-                        case 1 :
-                            // Sql.g:1204:5: (a6= IDENTIFIER )
-                            {
-                            // Sql.g:1204:5: (a6= IDENTIFIER )
-                            // Sql.g:1205:6: a6= IDENTIFIER
-                            {
-                            a6=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_Column943); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (terminateParsing) {
-                            							throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            						}
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-                            							startIncompleteElement(element);
-                            						}
-                            						if (a6 != null) {
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                            							tokenResolver.setOptions(getOptions());
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            							tokenResolver.resolve(a6.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__COLLATION_NAME), result);
-                            							Object resolvedObject = result.getResolvedToken();
-                            							if (resolvedObject == null) {
-                            								addErrorToResource(result.getErrorMessage(), ((CommonToken) a6).getLine(), ((CommonToken) a6).getCharPositionInLine(), ((CommonToken) a6).getStartIndex(), ((CommonToken) a6).getStopIndex());
-                            							}
-                            							org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                            							if (resolved != null) {
-                            								Object value = resolved;
-                            								element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__COLLATION_NAME), value);
-                            								completedElement(value, false);
-                            							}
-                            							collectHiddenTokens(element);
-                            							retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_4_0_0_1_0_0_0, resolved, true);
-                            							copyLocalizationInfos((CommonToken) a6, element);
-                            						}
-                            					}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            					// expected elements (follow set)
-                            					addExpectedElement(null, 95, 96);
-                            				}
-
-                            }
-                            break;
-                        case 2 :
-                            // Sql.g:1241:10: (a7= SCHEMA_QUALIFIED_NAME )
-                            {
-                            // Sql.g:1241:10: (a7= SCHEMA_QUALIFIED_NAME )
-                            // Sql.g:1242:6: a7= SCHEMA_QUALIFIED_NAME
-                            {
-                            a7=(Token)match(input,SCHEMA_QUALIFIED_NAME,FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_Column999); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (terminateParsing) {
-                            							throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            						}
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-                            							startIncompleteElement(element);
-                            						}
-                            						if (a7 != null) {
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("SCHEMA_QUALIFIED_NAME");
-                            							tokenResolver.setOptions(getOptions());
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            							tokenResolver.resolve(a7.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__COLLATION_NAME), result);
-                            							Object resolvedObject = result.getResolvedToken();
-                            							if (resolvedObject == null) {
-                            								addErrorToResource(result.getErrorMessage(), ((CommonToken) a7).getLine(), ((CommonToken) a7).getCharPositionInLine(), ((CommonToken) a7).getStartIndex(), ((CommonToken) a7).getStopIndex());
-                            							}
-                            							org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                            							if (resolved != null) {
-                            								Object value = resolved;
-                            								element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__COLLATION_NAME), value);
-                            								completedElement(value, false);
-                            							}
-                            							collectHiddenTokens(element);
-                            							retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3_0_0_4_0_0_1_0_1_0, resolved, true);
-                            							copyLocalizationInfos((CommonToken) a7, element);
-                            						}
-                            					}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            					// expected elements (follow set)
-                            					// We've found the last token for this rule. The constructed EObject is now
-                            					// complete.
-                            					completedElement(element, true);
-                            					addExpectedElement(null, 97, 98);
-                            				}
-
-                            }
-                            break;
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				// We've found the last token for this rule. The constructed EObject is now
-                    				// complete.
-                    				completedElement(element, true);
-                    				addExpectedElement(null, 99, 100);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(null, 101, 102);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 53, 58);
+            		addExpectedElement(null, 59, 61);
             	}
 
             }
@@ -2032,179 +1537,28 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 5, parse_org_emftext_language_sql_schema_Column_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 7, parse_org_emftext_language_sql_literal_ApproximateNumericLiteral_StartIndex); }
 
         }
         return element;
     }
-    // $ANTLR end "parse_org_emftext_language_sql_schema_Column"
+    // $ANTLR end "parse_org_emftext_language_sql_literal_ApproximateNumericLiteral"
 
 
 
-    // $ANTLR start "parse_org_emftext_language_sql_schema_LiteralDefaultOption"
-    // Sql.g:1301:1: parse_org_emftext_language_sql_schema_LiteralDefaultOption returns [org.emftext.language.sql.schema.LiteralDefaultOption element = null] : (a0_0= parse_org_emftext_language_sql_literal_Literal ) ;
-    public final org.emftext.language.sql.schema.LiteralDefaultOption parse_org_emftext_language_sql_schema_LiteralDefaultOption() throws RecognitionException {
-        org.emftext.language.sql.schema.LiteralDefaultOption element =  null;
+    // $ANTLR start "parse_org_emftext_language_sql_literal_CharacterStringLiteral"
+    // Sql.g:1037:1: parse_org_emftext_language_sql_literal_CharacterStringLiteral returns [org.emftext.language.sql.literal.CharacterStringLiteral element = null] : ( (a0= '_' (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? (a2= QUOTED_STRING ) ( ( (a3_0= parse_org_emftext_language_sql_common_Separator ) (a4= QUOTED_STRING ) ) )* ;
+    public final org.emftext.language.sql.literal.CharacterStringLiteral parse_org_emftext_language_sql_literal_CharacterStringLiteral() throws RecognitionException {
+        org.emftext.language.sql.literal.CharacterStringLiteral element =  null;
 
-        int parse_org_emftext_language_sql_schema_LiteralDefaultOption_StartIndex = input.index();
+        int parse_org_emftext_language_sql_literal_CharacterStringLiteral_StartIndex = input.index();
 
-        org.emftext.language.sql.literal.Literal a0_0 =null;
+        Token a0=null;
+        Token a2=null;
+        Token a4=null;
+        org.emftext.language.sql.common.SchemaQualifiedName a1_0 =null;
 
-
-
-
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return element; }
-
-            // Sql.g:1304:2: ( (a0_0= parse_org_emftext_language_sql_literal_Literal ) )
-            // Sql.g:1305:2: (a0_0= parse_org_emftext_language_sql_literal_Literal )
-            {
-            // Sql.g:1305:2: (a0_0= parse_org_emftext_language_sql_literal_Literal )
-            // Sql.g:1306:3: a0_0= parse_org_emftext_language_sql_literal_Literal
-            {
-            pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_Literal_in_parse_org_emftext_language_sql_schema_LiteralDefaultOption1083);
-            a0_0=parse_org_emftext_language_sql_literal_Literal();
-
-            state._fsp--;
-            if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            			if (terminateParsing) {
-            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-            			}
-            			if (element == null) {
-            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createLiteralDefaultOption();
-            				startIncompleteElement(element);
-            			}
-            			if (a0_0 != null) {
-            				if (a0_0 != null) {
-            					Object value = a0_0;
-            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.LITERAL_DEFAULT_OPTION__LITERAL), value);
-            					completedElement(value, true);
-            				}
-            				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_4_0_0_0, a0_0, true);
-            				copyLocalizationInfos(a0_0, element);
-            			}
-            		}
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 103, 108);
-            		addExpectedElement(null, 109, 111);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 6, parse_org_emftext_language_sql_schema_LiteralDefaultOption_StartIndex); }
-
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_emftext_language_sql_schema_LiteralDefaultOption"
-
-
-
-    // $ANTLR start "parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption"
-    // Sql.g:1337:1: parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption returns [org.emftext.language.sql.schema.DatetimeValueFunctionDefaultOption element = null] : (a0_0= parse_org_emftext_language_sql_function_DatetimeValueFunction ) ;
-    public final org.emftext.language.sql.schema.DatetimeValueFunctionDefaultOption parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption() throws RecognitionException {
-        org.emftext.language.sql.schema.DatetimeValueFunctionDefaultOption element =  null;
-
-        int parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption_StartIndex = input.index();
-
-        org.emftext.language.sql.function.DatetimeValueFunction a0_0 =null;
-
-
-
-
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return element; }
-
-            // Sql.g:1340:2: ( (a0_0= parse_org_emftext_language_sql_function_DatetimeValueFunction ) )
-            // Sql.g:1341:2: (a0_0= parse_org_emftext_language_sql_function_DatetimeValueFunction )
-            {
-            // Sql.g:1341:2: (a0_0= parse_org_emftext_language_sql_function_DatetimeValueFunction )
-            // Sql.g:1342:3: a0_0= parse_org_emftext_language_sql_function_DatetimeValueFunction
-            {
-            pushFollow(FOLLOW_parse_org_emftext_language_sql_function_DatetimeValueFunction_in_parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption1120);
-            a0_0=parse_org_emftext_language_sql_function_DatetimeValueFunction();
-
-            state._fsp--;
-            if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            			if (terminateParsing) {
-            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-            			}
-            			if (element == null) {
-            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createDatetimeValueFunctionDefaultOption();
-            				startIncompleteElement(element);
-            			}
-            			if (a0_0 != null) {
-            				if (a0_0 != null) {
-            					Object value = a0_0;
-            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.DATETIME_VALUE_FUNCTION_DEFAULT_OPTION__FUNCTION), value);
-            					completedElement(value, true);
-            				}
-            				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_5_0_0_0, a0_0, true);
-            				copyLocalizationInfos(a0_0, element);
-            			}
-            		}
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 112, 117);
-            		addExpectedElement(null, 118, 120);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 7, parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption_StartIndex); }
-
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption"
-
-
-
-    // $ANTLR start "parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption"
-    // Sql.g:1373:1: parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption returns [org.emftext.language.sql.schema.ImplicitlyTypedValueSpecificationDefaultOption element = null] : (a0_0= parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification ) ;
-    public final org.emftext.language.sql.schema.ImplicitlyTypedValueSpecificationDefaultOption parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption() throws RecognitionException {
-        org.emftext.language.sql.schema.ImplicitlyTypedValueSpecificationDefaultOption element =  null;
-
-        int parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption_StartIndex = input.index();
-
-        org.emftext.language.sql.expression.ImplicitlyTypedValueSpecification a0_0 =null;
+        org.emftext.language.sql.common.Separator a3_0 =null;
 
 
 
@@ -2212,35 +1566,122 @@ public class SqlParser extends SqlANTLRParserBase {
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return element; }
 
-            // Sql.g:1376:2: ( (a0_0= parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification ) )
-            // Sql.g:1377:2: (a0_0= parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification )
+            // Sql.g:1040:2: ( ( (a0= '_' (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? (a2= QUOTED_STRING ) ( ( (a3_0= parse_org_emftext_language_sql_common_Separator ) (a4= QUOTED_STRING ) ) )* )
+            // Sql.g:1041:2: ( (a0= '_' (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? (a2= QUOTED_STRING ) ( ( (a3_0= parse_org_emftext_language_sql_common_Separator ) (a4= QUOTED_STRING ) ) )*
             {
-            // Sql.g:1377:2: (a0_0= parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification )
-            // Sql.g:1378:3: a0_0= parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification
-            {
-            pushFollow(FOLLOW_parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification_in_parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption1157);
-            a0_0=parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification();
+            // Sql.g:1041:2: ( (a0= '_' (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            state._fsp--;
-            if (state.failed) return element;
+            if ( (LA5_0==102) ) {
+                alt5=1;
+            }
+            switch (alt5) {
+                case 1 :
+                    // Sql.g:1042:3: (a0= '_' (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    {
+                    // Sql.g:1042:3: (a0= '_' (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    // Sql.g:1043:4: a0= '_' (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    {
+                    a0=(Token)match(input,102,FOLLOW_102_in_parse_org_emftext_language_sql_literal_CharacterStringLiteral620); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createCharacterStringLiteral();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_6_0_0_0_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a0, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(org.emftext.language.sql.literal.LiteralPackage.eINSTANCE.getCharacterStringLiteral(), 62, 64);
+                    			}
+
+                    // Sql.g:1057:4: (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    // Sql.g:1058:5: a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_literal_CharacterStringLiteral646);
+                    a1_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createCharacterStringLiteral();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a1_0 != null) {
+                    						if (a1_0 != null) {
+                    							Object value = a1_0;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.CHARACTER_STRING_LITERAL__CHARACTER_SET_NAME), value);
+                    							completedElement(value, true);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_6_0_0_0_0_0_1, a1_0, true);
+                    						copyLocalizationInfos(a1_0, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 65);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 66);
+            	}
+
+            // Sql.g:1090:2: (a2= QUOTED_STRING )
+            // Sql.g:1091:3: a2= QUOTED_STRING
+            {
+            a2=(Token)match(input,QUOTED_STRING,FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_CharacterStringLiteral691); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
             				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
             			}
             			if (element == null) {
-            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createImplicitlyTypedValueSpecificationDefaultOption();
+            				element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createCharacterStringLiteral();
             				startIncompleteElement(element);
             			}
-            			if (a0_0 != null) {
-            				if (a0_0 != null) {
-            					Object value = a0_0;
-            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.IMPLICITLY_TYPED_VALUE_SPECIFICATION_DEFAULT_OPTION__SPECIFICATION), value);
-            					completedElement(value, true);
+            			if (a2 != null) {
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_STRING");
+            				tokenResolver.setOptions(getOptions());
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+            				tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.CHARACTER_STRING_LITERAL__VALUES), result);
+            				Object resolvedObject = result.getResolvedToken();
+            				if (resolvedObject == null) {
+            					addErrorToResource(result.getErrorMessage(), ((CommonToken) a2).getLine(), ((CommonToken) a2).getCharPositionInLine(), ((CommonToken) a2).getStartIndex(), ((CommonToken) a2).getStopIndex());
+            				}
+            				java.lang.String resolved = (java.lang.String) resolvedObject;
+            				if (resolved != null) {
+            					Object value = resolved;
+            					addObjectToList(element, org.emftext.language.sql.literal.LiteralPackage.CHARACTER_STRING_LITERAL__VALUES, value);
+            					completedElement(value, false);
             				}
             				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_6_0_0_0, a0_0, true);
-            				copyLocalizationInfos(a0_0, element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_6_0_0_1, resolved, true);
+            				copyLocalizationInfos((CommonToken) a2, element);
             			}
             		}
 
@@ -2249,11 +1690,133 @@ public class SqlParser extends SqlANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
+            		addExpectedElement(org.emftext.language.sql.literal.LiteralPackage.eINSTANCE.getCharacterStringLiteral(), 67, 68);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 69, 74);
+            		addExpectedElement(null, 75, 77);
+            	}
+
+            // Sql.g:1128:2: ( ( (a3_0= parse_org_emftext_language_sql_common_Separator ) (a4= QUOTED_STRING ) ) )*
+            loop6:
+            do {
+                int alt6=2;
+                int LA6_0 = input.LA(1);
+
+                if ( (LA6_0==BRACKETED_COMMENT||LA6_0==SIMPLE_COMMENT) ) {
+                    alt6=1;
+                }
+
+
+                switch (alt6) {
+            	case 1 :
+            	    // Sql.g:1129:3: ( (a3_0= parse_org_emftext_language_sql_common_Separator ) (a4= QUOTED_STRING ) )
+            	    {
+            	    // Sql.g:1129:3: ( (a3_0= parse_org_emftext_language_sql_common_Separator ) (a4= QUOTED_STRING ) )
+            	    // Sql.g:1130:4: (a3_0= parse_org_emftext_language_sql_common_Separator ) (a4= QUOTED_STRING )
+            	    {
+            	    // Sql.g:1130:4: (a3_0= parse_org_emftext_language_sql_common_Separator )
+            	    // Sql.g:1131:5: a3_0= parse_org_emftext_language_sql_common_Separator
+            	    {
+            	    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_Separator_in_parse_org_emftext_language_sql_literal_CharacterStringLiteral727);
+            	    a3_0=parse_org_emftext_language_sql_common_Separator();
+
+            	    state._fsp--;
+            	    if (state.failed) return element;
+
+            	    if ( state.backtracking==0 ) {
+            	    					if (terminateParsing) {
+            	    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            	    					}
+            	    					if (element == null) {
+            	    						element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createCharacterStringLiteral();
+            	    						startIncompleteElement(element);
+            	    					}
+            	    					if (a3_0 != null) {
+            	    						if (a3_0 != null) {
+            	    							Object value = a3_0;
+            	    							addObjectToList(element, org.emftext.language.sql.literal.LiteralPackage.CHARACTER_STRING_LITERAL__SEPARATORS, value);
+            	    							completedElement(value, true);
+            	    						}
+            	    						collectHiddenTokens(element);
+            	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_6_0_0_2_0_0_0, a3_0, true);
+            	    						copyLocalizationInfos(a3_0, element);
+            	    					}
+            	    				}
+
+            	    }
+
+
+            	    if ( state.backtracking==0 ) {
+            	    				// expected elements (follow set)
+            	    				addExpectedElement(null, 78);
+            	    			}
+
+            	    // Sql.g:1156:4: (a4= QUOTED_STRING )
+            	    // Sql.g:1157:5: a4= QUOTED_STRING
+            	    {
+            	    a4=(Token)match(input,QUOTED_STRING,FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_CharacterStringLiteral761); if (state.failed) return element;
+
+            	    if ( state.backtracking==0 ) {
+            	    					if (terminateParsing) {
+            	    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            	    					}
+            	    					if (element == null) {
+            	    						element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createCharacterStringLiteral();
+            	    						startIncompleteElement(element);
+            	    					}
+            	    					if (a4 != null) {
+            	    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_STRING");
+            	    						tokenResolver.setOptions(getOptions());
+            	    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+            	    						tokenResolver.resolve(a4.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.CHARACTER_STRING_LITERAL__VALUES), result);
+            	    						Object resolvedObject = result.getResolvedToken();
+            	    						if (resolvedObject == null) {
+            	    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a4).getLine(), ((CommonToken) a4).getCharPositionInLine(), ((CommonToken) a4).getStartIndex(), ((CommonToken) a4).getStopIndex());
+            	    						}
+            	    						java.lang.String resolved = (java.lang.String) resolvedObject;
+            	    						if (resolved != null) {
+            	    							Object value = resolved;
+            	    							addObjectToList(element, org.emftext.language.sql.literal.LiteralPackage.CHARACTER_STRING_LITERAL__VALUES, value);
+            	    							completedElement(value, false);
+            	    						}
+            	    						collectHiddenTokens(element);
+            	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_6_0_0_2_0_0_1, resolved, true);
+            	    						copyLocalizationInfos((CommonToken) a4, element);
+            	    					}
+            	    				}
+
+            	    }
+
+
+            	    if ( state.backtracking==0 ) {
+            	    				// expected elements (follow set)
+            	    				// We've found the last token for this rule. The constructed EObject is now
+            	    				// complete.
+            	    				completedElement(element, true);
+            	    				addExpectedElement(org.emftext.language.sql.literal.LiteralPackage.eINSTANCE.getCharacterStringLiteral(), 79, 80);
+            	    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 81, 86);
+            	    				addExpectedElement(null, 87, 89);
+            	    			}
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop6;
+                }
+            } while (true);
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 121, 126);
-            		addExpectedElement(null, 127, 129);
+            		addExpectedElement(org.emftext.language.sql.literal.LiteralPackage.eINSTANCE.getCharacterStringLiteral(), 90, 91);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 92, 97);
+            		addExpectedElement(null, 98, 100);
             	}
 
             }
@@ -2266,1043 +1829,219 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 8, parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 8, parse_org_emftext_language_sql_literal_CharacterStringLiteral_StartIndex); }
 
         }
         return element;
     }
-    // $ANTLR end "parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption"
+    // $ANTLR end "parse_org_emftext_language_sql_literal_CharacterStringLiteral"
 
 
 
-    // $ANTLR start "parse_org_emftext_language_sql_schema_NotNullColumnConstraint"
-    // Sql.g:1409:1: parse_org_emftext_language_sql_schema_NotNullColumnConstraint returns [org.emftext.language.sql.schema.NotNullColumnConstraint element = null] : ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? a3= KEYWORD_NOT a4= KEYWORD_NULL ;
-    public final org.emftext.language.sql.schema.NotNullColumnConstraint parse_org_emftext_language_sql_schema_NotNullColumnConstraint() throws RecognitionException {
-        org.emftext.language.sql.schema.NotNullColumnConstraint element =  null;
+    // $ANTLR start "parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral"
+    // Sql.g:1211:1: parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral returns [org.emftext.language.sql.literal.NationalCharacterStringLiteral element = null] : (a0= KEYWORD_N (a1= QUOTED_STRING ) ( ( (a2_0= parse_org_emftext_language_sql_common_Separator ) (a3= QUOTED_STRING ) ) )* |c0= parse_org_emftext_language_sql_literal_CharacterStringLiteral );
+    public final org.emftext.language.sql.literal.NationalCharacterStringLiteral parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral() throws RecognitionException {
+        org.emftext.language.sql.literal.NationalCharacterStringLiteral element =  null;
 
-        int parse_org_emftext_language_sql_schema_NotNullColumnConstraint_StartIndex = input.index();
+        int parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral_StartIndex = input.index();
 
         Token a0=null;
         Token a1=null;
-        Token a2=null;
         Token a3=null;
-        Token a4=null;
+        org.emftext.language.sql.common.Separator a2_0 =null;
+
+        org.emftext.language.sql.literal.CharacterStringLiteral c0 =null;
+
 
 
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return element; }
 
-            // Sql.g:1412:2: ( ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? a3= KEYWORD_NOT a4= KEYWORD_NULL )
-            // Sql.g:1413:2: ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? a3= KEYWORD_NOT a4= KEYWORD_NULL
-            {
-            // Sql.g:1413:2: ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // Sql.g:1214:2: (a0= KEYWORD_N (a1= QUOTED_STRING ) ( ( (a2_0= parse_org_emftext_language_sql_common_Separator ) (a3= QUOTED_STRING ) ) )* |c0= parse_org_emftext_language_sql_literal_CharacterStringLiteral )
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA13_0==KEYWORD_CONSTRAINT) ) {
-                alt13=1;
+            if ( (LA8_0==KEYWORD_N) ) {
+                alt8=1;
             }
-            switch (alt13) {
-                case 1 :
-                    // Sql.g:1414:3: (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) )
-                    {
-                    // Sql.g:1414:3: (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) )
-                    // Sql.g:1415:4: a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) )
-                    {
-                    a0=(Token)match(input,KEYWORD_CONSTRAINT,FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint1199); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createNotNullColumnConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_7_0_0_0_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a0, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 130, 131);
-                    			}
-
-                    // Sql.g:1429:4: ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) )
-                    int alt12=2;
-                    int LA12_0 = input.LA(1);
-
-                    if ( (LA12_0==IDENTIFIER) ) {
-                        alt12=1;
-                    }
-                    else if ( (LA12_0==SCHEMA_QUALIFIED_NAME) ) {
-                        alt12=2;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return element;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 12, 0, input);
-
-                        throw nvae;
-
-                    }
-                    switch (alt12) {
-                        case 1 :
-                            // Sql.g:1430:5: (a1= IDENTIFIER )
-                            {
-                            // Sql.g:1430:5: (a1= IDENTIFIER )
-                            // Sql.g:1431:6: a1= IDENTIFIER
-                            {
-                            a1=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint1232); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (terminateParsing) {
-                            							throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            						}
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createNotNullColumnConstraint();
-                            							startIncompleteElement(element);
-                            						}
-                            						if (a1 != null) {
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                            							tokenResolver.setOptions(getOptions());
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            							tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.NOT_NULL_COLUMN_CONSTRAINT__NAME), result);
-                            							Object resolvedObject = result.getResolvedToken();
-                            							if (resolvedObject == null) {
-                            								addErrorToResource(result.getErrorMessage(), ((CommonToken) a1).getLine(), ((CommonToken) a1).getCharPositionInLine(), ((CommonToken) a1).getStartIndex(), ((CommonToken) a1).getStopIndex());
-                            							}
-                            							org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                            							if (resolved != null) {
-                            								Object value = resolved;
-                            								element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.NOT_NULL_COLUMN_CONSTRAINT__NAME), value);
-                            								completedElement(value, false);
-                            							}
-                            							collectHiddenTokens(element);
-                            							retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_7_0_0_0_0_0_1_0_0_0, resolved, true);
-                            							copyLocalizationInfos((CommonToken) a1, element);
-                            						}
-                            					}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            					// expected elements (follow set)
-                            					addExpectedElement(null, 132);
-                            				}
-
-                            }
-                            break;
-                        case 2 :
-                            // Sql.g:1467:10: (a2= SCHEMA_QUALIFIED_NAME )
-                            {
-                            // Sql.g:1467:10: (a2= SCHEMA_QUALIFIED_NAME )
-                            // Sql.g:1468:6: a2= SCHEMA_QUALIFIED_NAME
-                            {
-                            a2=(Token)match(input,SCHEMA_QUALIFIED_NAME,FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint1288); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (terminateParsing) {
-                            							throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            						}
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createNotNullColumnConstraint();
-                            							startIncompleteElement(element);
-                            						}
-                            						if (a2 != null) {
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("SCHEMA_QUALIFIED_NAME");
-                            							tokenResolver.setOptions(getOptions());
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            							tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.NOT_NULL_COLUMN_CONSTRAINT__NAME), result);
-                            							Object resolvedObject = result.getResolvedToken();
-                            							if (resolvedObject == null) {
-                            								addErrorToResource(result.getErrorMessage(), ((CommonToken) a2).getLine(), ((CommonToken) a2).getCharPositionInLine(), ((CommonToken) a2).getStartIndex(), ((CommonToken) a2).getStopIndex());
-                            							}
-                            							org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                            							if (resolved != null) {
-                            								Object value = resolved;
-                            								element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.NOT_NULL_COLUMN_CONSTRAINT__NAME), value);
-                            								completedElement(value, false);
-                            							}
-                            							collectHiddenTokens(element);
-                            							retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_7_0_0_0_0_0_1_0_1_0, resolved, true);
-                            							copyLocalizationInfos((CommonToken) a2, element);
-                            						}
-                            					}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            					// expected elements (follow set)
-                            					addExpectedElement(null, 133);
-                            				}
-
-                            }
-                            break;
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 134);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 135);
-            	}
-
-            a3=(Token)match(input,KEYWORD_NOT,FOLLOW_KEYWORD_NOT_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint1353); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createNotNullColumnConstraint();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_7_0_0_1, null, true);
-            		copyLocalizationInfos((CommonToken)a3, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 136);
-            	}
-
-            a4=(Token)match(input,KEYWORD_NULL,FOLLOW_KEYWORD_NULL_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint1367); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createNotNullColumnConstraint();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_7_0_0_2, null, true);
-            		copyLocalizationInfos((CommonToken)a4, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(null, 137, 139);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 9, parse_org_emftext_language_sql_schema_NotNullColumnConstraint_StartIndex); }
-
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_emftext_language_sql_schema_NotNullColumnConstraint"
-
-
-
-    // $ANTLR start "parse_org_emftext_language_sql_schema_UniqueColumnConstraint"
-    // Sql.g:1549:1: parse_org_emftext_language_sql_schema_UniqueColumnConstraint returns [org.emftext.language.sql.schema.UniqueColumnConstraint element = null] : ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? ( (a3= 'UNIQUE' |a4= 'PRIMARY KEY' ) ) ;
-    public final org.emftext.language.sql.schema.UniqueColumnConstraint parse_org_emftext_language_sql_schema_UniqueColumnConstraint() throws RecognitionException {
-        org.emftext.language.sql.schema.UniqueColumnConstraint element =  null;
-
-        int parse_org_emftext_language_sql_schema_UniqueColumnConstraint_StartIndex = input.index();
-
-        Token a0=null;
-        Token a1=null;
-        Token a2=null;
-        Token a3=null;
-        Token a4=null;
-
-
-
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return element; }
-
-            // Sql.g:1552:2: ( ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? ( (a3= 'UNIQUE' |a4= 'PRIMARY KEY' ) ) )
-            // Sql.g:1553:2: ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? ( (a3= 'UNIQUE' |a4= 'PRIMARY KEY' ) )
-            {
-            // Sql.g:1553:2: ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
-
-            if ( (LA15_0==KEYWORD_CONSTRAINT) ) {
-                alt15=1;
-            }
-            switch (alt15) {
-                case 1 :
-                    // Sql.g:1554:3: (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) )
-                    {
-                    // Sql.g:1554:3: (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) )
-                    // Sql.g:1555:4: a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) )
-                    {
-                    a0=(Token)match(input,KEYWORD_CONSTRAINT,FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint1405); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueColumnConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_8_0_0_0_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a0, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 140, 141);
-                    			}
-
-                    // Sql.g:1569:4: ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) )
-                    int alt14=2;
-                    int LA14_0 = input.LA(1);
-
-                    if ( (LA14_0==IDENTIFIER) ) {
-                        alt14=1;
-                    }
-                    else if ( (LA14_0==SCHEMA_QUALIFIED_NAME) ) {
-                        alt14=2;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return element;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 14, 0, input);
-
-                        throw nvae;
-
-                    }
-                    switch (alt14) {
-                        case 1 :
-                            // Sql.g:1570:5: (a1= IDENTIFIER )
-                            {
-                            // Sql.g:1570:5: (a1= IDENTIFIER )
-                            // Sql.g:1571:6: a1= IDENTIFIER
-                            {
-                            a1=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint1438); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (terminateParsing) {
-                            							throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            						}
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueColumnConstraint();
-                            							startIncompleteElement(element);
-                            						}
-                            						if (a1 != null) {
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                            							tokenResolver.setOptions(getOptions());
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            							tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_COLUMN_CONSTRAINT__NAME), result);
-                            							Object resolvedObject = result.getResolvedToken();
-                            							if (resolvedObject == null) {
-                            								addErrorToResource(result.getErrorMessage(), ((CommonToken) a1).getLine(), ((CommonToken) a1).getCharPositionInLine(), ((CommonToken) a1).getStartIndex(), ((CommonToken) a1).getStopIndex());
-                            							}
-                            							org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                            							if (resolved != null) {
-                            								Object value = resolved;
-                            								element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_COLUMN_CONSTRAINT__NAME), value);
-                            								completedElement(value, false);
-                            							}
-                            							collectHiddenTokens(element);
-                            							retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_8_0_0_0_0_0_1_0_0_0, resolved, true);
-                            							copyLocalizationInfos((CommonToken) a1, element);
-                            						}
-                            					}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            					// expected elements (follow set)
-                            					addExpectedElement(null, 142);
-                            				}
-
-                            }
-                            break;
-                        case 2 :
-                            // Sql.g:1607:10: (a2= SCHEMA_QUALIFIED_NAME )
-                            {
-                            // Sql.g:1607:10: (a2= SCHEMA_QUALIFIED_NAME )
-                            // Sql.g:1608:6: a2= SCHEMA_QUALIFIED_NAME
-                            {
-                            a2=(Token)match(input,SCHEMA_QUALIFIED_NAME,FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint1494); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (terminateParsing) {
-                            							throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            						}
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueColumnConstraint();
-                            							startIncompleteElement(element);
-                            						}
-                            						if (a2 != null) {
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("SCHEMA_QUALIFIED_NAME");
-                            							tokenResolver.setOptions(getOptions());
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            							tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_COLUMN_CONSTRAINT__NAME), result);
-                            							Object resolvedObject = result.getResolvedToken();
-                            							if (resolvedObject == null) {
-                            								addErrorToResource(result.getErrorMessage(), ((CommonToken) a2).getLine(), ((CommonToken) a2).getCharPositionInLine(), ((CommonToken) a2).getStartIndex(), ((CommonToken) a2).getStopIndex());
-                            							}
-                            							org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                            							if (resolved != null) {
-                            								Object value = resolved;
-                            								element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_COLUMN_CONSTRAINT__NAME), value);
-                            								completedElement(value, false);
-                            							}
-                            							collectHiddenTokens(element);
-                            							retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_8_0_0_0_0_0_1_0_1_0, resolved, true);
-                            							copyLocalizationInfos((CommonToken) a2, element);
-                            						}
-                            					}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            					// expected elements (follow set)
-                            					addExpectedElement(null, 143);
-                            				}
-
-                            }
-                            break;
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 144);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 145);
-            	}
-
-            // Sql.g:1656:2: ( (a3= 'UNIQUE' |a4= 'PRIMARY KEY' ) )
-            // Sql.g:1657:3: (a3= 'UNIQUE' |a4= 'PRIMARY KEY' )
-            {
-            // Sql.g:1657:3: (a3= 'UNIQUE' |a4= 'PRIMARY KEY' )
-            int alt16=2;
-            int LA16_0 = input.LA(1);
-
-            if ( (LA16_0==107) ) {
-                alt16=1;
-            }
-            else if ( (LA16_0==101) ) {
-                alt16=2;
+            else if ( (LA8_0==QUOTED_STRING||LA8_0==102) ) {
+                alt8=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 16, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt16) {
+            switch (alt8) {
                 case 1 :
-                    // Sql.g:1658:4: a3= 'UNIQUE'
+                    // Sql.g:1215:2: a0= KEYWORD_N (a1= QUOTED_STRING ) ( ( (a2_0= parse_org_emftext_language_sql_common_Separator ) (a3= QUOTED_STRING ) ) )*
                     {
-                    a3=(Token)match(input,107,FOLLOW_107_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint1568); if (state.failed) return element;
+                    a0=(Token)match(input,KEYWORD_N,FOLLOW_KEYWORD_N_in_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral822); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueColumnConstraint();
-                    					startIncompleteElement(element);
+                    		if (element == null) {
+                    			element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createNationalCharacterStringLiteral();
+                    			startIncompleteElement(element);
+                    		}
+                    		collectHiddenTokens(element);
+                    		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_7_0_0_0, null, true);
+                    		copyLocalizationInfos((CommonToken)a0, element);
+                    	}
+
+                    if ( state.backtracking==0 ) {
+                    		// expected elements (follow set)
+                    		addExpectedElement(null, 101);
+                    	}
+
+                    // Sql.g:1229:2: (a1= QUOTED_STRING )
+                    // Sql.g:1230:3: a1= QUOTED_STRING
+                    {
+                    a1=(Token)match(input,QUOTED_STRING,FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral840); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    			if (terminateParsing) {
+                    				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    			}
+                    			if (element == null) {
+                    				element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createNationalCharacterStringLiteral();
+                    				startIncompleteElement(element);
+                    			}
+                    			if (a1 != null) {
+                    				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_STRING");
+                    				tokenResolver.setOptions(getOptions());
+                    				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.NATIONAL_CHARACTER_STRING_LITERAL__VALUES), result);
+                    				Object resolvedObject = result.getResolvedToken();
+                    				if (resolvedObject == null) {
+                    					addErrorToResource(result.getErrorMessage(), ((CommonToken) a1).getLine(), ((CommonToken) a1).getCharPositionInLine(), ((CommonToken) a1).getStartIndex(), ((CommonToken) a1).getStopIndex());
+                    				}
+                    				java.lang.String resolved = (java.lang.String) resolvedObject;
+                    				if (resolved != null) {
+                    					Object value = resolved;
+                    					addObjectToList(element, org.emftext.language.sql.literal.LiteralPackage.NATIONAL_CHARACTER_STRING_LITERAL__VALUES, value);
+                    					completedElement(value, false);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_8_0_0_1, null, true);
-                    				copyLocalizationInfos((CommonToken)a3, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueSpecificationKind().getEEnumLiteral(org.emftext.language.sql.schema.UniqueSpecificationKind.UNIQUE_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_COLUMN_CONSTRAINT__KIND), value);
-                    				completedElement(value, false);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_7_0_0_1, resolved, true);
+                    				copyLocalizationInfos((CommonToken) a1, element);
                     			}
-
-                    }
-                    break;
-                case 2 :
-                    // Sql.g:1671:8: a4= 'PRIMARY KEY'
-                    {
-                    a4=(Token)match(input,101,FOLLOW_101_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint1583); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueColumnConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_8_0_0_1, null, true);
-                    				copyLocalizationInfos((CommonToken)a4, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueSpecificationKind().getEEnumLiteral(org.emftext.language.sql.schema.UniqueSpecificationKind.PRIMARY_KEY_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_COLUMN_CONSTRAINT__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(null, 146, 148);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 10, parse_org_emftext_language_sql_schema_UniqueColumnConstraint_StartIndex); }
-
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_emftext_language_sql_schema_UniqueColumnConstraint"
-
-
-
-    // $ANTLR start "parse_org_emftext_language_sql_schema_ReferentialColumnConstraint"
-    // Sql.g:1696:1: parse_org_emftext_language_sql_schema_ReferentialColumnConstraint returns [org.emftext.language.sql.schema.ReferentialColumnConstraint element = null] : ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? a3= KEYWORD_REFERENCES ( (a4= IDENTIFIER ) | (a5= SCHEMA_QUALIFIED_NAME ) ) ( (a6= '(' (a7= IDENTIFIER ) ( (a8= ',' (a9= IDENTIFIER ) ) )* a10= ')' ) )? ;
-    public final org.emftext.language.sql.schema.ReferentialColumnConstraint parse_org_emftext_language_sql_schema_ReferentialColumnConstraint() throws RecognitionException {
-        org.emftext.language.sql.schema.ReferentialColumnConstraint element =  null;
-
-        int parse_org_emftext_language_sql_schema_ReferentialColumnConstraint_StartIndex = input.index();
-
-        Token a0=null;
-        Token a1=null;
-        Token a2=null;
-        Token a3=null;
-        Token a4=null;
-        Token a5=null;
-        Token a6=null;
-        Token a7=null;
-        Token a8=null;
-        Token a9=null;
-        Token a10=null;
-
-
-
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return element; }
-
-            // Sql.g:1699:2: ( ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? a3= KEYWORD_REFERENCES ( (a4= IDENTIFIER ) | (a5= SCHEMA_QUALIFIED_NAME ) ) ( (a6= '(' (a7= IDENTIFIER ) ( (a8= ',' (a9= IDENTIFIER ) ) )* a10= ')' ) )? )
-            // Sql.g:1700:2: ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? a3= KEYWORD_REFERENCES ( (a4= IDENTIFIER ) | (a5= SCHEMA_QUALIFIED_NAME ) ) ( (a6= '(' (a7= IDENTIFIER ) ( (a8= ',' (a9= IDENTIFIER ) ) )* a10= ')' ) )?
-            {
-            // Sql.g:1700:2: ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
-
-            if ( (LA18_0==KEYWORD_CONSTRAINT) ) {
-                alt18=1;
-            }
-            switch (alt18) {
-                case 1 :
-                    // Sql.g:1701:3: (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) )
-                    {
-                    // Sql.g:1701:3: (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) )
-                    // Sql.g:1702:4: a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) )
-                    {
-                    a0=(Token)match(input,KEYWORD_CONSTRAINT,FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1628); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_0_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a0, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 149, 150);
-                    			}
-
-                    // Sql.g:1716:4: ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) )
-                    int alt17=2;
-                    int LA17_0 = input.LA(1);
-
-                    if ( (LA17_0==IDENTIFIER) ) {
-                        alt17=1;
-                    }
-                    else if ( (LA17_0==SCHEMA_QUALIFIED_NAME) ) {
-                        alt17=2;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return element;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 17, 0, input);
-
-                        throw nvae;
-
-                    }
-                    switch (alt17) {
-                        case 1 :
-                            // Sql.g:1717:5: (a1= IDENTIFIER )
-                            {
-                            // Sql.g:1717:5: (a1= IDENTIFIER )
-                            // Sql.g:1718:6: a1= IDENTIFIER
-                            {
-                            a1=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1661); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (terminateParsing) {
-                            							throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            						}
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
-                            							startIncompleteElement(element);
-                            						}
-                            						if (a1 != null) {
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                            							tokenResolver.setOptions(getOptions());
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            							tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__NAME), result);
-                            							Object resolvedObject = result.getResolvedToken();
-                            							if (resolvedObject == null) {
-                            								addErrorToResource(result.getErrorMessage(), ((CommonToken) a1).getLine(), ((CommonToken) a1).getCharPositionInLine(), ((CommonToken) a1).getStartIndex(), ((CommonToken) a1).getStopIndex());
-                            							}
-                            							org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                            							if (resolved != null) {
-                            								Object value = resolved;
-                            								element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__NAME), value);
-                            								completedElement(value, false);
-                            							}
-                            							collectHiddenTokens(element);
-                            							retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_0_0_0_1_0_0_0, resolved, true);
-                            							copyLocalizationInfos((CommonToken) a1, element);
-                            						}
-                            					}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            					// expected elements (follow set)
-                            					addExpectedElement(null, 151);
-                            				}
-
-                            }
-                            break;
-                        case 2 :
-                            // Sql.g:1754:10: (a2= SCHEMA_QUALIFIED_NAME )
-                            {
-                            // Sql.g:1754:10: (a2= SCHEMA_QUALIFIED_NAME )
-                            // Sql.g:1755:6: a2= SCHEMA_QUALIFIED_NAME
-                            {
-                            a2=(Token)match(input,SCHEMA_QUALIFIED_NAME,FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1717); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (terminateParsing) {
-                            							throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            						}
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
-                            							startIncompleteElement(element);
-                            						}
-                            						if (a2 != null) {
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("SCHEMA_QUALIFIED_NAME");
-                            							tokenResolver.setOptions(getOptions());
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            							tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__NAME), result);
-                            							Object resolvedObject = result.getResolvedToken();
-                            							if (resolvedObject == null) {
-                            								addErrorToResource(result.getErrorMessage(), ((CommonToken) a2).getLine(), ((CommonToken) a2).getCharPositionInLine(), ((CommonToken) a2).getStartIndex(), ((CommonToken) a2).getStopIndex());
-                            							}
-                            							org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                            							if (resolved != null) {
-                            								Object value = resolved;
-                            								element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__NAME), value);
-                            								completedElement(value, false);
-                            							}
-                            							collectHiddenTokens(element);
-                            							retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_0_0_0_1_0_1_0, resolved, true);
-                            							copyLocalizationInfos((CommonToken) a2, element);
-                            						}
-                            					}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            					// expected elements (follow set)
-                            					addExpectedElement(null, 152);
-                            				}
-
-                            }
-                            break;
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 153);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 154);
-            	}
-
-            a3=(Token)match(input,KEYWORD_REFERENCES,FOLLOW_KEYWORD_REFERENCES_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1782); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_1, null, true);
-            		copyLocalizationInfos((CommonToken)a3, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 155, 156);
-            	}
-
-            // Sql.g:1817:2: ( (a4= IDENTIFIER ) | (a5= SCHEMA_QUALIFIED_NAME ) )
-            int alt19=2;
-            int LA19_0 = input.LA(1);
-
-            if ( (LA19_0==IDENTIFIER) ) {
-                alt19=1;
-            }
-            else if ( (LA19_0==SCHEMA_QUALIFIED_NAME) ) {
-                alt19=2;
-            }
-            else {
-                if (state.backtracking>0) {state.failed=true; return element;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 19, 0, input);
-
-                throw nvae;
-
-            }
-            switch (alt19) {
-                case 1 :
-                    // Sql.g:1818:3: (a4= IDENTIFIER )
-                    {
-                    // Sql.g:1818:3: (a4= IDENTIFIER )
-                    // Sql.g:1819:4: a4= IDENTIFIER
-                    {
-                    a4=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1805); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (terminateParsing) {
-                    					throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    				}
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				if (a4 != null) {
-                    					org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                    					tokenResolver.setOptions(getOptions());
-                    					org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    					tokenResolver.resolve(a4.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_TABLE), result);
-                    					Object resolvedObject = result.getResolvedToken();
-                    					if (resolvedObject == null) {
-                    						addErrorToResource(result.getErrorMessage(), ((CommonToken) a4).getLine(), ((CommonToken) a4).getCharPositionInLine(), ((CommonToken) a4).getStartIndex(), ((CommonToken) a4).getStopIndex());
-                    					}
-                    					String resolved = (String) resolvedObject;
-                    					org.emftext.language.sql.schema.TableDefinition proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-                    					collectHiddenTokens(element);
-                    					registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.TableDefinition>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialConstraintReferencedTableReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_TABLE), resolved, proxy);
-                    					if (proxy != null) {
-                    						Object value = proxy;
-                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_TABLE), value);
-                    						completedElement(value, false);
-                    					}
-                    					collectHiddenTokens(element);
-                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_2_0_0_0, proxy, true);
-                    					copyLocalizationInfos((CommonToken) a4, element);
-                    					copyLocalizationInfos((CommonToken) a4, proxy);
-                    				}
-                    			}
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    			// expected elements (follow set)
-                    			addExpectedElement(null, 157, 160);
                     		}
 
                     }
-                    break;
-                case 2 :
-                    // Sql.g:1859:6: (a5= SCHEMA_QUALIFIED_NAME )
-                    {
-                    // Sql.g:1859:6: (a5= SCHEMA_QUALIFIED_NAME )
-                    // Sql.g:1860:4: a5= SCHEMA_QUALIFIED_NAME
-                    {
-                    a5=(Token)match(input,SCHEMA_QUALIFIED_NAME,FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1843); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (terminateParsing) {
-                    					throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    				}
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				if (a5 != null) {
-                    					org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("SCHEMA_QUALIFIED_NAME");
-                    					tokenResolver.setOptions(getOptions());
-                    					org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    					tokenResolver.resolve(a5.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_TABLE), result);
-                    					Object resolvedObject = result.getResolvedToken();
-                    					if (resolvedObject == null) {
-                    						addErrorToResource(result.getErrorMessage(), ((CommonToken) a5).getLine(), ((CommonToken) a5).getCharPositionInLine(), ((CommonToken) a5).getStartIndex(), ((CommonToken) a5).getStopIndex());
-                    					}
-                    					String resolved = (String) resolvedObject;
-                    					org.emftext.language.sql.schema.TableDefinition proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-                    					collectHiddenTokens(element);
-                    					registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.TableDefinition>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialConstraintReferencedTableReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_TABLE), resolved, proxy);
-                    					if (proxy != null) {
-                    						Object value = proxy;
-                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_TABLE), value);
-                    						completedElement(value, false);
-                    					}
-                    					collectHiddenTokens(element);
-                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_2_0_1_0, proxy, true);
-                    					copyLocalizationInfos((CommonToken) a5, element);
-                    					copyLocalizationInfos((CommonToken) a5, proxy);
-                    				}
-                    			}
-
-                    }
 
 
                     if ( state.backtracking==0 ) {
-                    			// expected elements (follow set)
-                    			addExpectedElement(null, 161, 164);
-                    		}
+                    		// expected elements (follow set)
+                    		addExpectedElement(org.emftext.language.sql.literal.LiteralPackage.eINSTANCE.getNationalCharacterStringLiteral(), 102, 103);
+                    		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 104, 109);
+                    		addExpectedElement(null, 110, 112);
+                    	}
 
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 165, 168);
-            	}
-
-            // Sql.g:1905:2: ( (a6= '(' (a7= IDENTIFIER ) ( (a8= ',' (a9= IDENTIFIER ) ) )* a10= ')' ) )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
-
-            if ( (LA21_0==58) ) {
-                alt21=1;
-            }
-            switch (alt21) {
-                case 1 :
-                    // Sql.g:1906:3: (a6= '(' (a7= IDENTIFIER ) ( (a8= ',' (a9= IDENTIFIER ) ) )* a10= ')' )
-                    {
-                    // Sql.g:1906:3: (a6= '(' (a7= IDENTIFIER ) ( (a8= ',' (a9= IDENTIFIER ) ) )* a10= ')' )
-                    // Sql.g:1907:4: a6= '(' (a7= IDENTIFIER ) ( (a8= ',' (a9= IDENTIFIER ) ) )* a10= ')'
-                    {
-                    a6=(Token)match(input,58,FOLLOW_58_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1886); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_3_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a6, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 169);
-                    			}
-
-                    // Sql.g:1921:4: (a7= IDENTIFIER )
-                    // Sql.g:1922:5: a7= IDENTIFIER
-                    {
-                    a7=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1912); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    					if (terminateParsing) {
-                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    					}
-                    					if (element == null) {
-                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
-                    						startIncompleteElement(element);
-                    					}
-                    					if (a7 != null) {
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                    						tokenResolver.setOptions(getOptions());
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    						tokenResolver.resolve(a7.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS), result);
-                    						Object resolvedObject = result.getResolvedToken();
-                    						if (resolvedObject == null) {
-                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a7).getLine(), ((CommonToken) a7).getCharPositionInLine(), ((CommonToken) a7).getStartIndex(), ((CommonToken) a7).getStopIndex());
-                    						}
-                    						String resolved = (String) resolvedObject;
-                    						org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-                    						collectHiddenTokens(element);
-                    						registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialConstraintReferencedColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS), resolved, proxy);
-                    						if (proxy != null) {
-                    							Object value = proxy;
-                    							addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS, value);
-                    							completedElement(value, false);
-                    						}
-                    						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_3_0_0_1, proxy, true);
-                    						copyLocalizationInfos((CommonToken) a7, element);
-                    						copyLocalizationInfos((CommonToken) a7, proxy);
-                    					}
-                    				}
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 170, 171);
-                    			}
-
-                    // Sql.g:1961:4: ( (a8= ',' (a9= IDENTIFIER ) ) )*
-                    loop20:
+                    // Sql.g:1267:2: ( ( (a2_0= parse_org_emftext_language_sql_common_Separator ) (a3= QUOTED_STRING ) ) )*
+                    loop7:
                     do {
-                        int alt20=2;
-                        int LA20_0 = input.LA(1);
+                        int alt7=2;
+                        int LA7_0 = input.LA(1);
 
-                        if ( (LA20_0==61) ) {
-                            alt20=1;
+                        if ( (LA7_0==BRACKETED_COMMENT||LA7_0==SIMPLE_COMMENT) ) {
+                            alt7=1;
                         }
 
 
-                        switch (alt20) {
+                        switch (alt7) {
                     	case 1 :
-                    	    // Sql.g:1962:5: (a8= ',' (a9= IDENTIFIER ) )
+                    	    // Sql.g:1268:3: ( (a2_0= parse_org_emftext_language_sql_common_Separator ) (a3= QUOTED_STRING ) )
                     	    {
-                    	    // Sql.g:1962:5: (a8= ',' (a9= IDENTIFIER ) )
-                    	    // Sql.g:1963:6: a8= ',' (a9= IDENTIFIER )
+                    	    // Sql.g:1268:3: ( (a2_0= parse_org_emftext_language_sql_common_Separator ) (a3= QUOTED_STRING ) )
+                    	    // Sql.g:1269:4: (a2_0= parse_org_emftext_language_sql_common_Separator ) (a3= QUOTED_STRING )
                     	    {
-                    	    a8=(Token)match(input,61,FOLLOW_61_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1958); if (state.failed) return element;
+                    	    // Sql.g:1269:4: (a2_0= parse_org_emftext_language_sql_common_Separator )
+                    	    // Sql.g:1270:5: a2_0= parse_org_emftext_language_sql_common_Separator
+                    	    {
+                    	    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_Separator_in_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral876);
+                    	    a2_0=parse_org_emftext_language_sql_common_Separator();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return element;
 
                     	    if ( state.backtracking==0 ) {
-                    	    						if (element == null) {
-                    	    							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
-                    	    							startIncompleteElement(element);
+                    	    					if (terminateParsing) {
+                    	    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    	    					}
+                    	    					if (element == null) {
+                    	    						element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createNationalCharacterStringLiteral();
+                    	    						startIncompleteElement(element);
+                    	    					}
+                    	    					if (a2_0 != null) {
+                    	    						if (a2_0 != null) {
+                    	    							Object value = a2_0;
+                    	    							addObjectToList(element, org.emftext.language.sql.literal.LiteralPackage.NATIONAL_CHARACTER_STRING_LITERAL__SEPARATORS, value);
+                    	    							completedElement(value, true);
                     	    						}
                     	    						collectHiddenTokens(element);
-                    	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_3_0_0_2_0_0_0, null, true);
-                    	    						copyLocalizationInfos((CommonToken)a8, element);
+                    	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_7_0_0_2_0_0_0, a2_0, true);
+                    	    						copyLocalizationInfos(a2_0, element);
                     	    					}
-
-                    	    if ( state.backtracking==0 ) {
-                    	    						// expected elements (follow set)
-                    	    						addExpectedElement(null, 172);
-                    	    					}
-
-                    	    // Sql.g:1977:6: (a9= IDENTIFIER )
-                    	    // Sql.g:1978:7: a9= IDENTIFIER
-                    	    {
-                    	    a9=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1992); if (state.failed) return element;
-
-                    	    if ( state.backtracking==0 ) {
-                    	    							if (terminateParsing) {
-                    	    								throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    	    							}
-                    	    							if (element == null) {
-                    	    								element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
-                    	    								startIncompleteElement(element);
-                    	    							}
-                    	    							if (a9 != null) {
-                    	    								org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                    	    								tokenResolver.setOptions(getOptions());
-                    	    								org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    	    								tokenResolver.resolve(a9.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS), result);
-                    	    								Object resolvedObject = result.getResolvedToken();
-                    	    								if (resolvedObject == null) {
-                    	    									addErrorToResource(result.getErrorMessage(), ((CommonToken) a9).getLine(), ((CommonToken) a9).getCharPositionInLine(), ((CommonToken) a9).getStartIndex(), ((CommonToken) a9).getStopIndex());
-                    	    								}
-                    	    								String resolved = (String) resolvedObject;
-                    	    								org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-                    	    								collectHiddenTokens(element);
-                    	    								registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialConstraintReferencedColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS), resolved, proxy);
-                    	    								if (proxy != null) {
-                    	    									Object value = proxy;
-                    	    									addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS, value);
-                    	    									completedElement(value, false);
-                    	    								}
-                    	    								collectHiddenTokens(element);
-                    	    								retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_3_0_0_2_0_0_1, proxy, true);
-                    	    								copyLocalizationInfos((CommonToken) a9, element);
-                    	    								copyLocalizationInfos((CommonToken) a9, proxy);
-                    	    							}
-                    	    						}
+                    	    				}
 
                     	    }
 
 
                     	    if ( state.backtracking==0 ) {
-                    	    						// expected elements (follow set)
-                    	    						addExpectedElement(null, 173, 174);
+                    	    				// expected elements (follow set)
+                    	    				addExpectedElement(null, 113);
+                    	    			}
+
+                    	    // Sql.g:1295:4: (a3= QUOTED_STRING )
+                    	    // Sql.g:1296:5: a3= QUOTED_STRING
+                    	    {
+                    	    a3=(Token)match(input,QUOTED_STRING,FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral910); if (state.failed) return element;
+
+                    	    if ( state.backtracking==0 ) {
+                    	    					if (terminateParsing) {
+                    	    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
                     	    					}
+                    	    					if (element == null) {
+                    	    						element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createNationalCharacterStringLiteral();
+                    	    						startIncompleteElement(element);
+                    	    					}
+                    	    					if (a3 != null) {
+                    	    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_STRING");
+                    	    						tokenResolver.setOptions(getOptions());
+                    	    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    	    						tokenResolver.resolve(a3.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.NATIONAL_CHARACTER_STRING_LITERAL__VALUES), result);
+                    	    						Object resolvedObject = result.getResolvedToken();
+                    	    						if (resolvedObject == null) {
+                    	    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a3).getLine(), ((CommonToken) a3).getCharPositionInLine(), ((CommonToken) a3).getStartIndex(), ((CommonToken) a3).getStopIndex());
+                    	    						}
+                    	    						java.lang.String resolved = (java.lang.String) resolvedObject;
+                    	    						if (resolved != null) {
+                    	    							Object value = resolved;
+                    	    							addObjectToList(element, org.emftext.language.sql.literal.LiteralPackage.NATIONAL_CHARACTER_STRING_LITERAL__VALUES, value);
+                    	    							completedElement(value, false);
+                    	    						}
+                    	    						collectHiddenTokens(element);
+                    	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_7_0_0_2_0_0_1, resolved, true);
+                    	    						copyLocalizationInfos((CommonToken) a3, element);
+                    	    					}
+                    	    				}
+
+                    	    }
+
+
+                    	    if ( state.backtracking==0 ) {
+                    	    				// expected elements (follow set)
+                    	    				// We've found the last token for this rule. The constructed EObject is now
+                    	    				// complete.
+                    	    				completedElement(element, true);
+                    	    				addExpectedElement(org.emftext.language.sql.literal.LiteralPackage.eINSTANCE.getNationalCharacterStringLiteral(), 114, 115);
+                    	    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 116, 121);
+                    	    				addExpectedElement(null, 122, 124);
+                    	    			}
 
                     	    }
 
@@ -3311,524 +2050,38 @@ public class SqlParser extends SqlANTLRParserBase {
                     	    break;
 
                     	default :
-                    	    break loop20;
+                    	    break loop7;
                         }
                     } while (true);
 
 
                     if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 175, 176);
-                    			}
-
-                    a10=(Token)match(input,59,FOLLOW_59_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2060); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_3_0_0_3, null, true);
-                    				copyLocalizationInfos((CommonToken)a10, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				// We've found the last token for this rule. The constructed EObject is now
-                    				// complete.
-                    				completedElement(element, true);
-                    				addExpectedElement(null, 177, 179);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(null, 180, 182);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 11, parse_org_emftext_language_sql_schema_ReferentialColumnConstraint_StartIndex); }
-
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_emftext_language_sql_schema_ReferentialColumnConstraint"
-
-
-
-    // $ANTLR start "parse_org_emftext_language_sql_schema_UniqueTableConstraint"
-    // Sql.g:2053:1: parse_org_emftext_language_sql_schema_UniqueTableConstraint returns [org.emftext.language.sql.schema.UniqueTableConstraint element = null] : ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? ( (a3= 'UNIQUE' |a4= 'PRIMARY KEY' ) ) a7= '(' (a8= IDENTIFIER ) ( (a9= ',' (a10= IDENTIFIER ) ) )* a11= ')' ;
-    public final org.emftext.language.sql.schema.UniqueTableConstraint parse_org_emftext_language_sql_schema_UniqueTableConstraint() throws RecognitionException {
-        org.emftext.language.sql.schema.UniqueTableConstraint element =  null;
-
-        int parse_org_emftext_language_sql_schema_UniqueTableConstraint_StartIndex = input.index();
-
-        Token a0=null;
-        Token a1=null;
-        Token a2=null;
-        Token a3=null;
-        Token a4=null;
-        Token a7=null;
-        Token a8=null;
-        Token a9=null;
-        Token a10=null;
-        Token a11=null;
-
-
-
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return element; }
-
-            // Sql.g:2056:2: ( ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? ( (a3= 'UNIQUE' |a4= 'PRIMARY KEY' ) ) a7= '(' (a8= IDENTIFIER ) ( (a9= ',' (a10= IDENTIFIER ) ) )* a11= ')' )
-            // Sql.g:2057:2: ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? ( (a3= 'UNIQUE' |a4= 'PRIMARY KEY' ) ) a7= '(' (a8= IDENTIFIER ) ( (a9= ',' (a10= IDENTIFIER ) ) )* a11= ')'
-            {
-            // Sql.g:2057:2: ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
-
-            if ( (LA23_0==KEYWORD_CONSTRAINT) ) {
-                alt23=1;
-            }
-            switch (alt23) {
-                case 1 :
-                    // Sql.g:2058:3: (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) )
-                    {
-                    // Sql.g:2058:3: (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) )
-                    // Sql.g:2059:4: a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) )
-                    {
-                    a0=(Token)match(input,KEYWORD_CONSTRAINT,FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2117); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10_0_0_0_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a0, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 183, 184);
-                    			}
-
-                    // Sql.g:2073:4: ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) )
-                    int alt22=2;
-                    int LA22_0 = input.LA(1);
-
-                    if ( (LA22_0==IDENTIFIER) ) {
-                        alt22=1;
-                    }
-                    else if ( (LA22_0==SCHEMA_QUALIFIED_NAME) ) {
-                        alt22=2;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return element;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 22, 0, input);
-
-                        throw nvae;
-
-                    }
-                    switch (alt22) {
-                        case 1 :
-                            // Sql.g:2074:5: (a1= IDENTIFIER )
-                            {
-                            // Sql.g:2074:5: (a1= IDENTIFIER )
-                            // Sql.g:2075:6: a1= IDENTIFIER
-                            {
-                            a1=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2150); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (terminateParsing) {
-                            							throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            						}
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
-                            							startIncompleteElement(element);
-                            						}
-                            						if (a1 != null) {
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                            							tokenResolver.setOptions(getOptions());
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            							tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__NAME), result);
-                            							Object resolvedObject = result.getResolvedToken();
-                            							if (resolvedObject == null) {
-                            								addErrorToResource(result.getErrorMessage(), ((CommonToken) a1).getLine(), ((CommonToken) a1).getCharPositionInLine(), ((CommonToken) a1).getStartIndex(), ((CommonToken) a1).getStopIndex());
-                            							}
-                            							org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                            							if (resolved != null) {
-                            								Object value = resolved;
-                            								element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__NAME), value);
-                            								completedElement(value, false);
-                            							}
-                            							collectHiddenTokens(element);
-                            							retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10_0_0_0_0_0_1_0_0_0, resolved, true);
-                            							copyLocalizationInfos((CommonToken) a1, element);
-                            						}
-                            					}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            					// expected elements (follow set)
-                            					addExpectedElement(null, 185);
-                            				}
-
-                            }
-                            break;
-                        case 2 :
-                            // Sql.g:2111:10: (a2= SCHEMA_QUALIFIED_NAME )
-                            {
-                            // Sql.g:2111:10: (a2= SCHEMA_QUALIFIED_NAME )
-                            // Sql.g:2112:6: a2= SCHEMA_QUALIFIED_NAME
-                            {
-                            a2=(Token)match(input,SCHEMA_QUALIFIED_NAME,FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2206); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (terminateParsing) {
-                            							throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            						}
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
-                            							startIncompleteElement(element);
-                            						}
-                            						if (a2 != null) {
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("SCHEMA_QUALIFIED_NAME");
-                            							tokenResolver.setOptions(getOptions());
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            							tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__NAME), result);
-                            							Object resolvedObject = result.getResolvedToken();
-                            							if (resolvedObject == null) {
-                            								addErrorToResource(result.getErrorMessage(), ((CommonToken) a2).getLine(), ((CommonToken) a2).getCharPositionInLine(), ((CommonToken) a2).getStartIndex(), ((CommonToken) a2).getStopIndex());
-                            							}
-                            							org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                            							if (resolved != null) {
-                            								Object value = resolved;
-                            								element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__NAME), value);
-                            								completedElement(value, false);
-                            							}
-                            							collectHiddenTokens(element);
-                            							retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10_0_0_0_0_0_1_0_1_0, resolved, true);
-                            							copyLocalizationInfos((CommonToken) a2, element);
-                            						}
-                            					}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            					// expected elements (follow set)
-                            					addExpectedElement(null, 186);
-                            				}
-
-                            }
-                            break;
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 187);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 188);
-            	}
-
-            // Sql.g:2160:2: ( (a3= 'UNIQUE' |a4= 'PRIMARY KEY' ) )
-            // Sql.g:2161:3: (a3= 'UNIQUE' |a4= 'PRIMARY KEY' )
-            {
-            // Sql.g:2161:3: (a3= 'UNIQUE' |a4= 'PRIMARY KEY' )
-            int alt24=2;
-            int LA24_0 = input.LA(1);
-
-            if ( (LA24_0==107) ) {
-                alt24=1;
-            }
-            else if ( (LA24_0==101) ) {
-                alt24=2;
-            }
-            else {
-                if (state.backtracking>0) {state.failed=true; return element;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 24, 0, input);
-
-                throw nvae;
-
-            }
-            switch (alt24) {
-                case 1 :
-                    // Sql.g:2162:4: a3= 'UNIQUE'
-                    {
-                    a3=(Token)match(input,107,FOLLOW_107_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2280); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10_0_0_1, null, true);
-                    				copyLocalizationInfos((CommonToken)a3, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueSpecificationKind().getEEnumLiteral(org.emftext.language.sql.schema.UniqueSpecificationKind.UNIQUE_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__KIND), value);
-                    				completedElement(value, false);
-                    			}
+                    		// expected elements (follow set)
+                    		// We've found the last token for this rule. The constructed EObject is now
+                    		// complete.
+                    		completedElement(element, true);
+                    		addExpectedElement(org.emftext.language.sql.literal.LiteralPackage.eINSTANCE.getNationalCharacterStringLiteral(), 125, 126);
+                    		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 127, 132);
+                    		addExpectedElement(null, 133, 135);
+                    	}
 
                     }
                     break;
                 case 2 :
-                    // Sql.g:2175:8: a4= 'PRIMARY KEY'
+                    // Sql.g:1350:2: c0= parse_org_emftext_language_sql_literal_CharacterStringLiteral
                     {
-                    a4=(Token)match(input,101,FOLLOW_101_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2295); if (state.failed) return element;
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_CharacterStringLiteral_in_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral961);
+                    c0=parse_org_emftext_language_sql_literal_CharacterStringLiteral();
 
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10_0_0_1, null, true);
-                    				copyLocalizationInfos((CommonToken)a4, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueSpecificationKind().getEEnumLiteral(org.emftext.language.sql.schema.UniqueSpecificationKind.PRIMARY_KEY_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__KIND), value);
-                    				completedElement(value, false);
-                    			}
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c0; /* this is a subclass or primitive expression choice */ }
 
                     }
                     break;
 
             }
-
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 189);
-            	}
-
-            a7=(Token)match(input,58,FOLLOW_58_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2316); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10_0_0_2, null, true);
-            		copyLocalizationInfos((CommonToken)a7, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 190);
-            	}
-
-            // Sql.g:2209:2: (a8= IDENTIFIER )
-            // Sql.g:2210:3: a8= IDENTIFIER
-            {
-            a8=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2334); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            			if (terminateParsing) {
-            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-            			}
-            			if (element == null) {
-            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
-            				startIncompleteElement(element);
-            			}
-            			if (a8 != null) {
-            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-            				tokenResolver.setOptions(getOptions());
-            				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-            				tokenResolver.resolve(a8.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__COLUMNS), result);
-            				Object resolvedObject = result.getResolvedToken();
-            				if (resolvedObject == null) {
-            					addErrorToResource(result.getErrorMessage(), ((CommonToken) a8).getLine(), ((CommonToken) a8).getCharPositionInLine(), ((CommonToken) a8).getStartIndex(), ((CommonToken) a8).getStopIndex());
-            				}
-            				String resolved = (String) resolvedObject;
-            				org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-            				collectHiddenTokens(element);
-            				registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.UniqueTableConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getUniqueTableConstraintColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__COLUMNS), resolved, proxy);
-            				if (proxy != null) {
-            					Object value = proxy;
-            					addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__COLUMNS, value);
-            					completedElement(value, false);
-            				}
-            				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10_0_0_3, proxy, true);
-            				copyLocalizationInfos((CommonToken) a8, element);
-            				copyLocalizationInfos((CommonToken) a8, proxy);
-            			}
-            		}
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 191, 192);
-            	}
-
-            // Sql.g:2249:2: ( (a9= ',' (a10= IDENTIFIER ) ) )*
-            loop25:
-            do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
-
-                if ( (LA25_0==61) ) {
-                    alt25=1;
-                }
-
-
-                switch (alt25) {
-            	case 1 :
-            	    // Sql.g:2250:3: (a9= ',' (a10= IDENTIFIER ) )
-            	    {
-            	    // Sql.g:2250:3: (a9= ',' (a10= IDENTIFIER ) )
-            	    // Sql.g:2251:4: a9= ',' (a10= IDENTIFIER )
-            	    {
-            	    a9=(Token)match(input,61,FOLLOW_61_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2364); if (state.failed) return element;
-
-            	    if ( state.backtracking==0 ) {
-            	    				if (element == null) {
-            	    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
-            	    					startIncompleteElement(element);
-            	    				}
-            	    				collectHiddenTokens(element);
-            	    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10_0_0_4_0_0_0, null, true);
-            	    				copyLocalizationInfos((CommonToken)a9, element);
-            	    			}
-
-            	    if ( state.backtracking==0 ) {
-            	    				// expected elements (follow set)
-            	    				addExpectedElement(null, 193);
-            	    			}
-
-            	    // Sql.g:2265:4: (a10= IDENTIFIER )
-            	    // Sql.g:2266:5: a10= IDENTIFIER
-            	    {
-            	    a10=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2390); if (state.failed) return element;
-
-            	    if ( state.backtracking==0 ) {
-            	    					if (terminateParsing) {
-            	    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-            	    					}
-            	    					if (element == null) {
-            	    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
-            	    						startIncompleteElement(element);
-            	    					}
-            	    					if (a10 != null) {
-            	    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-            	    						tokenResolver.setOptions(getOptions());
-            	    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-            	    						tokenResolver.resolve(a10.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__COLUMNS), result);
-            	    						Object resolvedObject = result.getResolvedToken();
-            	    						if (resolvedObject == null) {
-            	    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a10).getLine(), ((CommonToken) a10).getCharPositionInLine(), ((CommonToken) a10).getStartIndex(), ((CommonToken) a10).getStopIndex());
-            	    						}
-            	    						String resolved = (String) resolvedObject;
-            	    						org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-            	    						collectHiddenTokens(element);
-            	    						registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.UniqueTableConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getUniqueTableConstraintColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__COLUMNS), resolved, proxy);
-            	    						if (proxy != null) {
-            	    							Object value = proxy;
-            	    							addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__COLUMNS, value);
-            	    							completedElement(value, false);
-            	    						}
-            	    						collectHiddenTokens(element);
-            	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10_0_0_4_0_0_1, proxy, true);
-            	    						copyLocalizationInfos((CommonToken) a10, element);
-            	    						copyLocalizationInfos((CommonToken) a10, proxy);
-            	    					}
-            	    				}
-
-            	    }
-
-
-            	    if ( state.backtracking==0 ) {
-            	    				// expected elements (follow set)
-            	    				addExpectedElement(null, 194, 195);
-            	    			}
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop25;
-                }
-            } while (true);
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 196, 197);
-            	}
-
-            a11=(Token)match(input,59,FOLLOW_59_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2436); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10_0_0_5, null, true);
-            		copyLocalizationInfos((CommonToken)a11, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(null, 198, 199);
-            	}
-
-            }
-
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -3837,808 +2090,17 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 12, parse_org_emftext_language_sql_schema_UniqueTableConstraint_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 9, parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral_StartIndex); }
 
         }
         return element;
     }
-    // $ANTLR end "parse_org_emftext_language_sql_schema_UniqueTableConstraint"
-
-
-
-    // $ANTLR start "parse_org_emftext_language_sql_schema_ReferentialTableConstraint"
-    // Sql.g:2331:1: parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.emftext.language.sql.schema.ReferentialTableConstraint element = null] : ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? a3= KEYWORD_FOREIGN a4= KEYWORD_KEY a5= '(' (a6= IDENTIFIER ) ( (a7= ',' (a8= IDENTIFIER ) ) )* a9= ')' a10= KEYWORD_REFERENCES ( (a11= IDENTIFIER ) | (a12= SCHEMA_QUALIFIED_NAME ) ) ( (a13= '(' (a14= IDENTIFIER ) ( (a15= ',' (a16= IDENTIFIER ) ) )* a17= ')' ) )? ;
-    public final org.emftext.language.sql.schema.ReferentialTableConstraint parse_org_emftext_language_sql_schema_ReferentialTableConstraint() throws RecognitionException {
-        org.emftext.language.sql.schema.ReferentialTableConstraint element =  null;
-
-        int parse_org_emftext_language_sql_schema_ReferentialTableConstraint_StartIndex = input.index();
-
-        Token a0=null;
-        Token a1=null;
-        Token a2=null;
-        Token a3=null;
-        Token a4=null;
-        Token a5=null;
-        Token a6=null;
-        Token a7=null;
-        Token a8=null;
-        Token a9=null;
-        Token a10=null;
-        Token a11=null;
-        Token a12=null;
-        Token a13=null;
-        Token a14=null;
-        Token a15=null;
-        Token a16=null;
-        Token a17=null;
-
-
-
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return element; }
-
-            // Sql.g:2334:2: ( ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? a3= KEYWORD_FOREIGN a4= KEYWORD_KEY a5= '(' (a6= IDENTIFIER ) ( (a7= ',' (a8= IDENTIFIER ) ) )* a9= ')' a10= KEYWORD_REFERENCES ( (a11= IDENTIFIER ) | (a12= SCHEMA_QUALIFIED_NAME ) ) ( (a13= '(' (a14= IDENTIFIER ) ( (a15= ',' (a16= IDENTIFIER ) ) )* a17= ')' ) )? )
-            // Sql.g:2335:2: ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )? a3= KEYWORD_FOREIGN a4= KEYWORD_KEY a5= '(' (a6= IDENTIFIER ) ( (a7= ',' (a8= IDENTIFIER ) ) )* a9= ')' a10= KEYWORD_REFERENCES ( (a11= IDENTIFIER ) | (a12= SCHEMA_QUALIFIED_NAME ) ) ( (a13= '(' (a14= IDENTIFIER ) ( (a15= ',' (a16= IDENTIFIER ) ) )* a17= ')' ) )?
-            {
-            // Sql.g:2335:2: ( (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) ) )?
-            int alt27=2;
-            int LA27_0 = input.LA(1);
-
-            if ( (LA27_0==KEYWORD_CONSTRAINT) ) {
-                alt27=1;
-            }
-            switch (alt27) {
-                case 1 :
-                    // Sql.g:2336:3: (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) )
-                    {
-                    // Sql.g:2336:3: (a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) ) )
-                    // Sql.g:2337:4: a0= KEYWORD_CONSTRAINT ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) )
-                    {
-                    a0=(Token)match(input,KEYWORD_CONSTRAINT,FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2474); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_0_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a0, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 200, 201);
-                    			}
-
-                    // Sql.g:2351:4: ( (a1= IDENTIFIER ) | (a2= SCHEMA_QUALIFIED_NAME ) )
-                    int alt26=2;
-                    int LA26_0 = input.LA(1);
-
-                    if ( (LA26_0==IDENTIFIER) ) {
-                        alt26=1;
-                    }
-                    else if ( (LA26_0==SCHEMA_QUALIFIED_NAME) ) {
-                        alt26=2;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return element;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 26, 0, input);
-
-                        throw nvae;
-
-                    }
-                    switch (alt26) {
-                        case 1 :
-                            // Sql.g:2352:5: (a1= IDENTIFIER )
-                            {
-                            // Sql.g:2352:5: (a1= IDENTIFIER )
-                            // Sql.g:2353:6: a1= IDENTIFIER
-                            {
-                            a1=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2507); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (terminateParsing) {
-                            							throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            						}
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-                            							startIncompleteElement(element);
-                            						}
-                            						if (a1 != null) {
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                            							tokenResolver.setOptions(getOptions());
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            							tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__NAME), result);
-                            							Object resolvedObject = result.getResolvedToken();
-                            							if (resolvedObject == null) {
-                            								addErrorToResource(result.getErrorMessage(), ((CommonToken) a1).getLine(), ((CommonToken) a1).getCharPositionInLine(), ((CommonToken) a1).getStartIndex(), ((CommonToken) a1).getStopIndex());
-                            							}
-                            							org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                            							if (resolved != null) {
-                            								Object value = resolved;
-                            								element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__NAME), value);
-                            								completedElement(value, false);
-                            							}
-                            							collectHiddenTokens(element);
-                            							retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_0_0_0_1_0_0_0, resolved, true);
-                            							copyLocalizationInfos((CommonToken) a1, element);
-                            						}
-                            					}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            					// expected elements (follow set)
-                            					addExpectedElement(null, 202);
-                            				}
-
-                            }
-                            break;
-                        case 2 :
-                            // Sql.g:2389:10: (a2= SCHEMA_QUALIFIED_NAME )
-                            {
-                            // Sql.g:2389:10: (a2= SCHEMA_QUALIFIED_NAME )
-                            // Sql.g:2390:6: a2= SCHEMA_QUALIFIED_NAME
-                            {
-                            a2=(Token)match(input,SCHEMA_QUALIFIED_NAME,FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2563); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (terminateParsing) {
-                            							throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            						}
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-                            							startIncompleteElement(element);
-                            						}
-                            						if (a2 != null) {
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("SCHEMA_QUALIFIED_NAME");
-                            							tokenResolver.setOptions(getOptions());
-                            							org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            							tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__NAME), result);
-                            							Object resolvedObject = result.getResolvedToken();
-                            							if (resolvedObject == null) {
-                            								addErrorToResource(result.getErrorMessage(), ((CommonToken) a2).getLine(), ((CommonToken) a2).getCharPositionInLine(), ((CommonToken) a2).getStartIndex(), ((CommonToken) a2).getStopIndex());
-                            							}
-                            							org.emftext.language.sql.SchemaQualifiedName resolved = (org.emftext.language.sql.SchemaQualifiedName) resolvedObject;
-                            							if (resolved != null) {
-                            								Object value = resolved;
-                            								element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__NAME), value);
-                            								completedElement(value, false);
-                            							}
-                            							collectHiddenTokens(element);
-                            							retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_0_0_0_1_0_1_0, resolved, true);
-                            							copyLocalizationInfos((CommonToken) a2, element);
-                            						}
-                            					}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            					// expected elements (follow set)
-                            					addExpectedElement(null, 203);
-                            				}
-
-                            }
-                            break;
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 204);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 205);
-            	}
-
-            a3=(Token)match(input,KEYWORD_FOREIGN,FOLLOW_KEYWORD_FOREIGN_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2628); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_1, null, true);
-            		copyLocalizationInfos((CommonToken)a3, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 206);
-            	}
-
-            a4=(Token)match(input,KEYWORD_KEY,FOLLOW_KEYWORD_KEY_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2642); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_2, null, true);
-            		copyLocalizationInfos((CommonToken)a4, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 207);
-            	}
-
-            a5=(Token)match(input,58,FOLLOW_58_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2656); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_3, null, true);
-            		copyLocalizationInfos((CommonToken)a5, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 208);
-            	}
-
-            // Sql.g:2480:2: (a6= IDENTIFIER )
-            // Sql.g:2481:3: a6= IDENTIFIER
-            {
-            a6=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2674); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            			if (terminateParsing) {
-            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-            			}
-            			if (element == null) {
-            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-            				startIncompleteElement(element);
-            			}
-            			if (a6 != null) {
-            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-            				tokenResolver.setOptions(getOptions());
-            				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-            				tokenResolver.resolve(a6.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS), result);
-            				Object resolvedObject = result.getResolvedToken();
-            				if (resolvedObject == null) {
-            					addErrorToResource(result.getErrorMessage(), ((CommonToken) a6).getLine(), ((CommonToken) a6).getCharPositionInLine(), ((CommonToken) a6).getStartIndex(), ((CommonToken) a6).getStopIndex());
-            				}
-            				String resolved = (String) resolvedObject;
-            				org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-            				collectHiddenTokens(element);
-            				registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialTableConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialTableConstraintColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS), resolved, proxy);
-            				if (proxy != null) {
-            					Object value = proxy;
-            					addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS, value);
-            					completedElement(value, false);
-            				}
-            				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_4, proxy, true);
-            				copyLocalizationInfos((CommonToken) a6, element);
-            				copyLocalizationInfos((CommonToken) a6, proxy);
-            			}
-            		}
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 209, 210);
-            	}
-
-            // Sql.g:2520:2: ( (a7= ',' (a8= IDENTIFIER ) ) )*
-            loop28:
-            do {
-                int alt28=2;
-                int LA28_0 = input.LA(1);
-
-                if ( (LA28_0==61) ) {
-                    alt28=1;
-                }
-
-
-                switch (alt28) {
-            	case 1 :
-            	    // Sql.g:2521:3: (a7= ',' (a8= IDENTIFIER ) )
-            	    {
-            	    // Sql.g:2521:3: (a7= ',' (a8= IDENTIFIER ) )
-            	    // Sql.g:2522:4: a7= ',' (a8= IDENTIFIER )
-            	    {
-            	    a7=(Token)match(input,61,FOLLOW_61_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2704); if (state.failed) return element;
-
-            	    if ( state.backtracking==0 ) {
-            	    				if (element == null) {
-            	    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-            	    					startIncompleteElement(element);
-            	    				}
-            	    				collectHiddenTokens(element);
-            	    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_5_0_0_0, null, true);
-            	    				copyLocalizationInfos((CommonToken)a7, element);
-            	    			}
-
-            	    if ( state.backtracking==0 ) {
-            	    				// expected elements (follow set)
-            	    				addExpectedElement(null, 211);
-            	    			}
-
-            	    // Sql.g:2536:4: (a8= IDENTIFIER )
-            	    // Sql.g:2537:5: a8= IDENTIFIER
-            	    {
-            	    a8=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2730); if (state.failed) return element;
-
-            	    if ( state.backtracking==0 ) {
-            	    					if (terminateParsing) {
-            	    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-            	    					}
-            	    					if (element == null) {
-            	    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-            	    						startIncompleteElement(element);
-            	    					}
-            	    					if (a8 != null) {
-            	    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-            	    						tokenResolver.setOptions(getOptions());
-            	    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-            	    						tokenResolver.resolve(a8.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS), result);
-            	    						Object resolvedObject = result.getResolvedToken();
-            	    						if (resolvedObject == null) {
-            	    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a8).getLine(), ((CommonToken) a8).getCharPositionInLine(), ((CommonToken) a8).getStartIndex(), ((CommonToken) a8).getStopIndex());
-            	    						}
-            	    						String resolved = (String) resolvedObject;
-            	    						org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-            	    						collectHiddenTokens(element);
-            	    						registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialTableConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialTableConstraintColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS), resolved, proxy);
-            	    						if (proxy != null) {
-            	    							Object value = proxy;
-            	    							addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS, value);
-            	    							completedElement(value, false);
-            	    						}
-            	    						collectHiddenTokens(element);
-            	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_5_0_0_1, proxy, true);
-            	    						copyLocalizationInfos((CommonToken) a8, element);
-            	    						copyLocalizationInfos((CommonToken) a8, proxy);
-            	    					}
-            	    				}
-
-            	    }
-
-
-            	    if ( state.backtracking==0 ) {
-            	    				// expected elements (follow set)
-            	    				addExpectedElement(null, 212, 213);
-            	    			}
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop28;
-                }
-            } while (true);
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 214, 215);
-            	}
-
-            a9=(Token)match(input,59,FOLLOW_59_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2776); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_6, null, true);
-            		copyLocalizationInfos((CommonToken)a9, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 216);
-            	}
-
-            a10=(Token)match(input,KEYWORD_REFERENCES,FOLLOW_KEYWORD_REFERENCES_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2790); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_7, null, true);
-            		copyLocalizationInfos((CommonToken)a10, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 217, 218);
-            	}
-
-            // Sql.g:2611:2: ( (a11= IDENTIFIER ) | (a12= SCHEMA_QUALIFIED_NAME ) )
-            int alt29=2;
-            int LA29_0 = input.LA(1);
-
-            if ( (LA29_0==IDENTIFIER) ) {
-                alt29=1;
-            }
-            else if ( (LA29_0==SCHEMA_QUALIFIED_NAME) ) {
-                alt29=2;
-            }
-            else {
-                if (state.backtracking>0) {state.failed=true; return element;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 29, 0, input);
-
-                throw nvae;
-
-            }
-            switch (alt29) {
-                case 1 :
-                    // Sql.g:2612:3: (a11= IDENTIFIER )
-                    {
-                    // Sql.g:2612:3: (a11= IDENTIFIER )
-                    // Sql.g:2613:4: a11= IDENTIFIER
-                    {
-                    a11=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2813); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (terminateParsing) {
-                    					throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    				}
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				if (a11 != null) {
-                    					org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                    					tokenResolver.setOptions(getOptions());
-                    					org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    					tokenResolver.resolve(a11.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_TABLE), result);
-                    					Object resolvedObject = result.getResolvedToken();
-                    					if (resolvedObject == null) {
-                    						addErrorToResource(result.getErrorMessage(), ((CommonToken) a11).getLine(), ((CommonToken) a11).getCharPositionInLine(), ((CommonToken) a11).getStartIndex(), ((CommonToken) a11).getStopIndex());
-                    					}
-                    					String resolved = (String) resolvedObject;
-                    					org.emftext.language.sql.schema.TableDefinition proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-                    					collectHiddenTokens(element);
-                    					registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.TableDefinition>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialConstraintReferencedTableReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_TABLE), resolved, proxy);
-                    					if (proxy != null) {
-                    						Object value = proxy;
-                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_TABLE), value);
-                    						completedElement(value, false);
-                    					}
-                    					collectHiddenTokens(element);
-                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_8_0_0_0, proxy, true);
-                    					copyLocalizationInfos((CommonToken) a11, element);
-                    					copyLocalizationInfos((CommonToken) a11, proxy);
-                    				}
-                    			}
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    			// expected elements (follow set)
-                    			addExpectedElement(null, 219, 221);
-                    		}
-
-                    }
-                    break;
-                case 2 :
-                    // Sql.g:2653:6: (a12= SCHEMA_QUALIFIED_NAME )
-                    {
-                    // Sql.g:2653:6: (a12= SCHEMA_QUALIFIED_NAME )
-                    // Sql.g:2654:4: a12= SCHEMA_QUALIFIED_NAME
-                    {
-                    a12=(Token)match(input,SCHEMA_QUALIFIED_NAME,FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2851); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (terminateParsing) {
-                    					throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    				}
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				if (a12 != null) {
-                    					org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("SCHEMA_QUALIFIED_NAME");
-                    					tokenResolver.setOptions(getOptions());
-                    					org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    					tokenResolver.resolve(a12.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_TABLE), result);
-                    					Object resolvedObject = result.getResolvedToken();
-                    					if (resolvedObject == null) {
-                    						addErrorToResource(result.getErrorMessage(), ((CommonToken) a12).getLine(), ((CommonToken) a12).getCharPositionInLine(), ((CommonToken) a12).getStartIndex(), ((CommonToken) a12).getStopIndex());
-                    					}
-                    					String resolved = (String) resolvedObject;
-                    					org.emftext.language.sql.schema.TableDefinition proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
-                    					collectHiddenTokens(element);
-                    					registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.TableDefinition>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialConstraintReferencedTableReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_TABLE), resolved, proxy);
-                    					if (proxy != null) {
-                    						Object value = proxy;
-                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_TABLE), value);
-                    						completedElement(value, false);
-                    					}
-                    					collectHiddenTokens(element);
-                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_8_0_1_0, proxy, true);
-                    					copyLocalizationInfos((CommonToken) a12, element);
-                    					copyLocalizationInfos((CommonToken) a12, proxy);
-                    				}
-                    			}
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    			// expected elements (follow set)
-                    			addExpectedElement(null, 222, 224);
-                    		}
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 225, 227);
-            	}
-
-            // Sql.g:2699:2: ( (a13= '(' (a14= IDENTIFIER ) ( (a15= ',' (a16= IDENTIFIER ) ) )* a17= ')' ) )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
-
-            if ( (LA31_0==58) ) {
-                alt31=1;
-            }
-            switch (alt31) {
-                case 1 :
-                    // Sql.g:2700:3: (a13= '(' (a14= IDENTIFIER ) ( (a15= ',' (a16= IDENTIFIER ) ) )* a17= ')' )
-                    {
-                    // Sql.g:2700:3: (a13= '(' (a14= IDENTIFIER ) ( (a15= ',' (a16= IDENTIFIER ) ) )* a17= ')' )
-                    // Sql.g:2701:4: a13= '(' (a14= IDENTIFIER ) ( (a15= ',' (a16= IDENTIFIER ) ) )* a17= ')'
-                    {
-                    a13=(Token)match(input,58,FOLLOW_58_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2894); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_9_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a13, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 228);
-                    			}
-
-                    // Sql.g:2715:4: (a14= IDENTIFIER )
-                    // Sql.g:2716:5: a14= IDENTIFIER
-                    {
-                    a14=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2920); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    					if (terminateParsing) {
-                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    					}
-                    					if (element == null) {
-                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-                    						startIncompleteElement(element);
-                    					}
-                    					if (a14 != null) {
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                    						tokenResolver.setOptions(getOptions());
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    						tokenResolver.resolve(a14.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS), result);
-                    						Object resolvedObject = result.getResolvedToken();
-                    						if (resolvedObject == null) {
-                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a14).getLine(), ((CommonToken) a14).getCharPositionInLine(), ((CommonToken) a14).getStartIndex(), ((CommonToken) a14).getStopIndex());
-                    						}
-                    						String resolved = (String) resolvedObject;
-                    						org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-                    						collectHiddenTokens(element);
-                    						registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialConstraintReferencedColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS), resolved, proxy);
-                    						if (proxy != null) {
-                    							Object value = proxy;
-                    							addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS, value);
-                    							completedElement(value, false);
-                    						}
-                    						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_9_0_0_1, proxy, true);
-                    						copyLocalizationInfos((CommonToken) a14, element);
-                    						copyLocalizationInfos((CommonToken) a14, proxy);
-                    					}
-                    				}
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 229, 230);
-                    			}
-
-                    // Sql.g:2755:4: ( (a15= ',' (a16= IDENTIFIER ) ) )*
-                    loop30:
-                    do {
-                        int alt30=2;
-                        int LA30_0 = input.LA(1);
-
-                        if ( (LA30_0==61) ) {
-                            alt30=1;
-                        }
-
-
-                        switch (alt30) {
-                    	case 1 :
-                    	    // Sql.g:2756:5: (a15= ',' (a16= IDENTIFIER ) )
-                    	    {
-                    	    // Sql.g:2756:5: (a15= ',' (a16= IDENTIFIER ) )
-                    	    // Sql.g:2757:6: a15= ',' (a16= IDENTIFIER )
-                    	    {
-                    	    a15=(Token)match(input,61,FOLLOW_61_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2966); if (state.failed) return element;
-
-                    	    if ( state.backtracking==0 ) {
-                    	    						if (element == null) {
-                    	    							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-                    	    							startIncompleteElement(element);
-                    	    						}
-                    	    						collectHiddenTokens(element);
-                    	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_9_0_0_2_0_0_0, null, true);
-                    	    						copyLocalizationInfos((CommonToken)a15, element);
-                    	    					}
-
-                    	    if ( state.backtracking==0 ) {
-                    	    						// expected elements (follow set)
-                    	    						addExpectedElement(null, 231);
-                    	    					}
-
-                    	    // Sql.g:2771:6: (a16= IDENTIFIER )
-                    	    // Sql.g:2772:7: a16= IDENTIFIER
-                    	    {
-                    	    a16=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3000); if (state.failed) return element;
-
-                    	    if ( state.backtracking==0 ) {
-                    	    							if (terminateParsing) {
-                    	    								throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    	    							}
-                    	    							if (element == null) {
-                    	    								element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-                    	    								startIncompleteElement(element);
-                    	    							}
-                    	    							if (a16 != null) {
-                    	    								org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-                    	    								tokenResolver.setOptions(getOptions());
-                    	    								org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    	    								tokenResolver.resolve(a16.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS), result);
-                    	    								Object resolvedObject = result.getResolvedToken();
-                    	    								if (resolvedObject == null) {
-                    	    									addErrorToResource(result.getErrorMessage(), ((CommonToken) a16).getLine(), ((CommonToken) a16).getCharPositionInLine(), ((CommonToken) a16).getStartIndex(), ((CommonToken) a16).getStopIndex());
-                    	    								}
-                    	    								String resolved = (String) resolvedObject;
-                    	    								org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
-                    	    								collectHiddenTokens(element);
-                    	    								registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialConstraintReferencedColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS), resolved, proxy);
-                    	    								if (proxy != null) {
-                    	    									Object value = proxy;
-                    	    									addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS, value);
-                    	    									completedElement(value, false);
-                    	    								}
-                    	    								collectHiddenTokens(element);
-                    	    								retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_9_0_0_2_0_0_1, proxy, true);
-                    	    								copyLocalizationInfos((CommonToken) a16, element);
-                    	    								copyLocalizationInfos((CommonToken) a16, proxy);
-                    	    							}
-                    	    						}
-
-                    	    }
-
-
-                    	    if ( state.backtracking==0 ) {
-                    	    						// expected elements (follow set)
-                    	    						addExpectedElement(null, 232, 233);
-                    	    					}
-
-                    	    }
-
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop30;
-                        }
-                    } while (true);
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 234, 235);
-                    			}
-
-                    a17=(Token)match(input,59,FOLLOW_59_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3068); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_9_0_0_3, null, true);
-                    				copyLocalizationInfos((CommonToken)a17, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				// We've found the last token for this rule. The constructed EObject is now
-                    				// complete.
-                    				completedElement(element, true);
-                    				addExpectedElement(null, 236, 237);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(null, 238, 239);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 13, parse_org_emftext_language_sql_schema_ReferentialTableConstraint_StartIndex); }
-
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_emftext_language_sql_schema_ReferentialTableConstraint"
+    // $ANTLR end "parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral"
 
 
 
     // $ANTLR start "parse_org_emftext_language_sql_literal_DateLiteral"
-    // Sql.g:2847:1: parse_org_emftext_language_sql_literal_DateLiteral returns [org.emftext.language.sql.literal.DateLiteral element = null] : a0= KEYWORD_DATE (a1= TEXT ) ;
+    // Sql.g:1354:1: parse_org_emftext_language_sql_literal_DateLiteral returns [org.emftext.language.sql.literal.DateLiteral element = null] : a0= KEYWORD_DATE (a1= QUOTED_STRING ) ;
     public final org.emftext.language.sql.literal.DateLiteral parse_org_emftext_language_sql_literal_DateLiteral() throws RecognitionException {
         org.emftext.language.sql.literal.DateLiteral element =  null;
 
@@ -4650,12 +2112,12 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return element; }
 
-            // Sql.g:2850:2: (a0= KEYWORD_DATE (a1= TEXT ) )
-            // Sql.g:2851:2: a0= KEYWORD_DATE (a1= TEXT )
+            // Sql.g:1357:2: (a0= KEYWORD_DATE (a1= QUOTED_STRING ) )
+            // Sql.g:1358:2: a0= KEYWORD_DATE (a1= QUOTED_STRING )
             {
-            a0=(Token)match(input,KEYWORD_DATE,FOLLOW_KEYWORD_DATE_in_parse_org_emftext_language_sql_literal_DateLiteral3116); if (state.failed) return element;
+            a0=(Token)match(input,KEYWORD_DATE,FOLLOW_KEYWORD_DATE_in_parse_org_emftext_language_sql_literal_DateLiteral986); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -4663,19 +2125,19 @@ public class SqlParser extends SqlANTLRParserBase {
             			startIncompleteElement(element);
             		}
             		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_12_0_0_0, null, true);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_8_0_0_0, null, true);
             		copyLocalizationInfos((CommonToken)a0, element);
             	}
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 240);
+            		addExpectedElement(null, 136);
             	}
 
-            // Sql.g:2865:2: (a1= TEXT )
-            // Sql.g:2866:3: a1= TEXT
+            // Sql.g:1372:2: (a1= QUOTED_STRING )
+            // Sql.g:1373:3: a1= QUOTED_STRING
             {
-            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_org_emftext_language_sql_literal_DateLiteral3134); if (state.failed) return element;
+            a1=(Token)match(input,QUOTED_STRING,FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_DateLiteral1004); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -4686,7 +2148,7 @@ public class SqlParser extends SqlANTLRParserBase {
             				startIncompleteElement(element);
             			}
             			if (a1 != null) {
-            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_STRING");
             				tokenResolver.setOptions(getOptions());
             				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
             				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.DATE_LITERAL__VALUE), result);
@@ -4694,14 +2156,14 @@ public class SqlParser extends SqlANTLRParserBase {
             				if (resolvedObject == null) {
             					addErrorToResource(result.getErrorMessage(), ((CommonToken) a1).getLine(), ((CommonToken) a1).getCharPositionInLine(), ((CommonToken) a1).getStartIndex(), ((CommonToken) a1).getStopIndex());
             				}
-            				java.util.Date resolved = (java.util.Date) resolvedObject;
+            				java.time.LocalDate resolved = (java.time.LocalDate) resolvedObject;
             				if (resolved != null) {
             					Object value = resolved;
             					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.DATE_LITERAL__VALUE), value);
             					completedElement(value, false);
             				}
             				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_12_0_0_1, resolved, true);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_8_0_0_1, resolved, true);
             				copyLocalizationInfos((CommonToken) a1, element);
             			}
             		}
@@ -4714,8 +2176,8 @@ public class SqlParser extends SqlANTLRParserBase {
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 241, 246);
-            		addExpectedElement(null, 247, 249);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 137, 142);
+            		addExpectedElement(null, 143, 145);
             	}
 
             }
@@ -4728,7 +2190,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 14, parse_org_emftext_language_sql_literal_DateLiteral_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 10, parse_org_emftext_language_sql_literal_DateLiteral_StartIndex); }
 
         }
         return element;
@@ -4738,7 +2200,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_sql_literal_TimeLiteral"
-    // Sql.g:2907:1: parse_org_emftext_language_sql_literal_TimeLiteral returns [org.emftext.language.sql.literal.TimeLiteral element = null] : a0= KEYWORD_TIME (a1= TEXT ) ;
+    // Sql.g:1414:1: parse_org_emftext_language_sql_literal_TimeLiteral returns [org.emftext.language.sql.literal.TimeLiteral element = null] : a0= KEYWORD_TIME (a1= QUOTED_STRING ) ;
     public final org.emftext.language.sql.literal.TimeLiteral parse_org_emftext_language_sql_literal_TimeLiteral() throws RecognitionException {
         org.emftext.language.sql.literal.TimeLiteral element =  null;
 
@@ -4750,12 +2212,12 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return element; }
 
-            // Sql.g:2910:2: (a0= KEYWORD_TIME (a1= TEXT ) )
-            // Sql.g:2911:2: a0= KEYWORD_TIME (a1= TEXT )
+            // Sql.g:1417:2: (a0= KEYWORD_TIME (a1= QUOTED_STRING ) )
+            // Sql.g:1418:2: a0= KEYWORD_TIME (a1= QUOTED_STRING )
             {
-            a0=(Token)match(input,KEYWORD_TIME,FOLLOW_KEYWORD_TIME_in_parse_org_emftext_language_sql_literal_TimeLiteral3170); if (state.failed) return element;
+            a0=(Token)match(input,KEYWORD_TIME,FOLLOW_KEYWORD_TIME_in_parse_org_emftext_language_sql_literal_TimeLiteral1040); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -4763,19 +2225,19 @@ public class SqlParser extends SqlANTLRParserBase {
             			startIncompleteElement(element);
             		}
             		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_13_0_0_0, null, true);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_0, null, true);
             		copyLocalizationInfos((CommonToken)a0, element);
             	}
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 250);
+            		addExpectedElement(null, 146);
             	}
 
-            // Sql.g:2925:2: (a1= TEXT )
-            // Sql.g:2926:3: a1= TEXT
+            // Sql.g:1432:2: (a1= QUOTED_STRING )
+            // Sql.g:1433:3: a1= QUOTED_STRING
             {
-            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_org_emftext_language_sql_literal_TimeLiteral3188); if (state.failed) return element;
+            a1=(Token)match(input,QUOTED_STRING,FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_TimeLiteral1058); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -4786,7 +2248,7 @@ public class SqlParser extends SqlANTLRParserBase {
             				startIncompleteElement(element);
             			}
             			if (a1 != null) {
-            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_STRING");
             				tokenResolver.setOptions(getOptions());
             				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
             				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.TIME_LITERAL__VALUE), result);
@@ -4794,14 +2256,14 @@ public class SqlParser extends SqlANTLRParserBase {
             				if (resolvedObject == null) {
             					addErrorToResource(result.getErrorMessage(), ((CommonToken) a1).getLine(), ((CommonToken) a1).getCharPositionInLine(), ((CommonToken) a1).getStartIndex(), ((CommonToken) a1).getStopIndex());
             				}
-            				java.util.Date resolved = (java.util.Date) resolvedObject;
+            				java.time.LocalTime resolved = (java.time.LocalTime) resolvedObject;
             				if (resolved != null) {
             					Object value = resolved;
             					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.TIME_LITERAL__VALUE), value);
             					completedElement(value, false);
             				}
             				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_13_0_0_1, resolved, true);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9_0_0_1, resolved, true);
             				copyLocalizationInfos((CommonToken) a1, element);
             			}
             		}
@@ -4814,8 +2276,8 @@ public class SqlParser extends SqlANTLRParserBase {
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 251, 256);
-            		addExpectedElement(null, 257, 259);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 147, 152);
+            		addExpectedElement(null, 153, 155);
             	}
 
             }
@@ -4828,7 +2290,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 15, parse_org_emftext_language_sql_literal_TimeLiteral_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 11, parse_org_emftext_language_sql_literal_TimeLiteral_StartIndex); }
 
         }
         return element;
@@ -4838,7 +2300,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_sql_literal_TimestampLiteral"
-    // Sql.g:2967:1: parse_org_emftext_language_sql_literal_TimestampLiteral returns [org.emftext.language.sql.literal.TimestampLiteral element = null] : a0= KEYWORD_TIMESTAMP (a1= TEXT ) ;
+    // Sql.g:1474:1: parse_org_emftext_language_sql_literal_TimestampLiteral returns [org.emftext.language.sql.literal.TimestampLiteral element = null] : a0= KEYWORD_TIMESTAMP (a1= QUOTED_STRING ) ;
     public final org.emftext.language.sql.literal.TimestampLiteral parse_org_emftext_language_sql_literal_TimestampLiteral() throws RecognitionException {
         org.emftext.language.sql.literal.TimestampLiteral element =  null;
 
@@ -4850,12 +2312,12 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return element; }
 
-            // Sql.g:2970:2: (a0= KEYWORD_TIMESTAMP (a1= TEXT ) )
-            // Sql.g:2971:2: a0= KEYWORD_TIMESTAMP (a1= TEXT )
+            // Sql.g:1477:2: (a0= KEYWORD_TIMESTAMP (a1= QUOTED_STRING ) )
+            // Sql.g:1478:2: a0= KEYWORD_TIMESTAMP (a1= QUOTED_STRING )
             {
-            a0=(Token)match(input,KEYWORD_TIMESTAMP,FOLLOW_KEYWORD_TIMESTAMP_in_parse_org_emftext_language_sql_literal_TimestampLiteral3224); if (state.failed) return element;
+            a0=(Token)match(input,KEYWORD_TIMESTAMP,FOLLOW_KEYWORD_TIMESTAMP_in_parse_org_emftext_language_sql_literal_TimestampLiteral1094); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -4863,19 +2325,19 @@ public class SqlParser extends SqlANTLRParserBase {
             			startIncompleteElement(element);
             		}
             		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_14_0_0_0, null, true);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10_0_0_0, null, true);
             		copyLocalizationInfos((CommonToken)a0, element);
             	}
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 260);
+            		addExpectedElement(null, 156);
             	}
 
-            // Sql.g:2985:2: (a1= TEXT )
-            // Sql.g:2986:3: a1= TEXT
+            // Sql.g:1492:2: (a1= QUOTED_STRING )
+            // Sql.g:1493:3: a1= QUOTED_STRING
             {
-            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_org_emftext_language_sql_literal_TimestampLiteral3242); if (state.failed) return element;
+            a1=(Token)match(input,QUOTED_STRING,FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_TimestampLiteral1112); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -4886,7 +2348,7 @@ public class SqlParser extends SqlANTLRParserBase {
             				startIncompleteElement(element);
             			}
             			if (a1 != null) {
-            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_STRING");
             				tokenResolver.setOptions(getOptions());
             				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
             				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.TIMESTAMP_LITERAL__VALUE), result);
@@ -4894,14 +2356,14 @@ public class SqlParser extends SqlANTLRParserBase {
             				if (resolvedObject == null) {
             					addErrorToResource(result.getErrorMessage(), ((CommonToken) a1).getLine(), ((CommonToken) a1).getCharPositionInLine(), ((CommonToken) a1).getStartIndex(), ((CommonToken) a1).getStopIndex());
             				}
-            				java.util.Date resolved = (java.util.Date) resolvedObject;
+            				java.time.ZonedDateTime resolved = (java.time.ZonedDateTime) resolvedObject;
             				if (resolved != null) {
             					Object value = resolved;
             					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.TIMESTAMP_LITERAL__VALUE), value);
             					completedElement(value, false);
             				}
             				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_14_0_0_1, resolved, true);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10_0_0_1, resolved, true);
             				copyLocalizationInfos((CommonToken) a1, element);
             			}
             		}
@@ -4914,8 +2376,8 @@ public class SqlParser extends SqlANTLRParserBase {
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 261, 266);
-            		addExpectedElement(null, 267, 269);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 157, 162);
+            		addExpectedElement(null, 163, 165);
             	}
 
             }
@@ -4928,7 +2390,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 16, parse_org_emftext_language_sql_literal_TimestampLiteral_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 12, parse_org_emftext_language_sql_literal_TimestampLiteral_StartIndex); }
 
         }
         return element;
@@ -4937,143 +2399,8 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
 
-    // $ANTLR start "parse_org_emftext_language_sql_literal_IntervalLiteral"
-    // Sql.g:3027:1: parse_org_emftext_language_sql_literal_IntervalLiteral returns [org.emftext.language.sql.literal.IntervalLiteral element = null] : a0= KEYWORD_INTERVAL ( (a1= '+' |a2= '-' ) ) ;
-    public final org.emftext.language.sql.literal.IntervalLiteral parse_org_emftext_language_sql_literal_IntervalLiteral() throws RecognitionException {
-        org.emftext.language.sql.literal.IntervalLiteral element =  null;
-
-        int parse_org_emftext_language_sql_literal_IntervalLiteral_StartIndex = input.index();
-
-        Token a0=null;
-        Token a1=null;
-        Token a2=null;
-
-
-
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return element; }
-
-            // Sql.g:3030:2: (a0= KEYWORD_INTERVAL ( (a1= '+' |a2= '-' ) ) )
-            // Sql.g:3031:2: a0= KEYWORD_INTERVAL ( (a1= '+' |a2= '-' ) )
-            {
-            a0=(Token)match(input,KEYWORD_INTERVAL,FOLLOW_KEYWORD_INTERVAL_in_parse_org_emftext_language_sql_literal_IntervalLiteral3278); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createIntervalLiteral();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_15_0_0_0, null, true);
-            		copyLocalizationInfos((CommonToken)a0, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 270);
-            	}
-
-            // Sql.g:3045:2: ( (a1= '+' |a2= '-' ) )
-            // Sql.g:3046:3: (a1= '+' |a2= '-' )
-            {
-            // Sql.g:3046:3: (a1= '+' |a2= '-' )
-            int alt32=2;
-            int LA32_0 = input.LA(1);
-
-            if ( (LA32_0==60) ) {
-                alt32=1;
-            }
-            else if ( (LA32_0==62) ) {
-                alt32=2;
-            }
-            else {
-                if (state.backtracking>0) {state.failed=true; return element;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 32, 0, input);
-
-                throw nvae;
-
-            }
-            switch (alt32) {
-                case 1 :
-                    // Sql.g:3047:4: a1= '+'
-                    {
-                    a1=(Token)match(input,60,FOLLOW_60_in_parse_org_emftext_language_sql_literal_IntervalLiteral3301); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createIntervalLiteral();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_15_0_0_1, true, true);
-                    				copyLocalizationInfos((CommonToken)a1, element);
-                    				// set value of boolean attribute
-                    				Object value = true;
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.INTERVAL_LITERAL__IS_POSITIVE), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 2 :
-                    // Sql.g:3060:8: a2= '-'
-                    {
-                    a2=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_literal_IntervalLiteral3316); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.literal.LiteralFactory.eINSTANCE.createIntervalLiteral();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_15_0_0_1, false, true);
-                    				copyLocalizationInfos((CommonToken)a2, element);
-                    				// set value of boolean attribute
-                    				Object value = false;
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.INTERVAL_LITERAL__IS_POSITIVE), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 271, 276);
-            		addExpectedElement(null, 277, 279);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 17, parse_org_emftext_language_sql_literal_IntervalLiteral_StartIndex); }
-
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_emftext_language_sql_literal_IntervalLiteral"
-
-
-
     // $ANTLR start "parse_org_emftext_language_sql_literal_BooleanLiteral"
-    // Sql.g:3086:1: parse_org_emftext_language_sql_literal_BooleanLiteral returns [org.emftext.language.sql.literal.BooleanLiteral element = null] : ( ( (a0= 'TRUE' |a1= 'FALSE' ) ) )? ;
+    // Sql.g:1534:1: parse_org_emftext_language_sql_literal_BooleanLiteral returns [org.emftext.language.sql.literal.BooleanLiteral element = null] : ( ( (a0= 'TRUE' |a1= 'FALSE' ) ) )? ;
     public final org.emftext.language.sql.literal.BooleanLiteral parse_org_emftext_language_sql_literal_BooleanLiteral() throws RecognitionException {
         org.emftext.language.sql.literal.BooleanLiteral element =  null;
 
@@ -5085,48 +2412,48 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return element; }
 
-            // Sql.g:3089:2: ( ( ( (a0= 'TRUE' |a1= 'FALSE' ) ) )? )
-            // Sql.g:3090:2: ( ( (a0= 'TRUE' |a1= 'FALSE' ) ) )?
+            // Sql.g:1537:2: ( ( ( (a0= 'TRUE' |a1= 'FALSE' ) ) )? )
+            // Sql.g:1538:2: ( ( (a0= 'TRUE' |a1= 'FALSE' ) ) )?
             {
-            // Sql.g:3090:2: ( ( (a0= 'TRUE' |a1= 'FALSE' ) ) )?
-            int alt34=2;
-            int LA34_0 = input.LA(1);
+            // Sql.g:1538:2: ( ( (a0= 'TRUE' |a1= 'FALSE' ) ) )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA34_0==81||LA34_0==106) ) {
-                alt34=1;
+            if ( (LA10_0==80||LA10_0==97) ) {
+                alt10=1;
             }
-            switch (alt34) {
+            switch (alt10) {
                 case 1 :
-                    // Sql.g:3091:3: ( (a0= 'TRUE' |a1= 'FALSE' ) )
+                    // Sql.g:1539:3: ( (a0= 'TRUE' |a1= 'FALSE' ) )
                     {
-                    // Sql.g:3091:3: ( (a0= 'TRUE' |a1= 'FALSE' ) )
-                    // Sql.g:3092:4: (a0= 'TRUE' |a1= 'FALSE' )
+                    // Sql.g:1539:3: ( (a0= 'TRUE' |a1= 'FALSE' ) )
+                    // Sql.g:1540:4: (a0= 'TRUE' |a1= 'FALSE' )
                     {
-                    // Sql.g:3092:4: (a0= 'TRUE' |a1= 'FALSE' )
-                    int alt33=2;
-                    int LA33_0 = input.LA(1);
+                    // Sql.g:1540:4: (a0= 'TRUE' |a1= 'FALSE' )
+                    int alt9=2;
+                    int LA9_0 = input.LA(1);
 
-                    if ( (LA33_0==106) ) {
-                        alt33=1;
+                    if ( (LA9_0==97) ) {
+                        alt9=1;
                     }
-                    else if ( (LA33_0==81) ) {
-                        alt33=2;
+                    else if ( (LA9_0==80) ) {
+                        alt9=2;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return element;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 33, 0, input);
+                            new NoViableAltException("", 9, 0, input);
 
                         throw nvae;
 
                     }
-                    switch (alt33) {
+                    switch (alt9) {
                         case 1 :
-                            // Sql.g:3093:5: a0= 'TRUE'
+                            // Sql.g:1541:5: a0= 'TRUE'
                             {
-                            a0=(Token)match(input,106,FOLLOW_106_in_parse_org_emftext_language_sql_literal_BooleanLiteral3367); if (state.failed) return element;
+                            a0=(Token)match(input,97,FOLLOW_97_in_parse_org_emftext_language_sql_literal_BooleanLiteral1163); if (state.failed) return element;
 
                             if ( state.backtracking==0 ) {
                             					if (element == null) {
@@ -5134,7 +2461,7 @@ public class SqlParser extends SqlANTLRParserBase {
                             						startIncompleteElement(element);
                             					}
                             					collectHiddenTokens(element);
-                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_16_0_0_0, true, true);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_0, true, true);
                             					copyLocalizationInfos((CommonToken)a0, element);
                             					// set value of boolean attribute
                             					Object value = true;
@@ -5145,9 +2472,9 @@ public class SqlParser extends SqlANTLRParserBase {
                             }
                             break;
                         case 2 :
-                            // Sql.g:3106:10: a1= 'FALSE'
+                            // Sql.g:1554:10: a1= 'FALSE'
                             {
-                            a1=(Token)match(input,81,FOLLOW_81_in_parse_org_emftext_language_sql_literal_BooleanLiteral3384); if (state.failed) return element;
+                            a1=(Token)match(input,80,FOLLOW_80_in_parse_org_emftext_language_sql_literal_BooleanLiteral1180); if (state.failed) return element;
 
                             if ( state.backtracking==0 ) {
                             					if (element == null) {
@@ -5155,7 +2482,7 @@ public class SqlParser extends SqlANTLRParserBase {
                             						startIncompleteElement(element);
                             					}
                             					collectHiddenTokens(element);
-                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_16_0_0_0, false, true);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11_0_0_0, false, true);
                             					copyLocalizationInfos((CommonToken)a1, element);
                             					// set value of boolean attribute
                             					Object value = false;
@@ -5183,8 +2510,8 @@ public class SqlParser extends SqlANTLRParserBase {
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 280, 285);
-            		addExpectedElement(null, 286, 288);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 166, 171);
+            		addExpectedElement(null, 172, 174);
             	}
 
             }
@@ -5197,7 +2524,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 18, parse_org_emftext_language_sql_literal_BooleanLiteral_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 13, parse_org_emftext_language_sql_literal_BooleanLiteral_StartIndex); }
 
         }
         return element;
@@ -5206,289 +2533,491 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
 
-    // $ANTLR start "parse_org_emftext_language_sql_datatype_CharacterStringType"
-    // Sql.g:3133:1: parse_org_emftext_language_sql_datatype_CharacterStringType returns [org.emftext.language.sql.datatype.CharacterStringType element = null] : ( (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' |a3= 'CHARACTER VARYING' |a4= 'CHAR VARYING' ) ) ( (a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')' ) )? ( (a10= KEYWORD_CHARACTER a11= KEYWORD_SET (a12= TEXT ) ) )? ( (a13= KEYWORD_COLLATE (a14= TEXT ) ) )? ;
-    public final org.emftext.language.sql.datatype.CharacterStringType parse_org_emftext_language_sql_datatype_CharacterStringType() throws RecognitionException {
-        org.emftext.language.sql.datatype.CharacterStringType element =  null;
+    // $ANTLR start "parse_org_emftext_language_sql_schema_TableReference"
+    // Sql.g:1581:1: parse_org_emftext_language_sql_schema_TableReference returns [org.emftext.language.sql.schema.TableReference element = null] : ( ( ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.' ) )? (a4= IDENTIFIER ) ;
+    public final org.emftext.language.sql.schema.TableReference parse_org_emftext_language_sql_schema_TableReference() throws RecognitionException {
+        org.emftext.language.sql.schema.TableReference element =  null;
 
-        int parse_org_emftext_language_sql_datatype_CharacterStringType_StartIndex = input.index();
+        int parse_org_emftext_language_sql_schema_TableReference_StartIndex = input.index();
 
         Token a0=null;
         Token a1=null;
         Token a2=null;
         Token a3=null;
         Token a4=null;
-        Token a7=null;
-        Token a8=null;
-        Token a9=null;
-        Token a10=null;
-        Token a11=null;
-        Token a12=null;
-        Token a13=null;
-        Token a14=null;
 
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return element; }
 
-            // Sql.g:3136:2: ( ( (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' |a3= 'CHARACTER VARYING' |a4= 'CHAR VARYING' ) ) ( (a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')' ) )? ( (a10= KEYWORD_CHARACTER a11= KEYWORD_SET (a12= TEXT ) ) )? ( (a13= KEYWORD_COLLATE (a14= TEXT ) ) )? )
-            // Sql.g:3137:2: ( (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' |a3= 'CHARACTER VARYING' |a4= 'CHAR VARYING' ) ) ( (a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')' ) )? ( (a10= KEYWORD_CHARACTER a11= KEYWORD_SET (a12= TEXT ) ) )? ( (a13= KEYWORD_COLLATE (a14= TEXT ) ) )?
+            // Sql.g:1584:2: ( ( ( ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.' ) )? (a4= IDENTIFIER ) )
+            // Sql.g:1585:2: ( ( ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.' ) )? (a4= IDENTIFIER )
             {
-            // Sql.g:3137:2: ( (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' |a3= 'CHARACTER VARYING' |a4= 'CHAR VARYING' ) )
-            // Sql.g:3138:3: (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' |a3= 'CHARACTER VARYING' |a4= 'CHAR VARYING' )
+            // Sql.g:1585:2: ( ( ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.' ) )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
+
+            if ( (LA12_0==IDENTIFIER) ) {
+                int LA12_1 = input.LA(2);
+
+                if ( (LA12_1==65) ) {
+                    alt12=1;
+                }
+            }
+            switch (alt12) {
+                case 1 :
+                    // Sql.g:1586:3: ( ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.' )
+                    {
+                    // Sql.g:1586:3: ( ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.' )
+                    // Sql.g:1587:4: ( ( (a0= IDENTIFIER ) a1= '.' ) )? (a2= IDENTIFIER ) a3= '.'
+                    {
+                    // Sql.g:1587:4: ( ( (a0= IDENTIFIER ) a1= '.' ) )?
+                    int alt11=2;
+                    int LA11_0 = input.LA(1);
+
+                    if ( (LA11_0==IDENTIFIER) ) {
+                        int LA11_1 = input.LA(2);
+
+                        if ( (LA11_1==65) ) {
+                            int LA11_2 = input.LA(3);
+
+                            if ( (LA11_2==IDENTIFIER) ) {
+                                int LA11_3 = input.LA(4);
+
+                                if ( (LA11_3==65) ) {
+                                    alt11=1;
+                                }
+                            }
+                        }
+                    }
+                    switch (alt11) {
+                        case 1 :
+                            // Sql.g:1588:5: ( (a0= IDENTIFIER ) a1= '.' )
+                            {
+                            // Sql.g:1588:5: ( (a0= IDENTIFIER ) a1= '.' )
+                            // Sql.g:1589:6: (a0= IDENTIFIER ) a1= '.'
+                            {
+                            // Sql.g:1589:6: (a0= IDENTIFIER )
+                            // Sql.g:1590:7: a0= IDENTIFIER
+                            {
+                            a0=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_TableReference1254); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            							if (terminateParsing) {
+                            								throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                            							}
+                            							if (element == null) {
+                            								element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableReference();
+                            								startIncompleteElement(element);
+                            							}
+                            							if (a0 != null) {
+                            								org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+                            								tokenResolver.setOptions(getOptions());
+                            								org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                            								tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_REFERENCE__CATALOG_NAME), result);
+                            								Object resolvedObject = result.getResolvedToken();
+                            								if (resolvedObject == null) {
+                            									addErrorToResource(result.getErrorMessage(), ((CommonToken) a0).getLine(), ((CommonToken) a0).getCharPositionInLine(), ((CommonToken) a0).getStartIndex(), ((CommonToken) a0).getStopIndex());
+                            								}
+                            								java.lang.String resolved = (java.lang.String) resolvedObject;
+                            								if (resolved != null) {
+                            									Object value = resolved;
+                            									element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_REFERENCE__CATALOG_NAME), value);
+                            									completedElement(value, false);
+                            								}
+                            								collectHiddenTokens(element);
+                            								retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_12_0_0_0_0_0_0_0_0_0, resolved, true);
+                            								copyLocalizationInfos((CommonToken) a0, element);
+                            							}
+                            						}
+
+                            }
+
+
+                            if ( state.backtracking==0 ) {
+                            						// expected elements (follow set)
+                            						addExpectedElement(null, 175);
+                            					}
+
+                            a1=(Token)match(input,65,FOLLOW_65_in_parse_org_emftext_language_sql_schema_TableReference1299); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            						if (element == null) {
+                            							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableReference();
+                            							startIncompleteElement(element);
+                            						}
+                            						collectHiddenTokens(element);
+                            						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_12_0_0_0_0_0_0_0_0_1, null, true);
+                            						copyLocalizationInfos((CommonToken)a1, element);
+                            					}
+
+                            if ( state.backtracking==0 ) {
+                            						// expected elements (follow set)
+                            						addExpectedElement(null, 176);
+                            					}
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 177);
+                    			}
+
+                    // Sql.g:1646:4: (a2= IDENTIFIER )
+                    // Sql.g:1647:5: a2= IDENTIFIER
+                    {
+                    a2=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_TableReference1354); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableReference();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a2 != null) {
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+                    						tokenResolver.setOptions(getOptions());
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    						tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_REFERENCE__SCHEMA_NAME), result);
+                    						Object resolvedObject = result.getResolvedToken();
+                    						if (resolvedObject == null) {
+                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a2).getLine(), ((CommonToken) a2).getCharPositionInLine(), ((CommonToken) a2).getStartIndex(), ((CommonToken) a2).getStopIndex());
+                    						}
+                    						java.lang.String resolved = (java.lang.String) resolvedObject;
+                    						if (resolved != null) {
+                    							Object value = resolved;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_REFERENCE__SCHEMA_NAME), value);
+                    							completedElement(value, false);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_12_0_0_0_0_0_1, resolved, true);
+                    						copyLocalizationInfos((CommonToken) a2, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 178);
+                    			}
+
+                    a3=(Token)match(input,65,FOLLOW_65_in_parse_org_emftext_language_sql_schema_TableReference1387); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableReference();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_12_0_0_0_0_0_2, null, true);
+                    				copyLocalizationInfos((CommonToken)a3, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 179);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 180);
+            	}
+
+            // Sql.g:1703:2: (a4= IDENTIFIER )
+            // Sql.g:1704:3: a4= IDENTIFIER
             {
-            // Sql.g:3138:3: (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' |a3= 'CHARACTER VARYING' |a4= 'CHAR VARYING' )
-            int alt35=5;
-            switch ( input.LA(1) ) {
-            case 70:
-                {
-                alt35=1;
-                }
-                break;
-            case 68:
-                {
-                alt35=2;
-                }
-                break;
-            case 108:
-                {
-                alt35=3;
-                }
-                break;
-            case 69:
-                {
-                alt35=4;
-                }
-                break;
-            case 67:
-                {
-                alt35=5;
-                }
-                break;
-            default:
+            a4=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_TableReference1424); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableReference();
+            				startIncompleteElement(element);
+            			}
+            			if (a4 != null) {
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+            				tokenResolver.setOptions(getOptions());
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+            				tokenResolver.resolve(a4.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_REFERENCE__TARGET), result);
+            				Object resolvedObject = result.getResolvedToken();
+            				if (resolvedObject == null) {
+            					addErrorToResource(result.getErrorMessage(), ((CommonToken) a4).getLine(), ((CommonToken) a4).getCharPositionInLine(), ((CommonToken) a4).getStartIndex(), ((CommonToken) a4).getStopIndex());
+            				}
+            				String resolved = (String) resolvedObject;
+            				org.emftext.language.sql.schema.TableDefinition proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
+            				collectHiddenTokens(element);
+            				registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.TableReference, org.emftext.language.sql.schema.TableDefinition>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getTableReferenceTargetReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_REFERENCE__TARGET), resolved, proxy);
+            				if (proxy != null) {
+            					Object value = proxy;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_REFERENCE__TARGET), value);
+            					completedElement(value, false);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_12_0_0_1, proxy, true);
+            				copyLocalizationInfos((CommonToken) a4, element);
+            				copyLocalizationInfos((CommonToken) a4, proxy);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 181, 185);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 14, parse_org_emftext_language_sql_schema_TableReference_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_schema_TableReference"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_schema_TableDefinition"
+    // Sql.g:1748:1: parse_org_emftext_language_sql_schema_TableDefinition returns [org.emftext.language.sql.schema.TableDefinition element = null] : a0= KEYWORD_CREATE ( ( ()? ) | ( (a3= 'GLOBAL' |a4= 'LOCAL' ) ) a7= KEYWORD_TEMPORARY ) a8= KEYWORD_TABLE (a9_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) (a10_0= parse_org_emftext_language_sql_schema_TableContentsSource ) a11= ';' ;
+    public final org.emftext.language.sql.schema.TableDefinition parse_org_emftext_language_sql_schema_TableDefinition() throws RecognitionException {
+        org.emftext.language.sql.schema.TableDefinition element =  null;
+
+        int parse_org_emftext_language_sql_schema_TableDefinition_StartIndex = input.index();
+
+        Token a0=null;
+        Token a3=null;
+        Token a4=null;
+        Token a7=null;
+        Token a8=null;
+        Token a11=null;
+        org.emftext.language.sql.common.SchemaQualifiedName a9_0 =null;
+
+        org.emftext.language.sql.schema.TableContentsSource a10_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return element; }
+
+            // Sql.g:1751:2: (a0= KEYWORD_CREATE ( ( ()? ) | ( (a3= 'GLOBAL' |a4= 'LOCAL' ) ) a7= KEYWORD_TEMPORARY ) a8= KEYWORD_TABLE (a9_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) (a10_0= parse_org_emftext_language_sql_schema_TableContentsSource ) a11= ';' )
+            // Sql.g:1752:2: a0= KEYWORD_CREATE ( ( ()? ) | ( (a3= 'GLOBAL' |a4= 'LOCAL' ) ) a7= KEYWORD_TEMPORARY ) a8= KEYWORD_TABLE (a9_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) (a10_0= parse_org_emftext_language_sql_schema_TableContentsSource ) a11= ';'
+            {
+            a0=(Token)match(input,KEYWORD_CREATE,FOLLOW_KEYWORD_CREATE_in_parse_org_emftext_language_sql_schema_TableDefinition1460); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
+            			startIncompleteElement(element);
+            			// initialize enumeration attribute
+            			Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableScope().getEEnumLiteral(org.emftext.language.sql.schema.TableScope.PERSISTENT_VALUE).getInstance();
+            			element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE), value);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_13_0_0_0, null, true);
+            		copyLocalizationInfos((CommonToken)a0, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 186, 188);
+            	}
+
+            // Sql.g:1769:2: ( ( ()? ) | ( (a3= 'GLOBAL' |a4= 'LOCAL' ) ) a7= KEYWORD_TEMPORARY )
+            int alt15=2;
+            int LA15_0 = input.LA(1);
+
+            if ( (LA15_0==KEYWORD_TABLE) ) {
+                alt15=1;
+            }
+            else if ( (LA15_0==83||LA15_0==87) ) {
+                alt15=2;
+            }
+            else {
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 35, 0, input);
+                    new NoViableAltException("", 15, 0, input);
 
                 throw nvae;
 
             }
-
-            switch (alt35) {
+            switch (alt15) {
                 case 1 :
-                    // Sql.g:3139:4: a0= 'CHARACTER'
+                    // Sql.g:1770:3: ( ()? )
                     {
-                    a0=(Token)match(input,70,FOLLOW_70_in_parse_org_emftext_language_sql_datatype_CharacterStringType3437); if (state.failed) return element;
+                    // Sql.g:1770:3: ( ()? )
+                    // Sql.g:1771:4: ()?
+                    {
+                    // Sql.g:1771:4: ()?
+                    int alt13=2;
+                    int LA13_0 = input.LA(1);
+
+                    if ( (LA13_0==KEYWORD_TABLE) ) {
+                        int LA13_1 = input.LA(2);
+
+                        if ( (synpred13_Sql()) ) {
+                            alt13=1;
+                        }
+                    }
+                    switch (alt13) {
+                        case 1 :
+                            // Sql.g:1772:4: 
+                            {
+                            }
+                            break;
+
+                    }
+
+
+                    }
+
 
                     if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a0, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHARACTER_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 189);
+                    		}
 
                     }
                     break;
                 case 2 :
-                    // Sql.g:3152:8: a1= 'CHAR'
+                    // Sql.g:1779:6: ( (a3= 'GLOBAL' |a4= 'LOCAL' ) ) a7= KEYWORD_TEMPORARY
                     {
-                    a1=(Token)match(input,68,FOLLOW_68_in_parse_org_emftext_language_sql_datatype_CharacterStringType3452); if (state.failed) return element;
+                    // Sql.g:1779:6: ( (a3= 'GLOBAL' |a4= 'LOCAL' ) )
+                    // Sql.g:1780:4: (a3= 'GLOBAL' |a4= 'LOCAL' )
+                    {
+                    // Sql.g:1780:4: (a3= 'GLOBAL' |a4= 'LOCAL' )
+                    int alt14=2;
+                    int LA14_0 = input.LA(1);
 
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a1, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHAR_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
+                    if ( (LA14_0==83) ) {
+                        alt14=1;
+                    }
+                    else if ( (LA14_0==87) ) {
+                        alt14=2;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return element;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 14, 0, input);
+
+                        throw nvae;
 
                     }
-                    break;
-                case 3 :
-                    // Sql.g:3165:8: a2= 'VARCHAR'
-                    {
-                    a2=(Token)match(input,108,FOLLOW_108_in_parse_org_emftext_language_sql_datatype_CharacterStringType3467); if (state.failed) return element;
+                    switch (alt14) {
+                        case 1 :
+                            // Sql.g:1781:5: a3= 'GLOBAL'
+                            {
+                            a3=(Token)match(input,83,FOLLOW_83_in_parse_org_emftext_language_sql_schema_TableDefinition1520); if (state.failed) return element;
 
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a2, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.VARCHAR_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
+                            if ( state.backtracking==0 ) {
+                            					if (element == null) {
+                            						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
+                            						startIncompleteElement(element);
+                            						// initialize enumeration attribute
+                            						Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableScope().getEEnumLiteral(org.emftext.language.sql.schema.TableScope.PERSISTENT_VALUE).getInstance();
+                            						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE), value);
+                            					}
+                            					collectHiddenTokens(element);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_13_0_0_1_0_1_0, null, true);
+                            					copyLocalizationInfos((CommonToken)a3, element);
+                            					// set value of enumeration attribute
+                            					Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableScope().getEEnumLiteral(org.emftext.language.sql.schema.TableScope.GLOBAL_TEMPORARY_VALUE).getInstance();
+                            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE), value);
+                            					completedElement(value, false);
+                            				}
 
-                    }
-                    break;
-                case 4 :
-                    // Sql.g:3178:8: a3= 'CHARACTER VARYING'
-                    {
-                    a3=(Token)match(input,69,FOLLOW_69_in_parse_org_emftext_language_sql_datatype_CharacterStringType3482); if (state.failed) return element;
+                            }
+                            break;
+                        case 2 :
+                            // Sql.g:1797:10: a4= 'LOCAL'
+                            {
+                            a4=(Token)match(input,87,FOLLOW_87_in_parse_org_emftext_language_sql_schema_TableDefinition1537); if (state.failed) return element;
 
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a3, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHARACTER_VARYING_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
+                            if ( state.backtracking==0 ) {
+                            					if (element == null) {
+                            						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
+                            						startIncompleteElement(element);
+                            						// initialize enumeration attribute
+                            						Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableScope().getEEnumLiteral(org.emftext.language.sql.schema.TableScope.PERSISTENT_VALUE).getInstance();
+                            						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE), value);
+                            					}
+                            					collectHiddenTokens(element);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_13_0_0_1_0_1_0, null, true);
+                            					copyLocalizationInfos((CommonToken)a4, element);
+                            					// set value of enumeration attribute
+                            					Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableScope().getEEnumLiteral(org.emftext.language.sql.schema.TableScope.LOCAL_TEMPORARY_VALUE).getInstance();
+                            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE), value);
+                            					completedElement(value, false);
+                            				}
 
-                    }
-                    break;
-                case 5 :
-                    // Sql.g:3191:8: a4= 'CHAR VARYING'
-                    {
-                    a4=(Token)match(input,67,FOLLOW_67_in_parse_org_emftext_language_sql_datatype_CharacterStringType3497); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a4, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHAR_VARYING_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
+                            }
+                            break;
 
                     }
-                    break;
 
-            }
-
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 289, 292);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 293, 298);
-            		addExpectedElement(null, 299, 301);
-            	}
-
-            // Sql.g:3213:2: ( (a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')' ) )?
-            int alt36=2;
-            int LA36_0 = input.LA(1);
-
-            if ( (LA36_0==58) ) {
-                alt36=1;
-            }
-            switch (alt36) {
-                case 1 :
-                    // Sql.g:3214:3: (a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')' )
-                    {
-                    // Sql.g:3214:3: (a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')' )
-                    // Sql.g:3215:4: a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')'
-                    {
-                    a7=(Token)match(input,58,FOLLOW_58_in_parse_org_emftext_language_sql_datatype_CharacterStringType3527); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_1_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a7, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 302);
-                    			}
-
-                    // Sql.g:3229:4: (a8= UNSIGNED_INTEGER )
-                    // Sql.g:3230:5: a8= UNSIGNED_INTEGER
-                    {
-                    a8=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_CharacterStringType3553); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    					if (terminateParsing) {
-                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    					}
-                    					if (element == null) {
-                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-                    						startIncompleteElement(element);
-                    					}
-                    					if (a8 != null) {
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
-                    						tokenResolver.setOptions(getOptions());
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    						tokenResolver.resolve(a8.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__LENGTH), result);
-                    						Object resolvedObject = result.getResolvedToken();
-                    						if (resolvedObject == null) {
-                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a8).getLine(), ((CommonToken) a8).getCharPositionInLine(), ((CommonToken) a8).getStartIndex(), ((CommonToken) a8).getStopIndex());
-                    						}
-                    						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
-                    						if (resolved != null) {
-                    							Object value = resolved;
-                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__LENGTH), value);
-                    							completedElement(value, false);
-                    						}
-                    						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_1_0_0_1, resolved, true);
-                    						copyLocalizationInfos((CommonToken) a8, element);
-                    					}
-                    				}
 
                     }
 
 
                     if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 303);
-                    			}
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 190);
+                    		}
 
-                    a9=(Token)match(input,59,FOLLOW_59_in_parse_org_emftext_language_sql_datatype_CharacterStringType3586); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_1_0_0_2, null, true);
-                    				copyLocalizationInfos((CommonToken)a9, element);
-                    			}
+                    a7=(Token)match(input,KEYWORD_TEMPORARY,FOLLOW_KEYWORD_TEMPORARY_in_parse_org_emftext_language_sql_schema_TableDefinition1563); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 304, 306);
-                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 307, 312);
-                    				addExpectedElement(null, 313, 315);
+                    			if (element == null) {
+                    				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
+                    				startIncompleteElement(element);
+                    				// initialize enumeration attribute
+                    				Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableScope().getEEnumLiteral(org.emftext.language.sql.schema.TableScope.PERSISTENT_VALUE).getInstance();
+                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE), value);
                     			}
+                    			collectHiddenTokens(element);
+                    			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_13_0_0_1_0_1_1, null, true);
+                    			copyLocalizationInfos((CommonToken)a7, element);
+                    		}
 
-                    }
-
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 191);
+                    		}
 
                     }
                     break;
@@ -5498,185 +3027,660 @@ public class SqlParser extends SqlANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 316, 318);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 319, 324);
-            		addExpectedElement(null, 325, 327);
+            		addExpectedElement(null, 192);
             	}
 
-            // Sql.g:3290:2: ( (a10= KEYWORD_CHARACTER a11= KEYWORD_SET (a12= TEXT ) ) )?
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            a8=(Token)match(input,KEYWORD_TABLE,FOLLOW_KEYWORD_TABLE_in_parse_org_emftext_language_sql_schema_TableDefinition1587); if (state.failed) return element;
 
-            if ( (LA37_0==KEYWORD_CHARACTER) ) {
-                alt37=1;
-            }
-            switch (alt37) {
-                case 1 :
-                    // Sql.g:3291:3: (a10= KEYWORD_CHARACTER a11= KEYWORD_SET (a12= TEXT ) )
-                    {
-                    // Sql.g:3291:3: (a10= KEYWORD_CHARACTER a11= KEYWORD_SET (a12= TEXT ) )
-                    // Sql.g:3292:4: a10= KEYWORD_CHARACTER a11= KEYWORD_SET (a12= TEXT )
-                    {
-                    a10=(Token)match(input,KEYWORD_CHARACTER,FOLLOW_KEYWORD_CHARACTER_in_parse_org_emftext_language_sql_datatype_CharacterStringType3628); if (state.failed) return element;
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
+            			startIncompleteElement(element);
+            			// initialize enumeration attribute
+            			Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableScope().getEEnumLiteral(org.emftext.language.sql.schema.TableScope.PERSISTENT_VALUE).getInstance();
+            			element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE), value);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_13_0_0_2, null, true);
+            		copyLocalizationInfos((CommonToken)a8, element);
+            	}
 
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_2_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a10, element);
-                    			}
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableDefinition(), 193, 195);
+            	}
 
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 328);
-                    			}
+            // Sql.g:1860:2: (a9_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+            // Sql.g:1861:3: a9_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
+            {
+            pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_TableDefinition1605);
+            a9_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
 
-                    a11=(Token)match(input,KEYWORD_SET,FOLLOW_KEYWORD_SET_in_parse_org_emftext_language_sql_datatype_CharacterStringType3648); if (state.failed) return element;
+            state._fsp--;
+            if (state.failed) return element;
 
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_2_0_0_1, null, true);
-                    				copyLocalizationInfos((CommonToken)a11, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 329);
-                    			}
-
-                    // Sql.g:3320:4: (a12= TEXT )
-                    // Sql.g:3321:5: a12= TEXT
-                    {
-                    a12=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_org_emftext_language_sql_datatype_CharacterStringType3674); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    					if (terminateParsing) {
-                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    					}
-                    					if (element == null) {
-                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-                    						startIncompleteElement(element);
-                    					}
-                    					if (a12 != null) {
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
-                    						tokenResolver.setOptions(getOptions());
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    						tokenResolver.resolve(a12.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__CHARACTER_SET_NAME), result);
-                    						Object resolvedObject = result.getResolvedToken();
-                    						if (resolvedObject == null) {
-                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a12).getLine(), ((CommonToken) a12).getCharPositionInLine(), ((CommonToken) a12).getStartIndex(), ((CommonToken) a12).getStopIndex());
-                    						}
-                    						java.lang.String resolved = (java.lang.String) resolvedObject;
-                    						if (resolved != null) {
-                    							Object value = resolved;
-                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__CHARACTER_SET_NAME), value);
-                    							completedElement(value, false);
-                    						}
-                    						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_2_0_0_2, resolved, true);
-                    						copyLocalizationInfos((CommonToken) a12, element);
-                    					}
-                    				}
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 330, 331);
-                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 332, 337);
-                    				addExpectedElement(null, 338, 340);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
+            				startIncompleteElement(element);
+            				// initialize enumeration attribute
+            				Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableScope().getEEnumLiteral(org.emftext.language.sql.schema.TableScope.PERSISTENT_VALUE).getInstance();
+            				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE), value);
+            			}
+            			if (a9_0 != null) {
+            				if (a9_0 != null) {
+            					Object value = a9_0;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCHEMA_QUALIFIED_NAME), value);
+            					completedElement(value, true);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_13_0_0_3, a9_0, true);
+            				copyLocalizationInfos(a9_0, element);
+            			}
+            		}
 
             }
 
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 341, 342);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 343, 348);
-            		addExpectedElement(null, 349, 351);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableDefinition(), 196);
             	}
 
-            // Sql.g:3367:2: ( (a13= KEYWORD_COLLATE (a14= TEXT ) ) )?
-            int alt38=2;
-            int LA38_0 = input.LA(1);
+            // Sql.g:1889:2: (a10_0= parse_org_emftext_language_sql_schema_TableContentsSource )
+            // Sql.g:1890:3: a10_0= parse_org_emftext_language_sql_schema_TableContentsSource
+            {
+            pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_TableContentsSource_in_parse_org_emftext_language_sql_schema_TableDefinition1627);
+            a10_0=parse_org_emftext_language_sql_schema_TableContentsSource();
 
-            if ( (LA38_0==KEYWORD_COLLATE) ) {
-                int LA38_1 = input.LA(2);
+            state._fsp--;
+            if (state.failed) return element;
 
-                if ( (LA38_1==TEXT) ) {
-                    alt38=1;
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
+            				startIncompleteElement(element);
+            				// initialize enumeration attribute
+            				Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableScope().getEEnumLiteral(org.emftext.language.sql.schema.TableScope.PERSISTENT_VALUE).getInstance();
+            				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE), value);
+            			}
+            			if (a10_0 != null) {
+            				if (a10_0 != null) {
+            					Object value = a10_0;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__CONTENTS_SOURCE), value);
+            					completedElement(value, true);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_13_0_0_5, a10_0, true);
+            				copyLocalizationInfos(a10_0, element);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 197);
+            	}
+
+            a11=(Token)match(input,66,FOLLOW_66_in_parse_org_emftext_language_sql_schema_TableDefinition1645); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableDefinition();
+            			startIncompleteElement(element);
+            			// initialize enumeration attribute
+            			Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableScope().getEEnumLiteral(org.emftext.language.sql.schema.TableScope.PERSISTENT_VALUE).getInstance();
+            			element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE), value);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_13_0_0_6, null, true);
+            		copyLocalizationInfos((CommonToken)a11, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(org.emftext.language.sql.common.CommonPackage.eINSTANCE.getSQLScript(), 198, 200);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 15, parse_org_emftext_language_sql_schema_TableDefinition_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_schema_TableDefinition"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_schema_TableElementList"
+    // Sql.g:1940:1: parse_org_emftext_language_sql_schema_TableElementList returns [org.emftext.language.sql.schema.TableElementList element = null] : a0= '(' (a1_0= parse_org_emftext_language_sql_schema_TableElement ) ( (a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement ) ) )* a4= ')' ;
+    public final org.emftext.language.sql.schema.TableElementList parse_org_emftext_language_sql_schema_TableElementList() throws RecognitionException {
+        org.emftext.language.sql.schema.TableElementList element =  null;
+
+        int parse_org_emftext_language_sql_schema_TableElementList_StartIndex = input.index();
+
+        Token a0=null;
+        Token a2=null;
+        Token a4=null;
+        org.emftext.language.sql.schema.TableElement a1_0 =null;
+
+        org.emftext.language.sql.schema.TableElement a3_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return element; }
+
+            // Sql.g:1943:2: (a0= '(' (a1_0= parse_org_emftext_language_sql_schema_TableElement ) ( (a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement ) ) )* a4= ')' )
+            // Sql.g:1944:2: a0= '(' (a1_0= parse_org_emftext_language_sql_schema_TableElement ) ( (a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement ) ) )* a4= ')'
+            {
+            a0=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_schema_TableElementList1674); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableElementList();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_14_0_0_0, null, true);
+            		copyLocalizationInfos((CommonToken)a0, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableElementList(), 201, 205);
+            	}
+
+            // Sql.g:1958:2: (a1_0= parse_org_emftext_language_sql_schema_TableElement )
+            // Sql.g:1959:3: a1_0= parse_org_emftext_language_sql_schema_TableElement
+            {
+            pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_TableElement_in_parse_org_emftext_language_sql_schema_TableElementList1692);
+            a1_0=parse_org_emftext_language_sql_schema_TableElement();
+
+            state._fsp--;
+            if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableElementList();
+            				startIncompleteElement(element);
+            			}
+            			if (a1_0 != null) {
+            				if (a1_0 != null) {
+            					Object value = a1_0;
+            					addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.TABLE_ELEMENT_LIST__ELEMENTS, value);
+            					completedElement(value, true);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_14_0_0_2, a1_0, true);
+            				copyLocalizationInfos(a1_0, element);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 206, 207);
+            	}
+
+            // Sql.g:1984:2: ( (a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement ) ) )*
+            loop16:
+            do {
+                int alt16=2;
+                int LA16_0 = input.LA(1);
+
+                if ( (LA16_0==64) ) {
+                    alt16=1;
                 }
+
+
+                switch (alt16) {
+            	case 1 :
+            	    // Sql.g:1985:3: (a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement ) )
+            	    {
+            	    // Sql.g:1985:3: (a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement ) )
+            	    // Sql.g:1986:4: a2= ',' (a3_0= parse_org_emftext_language_sql_schema_TableElement )
+            	    {
+            	    a2=(Token)match(input,64,FOLLOW_64_in_parse_org_emftext_language_sql_schema_TableElementList1719); if (state.failed) return element;
+
+            	    if ( state.backtracking==0 ) {
+            	    				if (element == null) {
+            	    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableElementList();
+            	    					startIncompleteElement(element);
+            	    				}
+            	    				collectHiddenTokens(element);
+            	    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_14_0_0_3_0_0_0, null, true);
+            	    				copyLocalizationInfos((CommonToken)a2, element);
+            	    			}
+
+            	    if ( state.backtracking==0 ) {
+            	    				// expected elements (follow set)
+            	    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableElementList(), 208, 212);
+            	    			}
+
+            	    // Sql.g:2000:4: (a3_0= parse_org_emftext_language_sql_schema_TableElement )
+            	    // Sql.g:2001:5: a3_0= parse_org_emftext_language_sql_schema_TableElement
+            	    {
+            	    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_TableElement_in_parse_org_emftext_language_sql_schema_TableElementList1745);
+            	    a3_0=parse_org_emftext_language_sql_schema_TableElement();
+
+            	    state._fsp--;
+            	    if (state.failed) return element;
+
+            	    if ( state.backtracking==0 ) {
+            	    					if (terminateParsing) {
+            	    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            	    					}
+            	    					if (element == null) {
+            	    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableElementList();
+            	    						startIncompleteElement(element);
+            	    					}
+            	    					if (a3_0 != null) {
+            	    						if (a3_0 != null) {
+            	    							Object value = a3_0;
+            	    							addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.TABLE_ELEMENT_LIST__ELEMENTS, value);
+            	    							completedElement(value, true);
+            	    						}
+            	    						collectHiddenTokens(element);
+            	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_14_0_0_3_0_0_2, a3_0, true);
+            	    						copyLocalizationInfos(a3_0, element);
+            	    					}
+            	    				}
+
+            	    }
+
+
+            	    if ( state.backtracking==0 ) {
+            	    				// expected elements (follow set)
+            	    				addExpectedElement(null, 213, 214);
+            	    			}
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop16;
+                }
+            } while (true);
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 215, 216);
+            	}
+
+            a4=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_schema_TableElementList1786); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createTableElementList();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_14_0_0_5, null, true);
+            		copyLocalizationInfos((CommonToken)a4, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 217);
+            	}
+
             }
-            switch (alt38) {
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 16, parse_org_emftext_language_sql_schema_TableElementList_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_schema_TableElementList"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_schema_Column"
+    // Sql.g:2052:1: parse_org_emftext_language_sql_schema_Column returns [org.emftext.language.sql.schema.Column element = null] : (a0= IDENTIFIER ) (a1_0= parse_org_emftext_language_sql_datatype_DataType ) ( (a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption ) ) )? ( (a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint ) )? ( (a5= KEYWORD_COLLATE (a6_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? ;
+    public final org.emftext.language.sql.schema.Column parse_org_emftext_language_sql_schema_Column() throws RecognitionException {
+        org.emftext.language.sql.schema.Column element =  null;
+
+        int parse_org_emftext_language_sql_schema_Column_StartIndex = input.index();
+
+        Token a0=null;
+        Token a2=null;
+        Token a5=null;
+        org.emftext.language.sql.datatype.DataType a1_0 =null;
+
+        org.emftext.language.sql.schema.DefaultOption a3_0 =null;
+
+        org.emftext.language.sql.schema.ColumnConstraint a4_0 =null;
+
+        org.emftext.language.sql.common.SchemaQualifiedName a6_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return element; }
+
+            // Sql.g:2055:2: ( (a0= IDENTIFIER ) (a1_0= parse_org_emftext_language_sql_datatype_DataType ) ( (a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption ) ) )? ( (a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint ) )? ( (a5= KEYWORD_COLLATE (a6_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? )
+            // Sql.g:2056:2: (a0= IDENTIFIER ) (a1_0= parse_org_emftext_language_sql_datatype_DataType ) ( (a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption ) ) )? ( (a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint ) )? ( (a5= KEYWORD_COLLATE (a6_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            {
+            // Sql.g:2056:2: (a0= IDENTIFIER )
+            // Sql.g:2057:3: a0= IDENTIFIER
+            {
+            a0=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_Column1819); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+            				startIncompleteElement(element);
+            			}
+            			if (a0 != null) {
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+            				tokenResolver.setOptions(getOptions());
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+            				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__NAME), result);
+            				Object resolvedObject = result.getResolvedToken();
+            				if (resolvedObject == null) {
+            					addErrorToResource(result.getErrorMessage(), ((CommonToken) a0).getLine(), ((CommonToken) a0).getCharPositionInLine(), ((CommonToken) a0).getStartIndex(), ((CommonToken) a0).getStopIndex());
+            				}
+            				java.lang.String resolved = (java.lang.String) resolvedObject;
+            				if (resolved != null) {
+            					Object value = resolved;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__NAME), value);
+            					completedElement(value, false);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_15_0_0_0, resolved, true);
+            				copyLocalizationInfos((CommonToken) a0, element);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 218, 231);
+            	}
+
+            // Sql.g:2092:2: (a1_0= parse_org_emftext_language_sql_datatype_DataType )
+            // Sql.g:2093:3: a1_0= parse_org_emftext_language_sql_datatype_DataType
+            {
+            pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_DataType_in_parse_org_emftext_language_sql_schema_Column1844);
+            a1_0=parse_org_emftext_language_sql_datatype_DataType();
+
+            state._fsp--;
+            if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+            				startIncompleteElement(element);
+            			}
+            			if (a1_0 != null) {
+            				if (a1_0 != null) {
+            					Object value = a1_0;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__DATA_TYPE), value);
+            					completedElement(value, true);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_15_0_0_1, a1_0, true);
+            				copyLocalizationInfos(a1_0, element);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 232);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 233, 238);
+            		addExpectedElement(null, 239, 241);
+            	}
+
+            // Sql.g:2120:2: ( (a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption ) ) )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
+
+            if ( (LA17_0==KEYWORD_DEFAULT) ) {
+                alt17=1;
+            }
+            switch (alt17) {
                 case 1 :
-                    // Sql.g:3368:3: (a13= KEYWORD_COLLATE (a14= TEXT ) )
+                    // Sql.g:2121:3: (a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption ) )
                     {
-                    // Sql.g:3368:3: (a13= KEYWORD_COLLATE (a14= TEXT ) )
-                    // Sql.g:3369:4: a13= KEYWORD_COLLATE (a14= TEXT )
+                    // Sql.g:2121:3: (a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption ) )
+                    // Sql.g:2122:4: a2= KEYWORD_DEFAULT (a3_0= parse_org_emftext_language_sql_schema_DefaultOption )
                     {
-                    a13=(Token)match(input,KEYWORD_COLLATE,FOLLOW_KEYWORD_COLLATE_in_parse_org_emftext_language_sql_datatype_CharacterStringType3729); if (state.failed) return element;
+                    a2=(Token)match(input,KEYWORD_DEFAULT,FOLLOW_KEYWORD_DEFAULT_in_parse_org_emftext_language_sql_schema_Column1871); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_3_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a13, element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_15_0_0_2_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a2, element);
                     			}
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(null, 352);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 242, 259);
+                    				addExpectedElement(null, 260, 262);
                     			}
 
-                    // Sql.g:3383:4: (a14= TEXT )
-                    // Sql.g:3384:5: a14= TEXT
+                    // Sql.g:2137:4: (a3_0= parse_org_emftext_language_sql_schema_DefaultOption )
+                    // Sql.g:2138:5: a3_0= parse_org_emftext_language_sql_schema_DefaultOption
                     {
-                    a14=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_org_emftext_language_sql_datatype_CharacterStringType3755); if (state.failed) return element;
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_DefaultOption_in_parse_org_emftext_language_sql_schema_Column1897);
+                    a3_0=parse_org_emftext_language_sql_schema_DefaultOption();
+
+                    state._fsp--;
+                    if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     					if (terminateParsing) {
                     						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
                     					}
                     					if (element == null) {
-                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
                     						startIncompleteElement(element);
                     					}
-                    					if (a14 != null) {
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
-                    						tokenResolver.setOptions(getOptions());
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    						tokenResolver.resolve(a14.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__COLLATION_NAME), result);
-                    						Object resolvedObject = result.getResolvedToken();
-                    						if (resolvedObject == null) {
-                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a14).getLine(), ((CommonToken) a14).getCharPositionInLine(), ((CommonToken) a14).getStartIndex(), ((CommonToken) a14).getStopIndex());
-                    						}
-                    						java.lang.String resolved = (java.lang.String) resolvedObject;
-                    						if (resolved != null) {
-                    							Object value = resolved;
-                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__COLLATION_NAME), value);
-                    							completedElement(value, false);
+                    					if (a3_0 != null) {
+                    						if (a3_0 != null) {
+                    							Object value = a3_0;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__DEFAULT_OPTION), value);
+                    							completedElement(value, true);
                     						}
                     						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_3_0_0_1, resolved, true);
-                    						copyLocalizationInfos((CommonToken) a14, element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_15_0_0_2_0_0_1, a3_0, true);
+                    						copyLocalizationInfos(a3_0, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 263, 268);
+                    				addExpectedElement(null, 269, 271);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 272, 277);
+            		addExpectedElement(null, 278, 280);
+            	}
+
+            // Sql.g:2172:2: ( (a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint ) )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
+
+            if ( (LA18_0==KEYWORD_CONSTRAINT||LA18_0==KEYWORD_NOT||LA18_0==KEYWORD_REFERENCES||LA18_0==94||LA18_0==98) ) {
+                alt18=1;
+            }
+            switch (alt18) {
+                case 1 :
+                    // Sql.g:2173:3: (a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint )
+                    {
+                    // Sql.g:2173:3: (a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint )
+                    // Sql.g:2174:4: a4_0= parse_org_emftext_language_sql_schema_ColumnConstraint
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_ColumnConstraint_in_parse_org_emftext_language_sql_schema_Column1947);
+                    a4_0=parse_org_emftext_language_sql_schema_ColumnConstraint();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (terminateParsing) {
+                    					throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    				}
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+                    					startIncompleteElement(element);
+                    				}
+                    				if (a4_0 != null) {
+                    					if (a4_0 != null) {
+                    						Object value = a4_0;
+                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__CONSTRAINT_DEFINITION), value);
+                    						completedElement(value, true);
+                    					}
+                    					collectHiddenTokens(element);
+                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_15_0_0_3, a4_0, true);
+                    					copyLocalizationInfos(a4_0, element);
+                    				}
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 281, 283);
+            	}
+
+            // Sql.g:2200:2: ( (a5= KEYWORD_COLLATE (a6_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
+
+            if ( (LA19_0==KEYWORD_COLLATE) ) {
+                alt19=1;
+            }
+            switch (alt19) {
+                case 1 :
+                    // Sql.g:2201:3: (a5= KEYWORD_COLLATE (a6_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    {
+                    // Sql.g:2201:3: (a5= KEYWORD_COLLATE (a6_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    // Sql.g:2202:4: a5= KEYWORD_COLLATE (a6_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    {
+                    a5=(Token)match(input,KEYWORD_COLLATE,FOLLOW_KEYWORD_COLLATE_in_parse_org_emftext_language_sql_schema_Column1982); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_15_0_0_4_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a5, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 284, 286);
+                    			}
+
+                    // Sql.g:2216:4: (a6_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    // Sql.g:2217:5: a6_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_Column2008);
+                    a6_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a6_0 != null) {
+                    						if (a6_0 != null) {
+                    							Object value = a6_0;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__COLLATION_NAME), value);
+                    							completedElement(value, true);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_15_0_0_4_0_0_1, a6_0, true);
+                    						copyLocalizationInfos(a6_0, element);
                     					}
                     				}
 
@@ -5688,9 +3692,7 @@ public class SqlParser extends SqlANTLRParserBase {
                     				// We've found the last token for this rule. The constructed EObject is now
                     				// complete.
                     				completedElement(element, true);
-                    				addExpectedElement(null, 353);
-                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 354, 359);
-                    				addExpectedElement(null, 360, 362);
+                    				addExpectedElement(null, 287, 288);
                     			}
 
                     }
@@ -5707,9 +3709,7 @@ public class SqlParser extends SqlANTLRParserBase {
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(null, 363);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 364, 369);
-            		addExpectedElement(null, 370, 372);
+            		addExpectedElement(null, 289, 290);
             	}
 
             }
@@ -5722,209 +3722,570 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 19, parse_org_emftext_language_sql_datatype_CharacterStringType_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 17, parse_org_emftext_language_sql_schema_Column_StartIndex); }
 
         }
         return element;
     }
-    // $ANTLR end "parse_org_emftext_language_sql_datatype_CharacterStringType"
+    // $ANTLR end "parse_org_emftext_language_sql_schema_Column"
 
 
 
-    // $ANTLR start "parse_org_emftext_language_sql_datatype_NationalCharacterStringType"
-    // Sql.g:3438:1: parse_org_emftext_language_sql_datatype_NationalCharacterStringType returns [org.emftext.language.sql.datatype.NationalCharacterStringType element = null] : ( (a0= 'NATIONAL CHARACTER' |a1= 'NATIONAL CHAR' |a2= 'NCHAR' |a3= 'NATIONAL CHARACTER VARYING' |a4= 'NATIONAL CHAR VARYING' |a5= 'NCHAR VARYING' ) ) ( (a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')' ) )? ( (a11= KEYWORD_COLLATE (a12= TEXT ) ) )? ;
-    public final org.emftext.language.sql.datatype.NationalCharacterStringType parse_org_emftext_language_sql_datatype_NationalCharacterStringType() throws RecognitionException {
-        org.emftext.language.sql.datatype.NationalCharacterStringType element =  null;
+    // $ANTLR start "parse_org_emftext_language_sql_schema_LiteralDefaultOption"
+    // Sql.g:2257:1: parse_org_emftext_language_sql_schema_LiteralDefaultOption returns [org.emftext.language.sql.schema.LiteralDefaultOption element = null] : (a0_0= parse_org_emftext_language_sql_literal_Literal ) ;
+    public final org.emftext.language.sql.schema.LiteralDefaultOption parse_org_emftext_language_sql_schema_LiteralDefaultOption() throws RecognitionException {
+        org.emftext.language.sql.schema.LiteralDefaultOption element =  null;
 
-        int parse_org_emftext_language_sql_datatype_NationalCharacterStringType_StartIndex = input.index();
+        int parse_org_emftext_language_sql_schema_LiteralDefaultOption_StartIndex = input.index();
 
-        Token a0=null;
-        Token a1=null;
-        Token a2=null;
-        Token a3=null;
-        Token a4=null;
-        Token a5=null;
-        Token a8=null;
-        Token a9=null;
-        Token a10=null;
-        Token a11=null;
-        Token a12=null;
+        org.emftext.language.sql.literal.Literal a0_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return element; }
+
+            // Sql.g:2260:2: ( (a0_0= parse_org_emftext_language_sql_literal_Literal ) )
+            // Sql.g:2261:2: (a0_0= parse_org_emftext_language_sql_literal_Literal )
+            {
+            // Sql.g:2261:2: (a0_0= parse_org_emftext_language_sql_literal_Literal )
+            // Sql.g:2262:3: a0_0= parse_org_emftext_language_sql_literal_Literal
+            {
+            pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_Literal_in_parse_org_emftext_language_sql_schema_LiteralDefaultOption2068);
+            a0_0=parse_org_emftext_language_sql_literal_Literal();
+
+            state._fsp--;
+            if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createLiteralDefaultOption();
+            				startIncompleteElement(element);
+            			}
+            			if (a0_0 != null) {
+            				if (a0_0 != null) {
+            					Object value = a0_0;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.LITERAL_DEFAULT_OPTION__LITERAL), value);
+            					completedElement(value, true);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_16_0_0_0, a0_0, true);
+            				copyLocalizationInfos(a0_0, element);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 291, 296);
+            		addExpectedElement(null, 297, 299);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 18, parse_org_emftext_language_sql_schema_LiteralDefaultOption_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_schema_LiteralDefaultOption"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption"
+    // Sql.g:2293:1: parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption returns [org.emftext.language.sql.schema.DatetimeValueFunctionDefaultOption element = null] : (a0_0= parse_org_emftext_language_sql_function_DatetimeValueFunction ) ;
+    public final org.emftext.language.sql.schema.DatetimeValueFunctionDefaultOption parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption() throws RecognitionException {
+        org.emftext.language.sql.schema.DatetimeValueFunctionDefaultOption element =  null;
+
+        int parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption_StartIndex = input.index();
+
+        org.emftext.language.sql.function.DatetimeValueFunction a0_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return element; }
+
+            // Sql.g:2296:2: ( (a0_0= parse_org_emftext_language_sql_function_DatetimeValueFunction ) )
+            // Sql.g:2297:2: (a0_0= parse_org_emftext_language_sql_function_DatetimeValueFunction )
+            {
+            // Sql.g:2297:2: (a0_0= parse_org_emftext_language_sql_function_DatetimeValueFunction )
+            // Sql.g:2298:3: a0_0= parse_org_emftext_language_sql_function_DatetimeValueFunction
+            {
+            pushFollow(FOLLOW_parse_org_emftext_language_sql_function_DatetimeValueFunction_in_parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption2105);
+            a0_0=parse_org_emftext_language_sql_function_DatetimeValueFunction();
+
+            state._fsp--;
+            if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createDatetimeValueFunctionDefaultOption();
+            				startIncompleteElement(element);
+            			}
+            			if (a0_0 != null) {
+            				if (a0_0 != null) {
+            					Object value = a0_0;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.DATETIME_VALUE_FUNCTION_DEFAULT_OPTION__FUNCTION), value);
+            					completedElement(value, true);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17_0_0_0, a0_0, true);
+            				copyLocalizationInfos(a0_0, element);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 300, 305);
+            		addExpectedElement(null, 306, 308);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 19, parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption"
+    // Sql.g:2329:1: parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption returns [org.emftext.language.sql.schema.ImplicitlyTypedValueSpecificationDefaultOption element = null] : (a0_0= parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification ) ;
+    public final org.emftext.language.sql.schema.ImplicitlyTypedValueSpecificationDefaultOption parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption() throws RecognitionException {
+        org.emftext.language.sql.schema.ImplicitlyTypedValueSpecificationDefaultOption element =  null;
+
+        int parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption_StartIndex = input.index();
+
+        org.emftext.language.sql.expression.ImplicitlyTypedValueSpecification a0_0 =null;
+
 
 
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return element; }
 
-            // Sql.g:3441:2: ( ( (a0= 'NATIONAL CHARACTER' |a1= 'NATIONAL CHAR' |a2= 'NCHAR' |a3= 'NATIONAL CHARACTER VARYING' |a4= 'NATIONAL CHAR VARYING' |a5= 'NCHAR VARYING' ) ) ( (a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')' ) )? ( (a11= KEYWORD_COLLATE (a12= TEXT ) ) )? )
-            // Sql.g:3442:2: ( (a0= 'NATIONAL CHARACTER' |a1= 'NATIONAL CHAR' |a2= 'NCHAR' |a3= 'NATIONAL CHARACTER VARYING' |a4= 'NATIONAL CHAR VARYING' |a5= 'NCHAR VARYING' ) ) ( (a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')' ) )? ( (a11= KEYWORD_COLLATE (a12= TEXT ) ) )?
+            // Sql.g:2332:2: ( (a0_0= parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification ) )
+            // Sql.g:2333:2: (a0_0= parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification )
             {
-            // Sql.g:3442:2: ( (a0= 'NATIONAL CHARACTER' |a1= 'NATIONAL CHAR' |a2= 'NCHAR' |a3= 'NATIONAL CHARACTER VARYING' |a4= 'NATIONAL CHAR VARYING' |a5= 'NCHAR VARYING' ) )
-            // Sql.g:3443:3: (a0= 'NATIONAL CHARACTER' |a1= 'NATIONAL CHAR' |a2= 'NCHAR' |a3= 'NATIONAL CHARACTER VARYING' |a4= 'NATIONAL CHAR VARYING' |a5= 'NCHAR VARYING' )
+            // Sql.g:2333:2: (a0_0= parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification )
+            // Sql.g:2334:3: a0_0= parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification
             {
-            // Sql.g:3443:3: (a0= 'NATIONAL CHARACTER' |a1= 'NATIONAL CHAR' |a2= 'NCHAR' |a3= 'NATIONAL CHARACTER VARYING' |a4= 'NATIONAL CHAR VARYING' |a5= 'NCHAR VARYING' )
-            int alt39=6;
-            switch ( input.LA(1) ) {
-            case 95:
-                {
-                alt39=1;
-                }
-                break;
-            case 93:
-                {
-                alt39=2;
-                }
-                break;
-            case 97:
-                {
-                alt39=3;
-                }
-                break;
-            case 94:
-                {
-                alt39=4;
-                }
-                break;
-            case 92:
-                {
-                alt39=5;
-                }
-                break;
-            case 96:
-                {
-                alt39=6;
-                }
-                break;
-            default:
+            pushFollow(FOLLOW_parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification_in_parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption2142);
+            a0_0=parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification();
+
+            state._fsp--;
+            if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createImplicitlyTypedValueSpecificationDefaultOption();
+            				startIncompleteElement(element);
+            			}
+            			if (a0_0 != null) {
+            				if (a0_0 != null) {
+            					Object value = a0_0;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.IMPLICITLY_TYPED_VALUE_SPECIFICATION_DEFAULT_OPTION__SPECIFICATION), value);
+            					completedElement(value, true);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18_0_0_0, a0_0, true);
+            				copyLocalizationInfos(a0_0, element);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 309, 314);
+            		addExpectedElement(null, 315, 317);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 20, parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_schema_NotNullColumnConstraint"
+    // Sql.g:2365:1: parse_org_emftext_language_sql_schema_NotNullColumnConstraint returns [org.emftext.language.sql.schema.NotNullColumnConstraint element = null] : ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? a2= KEYWORD_NOT a3= KEYWORD_NULL ;
+    public final org.emftext.language.sql.schema.NotNullColumnConstraint parse_org_emftext_language_sql_schema_NotNullColumnConstraint() throws RecognitionException {
+        org.emftext.language.sql.schema.NotNullColumnConstraint element =  null;
+
+        int parse_org_emftext_language_sql_schema_NotNullColumnConstraint_StartIndex = input.index();
+
+        Token a0=null;
+        Token a2=null;
+        Token a3=null;
+        org.emftext.language.sql.common.SchemaQualifiedName a1_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return element; }
+
+            // Sql.g:2368:2: ( ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? a2= KEYWORD_NOT a3= KEYWORD_NULL )
+            // Sql.g:2369:2: ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? a2= KEYWORD_NOT a3= KEYWORD_NULL
+            {
+            // Sql.g:2369:2: ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
+
+            if ( (LA20_0==KEYWORD_CONSTRAINT) ) {
+                alt20=1;
+            }
+            switch (alt20) {
+                case 1 :
+                    // Sql.g:2370:3: (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    {
+                    // Sql.g:2370:3: (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    // Sql.g:2371:4: a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    {
+                    a0=(Token)match(input,KEYWORD_CONSTRAINT,FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint2184); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createNotNullColumnConstraint();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_19_0_0_0_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a0, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getNotNullColumnConstraint(), 318, 320);
+                    			}
+
+                    // Sql.g:2385:4: (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    // Sql.g:2386:5: a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint2210);
+                    a1_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createNotNullColumnConstraint();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a1_0 != null) {
+                    						if (a1_0 != null) {
+                    							Object value = a1_0;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.NOT_NULL_COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME), value);
+                    							completedElement(value, true);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_19_0_0_0_0_0_1, a1_0, true);
+                    						copyLocalizationInfos(a1_0, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 321);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 322);
+            	}
+
+            a2=(Token)match(input,KEYWORD_NOT,FOLLOW_KEYWORD_NOT_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint2251); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createNotNullColumnConstraint();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_19_0_0_1, null, true);
+            		copyLocalizationInfos((CommonToken)a2, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 323);
+            	}
+
+            a3=(Token)match(input,KEYWORD_NULL,FOLLOW_KEYWORD_NULL_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint2265); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createNotNullColumnConstraint();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_19_0_0_2, null, true);
+            		copyLocalizationInfos((CommonToken)a3, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 324, 326);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 21, parse_org_emftext_language_sql_schema_NotNullColumnConstraint_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_schema_NotNullColumnConstraint"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_schema_UniqueColumnConstraint"
+    // Sql.g:2451:1: parse_org_emftext_language_sql_schema_UniqueColumnConstraint returns [org.emftext.language.sql.schema.UniqueColumnConstraint element = null] : ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? ( (a2= 'UNIQUE' |a3= 'PRIMARY KEY' ) ) ;
+    public final org.emftext.language.sql.schema.UniqueColumnConstraint parse_org_emftext_language_sql_schema_UniqueColumnConstraint() throws RecognitionException {
+        org.emftext.language.sql.schema.UniqueColumnConstraint element =  null;
+
+        int parse_org_emftext_language_sql_schema_UniqueColumnConstraint_StartIndex = input.index();
+
+        Token a0=null;
+        Token a2=null;
+        Token a3=null;
+        org.emftext.language.sql.common.SchemaQualifiedName a1_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return element; }
+
+            // Sql.g:2454:2: ( ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? ( (a2= 'UNIQUE' |a3= 'PRIMARY KEY' ) ) )
+            // Sql.g:2455:2: ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? ( (a2= 'UNIQUE' |a3= 'PRIMARY KEY' ) )
+            {
+            // Sql.g:2455:2: ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
+
+            if ( (LA21_0==KEYWORD_CONSTRAINT) ) {
+                alt21=1;
+            }
+            switch (alt21) {
+                case 1 :
+                    // Sql.g:2456:3: (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    {
+                    // Sql.g:2456:3: (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    // Sql.g:2457:4: a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    {
+                    a0=(Token)match(input,KEYWORD_CONSTRAINT,FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint2303); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueColumnConstraint();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_20_0_0_0_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a0, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueColumnConstraint(), 327, 329);
+                    			}
+
+                    // Sql.g:2471:4: (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    // Sql.g:2472:5: a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint2329);
+                    a1_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueColumnConstraint();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a1_0 != null) {
+                    						if (a1_0 != null) {
+                    							Object value = a1_0;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME), value);
+                    							completedElement(value, true);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_20_0_0_0_0_0_1, a1_0, true);
+                    						copyLocalizationInfos(a1_0, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 330);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 331);
+            	}
+
+            // Sql.g:2504:2: ( (a2= 'UNIQUE' |a3= 'PRIMARY KEY' ) )
+            // Sql.g:2505:3: (a2= 'UNIQUE' |a3= 'PRIMARY KEY' )
+            {
+            // Sql.g:2505:3: (a2= 'UNIQUE' |a3= 'PRIMARY KEY' )
+            int alt22=2;
+            int LA22_0 = input.LA(1);
+
+            if ( (LA22_0==98) ) {
+                alt22=1;
+            }
+            else if ( (LA22_0==94) ) {
+                alt22=2;
+            }
+            else {
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 39, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
 
             }
-
-            switch (alt39) {
+            switch (alt22) {
                 case 1 :
-                    // Sql.g:3444:4: a0= 'NATIONAL CHARACTER'
+                    // Sql.g:2506:4: a2= 'UNIQUE'
                     {
-                    a0=(Token)match(input,95,FOLLOW_95_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3825); if (state.failed) return element;
+                    a2=(Token)match(input,98,FOLLOW_98_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint2379); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueColumnConstraint();
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a0, element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_20_0_0_1, null, true);
+                    				copyLocalizationInfos((CommonToken)a2, element);
                     				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHARACTER_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+                    				Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueSpecificationKind().getEEnumLiteral(org.emftext.language.sql.schema.UniqueSpecificationKind.UNIQUE_VALUE).getInstance();
+                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_COLUMN_CONSTRAINT__KIND), value);
                     				completedElement(value, false);
                     			}
 
                     }
                     break;
                 case 2 :
-                    // Sql.g:3457:8: a1= 'NATIONAL CHAR'
+                    // Sql.g:2519:8: a3= 'PRIMARY KEY'
                     {
-                    a1=(Token)match(input,93,FOLLOW_93_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3840); if (state.failed) return element;
+                    a3=(Token)match(input,94,FOLLOW_94_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint2394); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueColumnConstraint();
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a1, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHAR_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 3 :
-                    // Sql.g:3470:8: a2= 'NCHAR'
-                    {
-                    a2=(Token)match(input,97,FOLLOW_97_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3855); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a2, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NCHAR_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 4 :
-                    // Sql.g:3483:8: a3= 'NATIONAL CHARACTER VARYING'
-                    {
-                    a3=(Token)match(input,94,FOLLOW_94_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3870); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18_0_0_0, null, true);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_20_0_0_1, null, true);
                     				copyLocalizationInfos((CommonToken)a3, element);
                     				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHARACTER_VARYING_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 5 :
-                    // Sql.g:3496:8: a4= 'NATIONAL CHAR VARYING'
-                    {
-                    a4=(Token)match(input,92,FOLLOW_92_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3885); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a4, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHAR_VARYING_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 6 :
-                    // Sql.g:3509:8: a5= 'NCHAR VARYING'
-                    {
-                    a5=(Token)match(input,96,FOLLOW_96_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3900); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a5, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NCHAR_VARYING_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+                    				Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueSpecificationKind().getEEnumLiteral(org.emftext.language.sql.schema.UniqueSpecificationKind.PRIMARY_KEY_VALUE).getInstance();
+                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_COLUMN_CONSTRAINT__KIND), value);
                     				completedElement(value, false);
                     			}
 
@@ -5939,60 +4300,2124 @@ public class SqlParser extends SqlANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 373, 375);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 376, 381);
-            		addExpectedElement(null, 382, 384);
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 332, 334);
             	}
 
-            // Sql.g:3531:2: ( (a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')' ) )?
-            int alt40=2;
-            int LA40_0 = input.LA(1);
-
-            if ( (LA40_0==58) ) {
-                alt40=1;
             }
-            switch (alt40) {
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 22, parse_org_emftext_language_sql_schema_UniqueColumnConstraint_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_schema_UniqueColumnConstraint"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_schema_ReferentialColumnConstraint"
+    // Sql.g:2544:1: parse_org_emftext_language_sql_schema_ReferentialColumnConstraint returns [org.emftext.language.sql.schema.ReferentialColumnConstraint element = null] : ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? a2= KEYWORD_REFERENCES (a3_0= parse_org_emftext_language_sql_schema_TableReference ) ( (a4= '(' (a5= IDENTIFIER ) ( (a6= ',' (a7= IDENTIFIER ) ) )* a8= ')' ) )? ;
+    public final org.emftext.language.sql.schema.ReferentialColumnConstraint parse_org_emftext_language_sql_schema_ReferentialColumnConstraint() throws RecognitionException {
+        org.emftext.language.sql.schema.ReferentialColumnConstraint element =  null;
+
+        int parse_org_emftext_language_sql_schema_ReferentialColumnConstraint_StartIndex = input.index();
+
+        Token a0=null;
+        Token a2=null;
+        Token a4=null;
+        Token a5=null;
+        Token a6=null;
+        Token a7=null;
+        Token a8=null;
+        org.emftext.language.sql.common.SchemaQualifiedName a1_0 =null;
+
+        org.emftext.language.sql.schema.TableReference a3_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 23) ) { return element; }
+
+            // Sql.g:2547:2: ( ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? a2= KEYWORD_REFERENCES (a3_0= parse_org_emftext_language_sql_schema_TableReference ) ( (a4= '(' (a5= IDENTIFIER ) ( (a6= ',' (a7= IDENTIFIER ) ) )* a8= ')' ) )? )
+            // Sql.g:2548:2: ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? a2= KEYWORD_REFERENCES (a3_0= parse_org_emftext_language_sql_schema_TableReference ) ( (a4= '(' (a5= IDENTIFIER ) ( (a6= ',' (a7= IDENTIFIER ) ) )* a8= ')' ) )?
+            {
+            // Sql.g:2548:2: ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
+
+            if ( (LA23_0==KEYWORD_CONSTRAINT) ) {
+                alt23=1;
+            }
+            switch (alt23) {
                 case 1 :
-                    // Sql.g:3532:3: (a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')' )
+                    // Sql.g:2549:3: (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
                     {
-                    // Sql.g:3532:3: (a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')' )
-                    // Sql.g:3533:4: a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')'
+                    // Sql.g:2549:3: (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    // Sql.g:2550:4: a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
                     {
-                    a8=(Token)match(input,58,FOLLOW_58_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3930); if (state.failed) return element;
+                    a0=(Token)match(input,KEYWORD_CONSTRAINT,FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2439); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18_0_0_1_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a8, element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_21_0_0_0_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a0, element);
                     			}
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(null, 385);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialColumnConstraint(), 335, 337);
                     			}
 
-                    // Sql.g:3547:4: (a9= UNSIGNED_INTEGER )
-                    // Sql.g:3548:5: a9= UNSIGNED_INTEGER
+                    // Sql.g:2564:4: (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    // Sql.g:2565:5: a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
                     {
-                    a9=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3956); if (state.failed) return element;
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2465);
+                    a1_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
+
+                    state._fsp--;
+                    if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     					if (terminateParsing) {
                     						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
                     					}
                     					if (element == null) {
-                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a1_0 != null) {
+                    						if (a1_0 != null) {
+                    							Object value = a1_0;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME), value);
+                    							completedElement(value, true);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_21_0_0_0_0_0_1, a1_0, true);
+                    						copyLocalizationInfos(a1_0, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 338);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 339);
+            	}
+
+            a2=(Token)match(input,KEYWORD_REFERENCES,FOLLOW_KEYWORD_REFERENCES_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2506); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_21_0_0_1, null, true);
+            		copyLocalizationInfos((CommonToken)a2, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialColumnConstraint(), 340, 342);
+            	}
+
+            // Sql.g:2611:2: (a3_0= parse_org_emftext_language_sql_schema_TableReference )
+            // Sql.g:2612:3: a3_0= parse_org_emftext_language_sql_schema_TableReference
+            {
+            pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_TableReference_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2524);
+            a3_0=parse_org_emftext_language_sql_schema_TableReference();
+
+            state._fsp--;
+            if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
+            				startIncompleteElement(element);
+            			}
+            			if (a3_0 != null) {
+            				if (a3_0 != null) {
+            					Object value = a3_0;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_TABLE), value);
+            					completedElement(value, true);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_21_0_0_2, a3_0, true);
+            				copyLocalizationInfos(a3_0, element);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 343, 346);
+            	}
+
+            // Sql.g:2637:2: ( (a4= '(' (a5= IDENTIFIER ) ( (a6= ',' (a7= IDENTIFIER ) ) )* a8= ')' ) )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
+
+            if ( (LA25_0==62) ) {
+                alt25=1;
+            }
+            switch (alt25) {
+                case 1 :
+                    // Sql.g:2638:3: (a4= '(' (a5= IDENTIFIER ) ( (a6= ',' (a7= IDENTIFIER ) ) )* a8= ')' )
+                    {
+                    // Sql.g:2638:3: (a4= '(' (a5= IDENTIFIER ) ( (a6= ',' (a7= IDENTIFIER ) ) )* a8= ')' )
+                    // Sql.g:2639:4: a4= '(' (a5= IDENTIFIER ) ( (a6= ',' (a7= IDENTIFIER ) ) )* a8= ')'
+                    {
+                    a4=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2551); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_21_0_0_3_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a4, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 347);
+                    			}
+
+                    // Sql.g:2653:4: (a5= IDENTIFIER )
+                    // Sql.g:2654:5: a5= IDENTIFIER
+                    {
+                    a5=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2577); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a5 != null) {
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+                    						tokenResolver.setOptions(getOptions());
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    						tokenResolver.resolve(a5.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS), result);
+                    						Object resolvedObject = result.getResolvedToken();
+                    						if (resolvedObject == null) {
+                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a5).getLine(), ((CommonToken) a5).getCharPositionInLine(), ((CommonToken) a5).getStartIndex(), ((CommonToken) a5).getStopIndex());
+                    						}
+                    						String resolved = (String) resolvedObject;
+                    						org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+                    						collectHiddenTokens(element);
+                    						registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialConstraintReferencedColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS), resolved, proxy);
+                    						if (proxy != null) {
+                    							Object value = proxy;
+                    							addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS, value);
+                    							completedElement(value, false);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_21_0_0_3_0_0_1, proxy, true);
+                    						copyLocalizationInfos((CommonToken) a5, element);
+                    						copyLocalizationInfos((CommonToken) a5, proxy);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 348, 349);
+                    			}
+
+                    // Sql.g:2693:4: ( (a6= ',' (a7= IDENTIFIER ) ) )*
+                    loop24:
+                    do {
+                        int alt24=2;
+                        int LA24_0 = input.LA(1);
+
+                        if ( (LA24_0==64) ) {
+                            alt24=1;
+                        }
+
+
+                        switch (alt24) {
+                    	case 1 :
+                    	    // Sql.g:2694:5: (a6= ',' (a7= IDENTIFIER ) )
+                    	    {
+                    	    // Sql.g:2694:5: (a6= ',' (a7= IDENTIFIER ) )
+                    	    // Sql.g:2695:6: a6= ',' (a7= IDENTIFIER )
+                    	    {
+                    	    a6=(Token)match(input,64,FOLLOW_64_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2623); if (state.failed) return element;
+
+                    	    if ( state.backtracking==0 ) {
+                    	    						if (element == null) {
+                    	    							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
+                    	    							startIncompleteElement(element);
+                    	    						}
+                    	    						collectHiddenTokens(element);
+                    	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_21_0_0_3_0_0_2_0_0_0, null, true);
+                    	    						copyLocalizationInfos((CommonToken)a6, element);
+                    	    					}
+
+                    	    if ( state.backtracking==0 ) {
+                    	    						// expected elements (follow set)
+                    	    						addExpectedElement(null, 350);
+                    	    					}
+
+                    	    // Sql.g:2709:6: (a7= IDENTIFIER )
+                    	    // Sql.g:2710:7: a7= IDENTIFIER
+                    	    {
+                    	    a7=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2657); if (state.failed) return element;
+
+                    	    if ( state.backtracking==0 ) {
+                    	    							if (terminateParsing) {
+                    	    								throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    	    							}
+                    	    							if (element == null) {
+                    	    								element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
+                    	    								startIncompleteElement(element);
+                    	    							}
+                    	    							if (a7 != null) {
+                    	    								org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+                    	    								tokenResolver.setOptions(getOptions());
+                    	    								org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    	    								tokenResolver.resolve(a7.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS), result);
+                    	    								Object resolvedObject = result.getResolvedToken();
+                    	    								if (resolvedObject == null) {
+                    	    									addErrorToResource(result.getErrorMessage(), ((CommonToken) a7).getLine(), ((CommonToken) a7).getCharPositionInLine(), ((CommonToken) a7).getStartIndex(), ((CommonToken) a7).getStopIndex());
+                    	    								}
+                    	    								String resolved = (String) resolvedObject;
+                    	    								org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+                    	    								collectHiddenTokens(element);
+                    	    								registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialConstraintReferencedColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS), resolved, proxy);
+                    	    								if (proxy != null) {
+                    	    									Object value = proxy;
+                    	    									addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__REFERENCED_COLUMNS, value);
+                    	    									completedElement(value, false);
+                    	    								}
+                    	    								collectHiddenTokens(element);
+                    	    								retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_21_0_0_3_0_0_2_0_0_1, proxy, true);
+                    	    								copyLocalizationInfos((CommonToken) a7, element);
+                    	    								copyLocalizationInfos((CommonToken) a7, proxy);
+                    	    							}
+                    	    						}
+
+                    	    }
+
+
+                    	    if ( state.backtracking==0 ) {
+                    	    						// expected elements (follow set)
+                    	    						addExpectedElement(null, 351, 352);
+                    	    					}
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop24;
+                        }
+                    } while (true);
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 353, 354);
+                    			}
+
+                    a8=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2725); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialColumnConstraint();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_21_0_0_3_0_0_3, null, true);
+                    				copyLocalizationInfos((CommonToken)a8, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				// We've found the last token for this rule. The constructed EObject is now
+                    				// complete.
+                    				completedElement(element, true);
+                    				addExpectedElement(null, 355, 357);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 358, 360);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 23, parse_org_emftext_language_sql_schema_ReferentialColumnConstraint_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_schema_ReferentialColumnConstraint"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_schema_UniqueTableConstraint"
+    // Sql.g:2785:1: parse_org_emftext_language_sql_schema_UniqueTableConstraint returns [org.emftext.language.sql.schema.UniqueTableConstraint element = null] : ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? ( (a2= 'UNIQUE' |a3= 'PRIMARY KEY' ) ) a6= '(' (a7= IDENTIFIER ) ( (a8= ',' (a9= IDENTIFIER ) ) )* a10= ')' ;
+    public final org.emftext.language.sql.schema.UniqueTableConstraint parse_org_emftext_language_sql_schema_UniqueTableConstraint() throws RecognitionException {
+        org.emftext.language.sql.schema.UniqueTableConstraint element =  null;
+
+        int parse_org_emftext_language_sql_schema_UniqueTableConstraint_StartIndex = input.index();
+
+        Token a0=null;
+        Token a2=null;
+        Token a3=null;
+        Token a6=null;
+        Token a7=null;
+        Token a8=null;
+        Token a9=null;
+        Token a10=null;
+        org.emftext.language.sql.common.SchemaQualifiedName a1_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return element; }
+
+            // Sql.g:2788:2: ( ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? ( (a2= 'UNIQUE' |a3= 'PRIMARY KEY' ) ) a6= '(' (a7= IDENTIFIER ) ( (a8= ',' (a9= IDENTIFIER ) ) )* a10= ')' )
+            // Sql.g:2789:2: ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? ( (a2= 'UNIQUE' |a3= 'PRIMARY KEY' ) ) a6= '(' (a7= IDENTIFIER ) ( (a8= ',' (a9= IDENTIFIER ) ) )* a10= ')'
+            {
+            // Sql.g:2789:2: ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
+
+            if ( (LA26_0==KEYWORD_CONSTRAINT) ) {
+                alt26=1;
+            }
+            switch (alt26) {
+                case 1 :
+                    // Sql.g:2790:3: (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    {
+                    // Sql.g:2790:3: (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    // Sql.g:2791:4: a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    {
+                    a0=(Token)match(input,KEYWORD_CONSTRAINT,FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2782); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_0_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a0, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueTableConstraint(), 361, 363);
+                    			}
+
+                    // Sql.g:2805:4: (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    // Sql.g:2806:5: a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2808);
+                    a1_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a1_0 != null) {
+                    						if (a1_0 != null) {
+                    							Object value = a1_0;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME), value);
+                    							completedElement(value, true);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_0_0_0_1, a1_0, true);
+                    						copyLocalizationInfos(a1_0, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 364);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 365);
+            	}
+
+            // Sql.g:2838:2: ( (a2= 'UNIQUE' |a3= 'PRIMARY KEY' ) )
+            // Sql.g:2839:3: (a2= 'UNIQUE' |a3= 'PRIMARY KEY' )
+            {
+            // Sql.g:2839:3: (a2= 'UNIQUE' |a3= 'PRIMARY KEY' )
+            int alt27=2;
+            int LA27_0 = input.LA(1);
+
+            if ( (LA27_0==98) ) {
+                alt27=1;
+            }
+            else if ( (LA27_0==94) ) {
+                alt27=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return element;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 27, 0, input);
+
+                throw nvae;
+
+            }
+            switch (alt27) {
+                case 1 :
+                    // Sql.g:2840:4: a2= 'UNIQUE'
+                    {
+                    a2=(Token)match(input,98,FOLLOW_98_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2858); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_1, null, true);
+                    				copyLocalizationInfos((CommonToken)a2, element);
+                    				// set value of enumeration attribute
+                    				Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueSpecificationKind().getEEnumLiteral(org.emftext.language.sql.schema.UniqueSpecificationKind.UNIQUE_VALUE).getInstance();
+                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__KIND), value);
+                    				completedElement(value, false);
+                    			}
+
+                    }
+                    break;
+                case 2 :
+                    // Sql.g:2853:8: a3= 'PRIMARY KEY'
+                    {
+                    a3=(Token)match(input,94,FOLLOW_94_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2873); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_1, null, true);
+                    				copyLocalizationInfos((CommonToken)a3, element);
+                    				// set value of enumeration attribute
+                    				Object value = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueSpecificationKind().getEEnumLiteral(org.emftext.language.sql.schema.UniqueSpecificationKind.PRIMARY_KEY_VALUE).getInstance();
+                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__KIND), value);
+                    				completedElement(value, false);
+                    			}
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 366);
+            	}
+
+            a6=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2894); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_2, null, true);
+            		copyLocalizationInfos((CommonToken)a6, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 367);
+            	}
+
+            // Sql.g:2887:2: (a7= IDENTIFIER )
+            // Sql.g:2888:3: a7= IDENTIFIER
+            {
+            a7=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2912); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
+            				startIncompleteElement(element);
+            			}
+            			if (a7 != null) {
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+            				tokenResolver.setOptions(getOptions());
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+            				tokenResolver.resolve(a7.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__COLUMNS), result);
+            				Object resolvedObject = result.getResolvedToken();
+            				if (resolvedObject == null) {
+            					addErrorToResource(result.getErrorMessage(), ((CommonToken) a7).getLine(), ((CommonToken) a7).getCharPositionInLine(), ((CommonToken) a7).getStartIndex(), ((CommonToken) a7).getStopIndex());
+            				}
+            				String resolved = (String) resolvedObject;
+            				org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+            				collectHiddenTokens(element);
+            				registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.TableColumnsConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getTableColumnsConstraintColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__COLUMNS), resolved, proxy);
+            				if (proxy != null) {
+            					Object value = proxy;
+            					addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__COLUMNS, value);
+            					completedElement(value, false);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_3, proxy, true);
+            				copyLocalizationInfos((CommonToken) a7, element);
+            				copyLocalizationInfos((CommonToken) a7, proxy);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 368, 369);
+            	}
+
+            // Sql.g:2927:2: ( (a8= ',' (a9= IDENTIFIER ) ) )*
+            loop28:
+            do {
+                int alt28=2;
+                int LA28_0 = input.LA(1);
+
+                if ( (LA28_0==64) ) {
+                    alt28=1;
+                }
+
+
+                switch (alt28) {
+            	case 1 :
+            	    // Sql.g:2928:3: (a8= ',' (a9= IDENTIFIER ) )
+            	    {
+            	    // Sql.g:2928:3: (a8= ',' (a9= IDENTIFIER ) )
+            	    // Sql.g:2929:4: a8= ',' (a9= IDENTIFIER )
+            	    {
+            	    a8=(Token)match(input,64,FOLLOW_64_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2942); if (state.failed) return element;
+
+            	    if ( state.backtracking==0 ) {
+            	    				if (element == null) {
+            	    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
+            	    					startIncompleteElement(element);
+            	    				}
+            	    				collectHiddenTokens(element);
+            	    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_4_0_0_0, null, true);
+            	    				copyLocalizationInfos((CommonToken)a8, element);
+            	    			}
+
+            	    if ( state.backtracking==0 ) {
+            	    				// expected elements (follow set)
+            	    				addExpectedElement(null, 370);
+            	    			}
+
+            	    // Sql.g:2943:4: (a9= IDENTIFIER )
+            	    // Sql.g:2944:5: a9= IDENTIFIER
+            	    {
+            	    a9=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2968); if (state.failed) return element;
+
+            	    if ( state.backtracking==0 ) {
+            	    					if (terminateParsing) {
+            	    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            	    					}
+            	    					if (element == null) {
+            	    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
+            	    						startIncompleteElement(element);
+            	    					}
+            	    					if (a9 != null) {
+            	    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+            	    						tokenResolver.setOptions(getOptions());
+            	    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+            	    						tokenResolver.resolve(a9.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__COLUMNS), result);
+            	    						Object resolvedObject = result.getResolvedToken();
+            	    						if (resolvedObject == null) {
+            	    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a9).getLine(), ((CommonToken) a9).getCharPositionInLine(), ((CommonToken) a9).getStartIndex(), ((CommonToken) a9).getStopIndex());
+            	    						}
+            	    						String resolved = (String) resolvedObject;
+            	    						org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+            	    						collectHiddenTokens(element);
+            	    						registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.TableColumnsConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getTableColumnsConstraintColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__COLUMNS), resolved, proxy);
+            	    						if (proxy != null) {
+            	    							Object value = proxy;
+            	    							addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.UNIQUE_TABLE_CONSTRAINT__COLUMNS, value);
+            	    							completedElement(value, false);
+            	    						}
+            	    						collectHiddenTokens(element);
+            	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_4_0_0_1, proxy, true);
+            	    						copyLocalizationInfos((CommonToken) a9, element);
+            	    						copyLocalizationInfos((CommonToken) a9, proxy);
+            	    					}
+            	    				}
+
+            	    }
+
+
+            	    if ( state.backtracking==0 ) {
+            	    				// expected elements (follow set)
+            	    				addExpectedElement(null, 371, 372);
+            	    			}
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop28;
+                }
+            } while (true);
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 373, 374);
+            	}
+
+            a10=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint3014); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createUniqueTableConstraint();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_5, null, true);
+            		copyLocalizationInfos((CommonToken)a10, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 375, 376);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 24, parse_org_emftext_language_sql_schema_UniqueTableConstraint_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_schema_UniqueTableConstraint"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_schema_ReferentialTableConstraint"
+    // Sql.g:3009:1: parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.emftext.language.sql.schema.ReferentialTableConstraint element = null] : ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? a2= KEYWORD_FOREIGN a3= KEYWORD_KEY a4= '(' (a5= IDENTIFIER ) ( (a6= ',' (a7= IDENTIFIER ) ) )* a8= ')' a9= KEYWORD_REFERENCES (a10_0= parse_org_emftext_language_sql_schema_TableReference ) ( (a11= '(' (a12= IDENTIFIER ) ( (a13= ',' (a14= IDENTIFIER ) ) )* a15= ')' ) )? ;
+    public final org.emftext.language.sql.schema.ReferentialTableConstraint parse_org_emftext_language_sql_schema_ReferentialTableConstraint() throws RecognitionException {
+        org.emftext.language.sql.schema.ReferentialTableConstraint element =  null;
+
+        int parse_org_emftext_language_sql_schema_ReferentialTableConstraint_StartIndex = input.index();
+
+        Token a0=null;
+        Token a2=null;
+        Token a3=null;
+        Token a4=null;
+        Token a5=null;
+        Token a6=null;
+        Token a7=null;
+        Token a8=null;
+        Token a9=null;
+        Token a11=null;
+        Token a12=null;
+        Token a13=null;
+        Token a14=null;
+        Token a15=null;
+        org.emftext.language.sql.common.SchemaQualifiedName a1_0 =null;
+
+        org.emftext.language.sql.schema.TableReference a10_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 25) ) { return element; }
+
+            // Sql.g:3012:2: ( ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? a2= KEYWORD_FOREIGN a3= KEYWORD_KEY a4= '(' (a5= IDENTIFIER ) ( (a6= ',' (a7= IDENTIFIER ) ) )* a8= ')' a9= KEYWORD_REFERENCES (a10_0= parse_org_emftext_language_sql_schema_TableReference ) ( (a11= '(' (a12= IDENTIFIER ) ( (a13= ',' (a14= IDENTIFIER ) ) )* a15= ')' ) )? )
+            // Sql.g:3013:2: ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? a2= KEYWORD_FOREIGN a3= KEYWORD_KEY a4= '(' (a5= IDENTIFIER ) ( (a6= ',' (a7= IDENTIFIER ) ) )* a8= ')' a9= KEYWORD_REFERENCES (a10_0= parse_org_emftext_language_sql_schema_TableReference ) ( (a11= '(' (a12= IDENTIFIER ) ( (a13= ',' (a14= IDENTIFIER ) ) )* a15= ')' ) )?
+            {
+            // Sql.g:3013:2: ( (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
+
+            if ( (LA29_0==KEYWORD_CONSTRAINT) ) {
+                alt29=1;
+            }
+            switch (alt29) {
+                case 1 :
+                    // Sql.g:3014:3: (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    {
+                    // Sql.g:3014:3: (a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    // Sql.g:3015:4: a0= KEYWORD_CONSTRAINT (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    {
+                    a0=(Token)match(input,KEYWORD_CONSTRAINT,FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3052); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_0_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a0, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialTableConstraint(), 377, 379);
+                    			}
+
+                    // Sql.g:3029:4: (a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    // Sql.g:3030:5: a1_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3078);
+                    a1_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a1_0 != null) {
+                    						if (a1_0 != null) {
+                    							Object value = a1_0;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__SCHEMA_QUALIFIED_NAME), value);
+                    							completedElement(value, true);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_0_0_0_1, a1_0, true);
+                    						copyLocalizationInfos(a1_0, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 380);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 381);
+            	}
+
+            a2=(Token)match(input,KEYWORD_FOREIGN,FOLLOW_KEYWORD_FOREIGN_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3119); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_1, null, true);
+            		copyLocalizationInfos((CommonToken)a2, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 382);
+            	}
+
+            a3=(Token)match(input,KEYWORD_KEY,FOLLOW_KEYWORD_KEY_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3133); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_2, null, true);
+            		copyLocalizationInfos((CommonToken)a3, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 383);
+            	}
+
+            a4=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3147); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_3, null, true);
+            		copyLocalizationInfos((CommonToken)a4, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 384);
+            	}
+
+            // Sql.g:3104:2: (a5= IDENTIFIER )
+            // Sql.g:3105:3: a5= IDENTIFIER
+            {
+            a5=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3165); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+            				startIncompleteElement(element);
+            			}
+            			if (a5 != null) {
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+            				tokenResolver.setOptions(getOptions());
+            				org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+            				tokenResolver.resolve(a5.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS), result);
+            				Object resolvedObject = result.getResolvedToken();
+            				if (resolvedObject == null) {
+            					addErrorToResource(result.getErrorMessage(), ((CommonToken) a5).getLine(), ((CommonToken) a5).getCharPositionInLine(), ((CommonToken) a5).getStartIndex(), ((CommonToken) a5).getStopIndex());
+            				}
+            				String resolved = (String) resolvedObject;
+            				org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+            				collectHiddenTokens(element);
+            				registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.TableColumnsConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getTableColumnsConstraintColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS), resolved, proxy);
+            				if (proxy != null) {
+            					Object value = proxy;
+            					addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS, value);
+            					completedElement(value, false);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_4, proxy, true);
+            				copyLocalizationInfos((CommonToken) a5, element);
+            				copyLocalizationInfos((CommonToken) a5, proxy);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 385, 386);
+            	}
+
+            // Sql.g:3144:2: ( (a6= ',' (a7= IDENTIFIER ) ) )*
+            loop30:
+            do {
+                int alt30=2;
+                int LA30_0 = input.LA(1);
+
+                if ( (LA30_0==64) ) {
+                    alt30=1;
+                }
+
+
+                switch (alt30) {
+            	case 1 :
+            	    // Sql.g:3145:3: (a6= ',' (a7= IDENTIFIER ) )
+            	    {
+            	    // Sql.g:3145:3: (a6= ',' (a7= IDENTIFIER ) )
+            	    // Sql.g:3146:4: a6= ',' (a7= IDENTIFIER )
+            	    {
+            	    a6=(Token)match(input,64,FOLLOW_64_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3195); if (state.failed) return element;
+
+            	    if ( state.backtracking==0 ) {
+            	    				if (element == null) {
+            	    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+            	    					startIncompleteElement(element);
+            	    				}
+            	    				collectHiddenTokens(element);
+            	    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_5_0_0_0, null, true);
+            	    				copyLocalizationInfos((CommonToken)a6, element);
+            	    			}
+
+            	    if ( state.backtracking==0 ) {
+            	    				// expected elements (follow set)
+            	    				addExpectedElement(null, 387);
+            	    			}
+
+            	    // Sql.g:3160:4: (a7= IDENTIFIER )
+            	    // Sql.g:3161:5: a7= IDENTIFIER
+            	    {
+            	    a7=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3221); if (state.failed) return element;
+
+            	    if ( state.backtracking==0 ) {
+            	    					if (terminateParsing) {
+            	    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            	    					}
+            	    					if (element == null) {
+            	    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+            	    						startIncompleteElement(element);
+            	    					}
+            	    					if (a7 != null) {
+            	    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+            	    						tokenResolver.setOptions(getOptions());
+            	    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+            	    						tokenResolver.resolve(a7.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS), result);
+            	    						Object resolvedObject = result.getResolvedToken();
+            	    						if (resolvedObject == null) {
+            	    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a7).getLine(), ((CommonToken) a7).getCharPositionInLine(), ((CommonToken) a7).getStartIndex(), ((CommonToken) a7).getStopIndex());
+            	    						}
+            	    						String resolved = (String) resolvedObject;
+            	    						org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+            	    						collectHiddenTokens(element);
+            	    						registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.TableColumnsConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getTableColumnsConstraintColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS), resolved, proxy);
+            	    						if (proxy != null) {
+            	    							Object value = proxy;
+            	    							addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS, value);
+            	    							completedElement(value, false);
+            	    						}
+            	    						collectHiddenTokens(element);
+            	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_5_0_0_1, proxy, true);
+            	    						copyLocalizationInfos((CommonToken) a7, element);
+            	    						copyLocalizationInfos((CommonToken) a7, proxy);
+            	    					}
+            	    				}
+
+            	    }
+
+
+            	    if ( state.backtracking==0 ) {
+            	    				// expected elements (follow set)
+            	    				addExpectedElement(null, 388, 389);
+            	    			}
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop30;
+                }
+            } while (true);
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 390, 391);
+            	}
+
+            a8=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3267); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_6, null, true);
+            		copyLocalizationInfos((CommonToken)a8, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 392);
+            	}
+
+            a9=(Token)match(input,KEYWORD_REFERENCES,FOLLOW_KEYWORD_REFERENCES_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3281); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_7, null, true);
+            		copyLocalizationInfos((CommonToken)a9, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialTableConstraint(), 393, 395);
+            	}
+
+            // Sql.g:3235:2: (a10_0= parse_org_emftext_language_sql_schema_TableReference )
+            // Sql.g:3236:3: a10_0= parse_org_emftext_language_sql_schema_TableReference
+            {
+            pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_TableReference_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3299);
+            a10_0=parse_org_emftext_language_sql_schema_TableReference();
+
+            state._fsp--;
+            if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+            				startIncompleteElement(element);
+            			}
+            			if (a10_0 != null) {
+            				if (a10_0 != null) {
+            					Object value = a10_0;
+            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_TABLE), value);
+            					completedElement(value, true);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_8, a10_0, true);
+            				copyLocalizationInfos(a10_0, element);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 396, 398);
+            	}
+
+            // Sql.g:3261:2: ( (a11= '(' (a12= IDENTIFIER ) ( (a13= ',' (a14= IDENTIFIER ) ) )* a15= ')' ) )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
+
+            if ( (LA32_0==62) ) {
+                alt32=1;
+            }
+            switch (alt32) {
+                case 1 :
+                    // Sql.g:3262:3: (a11= '(' (a12= IDENTIFIER ) ( (a13= ',' (a14= IDENTIFIER ) ) )* a15= ')' )
+                    {
+                    // Sql.g:3262:3: (a11= '(' (a12= IDENTIFIER ) ( (a13= ',' (a14= IDENTIFIER ) ) )* a15= ')' )
+                    // Sql.g:3263:4: a11= '(' (a12= IDENTIFIER ) ( (a13= ',' (a14= IDENTIFIER ) ) )* a15= ')'
+                    {
+                    a11=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3326); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_9_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a11, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 399);
+                    			}
+
+                    // Sql.g:3277:4: (a12= IDENTIFIER )
+                    // Sql.g:3278:5: a12= IDENTIFIER
+                    {
+                    a12=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3352); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a12 != null) {
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+                    						tokenResolver.setOptions(getOptions());
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    						tokenResolver.resolve(a12.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS), result);
+                    						Object resolvedObject = result.getResolvedToken();
+                    						if (resolvedObject == null) {
+                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a12).getLine(), ((CommonToken) a12).getCharPositionInLine(), ((CommonToken) a12).getStartIndex(), ((CommonToken) a12).getStopIndex());
+                    						}
+                    						String resolved = (String) resolvedObject;
+                    						org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+                    						collectHiddenTokens(element);
+                    						registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialConstraintReferencedColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS), resolved, proxy);
+                    						if (proxy != null) {
+                    							Object value = proxy;
+                    							addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS, value);
+                    							completedElement(value, false);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_9_0_0_1, proxy, true);
+                    						copyLocalizationInfos((CommonToken) a12, element);
+                    						copyLocalizationInfos((CommonToken) a12, proxy);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 400, 401);
+                    			}
+
+                    // Sql.g:3317:4: ( (a13= ',' (a14= IDENTIFIER ) ) )*
+                    loop31:
+                    do {
+                        int alt31=2;
+                        int LA31_0 = input.LA(1);
+
+                        if ( (LA31_0==64) ) {
+                            alt31=1;
+                        }
+
+
+                        switch (alt31) {
+                    	case 1 :
+                    	    // Sql.g:3318:5: (a13= ',' (a14= IDENTIFIER ) )
+                    	    {
+                    	    // Sql.g:3318:5: (a13= ',' (a14= IDENTIFIER ) )
+                    	    // Sql.g:3319:6: a13= ',' (a14= IDENTIFIER )
+                    	    {
+                    	    a13=(Token)match(input,64,FOLLOW_64_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3398); if (state.failed) return element;
+
+                    	    if ( state.backtracking==0 ) {
+                    	    						if (element == null) {
+                    	    							element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+                    	    							startIncompleteElement(element);
+                    	    						}
+                    	    						collectHiddenTokens(element);
+                    	    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_9_0_0_2_0_0_0, null, true);
+                    	    						copyLocalizationInfos((CommonToken)a13, element);
+                    	    					}
+
+                    	    if ( state.backtracking==0 ) {
+                    	    						// expected elements (follow set)
+                    	    						addExpectedElement(null, 402);
+                    	    					}
+
+                    	    // Sql.g:3333:6: (a14= IDENTIFIER )
+                    	    // Sql.g:3334:7: a14= IDENTIFIER
+                    	    {
+                    	    a14=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3432); if (state.failed) return element;
+
+                    	    if ( state.backtracking==0 ) {
+                    	    							if (terminateParsing) {
+                    	    								throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    	    							}
+                    	    							if (element == null) {
+                    	    								element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+                    	    								startIncompleteElement(element);
+                    	    							}
+                    	    							if (a14 != null) {
+                    	    								org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
+                    	    								tokenResolver.setOptions(getOptions());
+                    	    								org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    	    								tokenResolver.resolve(a14.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS), result);
+                    	    								Object resolvedObject = result.getResolvedToken();
+                    	    								if (resolvedObject == null) {
+                    	    									addErrorToResource(result.getErrorMessage(), ((CommonToken) a14).getLine(), ((CommonToken) a14).getCharPositionInLine(), ((CommonToken) a14).getStartIndex(), ((CommonToken) a14).getStopIndex());
+                    	    								}
+                    	    								String resolved = (String) resolvedObject;
+                    	    								org.emftext.language.sql.schema.Column proxy = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createColumn();
+                    	    								collectHiddenTokens(element);
+                    	    								registerContextDependentProxy(new org.emftext.language.sql.resource.sql.mopp.SqlContextDependentURIFragmentFactory<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.Column>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getReferentialConstraintReferencedColumnsReferenceResolver()), element, (EReference) element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS), resolved, proxy);
+                    	    								if (proxy != null) {
+                    	    									Object value = proxy;
+                    	    									addObjectToList(element, org.emftext.language.sql.schema.SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT__REFERENCED_COLUMNS, value);
+                    	    									completedElement(value, false);
+                    	    								}
+                    	    								collectHiddenTokens(element);
+                    	    								retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_9_0_0_2_0_0_1, proxy, true);
+                    	    								copyLocalizationInfos((CommonToken) a14, element);
+                    	    								copyLocalizationInfos((CommonToken) a14, proxy);
+                    	    							}
+                    	    						}
+
+                    	    }
+
+
+                    	    if ( state.backtracking==0 ) {
+                    	    						// expected elements (follow set)
+                    	    						addExpectedElement(null, 403, 404);
+                    	    					}
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop31;
+                        }
+                    } while (true);
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 405, 406);
+                    			}
+
+                    a15=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3500); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.schema.SchemaFactory.eINSTANCE.createReferentialTableConstraint();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_9_0_0_3, null, true);
+                    				copyLocalizationInfos((CommonToken)a15, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				// We've found the last token for this rule. The constructed EObject is now
+                    				// complete.
+                    				completedElement(element, true);
+                    				addExpectedElement(null, 407, 408);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 409, 410);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 25, parse_org_emftext_language_sql_schema_ReferentialTableConstraint_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_schema_ReferentialTableConstraint"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_datatype_ExactNumericType"
+    // Sql.g:3409:1: parse_org_emftext_language_sql_datatype_ExactNumericType returns [org.emftext.language.sql.datatype.ExactNumericType element = null] : ( (a0= 'NUMERIC' |a1= 'DECIMAL' |a2= 'DEC' |a3= 'SMALLINT' |a4= 'INTEGER' |a5= 'INT' |a6= 'BIGINT' ) ) ( (a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')' ) )? ;
+    public final org.emftext.language.sql.datatype.ExactNumericType parse_org_emftext_language_sql_datatype_ExactNumericType() throws RecognitionException {
+        org.emftext.language.sql.datatype.ExactNumericType element =  null;
+
+        int parse_org_emftext_language_sql_datatype_ExactNumericType_StartIndex = input.index();
+
+        Token a0=null;
+        Token a1=null;
+        Token a2=null;
+        Token a3=null;
+        Token a4=null;
+        Token a5=null;
+        Token a6=null;
+        Token a9=null;
+        Token a10=null;
+        Token a11=null;
+        Token a12=null;
+        Token a13=null;
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return element; }
+
+            // Sql.g:3412:2: ( ( (a0= 'NUMERIC' |a1= 'DECIMAL' |a2= 'DEC' |a3= 'SMALLINT' |a4= 'INTEGER' |a5= 'INT' |a6= 'BIGINT' ) ) ( (a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')' ) )? )
+            // Sql.g:3413:2: ( (a0= 'NUMERIC' |a1= 'DECIMAL' |a2= 'DEC' |a3= 'SMALLINT' |a4= 'INTEGER' |a5= 'INT' |a6= 'BIGINT' ) ) ( (a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')' ) )?
+            {
+            // Sql.g:3413:2: ( (a0= 'NUMERIC' |a1= 'DECIMAL' |a2= 'DEC' |a3= 'SMALLINT' |a4= 'INTEGER' |a5= 'INT' |a6= 'BIGINT' ) )
+            // Sql.g:3414:3: (a0= 'NUMERIC' |a1= 'DECIMAL' |a2= 'DEC' |a3= 'SMALLINT' |a4= 'INTEGER' |a5= 'INT' |a6= 'BIGINT' )
+            {
+            // Sql.g:3414:3: (a0= 'NUMERIC' |a1= 'DECIMAL' |a2= 'DEC' |a3= 'SMALLINT' |a4= 'INTEGER' |a5= 'INT' |a6= 'BIGINT' )
+            int alt33=7;
+            switch ( input.LA(1) ) {
+            case 92:
+                {
+                alt33=1;
+                }
+                break;
+            case 78:
+                {
+                alt33=2;
+                }
+                break;
+            case 77:
+                {
+                alt33=3;
+                }
+                break;
+            case 96:
+                {
+                alt33=4;
+                }
+                break;
+            case 85:
+                {
+                alt33=5;
+                }
+                break;
+            case 84:
+                {
+                alt33=6;
+                }
+                break;
+            case 67:
+                {
+                alt33=7;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return element;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 33, 0, input);
+
+                throw nvae;
+
+            }
+
+            switch (alt33) {
+                case 1 :
+                    // Sql.g:3415:4: a0= 'NUMERIC'
+                    {
+                    a0=(Token)match(input,92,FOLLOW_92_in_parse_org_emftext_language_sql_datatype_ExactNumericType3557); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a0, element);
+                    				// set value of enumeration attribute
+                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.NUMERIC_VALUE).getInstance();
+                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
+                    				completedElement(value, false);
+                    			}
+
+                    }
+                    break;
+                case 2 :
+                    // Sql.g:3428:8: a1= 'DECIMAL'
+                    {
+                    a1=(Token)match(input,78,FOLLOW_78_in_parse_org_emftext_language_sql_datatype_ExactNumericType3572); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a1, element);
+                    				// set value of enumeration attribute
+                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.DECIMAL_VALUE).getInstance();
+                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
+                    				completedElement(value, false);
+                    			}
+
+                    }
+                    break;
+                case 3 :
+                    // Sql.g:3441:8: a2= 'DEC'
+                    {
+                    a2=(Token)match(input,77,FOLLOW_77_in_parse_org_emftext_language_sql_datatype_ExactNumericType3587); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a2, element);
+                    				// set value of enumeration attribute
+                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.DEC_VALUE).getInstance();
+                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
+                    				completedElement(value, false);
+                    			}
+
+                    }
+                    break;
+                case 4 :
+                    // Sql.g:3454:8: a3= 'SMALLINT'
+                    {
+                    a3=(Token)match(input,96,FOLLOW_96_in_parse_org_emftext_language_sql_datatype_ExactNumericType3602); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a3, element);
+                    				// set value of enumeration attribute
+                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.SMALLINT_VALUE).getInstance();
+                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
+                    				completedElement(value, false);
+                    			}
+
+                    }
+                    break;
+                case 5 :
+                    // Sql.g:3467:8: a4= 'INTEGER'
+                    {
+                    a4=(Token)match(input,85,FOLLOW_85_in_parse_org_emftext_language_sql_datatype_ExactNumericType3617); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a4, element);
+                    				// set value of enumeration attribute
+                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.INTEGER_VALUE).getInstance();
+                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
+                    				completedElement(value, false);
+                    			}
+
+                    }
+                    break;
+                case 6 :
+                    // Sql.g:3480:8: a5= 'INT'
+                    {
+                    a5=(Token)match(input,84,FOLLOW_84_in_parse_org_emftext_language_sql_datatype_ExactNumericType3632); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a5, element);
+                    				// set value of enumeration attribute
+                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.INT_VALUE).getInstance();
+                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
+                    				completedElement(value, false);
+                    			}
+
+                    }
+                    break;
+                case 7 :
+                    // Sql.g:3493:8: a6= 'BIGINT'
+                    {
+                    a6=(Token)match(input,67,FOLLOW_67_in_parse_org_emftext_language_sql_datatype_ExactNumericType3647); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a6, element);
+                    				// set value of enumeration attribute
+                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.BIGINT_VALUE).getInstance();
+                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
+                    				completedElement(value, false);
+                    			}
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 411, 412);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 413, 418);
+            		addExpectedElement(null, 419, 421);
+            	}
+
+            // Sql.g:3515:2: ( (a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')' ) )?
+            int alt35=2;
+            int LA35_0 = input.LA(1);
+
+            if ( (LA35_0==62) ) {
+                alt35=1;
+            }
+            switch (alt35) {
+                case 1 :
+                    // Sql.g:3516:3: (a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')' )
+                    {
+                    // Sql.g:3516:3: (a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')' )
+                    // Sql.g:3517:4: a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')'
+                    {
+                    a9=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_datatype_ExactNumericType3677); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_1_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a9, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 422);
+                    			}
+
+                    // Sql.g:3531:4: (a10= UNSIGNED_INTEGER )
+                    // Sql.g:3532:5: a10= UNSIGNED_INTEGER
+                    {
+                    a10=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_ExactNumericType3703); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a10 != null) {
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
+                    						tokenResolver.setOptions(getOptions());
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    						tokenResolver.resolve(a10.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__PRECISION), result);
+                    						Object resolvedObject = result.getResolvedToken();
+                    						if (resolvedObject == null) {
+                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a10).getLine(), ((CommonToken) a10).getCharPositionInLine(), ((CommonToken) a10).getStartIndex(), ((CommonToken) a10).getStopIndex());
+                    						}
+                    						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
+                    						if (resolved != null) {
+                    							Object value = resolved;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__PRECISION), value);
+                    							completedElement(value, false);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_1_0_0_1, resolved, true);
+                    						copyLocalizationInfos((CommonToken) a10, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 423, 424);
+                    			}
+
+                    // Sql.g:3567:4: ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )?
+                    int alt34=2;
+                    int LA34_0 = input.LA(1);
+
+                    if ( (LA34_0==64) ) {
+                        alt34=1;
+                    }
+                    switch (alt34) {
+                        case 1 :
+                            // Sql.g:3568:5: (a11= ',' (a12= UNSIGNED_INTEGER ) )
+                            {
+                            // Sql.g:3568:5: (a11= ',' (a12= UNSIGNED_INTEGER ) )
+                            // Sql.g:3569:6: a11= ',' (a12= UNSIGNED_INTEGER )
+                            {
+                            a11=(Token)match(input,64,FOLLOW_64_in_parse_org_emftext_language_sql_datatype_ExactNumericType3749); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            						if (element == null) {
+                            							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
+                            							startIncompleteElement(element);
+                            						}
+                            						collectHiddenTokens(element);
+                            						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_1_0_0_2_0_0_0, null, true);
+                            						copyLocalizationInfos((CommonToken)a11, element);
+                            					}
+
+                            if ( state.backtracking==0 ) {
+                            						// expected elements (follow set)
+                            						addExpectedElement(null, 425);
+                            					}
+
+                            // Sql.g:3583:6: (a12= UNSIGNED_INTEGER )
+                            // Sql.g:3584:7: a12= UNSIGNED_INTEGER
+                            {
+                            a12=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_ExactNumericType3783); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            							if (terminateParsing) {
+                            								throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                            							}
+                            							if (element == null) {
+                            								element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
+                            								startIncompleteElement(element);
+                            							}
+                            							if (a12 != null) {
+                            								org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
+                            								tokenResolver.setOptions(getOptions());
+                            								org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                            								tokenResolver.resolve(a12.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__SCALE), result);
+                            								Object resolvedObject = result.getResolvedToken();
+                            								if (resolvedObject == null) {
+                            									addErrorToResource(result.getErrorMessage(), ((CommonToken) a12).getLine(), ((CommonToken) a12).getCharPositionInLine(), ((CommonToken) a12).getStartIndex(), ((CommonToken) a12).getStopIndex());
+                            								}
+                            								org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
+                            								if (resolved != null) {
+                            									Object value = resolved;
+                            									element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__SCALE), value);
+                            									completedElement(value, false);
+                            								}
+                            								collectHiddenTokens(element);
+                            								retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_1_0_0_2_0_0_1, resolved, true);
+                            								copyLocalizationInfos((CommonToken) a12, element);
+                            							}
+                            						}
+
+                            }
+
+
+                            if ( state.backtracking==0 ) {
+                            						// expected elements (follow set)
+                            						addExpectedElement(null, 426);
+                            					}
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 427);
+                    			}
+
+                    a13=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_datatype_ExactNumericType3851); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_1_0_0_3, null, true);
+                    				copyLocalizationInfos((CommonToken)a13, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				// We've found the last token for this rule. The constructed EObject is now
+                    				// complete.
+                    				completedElement(element, true);
+                    				addExpectedElement(null, 428);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 429, 434);
+                    				addExpectedElement(null, 435, 437);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 438);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 439, 444);
+            		addExpectedElement(null, 445, 447);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 26, parse_org_emftext_language_sql_datatype_ExactNumericType_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_datatype_ExactNumericType"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_datatype_ApproximateNumericType"
+    // Sql.g:3659:1: parse_org_emftext_language_sql_datatype_ApproximateNumericType returns [org.emftext.language.sql.datatype.ApproximateNumericType element = null] : ( ( (a0= 'FLOAT' |a1= 'REAL' ) ) | ( (a4= 'DOUBLE' ) ) a7= KEYWORD_PRECISION ) ( (a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')' ) )? ;
+    public final org.emftext.language.sql.datatype.ApproximateNumericType parse_org_emftext_language_sql_datatype_ApproximateNumericType() throws RecognitionException {
+        org.emftext.language.sql.datatype.ApproximateNumericType element =  null;
+
+        int parse_org_emftext_language_sql_datatype_ApproximateNumericType_StartIndex = input.index();
+
+        Token a0=null;
+        Token a1=null;
+        Token a4=null;
+        Token a7=null;
+        Token a8=null;
+        Token a9=null;
+        Token a10=null;
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 27) ) { return element; }
+
+            // Sql.g:3662:2: ( ( ( (a0= 'FLOAT' |a1= 'REAL' ) ) | ( (a4= 'DOUBLE' ) ) a7= KEYWORD_PRECISION ) ( (a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')' ) )? )
+            // Sql.g:3663:2: ( ( (a0= 'FLOAT' |a1= 'REAL' ) ) | ( (a4= 'DOUBLE' ) ) a7= KEYWORD_PRECISION ) ( (a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')' ) )?
+            {
+            // Sql.g:3663:2: ( ( (a0= 'FLOAT' |a1= 'REAL' ) ) | ( (a4= 'DOUBLE' ) ) a7= KEYWORD_PRECISION )
+            int alt37=2;
+            int LA37_0 = input.LA(1);
+
+            if ( (LA37_0==81||LA37_0==95) ) {
+                alt37=1;
+            }
+            else if ( (LA37_0==79) ) {
+                alt37=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return element;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 37, 0, input);
+
+                throw nvae;
+
+            }
+            switch (alt37) {
+                case 1 :
+                    // Sql.g:3664:3: ( (a0= 'FLOAT' |a1= 'REAL' ) )
+                    {
+                    // Sql.g:3664:3: ( (a0= 'FLOAT' |a1= 'REAL' ) )
+                    // Sql.g:3665:4: (a0= 'FLOAT' |a1= 'REAL' )
+                    {
+                    // Sql.g:3665:4: (a0= 'FLOAT' |a1= 'REAL' )
+                    int alt36=2;
+                    int LA36_0 = input.LA(1);
+
+                    if ( (LA36_0==81) ) {
+                        alt36=1;
+                    }
+                    else if ( (LA36_0==95) ) {
+                        alt36=2;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return element;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 36, 0, input);
+
+                        throw nvae;
+
+                    }
+                    switch (alt36) {
+                        case 1 :
+                            // Sql.g:3666:5: a0= 'FLOAT'
+                            {
+                            a0=(Token)match(input,81,FOLLOW_81_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType3914); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            					if (element == null) {
+                            						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
+                            						startIncompleteElement(element);
+                            					}
+                            					collectHiddenTokens(element);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0_0_0_0, null, true);
+                            					copyLocalizationInfos((CommonToken)a0, element);
+                            					// set value of enumeration attribute
+                            					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ApproximateNumericTypeKind.FLOAT_VALUE).getInstance();
+                            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), value);
+                            					completedElement(value, false);
+                            				}
+
+                            }
+                            break;
+                        case 2 :
+                            // Sql.g:3679:10: a1= 'REAL'
+                            {
+                            a1=(Token)match(input,95,FOLLOW_95_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType3931); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            					if (element == null) {
+                            						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
+                            						startIncompleteElement(element);
+                            					}
+                            					collectHiddenTokens(element);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0_0_0_0, null, true);
+                            					copyLocalizationInfos((CommonToken)a1, element);
+                            					// set value of enumeration attribute
+                            					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ApproximateNumericTypeKind.REAL_VALUE).getInstance();
+                            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), value);
+                            					completedElement(value, false);
+                            				}
+
+                            }
+                            break;
+
+                    }
+
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 448, 449);
+                    			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 450, 455);
+                    			addExpectedElement(null, 456, 458);
+                    		}
+
+                    }
+                    break;
+                case 2 :
+                    // Sql.g:3702:6: ( (a4= 'DOUBLE' ) ) a7= KEYWORD_PRECISION
+                    {
+                    // Sql.g:3702:6: ( (a4= 'DOUBLE' ) )
+                    // Sql.g:3703:4: (a4= 'DOUBLE' )
+                    {
+                    // Sql.g:3703:4: (a4= 'DOUBLE' )
+                    // Sql.g:3704:5: a4= 'DOUBLE'
+                    {
+                    a4=(Token)match(input,79,FOLLOW_79_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType3974); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
+                    						startIncompleteElement(element);
+                    					}
+                    					collectHiddenTokens(element);
+                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0_0_1_0, null, true);
+                    					copyLocalizationInfos((CommonToken)a4, element);
+                    					// set value of enumeration attribute
+                    					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ApproximateNumericTypeKind.DOUBLE_PRECISION_VALUE).getInstance();
+                    					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), value);
+                    					completedElement(value, false);
+                    				}
+
+                    }
+
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 459);
+                    		}
+
+                    a7=(Token)match(input,KEYWORD_PRECISION,FOLLOW_KEYWORD_PRECISION_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4000); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    			if (element == null) {
+                    				element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
+                    				startIncompleteElement(element);
+                    			}
+                    			collectHiddenTokens(element);
+                    			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0_0_1_1, null, true);
+                    			copyLocalizationInfos((CommonToken)a7, element);
+                    		}
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 460, 461);
+                    			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 462, 467);
+                    			addExpectedElement(null, 468, 470);
+                    		}
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 471, 472);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 473, 478);
+            		addExpectedElement(null, 479, 481);
+            	}
+
+            // Sql.g:3748:2: ( (a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')' ) )?
+            int alt38=2;
+            int LA38_0 = input.LA(1);
+
+            if ( (LA38_0==62) ) {
+                alt38=1;
+            }
+            switch (alt38) {
+                case 1 :
+                    // Sql.g:3749:3: (a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')' )
+                    {
+                    // Sql.g:3749:3: (a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')' )
+                    // Sql.g:3750:4: a8= '(' (a9= UNSIGNED_INTEGER ) a10= ')'
+                    {
+                    a8=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4033); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_1_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a8, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 482);
+                    			}
+
+                    // Sql.g:3764:4: (a9= UNSIGNED_INTEGER )
+                    // Sql.g:3765:5: a9= UNSIGNED_INTEGER
+                    {
+                    a9=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4059); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
                     						startIncompleteElement(element);
                     					}
                     					if (a9 != null) {
                     						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
                     						tokenResolver.setOptions(getOptions());
                     						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    						tokenResolver.resolve(a9.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__LENGTH), result);
+                    						tokenResolver.resolve(a9.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__PRECISION), result);
                     						Object resolvedObject = result.getResolvedToken();
                     						if (resolvedObject == null) {
                     							addErrorToResource(result.getErrorMessage(), ((CommonToken) a9).getLine(), ((CommonToken) a9).getCharPositionInLine(), ((CommonToken) a9).getStartIndex(), ((CommonToken) a9).getStopIndex());
@@ -6000,11 +6425,11 @@ public class SqlParser extends SqlANTLRParserBase {
                     						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
                     						if (resolved != null) {
                     							Object value = resolved;
-                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__LENGTH), value);
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__PRECISION), value);
                     							completedElement(value, false);
                     						}
                     						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18_0_0_1_0_0_1, resolved, true);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_1_0_0_1, resolved, true);
                     						copyLocalizationInfos((CommonToken) a9, element);
                     					}
                     				}
@@ -6014,124 +6439,29 @@ public class SqlParser extends SqlANTLRParserBase {
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(null, 386);
+                    				addExpectedElement(null, 483);
                     			}
 
-                    a10=(Token)match(input,59,FOLLOW_59_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3989); if (state.failed) return element;
+                    a10=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4092); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18_0_0_1_0_0_2, null, true);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_1_0_0_2, null, true);
                     				copyLocalizationInfos((CommonToken)a10, element);
                     			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 387, 388);
-                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 389, 394);
-                    				addExpectedElement(null, 395, 397);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 398, 399);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 400, 405);
-            		addExpectedElement(null, 406, 408);
-            	}
-
-            // Sql.g:3608:2: ( (a11= KEYWORD_COLLATE (a12= TEXT ) ) )?
-            int alt41=2;
-            int LA41_0 = input.LA(1);
-
-            if ( (LA41_0==KEYWORD_COLLATE) ) {
-                int LA41_1 = input.LA(2);
-
-                if ( (LA41_1==TEXT) ) {
-                    alt41=1;
-                }
-            }
-            switch (alt41) {
-                case 1 :
-                    // Sql.g:3609:3: (a11= KEYWORD_COLLATE (a12= TEXT ) )
-                    {
-                    // Sql.g:3609:3: (a11= KEYWORD_COLLATE (a12= TEXT ) )
-                    // Sql.g:3610:4: a11= KEYWORD_COLLATE (a12= TEXT )
-                    {
-                    a11=(Token)match(input,KEYWORD_COLLATE,FOLLOW_KEYWORD_COLLATE_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4031); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18_0_0_2_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a11, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 409);
-                    			}
-
-                    // Sql.g:3624:4: (a12= TEXT )
-                    // Sql.g:3625:5: a12= TEXT
-                    {
-                    a12=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4057); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    					if (terminateParsing) {
-                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    					}
-                    					if (element == null) {
-                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-                    						startIncompleteElement(element);
-                    					}
-                    					if (a12 != null) {
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
-                    						tokenResolver.setOptions(getOptions());
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    						tokenResolver.resolve(a12.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME), result);
-                    						Object resolvedObject = result.getResolvedToken();
-                    						if (resolvedObject == null) {
-                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a12).getLine(), ((CommonToken) a12).getCharPositionInLine(), ((CommonToken) a12).getStartIndex(), ((CommonToken) a12).getStopIndex());
-                    						}
-                    						java.lang.String resolved = (java.lang.String) resolvedObject;
-                    						if (resolved != null) {
-                    							Object value = resolved;
-                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME), value);
-                    							completedElement(value, false);
-                    						}
-                    						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18_0_0_2_0_0_1, resolved, true);
-                    						copyLocalizationInfos((CommonToken) a12, element);
-                    					}
-                    				}
-
-                    }
-
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
                     				// We've found the last token for this rule. The constructed EObject is now
                     				// complete.
                     				completedElement(element, true);
-                    				addExpectedElement(null, 410);
-                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 411, 416);
-                    				addExpectedElement(null, 417, 419);
+                    				addExpectedElement(null, 484);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 485, 490);
+                    				addExpectedElement(null, 491, 493);
                     			}
 
                     }
@@ -6148,9 +6478,9 @@ public class SqlParser extends SqlANTLRParserBase {
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(null, 420);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 421, 426);
-            		addExpectedElement(null, 427, 429);
+            		addExpectedElement(null, 494);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 495, 500);
+            		addExpectedElement(null, 501, 503);
             	}
 
             }
@@ -6163,7 +6493,1316 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 20, parse_org_emftext_language_sql_datatype_NationalCharacterStringType_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 27, parse_org_emftext_language_sql_datatype_ApproximateNumericType_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_datatype_ApproximateNumericType"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_datatype_CharacterStringType"
+    // Sql.g:3833:1: parse_org_emftext_language_sql_datatype_CharacterStringType returns [org.emftext.language.sql.datatype.CharacterStringType element = null] : ( ( (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' ) ) | ( (a5= 'CHARACTER' |a6= 'CHAR' ) ) a9= KEYWORD_VARYING ) ( (a10= '(' (a11= UNSIGNED_INTEGER ) a12= ')' ) )? ( (a13= KEYWORD_CHARACTER a14= KEYWORD_SET (a15_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? ( (a16= KEYWORD_COLLATE (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? ;
+    public final org.emftext.language.sql.datatype.CharacterStringType parse_org_emftext_language_sql_datatype_CharacterStringType() throws RecognitionException {
+        org.emftext.language.sql.datatype.CharacterStringType element =  null;
+
+        int parse_org_emftext_language_sql_datatype_CharacterStringType_StartIndex = input.index();
+
+        Token a0=null;
+        Token a1=null;
+        Token a2=null;
+        Token a5=null;
+        Token a6=null;
+        Token a9=null;
+        Token a10=null;
+        Token a11=null;
+        Token a12=null;
+        Token a13=null;
+        Token a14=null;
+        Token a16=null;
+        org.emftext.language.sql.common.SchemaQualifiedName a15_0 =null;
+
+        org.emftext.language.sql.common.SchemaQualifiedName a17_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return element; }
+
+            // Sql.g:3836:2: ( ( ( (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' ) ) | ( (a5= 'CHARACTER' |a6= 'CHAR' ) ) a9= KEYWORD_VARYING ) ( (a10= '(' (a11= UNSIGNED_INTEGER ) a12= ')' ) )? ( (a13= KEYWORD_CHARACTER a14= KEYWORD_SET (a15_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? ( (a16= KEYWORD_COLLATE (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? )
+            // Sql.g:3837:2: ( ( (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' ) ) | ( (a5= 'CHARACTER' |a6= 'CHAR' ) ) a9= KEYWORD_VARYING ) ( (a10= '(' (a11= UNSIGNED_INTEGER ) a12= ')' ) )? ( (a13= KEYWORD_CHARACTER a14= KEYWORD_SET (a15_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? ( (a16= KEYWORD_COLLATE (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            {
+            // Sql.g:3837:2: ( ( (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' ) ) | ( (a5= 'CHARACTER' |a6= 'CHAR' ) ) a9= KEYWORD_VARYING )
+            int alt41=2;
+            switch ( input.LA(1) ) {
+            case 71:
+                {
+                int LA41_1 = input.LA(2);
+
+                if ( (LA41_1==EOF||(LA41_1 >= KEYWORD_CHARACTER && LA41_1 <= KEYWORD_CONSTRAINT)||LA41_1==KEYWORD_DEFAULT||LA41_1==KEYWORD_NOT||LA41_1==KEYWORD_REFERENCES||(LA41_1 >= 62 && LA41_1 <= 64)||LA41_1==94||LA41_1==98) ) {
+                    alt41=1;
+                }
+                else if ( (LA41_1==KEYWORD_VARYING) ) {
+                    alt41=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return element;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 41, 1, input);
+
+                    throw nvae;
+
+                }
+                }
+                break;
+            case 70:
+                {
+                int LA41_2 = input.LA(2);
+
+                if ( (LA41_2==EOF||(LA41_2 >= KEYWORD_CHARACTER && LA41_2 <= KEYWORD_CONSTRAINT)||LA41_2==KEYWORD_DEFAULT||LA41_2==KEYWORD_NOT||LA41_2==KEYWORD_REFERENCES||(LA41_2 >= 62 && LA41_2 <= 64)||LA41_2==94||LA41_2==98) ) {
+                    alt41=1;
+                }
+                else if ( (LA41_2==KEYWORD_VARYING) ) {
+                    alt41=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return element;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 41, 2, input);
+
+                    throw nvae;
+
+                }
+                }
+                break;
+            case 99:
+                {
+                alt41=1;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return element;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 41, 0, input);
+
+                throw nvae;
+
+            }
+
+            switch (alt41) {
+                case 1 :
+                    // Sql.g:3838:3: ( (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' ) )
+                    {
+                    // Sql.g:3838:3: ( (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' ) )
+                    // Sql.g:3839:4: (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' )
+                    {
+                    // Sql.g:3839:4: (a0= 'CHARACTER' |a1= 'CHAR' |a2= 'VARCHAR' )
+                    int alt39=3;
+                    switch ( input.LA(1) ) {
+                    case 71:
+                        {
+                        alt39=1;
+                        }
+                        break;
+                    case 70:
+                        {
+                        alt39=2;
+                        }
+                        break;
+                    case 99:
+                        {
+                        alt39=3;
+                        }
+                        break;
+                    default:
+                        if (state.backtracking>0) {state.failed=true; return element;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 39, 0, input);
+
+                        throw nvae;
+
+                    }
+
+                    switch (alt39) {
+                        case 1 :
+                            // Sql.g:3840:5: a0= 'CHARACTER'
+                            {
+                            a0=(Token)match(input,71,FOLLOW_71_in_parse_org_emftext_language_sql_datatype_CharacterStringType4155); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            					if (element == null) {
+                            						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                            						startIncompleteElement(element);
+                            					}
+                            					collectHiddenTokens(element);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0_0_0_0, null, true);
+                            					copyLocalizationInfos((CommonToken)a0, element);
+                            					// set value of enumeration attribute
+                            					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHARACTER_VALUE).getInstance();
+                            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
+                            					completedElement(value, false);
+                            				}
+
+                            }
+                            break;
+                        case 2 :
+                            // Sql.g:3853:10: a1= 'CHAR'
+                            {
+                            a1=(Token)match(input,70,FOLLOW_70_in_parse_org_emftext_language_sql_datatype_CharacterStringType4172); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            					if (element == null) {
+                            						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                            						startIncompleteElement(element);
+                            					}
+                            					collectHiddenTokens(element);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0_0_0_0, null, true);
+                            					copyLocalizationInfos((CommonToken)a1, element);
+                            					// set value of enumeration attribute
+                            					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHAR_VALUE).getInstance();
+                            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
+                            					completedElement(value, false);
+                            				}
+
+                            }
+                            break;
+                        case 3 :
+                            // Sql.g:3866:10: a2= 'VARCHAR'
+                            {
+                            a2=(Token)match(input,99,FOLLOW_99_in_parse_org_emftext_language_sql_datatype_CharacterStringType4189); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            					if (element == null) {
+                            						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                            						startIncompleteElement(element);
+                            					}
+                            					collectHiddenTokens(element);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0_0_0_0, null, true);
+                            					copyLocalizationInfos((CommonToken)a2, element);
+                            					// set value of enumeration attribute
+                            					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.VARCHAR_VALUE).getInstance();
+                            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
+                            					completedElement(value, false);
+                            				}
+
+                            }
+                            break;
+
+                    }
+
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 504, 507);
+                    			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 508, 513);
+                    			addExpectedElement(null, 514, 516);
+                    		}
+
+                    }
+                    break;
+                case 2 :
+                    // Sql.g:3889:6: ( (a5= 'CHARACTER' |a6= 'CHAR' ) ) a9= KEYWORD_VARYING
+                    {
+                    // Sql.g:3889:6: ( (a5= 'CHARACTER' |a6= 'CHAR' ) )
+                    // Sql.g:3890:4: (a5= 'CHARACTER' |a6= 'CHAR' )
+                    {
+                    // Sql.g:3890:4: (a5= 'CHARACTER' |a6= 'CHAR' )
+                    int alt40=2;
+                    int LA40_0 = input.LA(1);
+
+                    if ( (LA40_0==71) ) {
+                        alt40=1;
+                    }
+                    else if ( (LA40_0==70) ) {
+                        alt40=2;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return element;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 40, 0, input);
+
+                        throw nvae;
+
+                    }
+                    switch (alt40) {
+                        case 1 :
+                            // Sql.g:3891:5: a5= 'CHARACTER'
+                            {
+                            a5=(Token)match(input,71,FOLLOW_71_in_parse_org_emftext_language_sql_datatype_CharacterStringType4232); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            					if (element == null) {
+                            						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                            						startIncompleteElement(element);
+                            					}
+                            					collectHiddenTokens(element);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0_0_1_0, null, true);
+                            					copyLocalizationInfos((CommonToken)a5, element);
+                            					// set value of enumeration attribute
+                            					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHARACTER_VARYING_VALUE).getInstance();
+                            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
+                            					completedElement(value, false);
+                            				}
+
+                            }
+                            break;
+                        case 2 :
+                            // Sql.g:3904:10: a6= 'CHAR'
+                            {
+                            a6=(Token)match(input,70,FOLLOW_70_in_parse_org_emftext_language_sql_datatype_CharacterStringType4249); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            					if (element == null) {
+                            						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                            						startIncompleteElement(element);
+                            					}
+                            					collectHiddenTokens(element);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0_0_1_0, null, true);
+                            					copyLocalizationInfos((CommonToken)a6, element);
+                            					// set value of enumeration attribute
+                            					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHAR_VARYING_VALUE).getInstance();
+                            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
+                            					completedElement(value, false);
+                            				}
+
+                            }
+                            break;
+
+                    }
+
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 517);
+                    		}
+
+                    a9=(Token)match(input,KEYWORD_VARYING,FOLLOW_KEYWORD_VARYING_in_parse_org_emftext_language_sql_datatype_CharacterStringType4275); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    			if (element == null) {
+                    				element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                    				startIncompleteElement(element);
+                    			}
+                    			collectHiddenTokens(element);
+                    			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0_0_1_1, null, true);
+                    			copyLocalizationInfos((CommonToken)a9, element);
+                    		}
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 518, 521);
+                    			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 522, 527);
+                    			addExpectedElement(null, 528, 530);
+                    		}
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 531, 534);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 535, 540);
+            		addExpectedElement(null, 541, 543);
+            	}
+
+            // Sql.g:3948:2: ( (a10= '(' (a11= UNSIGNED_INTEGER ) a12= ')' ) )?
+            int alt42=2;
+            int LA42_0 = input.LA(1);
+
+            if ( (LA42_0==62) ) {
+                alt42=1;
+            }
+            switch (alt42) {
+                case 1 :
+                    // Sql.g:3949:3: (a10= '(' (a11= UNSIGNED_INTEGER ) a12= ')' )
+                    {
+                    // Sql.g:3949:3: (a10= '(' (a11= UNSIGNED_INTEGER ) a12= ')' )
+                    // Sql.g:3950:4: a10= '(' (a11= UNSIGNED_INTEGER ) a12= ')'
+                    {
+                    a10=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_datatype_CharacterStringType4308); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_1_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a10, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 544);
+                    			}
+
+                    // Sql.g:3964:4: (a11= UNSIGNED_INTEGER )
+                    // Sql.g:3965:5: a11= UNSIGNED_INTEGER
+                    {
+                    a11=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_CharacterStringType4334); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a11 != null) {
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
+                    						tokenResolver.setOptions(getOptions());
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    						tokenResolver.resolve(a11.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__LENGTH), result);
+                    						Object resolvedObject = result.getResolvedToken();
+                    						if (resolvedObject == null) {
+                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a11).getLine(), ((CommonToken) a11).getCharPositionInLine(), ((CommonToken) a11).getStartIndex(), ((CommonToken) a11).getStopIndex());
+                    						}
+                    						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
+                    						if (resolved != null) {
+                    							Object value = resolved;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__LENGTH), value);
+                    							completedElement(value, false);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_1_0_0_1, resolved, true);
+                    						copyLocalizationInfos((CommonToken) a11, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 545);
+                    			}
+
+                    a12=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_datatype_CharacterStringType4367); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_1_0_0_2, null, true);
+                    				copyLocalizationInfos((CommonToken)a12, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 546, 548);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 549, 554);
+                    				addExpectedElement(null, 555, 557);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 558, 560);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 561, 566);
+            		addExpectedElement(null, 567, 569);
+            	}
+
+            // Sql.g:4025:2: ( (a13= KEYWORD_CHARACTER a14= KEYWORD_SET (a15_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            int alt43=2;
+            int LA43_0 = input.LA(1);
+
+            if ( (LA43_0==KEYWORD_CHARACTER) ) {
+                alt43=1;
+            }
+            switch (alt43) {
+                case 1 :
+                    // Sql.g:4026:3: (a13= KEYWORD_CHARACTER a14= KEYWORD_SET (a15_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    {
+                    // Sql.g:4026:3: (a13= KEYWORD_CHARACTER a14= KEYWORD_SET (a15_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    // Sql.g:4027:4: a13= KEYWORD_CHARACTER a14= KEYWORD_SET (a15_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    {
+                    a13=(Token)match(input,KEYWORD_CHARACTER,FOLLOW_KEYWORD_CHARACTER_in_parse_org_emftext_language_sql_datatype_CharacterStringType4409); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_2_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a13, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 570);
+                    			}
+
+                    a14=(Token)match(input,KEYWORD_SET,FOLLOW_KEYWORD_SET_in_parse_org_emftext_language_sql_datatype_CharacterStringType4429); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_2_0_0_1, null, true);
+                    				copyLocalizationInfos((CommonToken)a14, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringType(), 571, 573);
+                    			}
+
+                    // Sql.g:4055:4: (a15_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    // Sql.g:4056:5: a15_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_datatype_CharacterStringType4455);
+                    a15_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a15_0 != null) {
+                    						if (a15_0 != null) {
+                    							Object value = a15_0;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__CHARACTER_SET_NAME), value);
+                    							completedElement(value, true);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_2_0_0_2, a15_0, true);
+                    						copyLocalizationInfos(a15_0, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 574, 575);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 576, 581);
+                    				addExpectedElement(null, 582, 584);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 585, 586);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 587, 592);
+            		addExpectedElement(null, 593, 595);
+            	}
+
+            // Sql.g:4092:2: ( (a16= KEYWORD_COLLATE (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            int alt44=2;
+            int LA44_0 = input.LA(1);
+
+            if ( (LA44_0==KEYWORD_COLLATE) ) {
+                int LA44_1 = input.LA(2);
+
+                if ( (LA44_1==IDENTIFIER) ) {
+                    int LA44_3 = input.LA(3);
+
+                    if ( (synpred50_Sql()) ) {
+                        alt44=1;
+                    }
+                }
+            }
+            switch (alt44) {
+                case 1 :
+                    // Sql.g:4093:3: (a16= KEYWORD_COLLATE (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    {
+                    // Sql.g:4093:3: (a16= KEYWORD_COLLATE (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    // Sql.g:4094:4: a16= KEYWORD_COLLATE (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    {
+                    a16=(Token)match(input,KEYWORD_COLLATE,FOLLOW_KEYWORD_COLLATE_in_parse_org_emftext_language_sql_datatype_CharacterStringType4505); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_3_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a16, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringType(), 596, 598);
+                    			}
+
+                    // Sql.g:4108:4: (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    // Sql.g:4109:5: a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_datatype_CharacterStringType4531);
+                    a17_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a17_0 != null) {
+                    						if (a17_0 != null) {
+                    							Object value = a17_0;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__COLLATION_NAME), value);
+                    							completedElement(value, true);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_3_0_0_1, a17_0, true);
+                    						copyLocalizationInfos(a17_0, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				// We've found the last token for this rule. The constructed EObject is now
+                    				// complete.
+                    				completedElement(element, true);
+                    				addExpectedElement(null, 599);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 600, 605);
+                    				addExpectedElement(null, 606, 608);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 609);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 610, 615);
+            		addExpectedElement(null, 616, 618);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 28, parse_org_emftext_language_sql_datatype_CharacterStringType_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_datatype_CharacterStringType"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_datatype_NationalCharacterStringType"
+    // Sql.g:4153:1: parse_org_emftext_language_sql_datatype_NationalCharacterStringType returns [org.emftext.language.sql.datatype.NationalCharacterStringType element = null] : (a0= KEYWORD_NATIONAL ( ( (a1= 'CHARACTER' |a2= 'CHAR' ) ) | ( (a5= 'CHARACTER' |a6= 'CHAR' ) ) a9= KEYWORD_VARYING ) | ( (a10= 'NCHAR' ) ) | ( (a13= 'NCHAR' ) ) a16= KEYWORD_VARYING ) ( (a17= '(' (a18= UNSIGNED_INTEGER ) a19= ')' ) )? ( (a20= KEYWORD_COLLATE (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? ;
+    public final org.emftext.language.sql.datatype.NationalCharacterStringType parse_org_emftext_language_sql_datatype_NationalCharacterStringType() throws RecognitionException {
+        org.emftext.language.sql.datatype.NationalCharacterStringType element =  null;
+
+        int parse_org_emftext_language_sql_datatype_NationalCharacterStringType_StartIndex = input.index();
+
+        Token a0=null;
+        Token a1=null;
+        Token a2=null;
+        Token a5=null;
+        Token a6=null;
+        Token a9=null;
+        Token a10=null;
+        Token a13=null;
+        Token a16=null;
+        Token a17=null;
+        Token a18=null;
+        Token a19=null;
+        Token a20=null;
+        org.emftext.language.sql.common.SchemaQualifiedName a21_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return element; }
+
+            // Sql.g:4156:2: ( (a0= KEYWORD_NATIONAL ( ( (a1= 'CHARACTER' |a2= 'CHAR' ) ) | ( (a5= 'CHARACTER' |a6= 'CHAR' ) ) a9= KEYWORD_VARYING ) | ( (a10= 'NCHAR' ) ) | ( (a13= 'NCHAR' ) ) a16= KEYWORD_VARYING ) ( (a17= '(' (a18= UNSIGNED_INTEGER ) a19= ')' ) )? ( (a20= KEYWORD_COLLATE (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )? )
+            // Sql.g:4157:2: (a0= KEYWORD_NATIONAL ( ( (a1= 'CHARACTER' |a2= 'CHAR' ) ) | ( (a5= 'CHARACTER' |a6= 'CHAR' ) ) a9= KEYWORD_VARYING ) | ( (a10= 'NCHAR' ) ) | ( (a13= 'NCHAR' ) ) a16= KEYWORD_VARYING ) ( (a17= '(' (a18= UNSIGNED_INTEGER ) a19= ')' ) )? ( (a20= KEYWORD_COLLATE (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            {
+            // Sql.g:4157:2: (a0= KEYWORD_NATIONAL ( ( (a1= 'CHARACTER' |a2= 'CHAR' ) ) | ( (a5= 'CHARACTER' |a6= 'CHAR' ) ) a9= KEYWORD_VARYING ) | ( (a10= 'NCHAR' ) ) | ( (a13= 'NCHAR' ) ) a16= KEYWORD_VARYING )
+            int alt48=3;
+            int LA48_0 = input.LA(1);
+
+            if ( (LA48_0==KEYWORD_NATIONAL) ) {
+                alt48=1;
+            }
+            else if ( (LA48_0==91) ) {
+                int LA48_2 = input.LA(2);
+
+                if ( (LA48_2==EOF||(LA48_2 >= KEYWORD_COLLATE && LA48_2 <= KEYWORD_CONSTRAINT)||LA48_2==KEYWORD_DEFAULT||LA48_2==KEYWORD_NOT||LA48_2==KEYWORD_REFERENCES||(LA48_2 >= 62 && LA48_2 <= 64)||LA48_2==94||LA48_2==98) ) {
+                    alt48=2;
+                }
+                else if ( (LA48_2==KEYWORD_VARYING) ) {
+                    alt48=3;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return element;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 48, 2, input);
+
+                    throw nvae;
+
+                }
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return element;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 48, 0, input);
+
+                throw nvae;
+
+            }
+            switch (alt48) {
+                case 1 :
+                    // Sql.g:4158:3: a0= KEYWORD_NATIONAL ( ( (a1= 'CHARACTER' |a2= 'CHAR' ) ) | ( (a5= 'CHARACTER' |a6= 'CHAR' ) ) a9= KEYWORD_VARYING )
+                    {
+                    a0=(Token)match(input,KEYWORD_NATIONAL,FOLLOW_KEYWORD_NATIONAL_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4591); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    			if (element == null) {
+                    				element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    				startIncompleteElement(element);
+                    			}
+                    			collectHiddenTokens(element);
+                    			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_0_0, null, true);
+                    			copyLocalizationInfos((CommonToken)a0, element);
+                    		}
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 619, 620);
+                    		}
+
+                    // Sql.g:4172:3: ( ( (a1= 'CHARACTER' |a2= 'CHAR' ) ) | ( (a5= 'CHARACTER' |a6= 'CHAR' ) ) a9= KEYWORD_VARYING )
+                    int alt47=2;
+                    int LA47_0 = input.LA(1);
+
+                    if ( (LA47_0==71) ) {
+                        int LA47_1 = input.LA(2);
+
+                        if ( (LA47_1==EOF||(LA47_1 >= KEYWORD_COLLATE && LA47_1 <= KEYWORD_CONSTRAINT)||LA47_1==KEYWORD_DEFAULT||LA47_1==KEYWORD_NOT||LA47_1==KEYWORD_REFERENCES||(LA47_1 >= 62 && LA47_1 <= 64)||LA47_1==94||LA47_1==98) ) {
+                            alt47=1;
+                        }
+                        else if ( (LA47_1==KEYWORD_VARYING) ) {
+                            alt47=2;
+                        }
+                        else {
+                            if (state.backtracking>0) {state.failed=true; return element;}
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 47, 1, input);
+
+                            throw nvae;
+
+                        }
+                    }
+                    else if ( (LA47_0==70) ) {
+                        int LA47_2 = input.LA(2);
+
+                        if ( (LA47_2==EOF||(LA47_2 >= KEYWORD_COLLATE && LA47_2 <= KEYWORD_CONSTRAINT)||LA47_2==KEYWORD_DEFAULT||LA47_2==KEYWORD_NOT||LA47_2==KEYWORD_REFERENCES||(LA47_2 >= 62 && LA47_2 <= 64)||LA47_2==94||LA47_2==98) ) {
+                            alt47=1;
+                        }
+                        else if ( (LA47_2==KEYWORD_VARYING) ) {
+                            alt47=2;
+                        }
+                        else {
+                            if (state.backtracking>0) {state.failed=true; return element;}
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 47, 2, input);
+
+                            throw nvae;
+
+                        }
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return element;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 47, 0, input);
+
+                        throw nvae;
+
+                    }
+                    switch (alt47) {
+                        case 1 :
+                            // Sql.g:4173:4: ( (a1= 'CHARACTER' |a2= 'CHAR' ) )
+                            {
+                            // Sql.g:4173:4: ( (a1= 'CHARACTER' |a2= 'CHAR' ) )
+                            // Sql.g:4174:5: (a1= 'CHARACTER' |a2= 'CHAR' )
+                            {
+                            // Sql.g:4174:5: (a1= 'CHARACTER' |a2= 'CHAR' )
+                            int alt45=2;
+                            int LA45_0 = input.LA(1);
+
+                            if ( (LA45_0==71) ) {
+                                alt45=1;
+                            }
+                            else if ( (LA45_0==70) ) {
+                                alt45=2;
+                            }
+                            else {
+                                if (state.backtracking>0) {state.failed=true; return element;}
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 45, 0, input);
+
+                                throw nvae;
+
+                            }
+                            switch (alt45) {
+                                case 1 :
+                                    // Sql.g:4175:6: a1= 'CHARACTER'
+                                    {
+                                    a1=(Token)match(input,71,FOLLOW_71_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4626); if (state.failed) return element;
+
+                                    if ( state.backtracking==0 ) {
+                                    						if (element == null) {
+                                    							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                                    							startIncompleteElement(element);
+                                    						}
+                                    						collectHiddenTokens(element);
+                                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_0_1_0_0_0, null, true);
+                                    						copyLocalizationInfos((CommonToken)a1, element);
+                                    						// set value of enumeration attribute
+                                    						Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHARACTER_VALUE).getInstance();
+                                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+                                    						completedElement(value, false);
+                                    					}
+
+                                    }
+                                    break;
+                                case 2 :
+                                    // Sql.g:4188:12: a2= 'CHAR'
+                                    {
+                                    a2=(Token)match(input,70,FOLLOW_70_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4645); if (state.failed) return element;
+
+                                    if ( state.backtracking==0 ) {
+                                    						if (element == null) {
+                                    							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                                    							startIncompleteElement(element);
+                                    						}
+                                    						collectHiddenTokens(element);
+                                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_0_1_0_0_0, null, true);
+                                    						copyLocalizationInfos((CommonToken)a2, element);
+                                    						// set value of enumeration attribute
+                                    						Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHAR_VALUE).getInstance();
+                                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+                                    						completedElement(value, false);
+                                    					}
+
+                                    }
+                                    break;
+
+                            }
+
+
+                            }
+
+
+                            if ( state.backtracking==0 ) {
+                            				// expected elements (follow set)
+                            				addExpectedElement(null, 621, 623);
+                            				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 624, 629);
+                            				addExpectedElement(null, 630, 632);
+                            			}
+
+                            }
+                            break;
+                        case 2 :
+                            // Sql.g:4211:8: ( (a5= 'CHARACTER' |a6= 'CHAR' ) ) a9= KEYWORD_VARYING
+                            {
+                            // Sql.g:4211:8: ( (a5= 'CHARACTER' |a6= 'CHAR' ) )
+                            // Sql.g:4212:5: (a5= 'CHARACTER' |a6= 'CHAR' )
+                            {
+                            // Sql.g:4212:5: (a5= 'CHARACTER' |a6= 'CHAR' )
+                            int alt46=2;
+                            int LA46_0 = input.LA(1);
+
+                            if ( (LA46_0==71) ) {
+                                alt46=1;
+                            }
+                            else if ( (LA46_0==70) ) {
+                                alt46=2;
+                            }
+                            else {
+                                if (state.backtracking>0) {state.failed=true; return element;}
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 46, 0, input);
+
+                                throw nvae;
+
+                            }
+                            switch (alt46) {
+                                case 1 :
+                                    // Sql.g:4213:6: a5= 'CHARACTER'
+                                    {
+                                    a5=(Token)match(input,71,FOLLOW_71_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4697); if (state.failed) return element;
+
+                                    if ( state.backtracking==0 ) {
+                                    						if (element == null) {
+                                    							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                                    							startIncompleteElement(element);
+                                    						}
+                                    						collectHiddenTokens(element);
+                                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_0_1_0_1_0, null, true);
+                                    						copyLocalizationInfos((CommonToken)a5, element);
+                                    						// set value of enumeration attribute
+                                    						Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHARACTER_VARYING_VALUE).getInstance();
+                                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+                                    						completedElement(value, false);
+                                    					}
+
+                                    }
+                                    break;
+                                case 2 :
+                                    // Sql.g:4226:12: a6= 'CHAR'
+                                    {
+                                    a6=(Token)match(input,70,FOLLOW_70_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4716); if (state.failed) return element;
+
+                                    if ( state.backtracking==0 ) {
+                                    						if (element == null) {
+                                    							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                                    							startIncompleteElement(element);
+                                    						}
+                                    						collectHiddenTokens(element);
+                                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_0_1_0_1_0, null, true);
+                                    						copyLocalizationInfos((CommonToken)a6, element);
+                                    						// set value of enumeration attribute
+                                    						Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHAR_VARYING_VALUE).getInstance();
+                                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+                                    						completedElement(value, false);
+                                    					}
+
+                                    }
+                                    break;
+
+                            }
+
+
+                            }
+
+
+                            if ( state.backtracking==0 ) {
+                            				// expected elements (follow set)
+                            				addExpectedElement(null, 633);
+                            			}
+
+                            a9=(Token)match(input,KEYWORD_VARYING,FOLLOW_KEYWORD_VARYING_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4747); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            				if (element == null) {
+                            					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                            					startIncompleteElement(element);
+                            				}
+                            				collectHiddenTokens(element);
+                            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_0_1_0_1_1, null, true);
+                            				copyLocalizationInfos((CommonToken)a9, element);
+                            			}
+
+                            if ( state.backtracking==0 ) {
+                            				// expected elements (follow set)
+                            				addExpectedElement(null, 634, 636);
+                            				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 637, 642);
+                            				addExpectedElement(null, 643, 645);
+                            			}
+
+                            }
+                            break;
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 646, 648);
+                    			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 649, 654);
+                    			addExpectedElement(null, 655, 657);
+                    		}
+
+                    }
+                    break;
+                case 2 :
+                    // Sql.g:4271:6: ( (a10= 'NCHAR' ) )
+                    {
+                    // Sql.g:4271:6: ( (a10= 'NCHAR' ) )
+                    // Sql.g:4272:4: (a10= 'NCHAR' )
+                    {
+                    // Sql.g:4272:4: (a10= 'NCHAR' )
+                    // Sql.g:4273:5: a10= 'NCHAR'
+                    {
+                    a10=(Token)match(input,91,FOLLOW_91_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4794); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    						startIncompleteElement(element);
+                    					}
+                    					collectHiddenTokens(element);
+                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_1_0, null, true);
+                    					copyLocalizationInfos((CommonToken)a10, element);
+                    					// set value of enumeration attribute
+                    					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NCHAR_VALUE).getInstance();
+                    					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+                    					completedElement(value, false);
+                    				}
+
+                    }
+
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 658, 660);
+                    			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 661, 666);
+                    			addExpectedElement(null, 667, 669);
+                    		}
+
+                    }
+                    break;
+                case 3 :
+                    // Sql.g:4296:6: ( (a13= 'NCHAR' ) ) a16= KEYWORD_VARYING
+                    {
+                    // Sql.g:4296:6: ( (a13= 'NCHAR' ) )
+                    // Sql.g:4297:4: (a13= 'NCHAR' )
+                    {
+                    // Sql.g:4297:4: (a13= 'NCHAR' )
+                    // Sql.g:4298:5: a13= 'NCHAR'
+                    {
+                    a13=(Token)match(input,91,FOLLOW_91_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4837); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    						startIncompleteElement(element);
+                    					}
+                    					collectHiddenTokens(element);
+                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_2_0, null, true);
+                    					copyLocalizationInfos((CommonToken)a13, element);
+                    					// set value of enumeration attribute
+                    					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NCHAR_VARYING_VALUE).getInstance();
+                    					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+                    					completedElement(value, false);
+                    				}
+
+                    }
+
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 670);
+                    		}
+
+                    a16=(Token)match(input,KEYWORD_VARYING,FOLLOW_KEYWORD_VARYING_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4863); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    			if (element == null) {
+                    				element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    				startIncompleteElement(element);
+                    			}
+                    			collectHiddenTokens(element);
+                    			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_2_1, null, true);
+                    			copyLocalizationInfos((CommonToken)a16, element);
+                    		}
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 671, 673);
+                    			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 674, 679);
+                    			addExpectedElement(null, 680, 682);
+                    		}
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 683, 685);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 686, 691);
+            		addExpectedElement(null, 692, 694);
+            	}
+
+            // Sql.g:4342:2: ( (a17= '(' (a18= UNSIGNED_INTEGER ) a19= ')' ) )?
+            int alt49=2;
+            int LA49_0 = input.LA(1);
+
+            if ( (LA49_0==62) ) {
+                alt49=1;
+            }
+            switch (alt49) {
+                case 1 :
+                    // Sql.g:4343:3: (a17= '(' (a18= UNSIGNED_INTEGER ) a19= ')' )
+                    {
+                    // Sql.g:4343:3: (a17= '(' (a18= UNSIGNED_INTEGER ) a19= ')' )
+                    // Sql.g:4344:4: a17= '(' (a18= UNSIGNED_INTEGER ) a19= ')'
+                    {
+                    a17=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4896); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_1_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a17, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 695);
+                    			}
+
+                    // Sql.g:4358:4: (a18= UNSIGNED_INTEGER )
+                    // Sql.g:4359:5: a18= UNSIGNED_INTEGER
+                    {
+                    a18=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4922); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a18 != null) {
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
+                    						tokenResolver.setOptions(getOptions());
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    						tokenResolver.resolve(a18.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__LENGTH), result);
+                    						Object resolvedObject = result.getResolvedToken();
+                    						if (resolvedObject == null) {
+                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a18).getLine(), ((CommonToken) a18).getCharPositionInLine(), ((CommonToken) a18).getStartIndex(), ((CommonToken) a18).getStopIndex());
+                    						}
+                    						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
+                    						if (resolved != null) {
+                    							Object value = resolved;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__LENGTH), value);
+                    							completedElement(value, false);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_1_0_0_1, resolved, true);
+                    						copyLocalizationInfos((CommonToken) a18, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 696);
+                    			}
+
+                    a19=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4955); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_1_0_0_2, null, true);
+                    				copyLocalizationInfos((CommonToken)a19, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 697, 698);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 699, 704);
+                    				addExpectedElement(null, 705, 707);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 708, 709);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 710, 715);
+            		addExpectedElement(null, 716, 718);
+            	}
+
+            // Sql.g:4419:2: ( (a20= KEYWORD_COLLATE (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )?
+            int alt50=2;
+            int LA50_0 = input.LA(1);
+
+            if ( (LA50_0==KEYWORD_COLLATE) ) {
+                int LA50_1 = input.LA(2);
+
+                if ( (LA50_1==IDENTIFIER) ) {
+                    int LA50_3 = input.LA(3);
+
+                    if ( (synpred57_Sql()) ) {
+                        alt50=1;
+                    }
+                }
+            }
+            switch (alt50) {
+                case 1 :
+                    // Sql.g:4420:3: (a20= KEYWORD_COLLATE (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    {
+                    // Sql.g:4420:3: (a20= KEYWORD_COLLATE (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+                    // Sql.g:4421:4: a20= KEYWORD_COLLATE (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    {
+                    a20=(Token)match(input,KEYWORD_COLLATE,FOLLOW_KEYWORD_COLLATE_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4997); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_2_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a20, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringType(), 719, 721);
+                    			}
+
+                    // Sql.g:4435:4: (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+                    // Sql.g:4436:5: a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType5023);
+                    a21_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a21_0 != null) {
+                    						if (a21_0 != null) {
+                    							Object value = a21_0;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME), value);
+                    							completedElement(value, true);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_2_0_0_1, a21_0, true);
+                    						copyLocalizationInfos(a21_0, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				// We've found the last token for this rule. The constructed EObject is now
+                    				// complete.
+                    				completedElement(element, true);
+                    				addExpectedElement(null, 722);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 723, 728);
+                    				addExpectedElement(null, 729, 731);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 732);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 733, 738);
+            		addExpectedElement(null, 739, 741);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 29, parse_org_emftext_language_sql_datatype_NationalCharacterStringType_StartIndex); }
 
         }
         return element;
@@ -6173,120 +7812,188 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType"
-    // Sql.g:3679:1: parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType returns [org.emftext.language.sql.datatype.BinaryLargeObjectStringType element = null] : ( (a0= 'BINARY LARGE OBJECT' |a1= 'BLOB' ) ) ( (a4= '(' (a5_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a6= ')' ) )? ;
+    // Sql.g:4480:1: parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType returns [org.emftext.language.sql.datatype.BinaryLargeObjectStringType element = null] : ( ( (a0= 'BINARY' ) ) a3= KEYWORD_LARGE a4= KEYWORD_OBJECT | ( (a5= 'BLOB' ) ) ) ( (a8= '(' (a9_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a10= ')' ) )? ;
     public final org.emftext.language.sql.datatype.BinaryLargeObjectStringType parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType() throws RecognitionException {
         org.emftext.language.sql.datatype.BinaryLargeObjectStringType element =  null;
 
         int parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType_StartIndex = input.index();
 
         Token a0=null;
-        Token a1=null;
+        Token a3=null;
         Token a4=null;
-        Token a6=null;
-        org.emftext.language.sql.datatype.LargeObjectLength a5_0 =null;
+        Token a5=null;
+        Token a8=null;
+        Token a10=null;
+        org.emftext.language.sql.datatype.LargeObjectLength a9_0 =null;
 
 
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return element; }
 
-            // Sql.g:3682:2: ( ( (a0= 'BINARY LARGE OBJECT' |a1= 'BLOB' ) ) ( (a4= '(' (a5_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a6= ')' ) )? )
-            // Sql.g:3683:2: ( (a0= 'BINARY LARGE OBJECT' |a1= 'BLOB' ) ) ( (a4= '(' (a5_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a6= ')' ) )?
+            // Sql.g:4483:2: ( ( ( (a0= 'BINARY' ) ) a3= KEYWORD_LARGE a4= KEYWORD_OBJECT | ( (a5= 'BLOB' ) ) ) ( (a8= '(' (a9_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a10= ')' ) )? )
+            // Sql.g:4484:2: ( ( (a0= 'BINARY' ) ) a3= KEYWORD_LARGE a4= KEYWORD_OBJECT | ( (a5= 'BLOB' ) ) ) ( (a8= '(' (a9_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a10= ')' ) )?
             {
-            // Sql.g:3683:2: ( (a0= 'BINARY LARGE OBJECT' |a1= 'BLOB' ) )
-            // Sql.g:3684:3: (a0= 'BINARY LARGE OBJECT' |a1= 'BLOB' )
-            {
-            // Sql.g:3684:3: (a0= 'BINARY LARGE OBJECT' |a1= 'BLOB' )
-            int alt42=2;
-            int LA42_0 = input.LA(1);
+            // Sql.g:4484:2: ( ( (a0= 'BINARY' ) ) a3= KEYWORD_LARGE a4= KEYWORD_OBJECT | ( (a5= 'BLOB' ) ) )
+            int alt51=2;
+            int LA51_0 = input.LA(1);
 
-            if ( (LA42_0==65) ) {
-                alt42=1;
+            if ( (LA51_0==68) ) {
+                alt51=1;
             }
-            else if ( (LA42_0==66) ) {
-                alt42=2;
+            else if ( (LA51_0==69) ) {
+                alt51=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 42, 0, input);
+                    new NoViableAltException("", 51, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt42) {
+            switch (alt51) {
                 case 1 :
-                    // Sql.g:3685:4: a0= 'BINARY LARGE OBJECT'
+                    // Sql.g:4485:3: ( (a0= 'BINARY' ) ) a3= KEYWORD_LARGE a4= KEYWORD_OBJECT
                     {
-                    a0=(Token)match(input,65,FOLLOW_65_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType4127); if (state.failed) return element;
+                    // Sql.g:4485:3: ( (a0= 'BINARY' ) )
+                    // Sql.g:4486:4: (a0= 'BINARY' )
+                    {
+                    // Sql.g:4486:4: (a0= 'BINARY' )
+                    // Sql.g:4487:5: a0= 'BINARY'
+                    {
+                    a0=(Token)match(input,68,FOLLOW_68_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5094); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
-                    					startIncompleteElement(element);
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
+                    						startIncompleteElement(element);
+                    					}
+                    					collectHiddenTokens(element);
+                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_0_0_0_0, null, true);
+                    					copyLocalizationInfos((CommonToken)a0, element);
+                    					// set value of enumeration attribute
+                    					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.BinaryLargeObjectStringTypeKind.BINARY_LARGE_OBJECT_VALUE).getInstance();
+                    					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND), value);
+                    					completedElement(value, false);
                     				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_19_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a0, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.BinaryLargeObjectStringTypeKind.BINARY_LARGE_OBJECT_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND), value);
-                    				completedElement(value, false);
+
+                    }
+
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 742);
+                    		}
+
+                    a3=(Token)match(input,KEYWORD_LARGE,FOLLOW_KEYWORD_LARGE_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5120); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    			if (element == null) {
+                    				element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
+                    				startIncompleteElement(element);
                     			}
+                    			collectHiddenTokens(element);
+                    			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_0_0_0_1, null, true);
+                    			copyLocalizationInfos((CommonToken)a3, element);
+                    		}
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 743);
+                    		}
+
+                    a4=(Token)match(input,KEYWORD_OBJECT,FOLLOW_KEYWORD_OBJECT_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5137); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    			if (element == null) {
+                    				element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
+                    				startIncompleteElement(element);
+                    			}
+                    			collectHiddenTokens(element);
+                    			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_0_0_0_2, null, true);
+                    			copyLocalizationInfos((CommonToken)a4, element);
+                    		}
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 744, 745);
+                    			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 746, 751);
+                    			addExpectedElement(null, 752, 754);
+                    		}
 
                     }
                     break;
                 case 2 :
-                    // Sql.g:3698:8: a1= 'BLOB'
+                    // Sql.g:4538:6: ( (a5= 'BLOB' ) )
                     {
-                    a1=(Token)match(input,66,FOLLOW_66_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType4142); if (state.failed) return element;
+                    // Sql.g:4538:6: ( (a5= 'BLOB' ) )
+                    // Sql.g:4539:4: (a5= 'BLOB' )
+                    {
+                    // Sql.g:4539:4: (a5= 'BLOB' )
+                    // Sql.g:4540:5: a5= 'BLOB'
+                    {
+                    a5=(Token)match(input,69,FOLLOW_69_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5171); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
-                    					startIncompleteElement(element);
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
+                    						startIncompleteElement(element);
+                    					}
+                    					collectHiddenTokens(element);
+                    					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_0_0_1_0, null, true);
+                    					copyLocalizationInfos((CommonToken)a5, element);
+                    					// set value of enumeration attribute
+                    					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.BinaryLargeObjectStringTypeKind.BLOB_VALUE).getInstance();
+                    					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND), value);
+                    					completedElement(value, false);
                     				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_19_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a1, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.BinaryLargeObjectStringTypeKind.BLOB_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
+
+                    }
+
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    			// expected elements (follow set)
+                    			addExpectedElement(null, 755, 756);
+                    			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 757, 762);
+                    			addExpectedElement(null, 763, 765);
+                    		}
 
                     }
                     break;
-
-            }
-
 
             }
 
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 430, 431);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 432, 437);
-            		addExpectedElement(null, 438, 440);
+            		addExpectedElement(null, 766, 767);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 768, 773);
+            		addExpectedElement(null, 774, 776);
             	}
 
-            // Sql.g:3720:2: ( (a4= '(' (a5_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a6= ')' ) )?
-            int alt43=2;
-            int LA43_0 = input.LA(1);
+            // Sql.g:4570:2: ( (a8= '(' (a9_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a10= ')' ) )?
+            int alt52=2;
+            int LA52_0 = input.LA(1);
 
-            if ( (LA43_0==58) ) {
-                alt43=1;
+            if ( (LA52_0==62) ) {
+                alt52=1;
             }
-            switch (alt43) {
+            switch (alt52) {
                 case 1 :
-                    // Sql.g:3721:3: (a4= '(' (a5_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a6= ')' )
+                    // Sql.g:4571:3: (a8= '(' (a9_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a10= ')' )
                     {
-                    // Sql.g:3721:3: (a4= '(' (a5_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a6= ')' )
-                    // Sql.g:3722:4: a4= '(' (a5_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a6= ')'
+                    // Sql.g:4571:3: (a8= '(' (a9_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a10= ')' )
+                    // Sql.g:4572:4: a8= '(' (a9_0= parse_org_emftext_language_sql_datatype_LargeObjectLength ) a10= ')'
                     {
-                    a4=(Token)match(input,58,FOLLOW_58_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType4172); if (state.failed) return element;
+                    a8=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5213); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
@@ -6294,20 +8001,20 @@ public class SqlParser extends SqlANTLRParserBase {
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_19_0_0_1_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a4, element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_1_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a8, element);
                     			}
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringType(), 441);
+                    				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringType(), 777);
                     			}
 
-                    // Sql.g:3736:4: (a5_0= parse_org_emftext_language_sql_datatype_LargeObjectLength )
-                    // Sql.g:3737:5: a5_0= parse_org_emftext_language_sql_datatype_LargeObjectLength
+                    // Sql.g:4586:4: (a9_0= parse_org_emftext_language_sql_datatype_LargeObjectLength )
+                    // Sql.g:4587:5: a9_0= parse_org_emftext_language_sql_datatype_LargeObjectLength
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_LargeObjectLength_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType4198);
-                    a5_0=parse_org_emftext_language_sql_datatype_LargeObjectLength();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_LargeObjectLength_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5239);
+                    a9_0=parse_org_emftext_language_sql_datatype_LargeObjectLength();
 
                     state._fsp--;
                     if (state.failed) return element;
@@ -6320,15 +8027,15 @@ public class SqlParser extends SqlANTLRParserBase {
                     						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
                     						startIncompleteElement(element);
                     					}
-                    					if (a5_0 != null) {
-                    						if (a5_0 != null) {
-                    							Object value = a5_0;
+                    					if (a9_0 != null) {
+                    						if (a9_0 != null) {
+                    							Object value = a9_0;
                     							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__LENGTH), value);
                     							completedElement(value, true);
                     						}
                     						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_19_0_0_1_0_0_1, a5_0, true);
-                    						copyLocalizationInfos(a5_0, element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_1_0_0_1, a9_0, true);
+                    						copyLocalizationInfos(a9_0, element);
                     					}
                     				}
 
@@ -6337,10 +8044,10 @@ public class SqlParser extends SqlANTLRParserBase {
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(null, 442);
+                    				addExpectedElement(null, 778);
                     			}
 
-                    a6=(Token)match(input,59,FOLLOW_59_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType4226); if (state.failed) return element;
+                    a10=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5267); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
@@ -6348,8 +8055,8 @@ public class SqlParser extends SqlANTLRParserBase {
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_19_0_0_1_0_0_2, null, true);
-                    				copyLocalizationInfos((CommonToken)a6, element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_1_0_0_2, null, true);
+                    				copyLocalizationInfos((CommonToken)a10, element);
                     			}
 
                     if ( state.backtracking==0 ) {
@@ -6357,9 +8064,9 @@ public class SqlParser extends SqlANTLRParserBase {
                     				// We've found the last token for this rule. The constructed EObject is now
                     				// complete.
                     				completedElement(element, true);
-                    				addExpectedElement(null, 443);
-                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 444, 449);
-                    				addExpectedElement(null, 450, 452);
+                    				addExpectedElement(null, 779);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 780, 785);
+                    				addExpectedElement(null, 786, 788);
                     			}
 
                     }
@@ -6376,9 +8083,9 @@ public class SqlParser extends SqlANTLRParserBase {
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(null, 453);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 454, 459);
-            		addExpectedElement(null, 460, 462);
+            		addExpectedElement(null, 789);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 790, 795);
+            		addExpectedElement(null, 796, 798);
             	}
 
             }
@@ -6391,7 +8098,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 21, parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 30, parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType_StartIndex); }
 
         }
         return element;
@@ -6401,7 +8108,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_sql_datatype_LargeObjectLength"
-    // Sql.g:3795:1: parse_org_emftext_language_sql_datatype_LargeObjectLength returns [org.emftext.language.sql.datatype.LargeObjectLength element = null] : (a0= UNSIGNED_INTEGER ) ( ( (a1= 'K' |a2= 'M' |a3= 'G' ) ) )? ( ( (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' ) ) )? ;
+    // Sql.g:4645:1: parse_org_emftext_language_sql_datatype_LargeObjectLength returns [org.emftext.language.sql.datatype.LargeObjectLength element = null] : (a0= UNSIGNED_INTEGER ) ( ( (a1= 'K' |a2= 'M' |a3= 'G' ) ) )? ( ( (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' ) ) )? ;
     public final org.emftext.language.sql.datatype.LargeObjectLength parse_org_emftext_language_sql_datatype_LargeObjectLength() throws RecognitionException {
         org.emftext.language.sql.datatype.LargeObjectLength element =  null;
 
@@ -6418,15 +8125,15 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 31) ) { return element; }
 
-            // Sql.g:3798:2: ( (a0= UNSIGNED_INTEGER ) ( ( (a1= 'K' |a2= 'M' |a3= 'G' ) ) )? ( ( (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' ) ) )? )
-            // Sql.g:3799:2: (a0= UNSIGNED_INTEGER ) ( ( (a1= 'K' |a2= 'M' |a3= 'G' ) ) )? ( ( (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' ) ) )?
+            // Sql.g:4648:2: ( (a0= UNSIGNED_INTEGER ) ( ( (a1= 'K' |a2= 'M' |a3= 'G' ) ) )? ( ( (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' ) ) )? )
+            // Sql.g:4649:2: (a0= UNSIGNED_INTEGER ) ( ( (a1= 'K' |a2= 'M' |a3= 'G' ) ) )? ( ( (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' ) ) )?
             {
-            // Sql.g:3799:2: (a0= UNSIGNED_INTEGER )
-            // Sql.g:3800:3: a0= UNSIGNED_INTEGER
+            // Sql.g:4649:2: (a0= UNSIGNED_INTEGER )
+            // Sql.g:4650:3: a0= UNSIGNED_INTEGER
             {
-            a0=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4278); if (state.failed) return element;
+            a0=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5319); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -6452,7 +8159,7 @@ public class SqlParser extends SqlANTLRParserBase {
             					completedElement(value, false);
             				}
             				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_20_0_0_0, resolved, true);
+            				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_29_0_0_0, resolved, true);
             				copyLocalizationInfos((CommonToken) a0, element);
             			}
             		}
@@ -6462,55 +8169,55 @@ public class SqlParser extends SqlANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 463, 465);
+            		addExpectedElement(null, 799, 801);
             	}
 
-            // Sql.g:3835:2: ( ( (a1= 'K' |a2= 'M' |a3= 'G' ) ) )?
-            int alt45=2;
-            int LA45_0 = input.LA(1);
+            // Sql.g:4685:2: ( ( (a1= 'K' |a2= 'M' |a3= 'G' ) ) )?
+            int alt54=2;
+            int LA54_0 = input.LA(1);
 
-            if ( (LA45_0==83||LA45_0==87||LA45_0==91) ) {
-                alt45=1;
+            if ( (LA54_0==82||LA54_0==86||LA54_0==90) ) {
+                alt54=1;
             }
-            switch (alt45) {
+            switch (alt54) {
                 case 1 :
-                    // Sql.g:3836:3: ( (a1= 'K' |a2= 'M' |a3= 'G' ) )
+                    // Sql.g:4686:3: ( (a1= 'K' |a2= 'M' |a3= 'G' ) )
                     {
-                    // Sql.g:3836:3: ( (a1= 'K' |a2= 'M' |a3= 'G' ) )
-                    // Sql.g:3837:4: (a1= 'K' |a2= 'M' |a3= 'G' )
+                    // Sql.g:4686:3: ( (a1= 'K' |a2= 'M' |a3= 'G' ) )
+                    // Sql.g:4687:4: (a1= 'K' |a2= 'M' |a3= 'G' )
                     {
-                    // Sql.g:3837:4: (a1= 'K' |a2= 'M' |a3= 'G' )
-                    int alt44=3;
+                    // Sql.g:4687:4: (a1= 'K' |a2= 'M' |a3= 'G' )
+                    int alt53=3;
                     switch ( input.LA(1) ) {
-                    case 87:
+                    case 86:
                         {
-                        alt44=1;
+                        alt53=1;
                         }
                         break;
-                    case 91:
+                    case 90:
                         {
-                        alt44=2;
+                        alt53=2;
                         }
                         break;
-                    case 83:
+                    case 82:
                         {
-                        alt44=3;
+                        alt53=3;
                         }
                         break;
                     default:
                         if (state.backtracking>0) {state.failed=true; return element;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 44, 0, input);
+                            new NoViableAltException("", 53, 0, input);
 
                         throw nvae;
 
                     }
 
-                    switch (alt44) {
+                    switch (alt53) {
                         case 1 :
-                            // Sql.g:3838:5: a1= 'K'
+                            // Sql.g:4688:5: a1= 'K'
                             {
-                            a1=(Token)match(input,87,FOLLOW_87_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4314); if (state.failed) return element;
+                            a1=(Token)match(input,86,FOLLOW_86_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5355); if (state.failed) return element;
 
                             if ( state.backtracking==0 ) {
                             					if (element == null) {
@@ -6518,7 +8225,7 @@ public class SqlParser extends SqlANTLRParserBase {
                             						startIncompleteElement(element);
                             					}
                             					collectHiddenTokens(element);
-                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_20_0_0_1, null, true);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_29_0_0_1, null, true);
                             					copyLocalizationInfos((CommonToken)a1, element);
                             					// set value of enumeration attribute
                             					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getMultiplier().getEEnumLiteral(org.emftext.language.sql.datatype.Multiplier.K_VALUE).getInstance();
@@ -6529,9 +8236,9 @@ public class SqlParser extends SqlANTLRParserBase {
                             }
                             break;
                         case 2 :
-                            // Sql.g:3851:10: a2= 'M'
+                            // Sql.g:4701:10: a2= 'M'
                             {
-                            a2=(Token)match(input,91,FOLLOW_91_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4331); if (state.failed) return element;
+                            a2=(Token)match(input,90,FOLLOW_90_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5372); if (state.failed) return element;
 
                             if ( state.backtracking==0 ) {
                             					if (element == null) {
@@ -6539,7 +8246,7 @@ public class SqlParser extends SqlANTLRParserBase {
                             						startIncompleteElement(element);
                             					}
                             					collectHiddenTokens(element);
-                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_20_0_0_1, null, true);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_29_0_0_1, null, true);
                             					copyLocalizationInfos((CommonToken)a2, element);
                             					// set value of enumeration attribute
                             					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getMultiplier().getEEnumLiteral(org.emftext.language.sql.datatype.Multiplier.M_VALUE).getInstance();
@@ -6550,9 +8257,9 @@ public class SqlParser extends SqlANTLRParserBase {
                             }
                             break;
                         case 3 :
-                            // Sql.g:3864:10: a3= 'G'
+                            // Sql.g:4714:10: a3= 'G'
                             {
-                            a3=(Token)match(input,83,FOLLOW_83_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4348); if (state.failed) return element;
+                            a3=(Token)match(input,82,FOLLOW_82_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5389); if (state.failed) return element;
 
                             if ( state.backtracking==0 ) {
                             					if (element == null) {
@@ -6560,7 +8267,7 @@ public class SqlParser extends SqlANTLRParserBase {
                             						startIncompleteElement(element);
                             					}
                             					collectHiddenTokens(element);
-                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_20_0_0_1, null, true);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_29_0_0_1, null, true);
                             					copyLocalizationInfos((CommonToken)a3, element);
                             					// set value of enumeration attribute
                             					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getMultiplier().getEEnumLiteral(org.emftext.language.sql.datatype.Multiplier.G_VALUE).getInstance();
@@ -6585,55 +8292,55 @@ public class SqlParser extends SqlANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 466, 467);
+            		addExpectedElement(null, 802, 803);
             	}
 
-            // Sql.g:3885:2: ( ( (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' ) ) )?
-            int alt47=2;
-            int LA47_0 = input.LA(1);
+            // Sql.g:4735:2: ( ( (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' ) ) )?
+            int alt56=2;
+            int LA56_0 = input.LA(1);
 
-            if ( ((LA47_0 >= 71 && LA47_0 <= 72)||LA47_0==99) ) {
-                alt47=1;
+            if ( ((LA56_0 >= 72 && LA56_0 <= 73)||LA56_0==93) ) {
+                alt56=1;
             }
-            switch (alt47) {
+            switch (alt56) {
                 case 1 :
-                    // Sql.g:3886:3: ( (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' ) )
+                    // Sql.g:4736:3: ( (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' ) )
                     {
-                    // Sql.g:3886:3: ( (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' ) )
-                    // Sql.g:3887:4: (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' )
+                    // Sql.g:4736:3: ( (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' ) )
+                    // Sql.g:4737:4: (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' )
                     {
-                    // Sql.g:3887:4: (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' )
-                    int alt46=3;
+                    // Sql.g:4737:4: (a6= 'CHARACTERS' |a7= 'CODE_UNITS' |a8= 'OCTETS' )
+                    int alt55=3;
                     switch ( input.LA(1) ) {
-                    case 71:
-                        {
-                        alt46=1;
-                        }
-                        break;
                     case 72:
                         {
-                        alt46=2;
+                        alt55=1;
                         }
                         break;
-                    case 99:
+                    case 73:
                         {
-                        alt46=3;
+                        alt55=2;
+                        }
+                        break;
+                    case 93:
+                        {
+                        alt55=3;
                         }
                         break;
                     default:
                         if (state.backtracking>0) {state.failed=true; return element;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 46, 0, input);
+                            new NoViableAltException("", 55, 0, input);
 
                         throw nvae;
 
                     }
 
-                    switch (alt46) {
+                    switch (alt55) {
                         case 1 :
-                            // Sql.g:3888:5: a6= 'CHARACTERS'
+                            // Sql.g:4738:5: a6= 'CHARACTERS'
                             {
-                            a6=(Token)match(input,71,FOLLOW_71_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4392); if (state.failed) return element;
+                            a6=(Token)match(input,72,FOLLOW_72_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5433); if (state.failed) return element;
 
                             if ( state.backtracking==0 ) {
                             					if (element == null) {
@@ -6641,7 +8348,7 @@ public class SqlParser extends SqlANTLRParserBase {
                             						startIncompleteElement(element);
                             					}
                             					collectHiddenTokens(element);
-                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_20_0_0_2, null, true);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_29_0_0_2, null, true);
                             					copyLocalizationInfos((CommonToken)a6, element);
                             					// set value of enumeration attribute
                             					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharLengthUnits().getEEnumLiteral(org.emftext.language.sql.datatype.CharLengthUnits.CHARACTERS_VALUE).getInstance();
@@ -6652,9 +8359,9 @@ public class SqlParser extends SqlANTLRParserBase {
                             }
                             break;
                         case 2 :
-                            // Sql.g:3901:10: a7= 'CODE_UNITS'
+                            // Sql.g:4751:10: a7= 'CODE_UNITS'
                             {
-                            a7=(Token)match(input,72,FOLLOW_72_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4409); if (state.failed) return element;
+                            a7=(Token)match(input,73,FOLLOW_73_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5450); if (state.failed) return element;
 
                             if ( state.backtracking==0 ) {
                             					if (element == null) {
@@ -6662,7 +8369,7 @@ public class SqlParser extends SqlANTLRParserBase {
                             						startIncompleteElement(element);
                             					}
                             					collectHiddenTokens(element);
-                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_20_0_0_2, null, true);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_29_0_0_2, null, true);
                             					copyLocalizationInfos((CommonToken)a7, element);
                             					// set value of enumeration attribute
                             					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharLengthUnits().getEEnumLiteral(org.emftext.language.sql.datatype.CharLengthUnits.CODE_UNITS_VALUE).getInstance();
@@ -6673,9 +8380,9 @@ public class SqlParser extends SqlANTLRParserBase {
                             }
                             break;
                         case 3 :
-                            // Sql.g:3914:10: a8= 'OCTETS'
+                            // Sql.g:4764:10: a8= 'OCTETS'
                             {
-                            a8=(Token)match(input,99,FOLLOW_99_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4426); if (state.failed) return element;
+                            a8=(Token)match(input,93,FOLLOW_93_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5467); if (state.failed) return element;
 
                             if ( state.backtracking==0 ) {
                             					if (element == null) {
@@ -6683,7 +8390,7 @@ public class SqlParser extends SqlANTLRParserBase {
                             						startIncompleteElement(element);
                             					}
                             					collectHiddenTokens(element);
-                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_20_0_0_2, null, true);
+                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_29_0_0_2, null, true);
                             					copyLocalizationInfos((CommonToken)a8, element);
                             					// set value of enumeration attribute
                             					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharLengthUnits().getEEnumLiteral(org.emftext.language.sql.datatype.CharLengthUnits.OCTETS_VALUE).getInstance();
@@ -6711,7 +8418,7 @@ public class SqlParser extends SqlANTLRParserBase {
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(null, 468);
+            		addExpectedElement(null, 804);
             	}
 
             }
@@ -6724,7 +8431,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 22, parse_org_emftext_language_sql_datatype_LargeObjectLength_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 31, parse_org_emftext_language_sql_datatype_LargeObjectLength_StartIndex); }
 
         }
         return element;
@@ -6733,8 +8440,702 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
 
+    // $ANTLR start "parse_org_emftext_language_sql_datatype_DateType"
+    // Sql.g:4790:1: parse_org_emftext_language_sql_datatype_DateType returns [org.emftext.language.sql.datatype.DateType element = null] : a0= KEYWORD_DATE ;
+    public final org.emftext.language.sql.datatype.DateType parse_org_emftext_language_sql_datatype_DateType() throws RecognitionException {
+        org.emftext.language.sql.datatype.DateType element =  null;
+
+        int parse_org_emftext_language_sql_datatype_DateType_StartIndex = input.index();
+
+        Token a0=null;
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 32) ) { return element; }
+
+            // Sql.g:4793:2: (a0= KEYWORD_DATE )
+            // Sql.g:4794:2: a0= KEYWORD_DATE
+            {
+            a0=(Token)match(input,KEYWORD_DATE,FOLLOW_KEYWORD_DATE_in_parse_org_emftext_language_sql_datatype_DateType5511); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createDateType();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_30_0_0_0, null, true);
+            		copyLocalizationInfos((CommonToken)a0, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 805);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 806, 811);
+            		addExpectedElement(null, 812, 814);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 32, parse_org_emftext_language_sql_datatype_DateType_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_datatype_DateType"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_datatype_TimeType"
+    // Sql.g:4815:1: parse_org_emftext_language_sql_datatype_TimeType returns [org.emftext.language.sql.datatype.TimeType element = null] : a0= KEYWORD_TIME ( (a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')' ) )? ( ( ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE ) )? ;
+    public final org.emftext.language.sql.datatype.TimeType parse_org_emftext_language_sql_datatype_TimeType() throws RecognitionException {
+        org.emftext.language.sql.datatype.TimeType element =  null;
+
+        int parse_org_emftext_language_sql_datatype_TimeType_StartIndex = input.index();
+
+        Token a0=null;
+        Token a1=null;
+        Token a2=null;
+        Token a3=null;
+        Token a4=null;
+        Token a5=null;
+        Token a7=null;
+        Token a8=null;
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 33) ) { return element; }
+
+            // Sql.g:4818:2: (a0= KEYWORD_TIME ( (a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')' ) )? ( ( ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE ) )? )
+            // Sql.g:4819:2: a0= KEYWORD_TIME ( (a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')' ) )? ( ( ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE ) )?
+            {
+            a0=(Token)match(input,KEYWORD_TIME,FOLLOW_KEYWORD_TIME_in_parse_org_emftext_language_sql_datatype_TimeType5540); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimeType();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_31_0_0_0, null, true);
+            		copyLocalizationInfos((CommonToken)a0, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 815, 817);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 818, 823);
+            		addExpectedElement(null, 824, 826);
+            	}
+
+            // Sql.g:4835:2: ( (a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')' ) )?
+            int alt57=2;
+            int LA57_0 = input.LA(1);
+
+            if ( (LA57_0==62) ) {
+                alt57=1;
+            }
+            switch (alt57) {
+                case 1 :
+                    // Sql.g:4836:3: (a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')' )
+                    {
+                    // Sql.g:4836:3: (a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')' )
+                    // Sql.g:4837:4: a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')'
+                    {
+                    a1=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_datatype_TimeType5563); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimeType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_31_0_0_1_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a1, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 827);
+                    			}
+
+                    // Sql.g:4851:4: (a2= UNSIGNED_INTEGER )
+                    // Sql.g:4852:5: a2= UNSIGNED_INTEGER
+                    {
+                    a2=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_TimeType5589); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimeType();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a2 != null) {
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
+                    						tokenResolver.setOptions(getOptions());
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    						tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.TIME_TYPE__PRECISION), result);
+                    						Object resolvedObject = result.getResolvedToken();
+                    						if (resolvedObject == null) {
+                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a2).getLine(), ((CommonToken) a2).getCharPositionInLine(), ((CommonToken) a2).getStartIndex(), ((CommonToken) a2).getStopIndex());
+                    						}
+                    						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
+                    						if (resolved != null) {
+                    							Object value = resolved;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.TIME_TYPE__PRECISION), value);
+                    							completedElement(value, false);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_31_0_0_1_0_0_1, resolved, true);
+                    						copyLocalizationInfos((CommonToken) a2, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 828);
+                    			}
+
+                    a3=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_datatype_TimeType5622); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimeType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_31_0_0_1_0_0_2, null, true);
+                    				copyLocalizationInfos((CommonToken)a3, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 829, 830);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 831, 836);
+                    				addExpectedElement(null, 837, 839);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 840, 841);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 842, 847);
+            		addExpectedElement(null, 848, 850);
+            	}
+
+            // Sql.g:4912:2: ( ( ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE ) )?
+            int alt59=2;
+            int LA59_0 = input.LA(1);
+
+            if ( ((LA59_0 >= 100 && LA59_0 <= 101)) ) {
+                alt59=1;
+            }
+            switch (alt59) {
+                case 1 :
+                    // Sql.g:4913:3: ( ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE )
+                    {
+                    // Sql.g:4913:3: ( ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE )
+                    // Sql.g:4914:4: ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE
+                    {
+                    // Sql.g:4914:4: ( (a4= 'WITH' |a5= 'WITHOUT' ) )
+                    // Sql.g:4915:5: (a4= 'WITH' |a5= 'WITHOUT' )
+                    {
+                    // Sql.g:4915:5: (a4= 'WITH' |a5= 'WITHOUT' )
+                    int alt58=2;
+                    int LA58_0 = input.LA(1);
+
+                    if ( (LA58_0==100) ) {
+                        alt58=1;
+                    }
+                    else if ( (LA58_0==101) ) {
+                        alt58=2;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return element;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 58, 0, input);
+
+                        throw nvae;
+
+                    }
+                    switch (alt58) {
+                        case 1 :
+                            // Sql.g:4916:6: a4= 'WITH'
+                            {
+                            a4=(Token)match(input,100,FOLLOW_100_in_parse_org_emftext_language_sql_datatype_TimeType5677); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            						if (element == null) {
+                            							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimeType();
+                            							startIncompleteElement(element);
+                            						}
+                            						collectHiddenTokens(element);
+                            						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_31_0_0_2_0_0_0, true, true);
+                            						copyLocalizationInfos((CommonToken)a4, element);
+                            						// set value of boolean attribute
+                            						Object value = true;
+                            						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.TIME_TYPE__WITH_TIME_ZONE), value);
+                            						completedElement(value, false);
+                            					}
+
+                            }
+                            break;
+                        case 2 :
+                            // Sql.g:4929:12: a5= 'WITHOUT'
+                            {
+                            a5=(Token)match(input,101,FOLLOW_101_in_parse_org_emftext_language_sql_datatype_TimeType5696); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            						if (element == null) {
+                            							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimeType();
+                            							startIncompleteElement(element);
+                            						}
+                            						collectHiddenTokens(element);
+                            						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_31_0_0_2_0_0_0, false, true);
+                            						copyLocalizationInfos((CommonToken)a5, element);
+                            						// set value of boolean attribute
+                            						Object value = false;
+                            						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.TIME_TYPE__WITH_TIME_ZONE), value);
+                            						completedElement(value, false);
+                            					}
+
+                            }
+                            break;
+
+                    }
+
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 851);
+                    			}
+
+                    a7=(Token)match(input,KEYWORD_TIME,FOLLOW_KEYWORD_TIME_in_parse_org_emftext_language_sql_datatype_TimeType5727); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimeType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_31_0_0_2_0_0_1, null, true);
+                    				copyLocalizationInfos((CommonToken)a7, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 852);
+                    			}
+
+                    a8=(Token)match(input,KEYWORD_ZONE,FOLLOW_KEYWORD_ZONE_in_parse_org_emftext_language_sql_datatype_TimeType5747); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimeType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_31_0_0_2_0_0_2, null, true);
+                    				copyLocalizationInfos((CommonToken)a8, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				// We've found the last token for this rule. The constructed EObject is now
+                    				// complete.
+                    				completedElement(element, true);
+                    				addExpectedElement(null, 853);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 854, 859);
+                    				addExpectedElement(null, 860, 862);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 863);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 864, 869);
+            		addExpectedElement(null, 870, 872);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 33, parse_org_emftext_language_sql_datatype_TimeType_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_datatype_TimeType"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_datatype_TimestampType"
+    // Sql.g:4996:1: parse_org_emftext_language_sql_datatype_TimestampType returns [org.emftext.language.sql.datatype.TimestampType element = null] : a0= KEYWORD_TIMESTAMP ( (a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')' ) )? ( ( ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE ) )? ;
+    public final org.emftext.language.sql.datatype.TimestampType parse_org_emftext_language_sql_datatype_TimestampType() throws RecognitionException {
+        org.emftext.language.sql.datatype.TimestampType element =  null;
+
+        int parse_org_emftext_language_sql_datatype_TimestampType_StartIndex = input.index();
+
+        Token a0=null;
+        Token a1=null;
+        Token a2=null;
+        Token a3=null;
+        Token a4=null;
+        Token a5=null;
+        Token a7=null;
+        Token a8=null;
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return element; }
+
+            // Sql.g:4999:2: (a0= KEYWORD_TIMESTAMP ( (a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')' ) )? ( ( ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE ) )? )
+            // Sql.g:5000:2: a0= KEYWORD_TIMESTAMP ( (a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')' ) )? ( ( ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE ) )?
+            {
+            a0=(Token)match(input,KEYWORD_TIMESTAMP,FOLLOW_KEYWORD_TIMESTAMP_in_parse_org_emftext_language_sql_datatype_TimestampType5795); if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            		if (element == null) {
+            			element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimestampType();
+            			startIncompleteElement(element);
+            		}
+            		collectHiddenTokens(element);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_32_0_0_0, null, true);
+            		copyLocalizationInfos((CommonToken)a0, element);
+            	}
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 873, 875);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 876, 881);
+            		addExpectedElement(null, 882, 884);
+            	}
+
+            // Sql.g:5016:2: ( (a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')' ) )?
+            int alt60=2;
+            int LA60_0 = input.LA(1);
+
+            if ( (LA60_0==62) ) {
+                alt60=1;
+            }
+            switch (alt60) {
+                case 1 :
+                    // Sql.g:5017:3: (a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')' )
+                    {
+                    // Sql.g:5017:3: (a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')' )
+                    // Sql.g:5018:4: a1= '(' (a2= UNSIGNED_INTEGER ) a3= ')'
+                    {
+                    a1=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_datatype_TimestampType5818); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimestampType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_32_0_0_1_0_0_0, null, true);
+                    				copyLocalizationInfos((CommonToken)a1, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 885);
+                    			}
+
+                    // Sql.g:5032:4: (a2= UNSIGNED_INTEGER )
+                    // Sql.g:5033:5: a2= UNSIGNED_INTEGER
+                    {
+                    a2=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_TimestampType5844); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    					if (terminateParsing) {
+                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
+                    					}
+                    					if (element == null) {
+                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimestampType();
+                    						startIncompleteElement(element);
+                    					}
+                    					if (a2 != null) {
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
+                    						tokenResolver.setOptions(getOptions());
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
+                    						tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.TIMESTAMP_TYPE__PRECISION), result);
+                    						Object resolvedObject = result.getResolvedToken();
+                    						if (resolvedObject == null) {
+                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a2).getLine(), ((CommonToken) a2).getCharPositionInLine(), ((CommonToken) a2).getStartIndex(), ((CommonToken) a2).getStopIndex());
+                    						}
+                    						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
+                    						if (resolved != null) {
+                    							Object value = resolved;
+                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.TIMESTAMP_TYPE__PRECISION), value);
+                    							completedElement(value, false);
+                    						}
+                    						collectHiddenTokens(element);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_32_0_0_1_0_0_1, resolved, true);
+                    						copyLocalizationInfos((CommonToken) a2, element);
+                    					}
+                    				}
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 886);
+                    			}
+
+                    a3=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_datatype_TimestampType5877); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimestampType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_32_0_0_1_0_0_2, null, true);
+                    				copyLocalizationInfos((CommonToken)a3, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 887, 888);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 889, 894);
+                    				addExpectedElement(null, 895, 897);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, 898, 899);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 900, 905);
+            		addExpectedElement(null, 906, 908);
+            	}
+
+            // Sql.g:5093:2: ( ( ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE ) )?
+            int alt62=2;
+            int LA62_0 = input.LA(1);
+
+            if ( ((LA62_0 >= 100 && LA62_0 <= 101)) ) {
+                alt62=1;
+            }
+            switch (alt62) {
+                case 1 :
+                    // Sql.g:5094:3: ( ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE )
+                    {
+                    // Sql.g:5094:3: ( ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE )
+                    // Sql.g:5095:4: ( (a4= 'WITH' |a5= 'WITHOUT' ) ) a7= KEYWORD_TIME a8= KEYWORD_ZONE
+                    {
+                    // Sql.g:5095:4: ( (a4= 'WITH' |a5= 'WITHOUT' ) )
+                    // Sql.g:5096:5: (a4= 'WITH' |a5= 'WITHOUT' )
+                    {
+                    // Sql.g:5096:5: (a4= 'WITH' |a5= 'WITHOUT' )
+                    int alt61=2;
+                    int LA61_0 = input.LA(1);
+
+                    if ( (LA61_0==100) ) {
+                        alt61=1;
+                    }
+                    else if ( (LA61_0==101) ) {
+                        alt61=2;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return element;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 61, 0, input);
+
+                        throw nvae;
+
+                    }
+                    switch (alt61) {
+                        case 1 :
+                            // Sql.g:5097:6: a4= 'WITH'
+                            {
+                            a4=(Token)match(input,100,FOLLOW_100_in_parse_org_emftext_language_sql_datatype_TimestampType5932); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            						if (element == null) {
+                            							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimestampType();
+                            							startIncompleteElement(element);
+                            						}
+                            						collectHiddenTokens(element);
+                            						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_32_0_0_2_0_0_0, true, true);
+                            						copyLocalizationInfos((CommonToken)a4, element);
+                            						// set value of boolean attribute
+                            						Object value = true;
+                            						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.TIMESTAMP_TYPE__WITH_TIME_ZONE), value);
+                            						completedElement(value, false);
+                            					}
+
+                            }
+                            break;
+                        case 2 :
+                            // Sql.g:5110:12: a5= 'WITHOUT'
+                            {
+                            a5=(Token)match(input,101,FOLLOW_101_in_parse_org_emftext_language_sql_datatype_TimestampType5951); if (state.failed) return element;
+
+                            if ( state.backtracking==0 ) {
+                            						if (element == null) {
+                            							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimestampType();
+                            							startIncompleteElement(element);
+                            						}
+                            						collectHiddenTokens(element);
+                            						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_32_0_0_2_0_0_0, false, true);
+                            						copyLocalizationInfos((CommonToken)a5, element);
+                            						// set value of boolean attribute
+                            						Object value = false;
+                            						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.TIMESTAMP_TYPE__WITH_TIME_ZONE), value);
+                            						completedElement(value, false);
+                            					}
+
+                            }
+                            break;
+
+                    }
+
+
+                    }
+
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 909);
+                    			}
+
+                    a7=(Token)match(input,KEYWORD_TIME,FOLLOW_KEYWORD_TIME_in_parse_org_emftext_language_sql_datatype_TimestampType5982); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimestampType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_32_0_0_2_0_0_1, null, true);
+                    				copyLocalizationInfos((CommonToken)a7, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				addExpectedElement(null, 910);
+                    			}
+
+                    a8=(Token)match(input,KEYWORD_ZONE,FOLLOW_KEYWORD_ZONE_in_parse_org_emftext_language_sql_datatype_TimestampType6002); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createTimestampType();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_32_0_0_2_0_0_2, null, true);
+                    				copyLocalizationInfos((CommonToken)a8, element);
+                    			}
+
+                    if ( state.backtracking==0 ) {
+                    				// expected elements (follow set)
+                    				// We've found the last token for this rule. The constructed EObject is now
+                    				// complete.
+                    				completedElement(element, true);
+                    				addExpectedElement(null, 911);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 912, 917);
+                    				addExpectedElement(null, 918, 920);
+                    			}
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		// We've found the last token for this rule. The constructed EObject is now
+            		// complete.
+            		completedElement(element, true);
+            		addExpectedElement(null, 921);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 922, 927);
+            		addExpectedElement(null, 928, 930);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 34, parse_org_emftext_language_sql_datatype_TimestampType_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_datatype_TimestampType"
+
+
+
     // $ANTLR start "parse_org_emftext_language_sql_datatype_BooleanType"
-    // Sql.g:3940:1: parse_org_emftext_language_sql_datatype_BooleanType returns [org.emftext.language.sql.datatype.BooleanType element = null] : a0= KEYWORD_BOOLEAN ;
+    // Sql.g:5177:1: parse_org_emftext_language_sql_datatype_BooleanType returns [org.emftext.language.sql.datatype.BooleanType element = null] : a0= KEYWORD_BOOLEAN ;
     public final org.emftext.language.sql.datatype.BooleanType parse_org_emftext_language_sql_datatype_BooleanType() throws RecognitionException {
         org.emftext.language.sql.datatype.BooleanType element =  null;
 
@@ -6745,12 +9146,12 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 23) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 35) ) { return element; }
 
-            // Sql.g:3943:2: (a0= KEYWORD_BOOLEAN )
-            // Sql.g:3944:2: a0= KEYWORD_BOOLEAN
+            // Sql.g:5180:2: (a0= KEYWORD_BOOLEAN )
+            // Sql.g:5181:2: a0= KEYWORD_BOOLEAN
             {
-            a0=(Token)match(input,KEYWORD_BOOLEAN,FOLLOW_KEYWORD_BOOLEAN_in_parse_org_emftext_language_sql_datatype_BooleanType4470); if (state.failed) return element;
+            a0=(Token)match(input,KEYWORD_BOOLEAN,FOLLOW_KEYWORD_BOOLEAN_in_parse_org_emftext_language_sql_datatype_BooleanType6050); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -6758,7 +9159,7 @@ public class SqlParser extends SqlANTLRParserBase {
             			startIncompleteElement(element);
             		}
             		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_21_0_0_0, null, true);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_33_0_0_0, null, true);
             		copyLocalizationInfos((CommonToken)a0, element);
             	}
 
@@ -6767,9 +9168,9 @@ public class SqlParser extends SqlANTLRParserBase {
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(null, 469);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 470, 475);
-            		addExpectedElement(null, 476, 478);
+            		addExpectedElement(null, 931);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 932, 937);
+            		addExpectedElement(null, 938, 940);
             	}
 
             }
@@ -6782,7 +9183,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 23, parse_org_emftext_language_sql_datatype_BooleanType_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 35, parse_org_emftext_language_sql_datatype_BooleanType_StartIndex); }
 
         }
         return element;
@@ -6791,1088 +9192,8 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
 
-    // $ANTLR start "parse_org_emftext_language_sql_datatype_ExactNumericType"
-    // Sql.g:3965:1: parse_org_emftext_language_sql_datatype_ExactNumericType returns [org.emftext.language.sql.datatype.ExactNumericType element = null] : ( (a0= 'NUMERIC' |a1= 'DECIMAL' |a2= 'DEC' |a3= 'SMALLINT' |a4= 'INTEGER' |a5= 'INT' |a6= 'BIGINT' ) ) ( (a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')' ) )? ;
-    public final org.emftext.language.sql.datatype.ExactNumericType parse_org_emftext_language_sql_datatype_ExactNumericType() throws RecognitionException {
-        org.emftext.language.sql.datatype.ExactNumericType element =  null;
-
-        int parse_org_emftext_language_sql_datatype_ExactNumericType_StartIndex = input.index();
-
-        Token a0=null;
-        Token a1=null;
-        Token a2=null;
-        Token a3=null;
-        Token a4=null;
-        Token a5=null;
-        Token a6=null;
-        Token a9=null;
-        Token a10=null;
-        Token a11=null;
-        Token a12=null;
-        Token a13=null;
-
-
-
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return element; }
-
-            // Sql.g:3968:2: ( ( (a0= 'NUMERIC' |a1= 'DECIMAL' |a2= 'DEC' |a3= 'SMALLINT' |a4= 'INTEGER' |a5= 'INT' |a6= 'BIGINT' ) ) ( (a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')' ) )? )
-            // Sql.g:3969:2: ( (a0= 'NUMERIC' |a1= 'DECIMAL' |a2= 'DEC' |a3= 'SMALLINT' |a4= 'INTEGER' |a5= 'INT' |a6= 'BIGINT' ) ) ( (a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')' ) )?
-            {
-            // Sql.g:3969:2: ( (a0= 'NUMERIC' |a1= 'DECIMAL' |a2= 'DEC' |a3= 'SMALLINT' |a4= 'INTEGER' |a5= 'INT' |a6= 'BIGINT' ) )
-            // Sql.g:3970:3: (a0= 'NUMERIC' |a1= 'DECIMAL' |a2= 'DEC' |a3= 'SMALLINT' |a4= 'INTEGER' |a5= 'INT' |a6= 'BIGINT' )
-            {
-            // Sql.g:3970:3: (a0= 'NUMERIC' |a1= 'DECIMAL' |a2= 'DEC' |a3= 'SMALLINT' |a4= 'INTEGER' |a5= 'INT' |a6= 'BIGINT' )
-            int alt48=7;
-            switch ( input.LA(1) ) {
-            case 98:
-                {
-                alt48=1;
-                }
-                break;
-            case 78:
-                {
-                alt48=2;
-                }
-                break;
-            case 77:
-                {
-                alt48=3;
-                }
-                break;
-            case 103:
-                {
-                alt48=4;
-                }
-                break;
-            case 86:
-                {
-                alt48=5;
-                }
-                break;
-            case 85:
-                {
-                alt48=6;
-                }
-                break;
-            case 64:
-                {
-                alt48=7;
-                }
-                break;
-            default:
-                if (state.backtracking>0) {state.failed=true; return element;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 48, 0, input);
-
-                throw nvae;
-
-            }
-
-            switch (alt48) {
-                case 1 :
-                    // Sql.g:3971:4: a0= 'NUMERIC'
-                    {
-                    a0=(Token)match(input,98,FOLLOW_98_in_parse_org_emftext_language_sql_datatype_ExactNumericType4508); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a0, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.NUMERIC_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 2 :
-                    // Sql.g:3984:8: a1= 'DECIMAL'
-                    {
-                    a1=(Token)match(input,78,FOLLOW_78_in_parse_org_emftext_language_sql_datatype_ExactNumericType4523); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a1, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.DECIMAL_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 3 :
-                    // Sql.g:3997:8: a2= 'DEC'
-                    {
-                    a2=(Token)match(input,77,FOLLOW_77_in_parse_org_emftext_language_sql_datatype_ExactNumericType4538); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a2, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.DEC_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 4 :
-                    // Sql.g:4010:8: a3= 'SMALLINT'
-                    {
-                    a3=(Token)match(input,103,FOLLOW_103_in_parse_org_emftext_language_sql_datatype_ExactNumericType4553); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a3, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.SMALLINT_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 5 :
-                    // Sql.g:4023:8: a4= 'INTEGER'
-                    {
-                    a4=(Token)match(input,86,FOLLOW_86_in_parse_org_emftext_language_sql_datatype_ExactNumericType4568); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a4, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.INTEGER_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 6 :
-                    // Sql.g:4036:8: a5= 'INT'
-                    {
-                    a5=(Token)match(input,85,FOLLOW_85_in_parse_org_emftext_language_sql_datatype_ExactNumericType4583); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a5, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.INT_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 7 :
-                    // Sql.g:4049:8: a6= 'BIGINT'
-                    {
-                    a6=(Token)match(input,64,FOLLOW_64_in_parse_org_emftext_language_sql_datatype_ExactNumericType4598); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a6, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ExactNumericTypeKind.BIGINT_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 479, 480);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 481, 486);
-            		addExpectedElement(null, 487, 489);
-            	}
-
-            // Sql.g:4071:2: ( (a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')' ) )?
-            int alt50=2;
-            int LA50_0 = input.LA(1);
-
-            if ( (LA50_0==58) ) {
-                alt50=1;
-            }
-            switch (alt50) {
-                case 1 :
-                    // Sql.g:4072:3: (a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')' )
-                    {
-                    // Sql.g:4072:3: (a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')' )
-                    // Sql.g:4073:4: a9= '(' (a10= UNSIGNED_INTEGER ) ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )? a13= ')'
-                    {
-                    a9=(Token)match(input,58,FOLLOW_58_in_parse_org_emftext_language_sql_datatype_ExactNumericType4628); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_1_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a9, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 490);
-                    			}
-
-                    // Sql.g:4087:4: (a10= UNSIGNED_INTEGER )
-                    // Sql.g:4088:5: a10= UNSIGNED_INTEGER
-                    {
-                    a10=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_ExactNumericType4654); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    					if (terminateParsing) {
-                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    					}
-                    					if (element == null) {
-                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
-                    						startIncompleteElement(element);
-                    					}
-                    					if (a10 != null) {
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
-                    						tokenResolver.setOptions(getOptions());
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    						tokenResolver.resolve(a10.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__PRECISION), result);
-                    						Object resolvedObject = result.getResolvedToken();
-                    						if (resolvedObject == null) {
-                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a10).getLine(), ((CommonToken) a10).getCharPositionInLine(), ((CommonToken) a10).getStartIndex(), ((CommonToken) a10).getStopIndex());
-                    						}
-                    						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
-                    						if (resolved != null) {
-                    							Object value = resolved;
-                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__PRECISION), value);
-                    							completedElement(value, false);
-                    						}
-                    						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_1_0_0_1, resolved, true);
-                    						copyLocalizationInfos((CommonToken) a10, element);
-                    					}
-                    				}
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 491, 492);
-                    			}
-
-                    // Sql.g:4123:4: ( (a11= ',' (a12= UNSIGNED_INTEGER ) ) )?
-                    int alt49=2;
-                    int LA49_0 = input.LA(1);
-
-                    if ( (LA49_0==61) ) {
-                        alt49=1;
-                    }
-                    switch (alt49) {
-                        case 1 :
-                            // Sql.g:4124:5: (a11= ',' (a12= UNSIGNED_INTEGER ) )
-                            {
-                            // Sql.g:4124:5: (a11= ',' (a12= UNSIGNED_INTEGER ) )
-                            // Sql.g:4125:6: a11= ',' (a12= UNSIGNED_INTEGER )
-                            {
-                            a11=(Token)match(input,61,FOLLOW_61_in_parse_org_emftext_language_sql_datatype_ExactNumericType4700); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            						if (element == null) {
-                            							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
-                            							startIncompleteElement(element);
-                            						}
-                            						collectHiddenTokens(element);
-                            						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_1_0_0_2_0_0_0, null, true);
-                            						copyLocalizationInfos((CommonToken)a11, element);
-                            					}
-
-                            if ( state.backtracking==0 ) {
-                            						// expected elements (follow set)
-                            						addExpectedElement(null, 493);
-                            					}
-
-                            // Sql.g:4139:6: (a12= UNSIGNED_INTEGER )
-                            // Sql.g:4140:7: a12= UNSIGNED_INTEGER
-                            {
-                            a12=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_ExactNumericType4734); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            							if (terminateParsing) {
-                            								throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                            							}
-                            							if (element == null) {
-                            								element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
-                            								startIncompleteElement(element);
-                            							}
-                            							if (a12 != null) {
-                            								org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
-                            								tokenResolver.setOptions(getOptions());
-                            								org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                            								tokenResolver.resolve(a12.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__SCALE), result);
-                            								Object resolvedObject = result.getResolvedToken();
-                            								if (resolvedObject == null) {
-                            									addErrorToResource(result.getErrorMessage(), ((CommonToken) a12).getLine(), ((CommonToken) a12).getCharPositionInLine(), ((CommonToken) a12).getStartIndex(), ((CommonToken) a12).getStopIndex());
-                            								}
-                            								org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
-                            								if (resolved != null) {
-                            									Object value = resolved;
-                            									element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.EXACT_NUMERIC_TYPE__SCALE), value);
-                            									completedElement(value, false);
-                            								}
-                            								collectHiddenTokens(element);
-                            								retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_1_0_0_2_0_0_1, resolved, true);
-                            								copyLocalizationInfos((CommonToken) a12, element);
-                            							}
-                            						}
-
-                            }
-
-
-                            if ( state.backtracking==0 ) {
-                            						// expected elements (follow set)
-                            						addExpectedElement(null, 494);
-                            					}
-
-                            }
-
-
-                            }
-                            break;
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 495);
-                    			}
-
-                    a13=(Token)match(input,59,FOLLOW_59_in_parse_org_emftext_language_sql_datatype_ExactNumericType4802); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createExactNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22_0_0_1_0_0_3, null, true);
-                    				copyLocalizationInfos((CommonToken)a13, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				// We've found the last token for this rule. The constructed EObject is now
-                    				// complete.
-                    				completedElement(element, true);
-                    				addExpectedElement(null, 496);
-                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 497, 502);
-                    				addExpectedElement(null, 503, 505);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(null, 506);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 507, 512);
-            		addExpectedElement(null, 513, 515);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 24, parse_org_emftext_language_sql_datatype_ExactNumericType_StartIndex); }
-
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_emftext_language_sql_datatype_ExactNumericType"
-
-
-
-    // $ANTLR start "parse_org_emftext_language_sql_datatype_ApproximateNumericType"
-    // Sql.g:4215:1: parse_org_emftext_language_sql_datatype_ApproximateNumericType returns [org.emftext.language.sql.datatype.ApproximateNumericType element = null] : ( (a0= 'FLOAT' |a1= 'REAL' |a2= 'DOUBLE_PRECISION' ) ) ( (a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')' ) )? ;
-    public final org.emftext.language.sql.datatype.ApproximateNumericType parse_org_emftext_language_sql_datatype_ApproximateNumericType() throws RecognitionException {
-        org.emftext.language.sql.datatype.ApproximateNumericType element =  null;
-
-        int parse_org_emftext_language_sql_datatype_ApproximateNumericType_StartIndex = input.index();
-
-        Token a0=null;
-        Token a1=null;
-        Token a2=null;
-        Token a5=null;
-        Token a6=null;
-        Token a7=null;
-
-
-
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 25) ) { return element; }
-
-            // Sql.g:4218:2: ( ( (a0= 'FLOAT' |a1= 'REAL' |a2= 'DOUBLE_PRECISION' ) ) ( (a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')' ) )? )
-            // Sql.g:4219:2: ( (a0= 'FLOAT' |a1= 'REAL' |a2= 'DOUBLE_PRECISION' ) ) ( (a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')' ) )?
-            {
-            // Sql.g:4219:2: ( (a0= 'FLOAT' |a1= 'REAL' |a2= 'DOUBLE_PRECISION' ) )
-            // Sql.g:4220:3: (a0= 'FLOAT' |a1= 'REAL' |a2= 'DOUBLE_PRECISION' )
-            {
-            // Sql.g:4220:3: (a0= 'FLOAT' |a1= 'REAL' |a2= 'DOUBLE_PRECISION' )
-            int alt51=3;
-            switch ( input.LA(1) ) {
-            case 82:
-                {
-                alt51=1;
-                }
-                break;
-            case 102:
-                {
-                alt51=2;
-                }
-                break;
-            case 80:
-                {
-                alt51=3;
-                }
-                break;
-            default:
-                if (state.backtracking>0) {state.failed=true; return element;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 51, 0, input);
-
-                throw nvae;
-
-            }
-
-            switch (alt51) {
-                case 1 :
-                    // Sql.g:4221:4: a0= 'FLOAT'
-                    {
-                    a0=(Token)match(input,82,FOLLOW_82_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4859); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a0, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ApproximateNumericTypeKind.FLOAT_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 2 :
-                    // Sql.g:4234:8: a1= 'REAL'
-                    {
-                    a1=(Token)match(input,102,FOLLOW_102_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4874); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a1, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ApproximateNumericTypeKind.REAL_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 3 :
-                    // Sql.g:4247:8: a2= 'DOUBLE_PRECISION'
-                    {
-                    a2=(Token)match(input,80,FOLLOW_80_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4889); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a2, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ApproximateNumericTypeKind.DOUBLE_PRECISION_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 516, 517);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 518, 523);
-            		addExpectedElement(null, 524, 526);
-            	}
-
-            // Sql.g:4269:2: ( (a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')' ) )?
-            int alt52=2;
-            int LA52_0 = input.LA(1);
-
-            if ( (LA52_0==58) ) {
-                alt52=1;
-            }
-            switch (alt52) {
-                case 1 :
-                    // Sql.g:4270:3: (a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')' )
-                    {
-                    // Sql.g:4270:3: (a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')' )
-                    // Sql.g:4271:4: a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')'
-                    {
-                    a5=(Token)match(input,58,FOLLOW_58_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4919); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_1_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a5, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 527);
-                    			}
-
-                    // Sql.g:4285:4: (a6= UNSIGNED_INTEGER )
-                    // Sql.g:4286:5: a6= UNSIGNED_INTEGER
-                    {
-                    a6=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4945); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    					if (terminateParsing) {
-                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    					}
-                    					if (element == null) {
-                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
-                    						startIncompleteElement(element);
-                    					}
-                    					if (a6 != null) {
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
-                    						tokenResolver.setOptions(getOptions());
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    						tokenResolver.resolve(a6.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__PRECISION), result);
-                    						Object resolvedObject = result.getResolvedToken();
-                    						if (resolvedObject == null) {
-                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a6).getLine(), ((CommonToken) a6).getCharPositionInLine(), ((CommonToken) a6).getStartIndex(), ((CommonToken) a6).getStopIndex());
-                    						}
-                    						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
-                    						if (resolved != null) {
-                    							Object value = resolved;
-                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__PRECISION), value);
-                    							completedElement(value, false);
-                    						}
-                    						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_1_0_0_1, resolved, true);
-                    						copyLocalizationInfos((CommonToken) a6, element);
-                    					}
-                    				}
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 528);
-                    			}
-
-                    a7=(Token)match(input,59,FOLLOW_59_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4978); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23_0_0_1_0_0_2, null, true);
-                    				copyLocalizationInfos((CommonToken)a7, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				// We've found the last token for this rule. The constructed EObject is now
-                    				// complete.
-                    				completedElement(element, true);
-                    				addExpectedElement(null, 529);
-                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 530, 535);
-                    				addExpectedElement(null, 536, 538);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(null, 539);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 540, 545);
-            		addExpectedElement(null, 546, 548);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 25, parse_org_emftext_language_sql_datatype_ApproximateNumericType_StartIndex); }
-
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_emftext_language_sql_datatype_ApproximateNumericType"
-
-
-
-    // $ANTLR start "parse_org_emftext_language_sql_datatype_DatetimeType"
-    // Sql.g:4354:1: parse_org_emftext_language_sql_datatype_DatetimeType returns [org.emftext.language.sql.datatype.DatetimeType element = null] : ( (a0= 'DATE' |a1= 'TIME' |a2= 'TIMESTAMP' ) ) ( (a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')' ) )? ( ( (a8= 'WITH TIME ZONE' |a9= 'WITHOUT TIME ZONE' ) ) )? ;
-    public final org.emftext.language.sql.datatype.DatetimeType parse_org_emftext_language_sql_datatype_DatetimeType() throws RecognitionException {
-        org.emftext.language.sql.datatype.DatetimeType element =  null;
-
-        int parse_org_emftext_language_sql_datatype_DatetimeType_StartIndex = input.index();
-
-        Token a0=null;
-        Token a1=null;
-        Token a2=null;
-        Token a5=null;
-        Token a6=null;
-        Token a7=null;
-        Token a8=null;
-        Token a9=null;
-
-
-
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return element; }
-
-            // Sql.g:4357:2: ( ( (a0= 'DATE' |a1= 'TIME' |a2= 'TIMESTAMP' ) ) ( (a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')' ) )? ( ( (a8= 'WITH TIME ZONE' |a9= 'WITHOUT TIME ZONE' ) ) )? )
-            // Sql.g:4358:2: ( (a0= 'DATE' |a1= 'TIME' |a2= 'TIMESTAMP' ) ) ( (a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')' ) )? ( ( (a8= 'WITH TIME ZONE' |a9= 'WITHOUT TIME ZONE' ) ) )?
-            {
-            // Sql.g:4358:2: ( (a0= 'DATE' |a1= 'TIME' |a2= 'TIMESTAMP' ) )
-            // Sql.g:4359:3: (a0= 'DATE' |a1= 'TIME' |a2= 'TIMESTAMP' )
-            {
-            // Sql.g:4359:3: (a0= 'DATE' |a1= 'TIME' |a2= 'TIMESTAMP' )
-            int alt53=3;
-            switch ( input.LA(1) ) {
-            case 76:
-                {
-                alt53=1;
-                }
-                break;
-            case 104:
-                {
-                alt53=2;
-                }
-                break;
-            case 105:
-                {
-                alt53=3;
-                }
-                break;
-            default:
-                if (state.backtracking>0) {state.failed=true; return element;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 53, 0, input);
-
-                throw nvae;
-
-            }
-
-            switch (alt53) {
-                case 1 :
-                    // Sql.g:4360:4: a0= 'DATE'
-                    {
-                    a0=(Token)match(input,76,FOLLOW_76_in_parse_org_emftext_language_sql_datatype_DatetimeType5035); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createDatetimeType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a0, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getDatetimeTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.DatetimeTypeKind.DATE_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.DATETIME_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 2 :
-                    // Sql.g:4373:8: a1= 'TIME'
-                    {
-                    a1=(Token)match(input,104,FOLLOW_104_in_parse_org_emftext_language_sql_datatype_DatetimeType5050); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createDatetimeType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a1, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getDatetimeTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.DatetimeTypeKind.TIME_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.DATETIME_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 3 :
-                    // Sql.g:4386:8: a2= 'TIMESTAMP'
-                    {
-                    a2=(Token)match(input,105,FOLLOW_105_in_parse_org_emftext_language_sql_datatype_DatetimeType5065); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createDatetimeType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a2, element);
-                    				// set value of enumeration attribute
-                    				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getDatetimeTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.DatetimeTypeKind.TIMESTAMP_VALUE).getInstance();
-                    				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.DATETIME_TYPE__KIND), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 549, 551);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 552, 557);
-            		addExpectedElement(null, 558, 560);
-            	}
-
-            // Sql.g:4408:2: ( (a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')' ) )?
-            int alt54=2;
-            int LA54_0 = input.LA(1);
-
-            if ( (LA54_0==58) ) {
-                alt54=1;
-            }
-            switch (alt54) {
-                case 1 :
-                    // Sql.g:4409:3: (a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')' )
-                    {
-                    // Sql.g:4409:3: (a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')' )
-                    // Sql.g:4410:4: a5= '(' (a6= UNSIGNED_INTEGER ) a7= ')'
-                    {
-                    a5=(Token)match(input,58,FOLLOW_58_in_parse_org_emftext_language_sql_datatype_DatetimeType5095); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createDatetimeType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_1_0_0_0, null, true);
-                    				copyLocalizationInfos((CommonToken)a5, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 561);
-                    			}
-
-                    // Sql.g:4424:4: (a6= UNSIGNED_INTEGER )
-                    // Sql.g:4425:5: a6= UNSIGNED_INTEGER
-                    {
-                    a6=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_DatetimeType5121); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    					if (terminateParsing) {
-                    						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
-                    					}
-                    					if (element == null) {
-                    						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createDatetimeType();
-                    						startIncompleteElement(element);
-                    					}
-                    					if (a6 != null) {
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
-                    						tokenResolver.setOptions(getOptions());
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-                    						tokenResolver.resolve(a6.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.DATETIME_TYPE__PRECISION), result);
-                    						Object resolvedObject = result.getResolvedToken();
-                    						if (resolvedObject == null) {
-                    							addErrorToResource(result.getErrorMessage(), ((CommonToken) a6).getLine(), ((CommonToken) a6).getCharPositionInLine(), ((CommonToken) a6).getStartIndex(), ((CommonToken) a6).getStopIndex());
-                    						}
-                    						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
-                    						if (resolved != null) {
-                    							Object value = resolved;
-                    							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.DATETIME_TYPE__PRECISION), value);
-                    							completedElement(value, false);
-                    						}
-                    						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_1_0_0_1, resolved, true);
-                    						copyLocalizationInfos((CommonToken) a6, element);
-                    					}
-                    				}
-
-                    }
-
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 562);
-                    			}
-
-                    a7=(Token)match(input,59,FOLLOW_59_in_parse_org_emftext_language_sql_datatype_DatetimeType5154); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createDatetimeType();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_1_0_0_2, null, true);
-                    				copyLocalizationInfos((CommonToken)a7, element);
-                    			}
-
-                    if ( state.backtracking==0 ) {
-                    				// expected elements (follow set)
-                    				addExpectedElement(null, 563, 564);
-                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 565, 570);
-                    				addExpectedElement(null, 571, 573);
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, 574, 575);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 576, 581);
-            		addExpectedElement(null, 582, 584);
-            	}
-
-            // Sql.g:4485:2: ( ( (a8= 'WITH TIME ZONE' |a9= 'WITHOUT TIME ZONE' ) ) )?
-            int alt56=2;
-            int LA56_0 = input.LA(1);
-
-            if ( ((LA56_0 >= 109 && LA56_0 <= 110)) ) {
-                alt56=1;
-            }
-            switch (alt56) {
-                case 1 :
-                    // Sql.g:4486:3: ( (a8= 'WITH TIME ZONE' |a9= 'WITHOUT TIME ZONE' ) )
-                    {
-                    // Sql.g:4486:3: ( (a8= 'WITH TIME ZONE' |a9= 'WITHOUT TIME ZONE' ) )
-                    // Sql.g:4487:4: (a8= 'WITH TIME ZONE' |a9= 'WITHOUT TIME ZONE' )
-                    {
-                    // Sql.g:4487:4: (a8= 'WITH TIME ZONE' |a9= 'WITHOUT TIME ZONE' )
-                    int alt55=2;
-                    int LA55_0 = input.LA(1);
-
-                    if ( (LA55_0==109) ) {
-                        alt55=1;
-                    }
-                    else if ( (LA55_0==110) ) {
-                        alt55=2;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return element;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 55, 0, input);
-
-                        throw nvae;
-
-                    }
-                    switch (alt55) {
-                        case 1 :
-                            // Sql.g:4488:5: a8= 'WITH TIME ZONE'
-                            {
-                            a8=(Token)match(input,109,FOLLOW_109_in_parse_org_emftext_language_sql_datatype_DatetimeType5202); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            					if (element == null) {
-                            						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createDatetimeType();
-                            						startIncompleteElement(element);
-                            					}
-                            					collectHiddenTokens(element);
-                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_2, true, true);
-                            					copyLocalizationInfos((CommonToken)a8, element);
-                            					// set value of boolean attribute
-                            					Object value = true;
-                            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.DATETIME_TYPE__WITH_TIME_ZONE), value);
-                            					completedElement(value, false);
-                            				}
-
-                            }
-                            break;
-                        case 2 :
-                            // Sql.g:4501:10: a9= 'WITHOUT TIME ZONE'
-                            {
-                            a9=(Token)match(input,110,FOLLOW_110_in_parse_org_emftext_language_sql_datatype_DatetimeType5219); if (state.failed) return element;
-
-                            if ( state.backtracking==0 ) {
-                            					if (element == null) {
-                            						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createDatetimeType();
-                            						startIncompleteElement(element);
-                            					}
-                            					collectHiddenTokens(element);
-                            					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24_0_0_2, false, true);
-                            					copyLocalizationInfos((CommonToken)a9, element);
-                            					// set value of boolean attribute
-                            					Object value = false;
-                            					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.DATETIME_TYPE__WITH_TIME_ZONE), value);
-                            					completedElement(value, false);
-                            				}
-
-                            }
-                            break;
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		// We've found the last token for this rule. The constructed EObject is now
-            		// complete.
-            		completedElement(element, true);
-            		addExpectedElement(null, 585);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 586, 591);
-            		addExpectedElement(null, 592, 594);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 26, parse_org_emftext_language_sql_datatype_DatetimeType_StartIndex); }
-
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_emftext_language_sql_datatype_DatetimeType"
-
-
-
     // $ANTLR start "parse_org_emftext_language_sql_function_DatetimeValueFunction"
-    // Sql.g:4529:1: parse_org_emftext_language_sql_function_DatetimeValueFunction returns [org.emftext.language.sql.function.DatetimeValueFunction element = null] : ( (a0= 'CURRENT_DATE' |a1= 'CURRENT_TIME' |a2= 'LOCALTIME' |a3= 'CURRENT_TIMESTAMP' |a4= 'LOCALTIMESTAMP' ) ) ( (a7= '(' (a8= TEXT ) a9= ')' ) )? ;
+    // Sql.g:5202:1: parse_org_emftext_language_sql_function_DatetimeValueFunction returns [org.emftext.language.sql.function.DatetimeValueFunction element = null] : ( (a0= 'CURRENT_DATE' |a1= 'CURRENT_TIME' |a2= 'LOCALTIME' |a3= 'CURRENT_TIMESTAMP' |a4= 'LOCALTIMESTAMP' ) ) ( (a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')' ) )? ;
     public final org.emftext.language.sql.function.DatetimeValueFunction parse_org_emftext_language_sql_function_DatetimeValueFunction() throws RecognitionException {
         org.emftext.language.sql.function.DatetimeValueFunction element =  null;
 
@@ -7890,56 +9211,56 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 27) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 36) ) { return element; }
 
-            // Sql.g:4532:2: ( ( (a0= 'CURRENT_DATE' |a1= 'CURRENT_TIME' |a2= 'LOCALTIME' |a3= 'CURRENT_TIMESTAMP' |a4= 'LOCALTIMESTAMP' ) ) ( (a7= '(' (a8= TEXT ) a9= ')' ) )? )
-            // Sql.g:4533:2: ( (a0= 'CURRENT_DATE' |a1= 'CURRENT_TIME' |a2= 'LOCALTIME' |a3= 'CURRENT_TIMESTAMP' |a4= 'LOCALTIMESTAMP' ) ) ( (a7= '(' (a8= TEXT ) a9= ')' ) )?
+            // Sql.g:5205:2: ( ( (a0= 'CURRENT_DATE' |a1= 'CURRENT_TIME' |a2= 'LOCALTIME' |a3= 'CURRENT_TIMESTAMP' |a4= 'LOCALTIMESTAMP' ) ) ( (a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')' ) )? )
+            // Sql.g:5206:2: ( (a0= 'CURRENT_DATE' |a1= 'CURRENT_TIME' |a2= 'LOCALTIME' |a3= 'CURRENT_TIMESTAMP' |a4= 'LOCALTIMESTAMP' ) ) ( (a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')' ) )?
             {
-            // Sql.g:4533:2: ( (a0= 'CURRENT_DATE' |a1= 'CURRENT_TIME' |a2= 'LOCALTIME' |a3= 'CURRENT_TIMESTAMP' |a4= 'LOCALTIMESTAMP' ) )
-            // Sql.g:4534:3: (a0= 'CURRENT_DATE' |a1= 'CURRENT_TIME' |a2= 'LOCALTIME' |a3= 'CURRENT_TIMESTAMP' |a4= 'LOCALTIMESTAMP' )
+            // Sql.g:5206:2: ( (a0= 'CURRENT_DATE' |a1= 'CURRENT_TIME' |a2= 'LOCALTIME' |a3= 'CURRENT_TIMESTAMP' |a4= 'LOCALTIMESTAMP' ) )
+            // Sql.g:5207:3: (a0= 'CURRENT_DATE' |a1= 'CURRENT_TIME' |a2= 'LOCALTIME' |a3= 'CURRENT_TIMESTAMP' |a4= 'LOCALTIMESTAMP' )
             {
-            // Sql.g:4534:3: (a0= 'CURRENT_DATE' |a1= 'CURRENT_TIME' |a2= 'LOCALTIME' |a3= 'CURRENT_TIMESTAMP' |a4= 'LOCALTIMESTAMP' )
-            int alt57=5;
+            // Sql.g:5207:3: (a0= 'CURRENT_DATE' |a1= 'CURRENT_TIME' |a2= 'LOCALTIME' |a3= 'CURRENT_TIMESTAMP' |a4= 'LOCALTIMESTAMP' )
+            int alt63=5;
             switch ( input.LA(1) ) {
-            case 73:
-                {
-                alt57=1;
-                }
-                break;
             case 74:
                 {
-                alt57=2;
-                }
-                break;
-            case 89:
-                {
-                alt57=3;
+                alt63=1;
                 }
                 break;
             case 75:
                 {
-                alt57=4;
+                alt63=2;
                 }
                 break;
-            case 90:
+            case 88:
                 {
-                alt57=5;
+                alt63=3;
+                }
+                break;
+            case 76:
+                {
+                alt63=4;
+                }
+                break;
+            case 89:
+                {
+                alt63=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 57, 0, input);
+                    new NoViableAltException("", 63, 0, input);
 
                 throw nvae;
 
             }
 
-            switch (alt57) {
+            switch (alt63) {
                 case 1 :
-                    // Sql.g:4535:4: a0= 'CURRENT_DATE'
+                    // Sql.g:5208:4: a0= 'CURRENT_DATE'
                     {
-                    a0=(Token)match(input,73,FOLLOW_73_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5272); if (state.failed) return element;
+                    a0=(Token)match(input,74,FOLLOW_74_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6088); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
@@ -7947,7 +9268,7 @@ public class SqlParser extends SqlANTLRParserBase {
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0, null, true);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_34_0_0_0, null, true);
                     				copyLocalizationInfos((CommonToken)a0, element);
                     				// set value of enumeration attribute
                     				Object value = org.emftext.language.sql.function.FunctionPackage.eINSTANCE.getDatetimeValueFunctionKind().getEEnumLiteral(org.emftext.language.sql.function.DatetimeValueFunctionKind.CURRENT_DATE_VALUE).getInstance();
@@ -7958,9 +9279,9 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Sql.g:4548:8: a1= 'CURRENT_TIME'
+                    // Sql.g:5221:8: a1= 'CURRENT_TIME'
                     {
-                    a1=(Token)match(input,74,FOLLOW_74_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5287); if (state.failed) return element;
+                    a1=(Token)match(input,75,FOLLOW_75_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6103); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
@@ -7968,7 +9289,7 @@ public class SqlParser extends SqlANTLRParserBase {
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0, null, true);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_34_0_0_0, null, true);
                     				copyLocalizationInfos((CommonToken)a1, element);
                     				// set value of enumeration attribute
                     				Object value = org.emftext.language.sql.function.FunctionPackage.eINSTANCE.getDatetimeValueFunctionKind().getEEnumLiteral(org.emftext.language.sql.function.DatetimeValueFunctionKind.CURRENT_TIME_VALUE).getInstance();
@@ -7979,9 +9300,9 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Sql.g:4561:8: a2= 'LOCALTIME'
+                    // Sql.g:5234:8: a2= 'LOCALTIME'
                     {
-                    a2=(Token)match(input,89,FOLLOW_89_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5302); if (state.failed) return element;
+                    a2=(Token)match(input,88,FOLLOW_88_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6118); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
@@ -7989,7 +9310,7 @@ public class SqlParser extends SqlANTLRParserBase {
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0, null, true);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_34_0_0_0, null, true);
                     				copyLocalizationInfos((CommonToken)a2, element);
                     				// set value of enumeration attribute
                     				Object value = org.emftext.language.sql.function.FunctionPackage.eINSTANCE.getDatetimeValueFunctionKind().getEEnumLiteral(org.emftext.language.sql.function.DatetimeValueFunctionKind.LOCALTIME_VALUE).getInstance();
@@ -8000,9 +9321,9 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 4 :
-                    // Sql.g:4574:8: a3= 'CURRENT_TIMESTAMP'
+                    // Sql.g:5247:8: a3= 'CURRENT_TIMESTAMP'
                     {
-                    a3=(Token)match(input,75,FOLLOW_75_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5317); if (state.failed) return element;
+                    a3=(Token)match(input,76,FOLLOW_76_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6133); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
@@ -8010,7 +9331,7 @@ public class SqlParser extends SqlANTLRParserBase {
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0, null, true);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_34_0_0_0, null, true);
                     				copyLocalizationInfos((CommonToken)a3, element);
                     				// set value of enumeration attribute
                     				Object value = org.emftext.language.sql.function.FunctionPackage.eINSTANCE.getDatetimeValueFunctionKind().getEEnumLiteral(org.emftext.language.sql.function.DatetimeValueFunctionKind.CURRENT_TIMESTAMP_VALUE).getInstance();
@@ -8021,9 +9342,9 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 5 :
-                    // Sql.g:4587:8: a4= 'LOCALTIMESTAMP'
+                    // Sql.g:5260:8: a4= 'LOCALTIMESTAMP'
                     {
-                    a4=(Token)match(input,90,FOLLOW_90_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5332); if (state.failed) return element;
+                    a4=(Token)match(input,89,FOLLOW_89_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6148); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
@@ -8031,7 +9352,7 @@ public class SqlParser extends SqlANTLRParserBase {
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0, null, true);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_34_0_0_0, null, true);
                     				copyLocalizationInfos((CommonToken)a4, element);
                     				// set value of enumeration attribute
                     				Object value = org.emftext.language.sql.function.FunctionPackage.eINSTANCE.getDatetimeValueFunctionKind().getEEnumLiteral(org.emftext.language.sql.function.DatetimeValueFunctionKind.LOCALTIMESTAMP_VALUE).getInstance();
@@ -8050,26 +9371,26 @@ public class SqlParser extends SqlANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, 595);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 596, 601);
-            		addExpectedElement(null, 602, 604);
+            		addExpectedElement(null, 941);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 942, 947);
+            		addExpectedElement(null, 948, 950);
             	}
 
-            // Sql.g:4609:2: ( (a7= '(' (a8= TEXT ) a9= ')' ) )?
-            int alt58=2;
-            int LA58_0 = input.LA(1);
+            // Sql.g:5282:2: ( (a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')' ) )?
+            int alt64=2;
+            int LA64_0 = input.LA(1);
 
-            if ( (LA58_0==58) ) {
-                alt58=1;
+            if ( (LA64_0==62) ) {
+                alt64=1;
             }
-            switch (alt58) {
+            switch (alt64) {
                 case 1 :
-                    // Sql.g:4610:3: (a7= '(' (a8= TEXT ) a9= ')' )
+                    // Sql.g:5283:3: (a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')' )
                     {
-                    // Sql.g:4610:3: (a7= '(' (a8= TEXT ) a9= ')' )
-                    // Sql.g:4611:4: a7= '(' (a8= TEXT ) a9= ')'
+                    // Sql.g:5283:3: (a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')' )
+                    // Sql.g:5284:4: a7= '(' (a8= UNSIGNED_INTEGER ) a9= ')'
                     {
-                    a7=(Token)match(input,58,FOLLOW_58_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5362); if (state.failed) return element;
+                    a7=(Token)match(input,62,FOLLOW_62_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6178); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
@@ -8077,19 +9398,19 @@ public class SqlParser extends SqlANTLRParserBase {
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_1_0_0_0, null, true);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_34_0_0_1_0_0_0, null, true);
                     				copyLocalizationInfos((CommonToken)a7, element);
                     			}
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(null, 605);
+                    				addExpectedElement(null, 951);
                     			}
 
-                    // Sql.g:4625:4: (a8= TEXT )
-                    // Sql.g:4626:5: a8= TEXT
+                    // Sql.g:5298:4: (a8= UNSIGNED_INTEGER )
+                    // Sql.g:5299:5: a8= UNSIGNED_INTEGER
                     {
-                    a8=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5388); if (state.failed) return element;
+                    a8=(Token)match(input,UNSIGNED_INTEGER,FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6204); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     					if (terminateParsing) {
@@ -8100,7 +9421,7 @@ public class SqlParser extends SqlANTLRParserBase {
                     						startIncompleteElement(element);
                     					}
                     					if (a8 != null) {
-                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+                    						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
                     						tokenResolver.setOptions(getOptions());
                     						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
                     						tokenResolver.resolve(a8.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.function.FunctionPackage.DATETIME_VALUE_FUNCTION__PRECISION), result);
@@ -8115,7 +9436,7 @@ public class SqlParser extends SqlANTLRParserBase {
                     							completedElement(value, false);
                     						}
                     						collectHiddenTokens(element);
-                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_1_0_0_1, resolved, true);
+                    						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_34_0_0_1_0_0_1, resolved, true);
                     						copyLocalizationInfos((CommonToken) a8, element);
                     					}
                     				}
@@ -8125,10 +9446,10 @@ public class SqlParser extends SqlANTLRParserBase {
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(null, 606);
+                    				addExpectedElement(null, 952);
                     			}
 
-                    a9=(Token)match(input,59,FOLLOW_59_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5421); if (state.failed) return element;
+                    a9=(Token)match(input,63,FOLLOW_63_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6237); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
@@ -8136,7 +9457,7 @@ public class SqlParser extends SqlANTLRParserBase {
                     					startIncompleteElement(element);
                     				}
                     				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_1_0_0_2, null, true);
+                    				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_34_0_0_1_0_0_2, null, true);
                     				copyLocalizationInfos((CommonToken)a9, element);
                     			}
 
@@ -8145,8 +9466,8 @@ public class SqlParser extends SqlANTLRParserBase {
                     				// We've found the last token for this rule. The constructed EObject is now
                     				// complete.
                     				completedElement(element, true);
-                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 607, 612);
-                    				addExpectedElement(null, 613, 615);
+                    				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 953, 958);
+                    				addExpectedElement(null, 959, 961);
                     			}
 
                     }
@@ -8163,8 +9484,8 @@ public class SqlParser extends SqlANTLRParserBase {
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 616, 621);
-            		addExpectedElement(null, 622, 624);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 962, 967);
+            		addExpectedElement(null, 968, 970);
             	}
 
             }
@@ -8177,7 +9498,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 27, parse_org_emftext_language_sql_function_DatetimeValueFunction_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 36, parse_org_emftext_language_sql_function_DatetimeValueFunction_StartIndex); }
 
         }
         return element;
@@ -8187,7 +9508,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_sql_expression_NullSpecification"
-    // Sql.g:4692:1: parse_org_emftext_language_sql_expression_NullSpecification returns [org.emftext.language.sql.expression.NullSpecification element = null] : a0= KEYWORD_NULL ;
+    // Sql.g:5365:1: parse_org_emftext_language_sql_expression_NullSpecification returns [org.emftext.language.sql.expression.NullSpecification element = null] : a0= KEYWORD_NULL ;
     public final org.emftext.language.sql.expression.NullSpecification parse_org_emftext_language_sql_expression_NullSpecification() throws RecognitionException {
         org.emftext.language.sql.expression.NullSpecification element =  null;
 
@@ -8198,12 +9519,12 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 37) ) { return element; }
 
-            // Sql.g:4695:2: (a0= KEYWORD_NULL )
-            // Sql.g:4696:2: a0= KEYWORD_NULL
+            // Sql.g:5368:2: (a0= KEYWORD_NULL )
+            // Sql.g:5369:2: a0= KEYWORD_NULL
             {
-            a0=(Token)match(input,KEYWORD_NULL,FOLLOW_KEYWORD_NULL_in_parse_org_emftext_language_sql_expression_NullSpecification5469); if (state.failed) return element;
+            a0=(Token)match(input,KEYWORD_NULL,FOLLOW_KEYWORD_NULL_in_parse_org_emftext_language_sql_expression_NullSpecification6285); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -8211,7 +9532,7 @@ public class SqlParser extends SqlANTLRParserBase {
             			startIncompleteElement(element);
             		}
             		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0, null, true);
+            		retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_35_0_0_0, null, true);
             		copyLocalizationInfos((CommonToken)a0, element);
             	}
 
@@ -8220,8 +9541,8 @@ public class SqlParser extends SqlANTLRParserBase {
             		// We've found the last token for this rule. The constructed EObject is now
             		// complete.
             		completedElement(element, true);
-            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 625, 630);
-            		addExpectedElement(null, 631, 633);
+            		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 971, 976);
+            		addExpectedElement(null, 977, 979);
             	}
 
             }
@@ -8234,7 +9555,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 28, parse_org_emftext_language_sql_expression_NullSpecification_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 37, parse_org_emftext_language_sql_expression_NullSpecification_StartIndex); }
 
         }
         return element;
@@ -8243,32 +9564,92 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
 
-    // $ANTLR start "parse_org_emftext_language_sql_common_DirectSQLStatement"
-    // Sql.g:4716:1: parse_org_emftext_language_sql_common_DirectSQLStatement returns [org.emftext.language.sql.common.DirectSQLStatement element = null] : c0= parse_org_emftext_language_sql_schema_TableDefinition ;
-    public final org.emftext.language.sql.common.DirectSQLStatement parse_org_emftext_language_sql_common_DirectSQLStatement() throws RecognitionException {
-        org.emftext.language.sql.common.DirectSQLStatement element =  null;
+    // $ANTLR start "parse_org_emftext_language_sql_common_Statement"
+    // Sql.g:5389:1: parse_org_emftext_language_sql_common_Statement returns [org.emftext.language.sql.common.Statement element = null] : (c0= parse_org_emftext_language_sql_common_SimpleComment |c1= parse_org_emftext_language_sql_common_BracketedComment |c2= parse_org_emftext_language_sql_schema_TableDefinition );
+    public final org.emftext.language.sql.common.Statement parse_org_emftext_language_sql_common_Statement() throws RecognitionException {
+        org.emftext.language.sql.common.Statement element =  null;
 
-        int parse_org_emftext_language_sql_common_DirectSQLStatement_StartIndex = input.index();
+        int parse_org_emftext_language_sql_common_Statement_StartIndex = input.index();
 
-        org.emftext.language.sql.schema.TableDefinition c0 =null;
+        org.emftext.language.sql.common.SimpleComment c0 =null;
+
+        org.emftext.language.sql.common.BracketedComment c1 =null;
+
+        org.emftext.language.sql.schema.TableDefinition c2 =null;
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 38) ) { return element; }
 
-            // Sql.g:4717:2: (c0= parse_org_emftext_language_sql_schema_TableDefinition )
-            // Sql.g:4718:2: c0= parse_org_emftext_language_sql_schema_TableDefinition
-            {
-            pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_TableDefinition_in_parse_org_emftext_language_sql_common_DirectSQLStatement5494);
-            c0=parse_org_emftext_language_sql_schema_TableDefinition();
+            // Sql.g:5390:2: (c0= parse_org_emftext_language_sql_common_SimpleComment |c1= parse_org_emftext_language_sql_common_BracketedComment |c2= parse_org_emftext_language_sql_schema_TableDefinition )
+            int alt65=3;
+            switch ( input.LA(1) ) {
+            case SIMPLE_COMMENT:
+                {
+                alt65=1;
+                }
+                break;
+            case BRACKETED_COMMENT:
+                {
+                alt65=2;
+                }
+                break;
+            case KEYWORD_CREATE:
+                {
+                alt65=3;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return element;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 65, 0, input);
 
-            state._fsp--;
-            if (state.failed) return element;
-
-            if ( state.backtracking==0 ) { element = c0; /* this is a subclass or primitive expression choice */ }
+                throw nvae;
 
             }
 
+            switch (alt65) {
+                case 1 :
+                    // Sql.g:5391:2: c0= parse_org_emftext_language_sql_common_SimpleComment
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SimpleComment_in_parse_org_emftext_language_sql_common_Statement6310);
+                    c0=parse_org_emftext_language_sql_common_SimpleComment();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c0; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+                case 2 :
+                    // Sql.g:5392:4: c1= parse_org_emftext_language_sql_common_BracketedComment
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_BracketedComment_in_parse_org_emftext_language_sql_common_Statement6320);
+                    c1=parse_org_emftext_language_sql_common_BracketedComment();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c1; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+                case 3 :
+                    // Sql.g:5393:4: c2= parse_org_emftext_language_sql_schema_TableDefinition
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_TableDefinition_in_parse_org_emftext_language_sql_common_Statement6330);
+                    c2=parse_org_emftext_language_sql_schema_TableDefinition();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c2; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+
+            }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -8277,17 +9658,96 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 29, parse_org_emftext_language_sql_common_DirectSQLStatement_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 38, parse_org_emftext_language_sql_common_Statement_StartIndex); }
 
         }
         return element;
     }
-    // $ANTLR end "parse_org_emftext_language_sql_common_DirectSQLStatement"
+    // $ANTLR end "parse_org_emftext_language_sql_common_Statement"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_sql_common_Separator"
+    // Sql.g:5397:1: parse_org_emftext_language_sql_common_Separator returns [org.emftext.language.sql.common.Separator element = null] : (c0= parse_org_emftext_language_sql_common_SimpleComment |c1= parse_org_emftext_language_sql_common_BracketedComment );
+    public final org.emftext.language.sql.common.Separator parse_org_emftext_language_sql_common_Separator() throws RecognitionException {
+        org.emftext.language.sql.common.Separator element =  null;
+
+        int parse_org_emftext_language_sql_common_Separator_StartIndex = input.index();
+
+        org.emftext.language.sql.common.SimpleComment c0 =null;
+
+        org.emftext.language.sql.common.BracketedComment c1 =null;
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 39) ) { return element; }
+
+            // Sql.g:5398:2: (c0= parse_org_emftext_language_sql_common_SimpleComment |c1= parse_org_emftext_language_sql_common_BracketedComment )
+            int alt66=2;
+            int LA66_0 = input.LA(1);
+
+            if ( (LA66_0==SIMPLE_COMMENT) ) {
+                alt66=1;
+            }
+            else if ( (LA66_0==BRACKETED_COMMENT) ) {
+                alt66=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return element;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 66, 0, input);
+
+                throw nvae;
+
+            }
+            switch (alt66) {
+                case 1 :
+                    // Sql.g:5399:2: c0= parse_org_emftext_language_sql_common_SimpleComment
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SimpleComment_in_parse_org_emftext_language_sql_common_Separator6351);
+                    c0=parse_org_emftext_language_sql_common_SimpleComment();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c0; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+                case 2 :
+                    // Sql.g:5400:4: c1= parse_org_emftext_language_sql_common_BracketedComment
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_common_BracketedComment_in_parse_org_emftext_language_sql_common_Separator6361);
+                    c1=parse_org_emftext_language_sql_common_BracketedComment();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c1; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 39, parse_org_emftext_language_sql_common_Separator_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_sql_common_Separator"
 
 
 
     // $ANTLR start "parse_org_emftext_language_sql_schema_TableContentsSource"
-    // Sql.g:4722:1: parse_org_emftext_language_sql_schema_TableContentsSource returns [org.emftext.language.sql.schema.TableContentsSource element = null] : c0= parse_org_emftext_language_sql_schema_TableElementList ;
+    // Sql.g:5404:1: parse_org_emftext_language_sql_schema_TableContentsSource returns [org.emftext.language.sql.schema.TableContentsSource element = null] : c0= parse_org_emftext_language_sql_schema_TableElementList ;
     public final org.emftext.language.sql.schema.TableContentsSource parse_org_emftext_language_sql_schema_TableContentsSource() throws RecognitionException {
         org.emftext.language.sql.schema.TableContentsSource element =  null;
 
@@ -8297,12 +9757,12 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 40) ) { return element; }
 
-            // Sql.g:4723:2: (c0= parse_org_emftext_language_sql_schema_TableElementList )
-            // Sql.g:4724:2: c0= parse_org_emftext_language_sql_schema_TableElementList
+            // Sql.g:5405:2: (c0= parse_org_emftext_language_sql_schema_TableElementList )
+            // Sql.g:5406:2: c0= parse_org_emftext_language_sql_schema_TableElementList
             {
-            pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_TableElementList_in_parse_org_emftext_language_sql_schema_TableContentsSource5515);
+            pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_TableElementList_in_parse_org_emftext_language_sql_schema_TableContentsSource6382);
             c0=parse_org_emftext_language_sql_schema_TableElementList();
 
             state._fsp--;
@@ -8320,7 +9780,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 30, parse_org_emftext_language_sql_schema_TableContentsSource_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 40, parse_org_emftext_language_sql_schema_TableContentsSource_StartIndex); }
 
         }
         return element;
@@ -8330,7 +9790,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_sql_schema_TableElement"
-    // Sql.g:4728:1: parse_org_emftext_language_sql_schema_TableElement returns [org.emftext.language.sql.schema.TableElement element = null] : (c0= parse_org_emftext_language_sql_schema_Column |c1= parse_org_emftext_language_sql_schema_UniqueTableConstraint |c2= parse_org_emftext_language_sql_schema_ReferentialTableConstraint );
+    // Sql.g:5410:1: parse_org_emftext_language_sql_schema_TableElement returns [org.emftext.language.sql.schema.TableElement element = null] : (c0= parse_org_emftext_language_sql_schema_Column |c1= parse_org_emftext_language_sql_schema_UniqueTableConstraint |c2= parse_org_emftext_language_sql_schema_ReferentialTableConstraint );
     public final org.emftext.language.sql.schema.TableElement parse_org_emftext_language_sql_schema_TableElement() throws RecognitionException {
         org.emftext.language.sql.schema.TableElement element =  null;
 
@@ -8344,91 +9804,147 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 31) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 41) ) { return element; }
 
-            // Sql.g:4729:2: (c0= parse_org_emftext_language_sql_schema_Column |c1= parse_org_emftext_language_sql_schema_UniqueTableConstraint |c2= parse_org_emftext_language_sql_schema_ReferentialTableConstraint )
-            int alt59=3;
+            // Sql.g:5411:2: (c0= parse_org_emftext_language_sql_schema_Column |c1= parse_org_emftext_language_sql_schema_UniqueTableConstraint |c2= parse_org_emftext_language_sql_schema_ReferentialTableConstraint )
+            int alt67=3;
             switch ( input.LA(1) ) {
             case IDENTIFIER:
                 {
-                alt59=1;
+                alt67=1;
                 }
                 break;
             case KEYWORD_CONSTRAINT:
                 {
-                int LA59_2 = input.LA(2);
+                int LA67_2 = input.LA(2);
 
-                if ( (LA59_2==IDENTIFIER) ) {
-                    int LA59_5 = input.LA(3);
+                if ( (LA67_2==IDENTIFIER) ) {
+                    switch ( input.LA(3) ) {
+                    case 65:
+                        {
+                        int LA67_6 = input.LA(4);
 
-                    if ( (LA59_5==101||LA59_5==107) ) {
-                        alt59=2;
-                    }
-                    else if ( (LA59_5==KEYWORD_FOREIGN) ) {
-                        alt59=3;
-                    }
-                    else {
+                        if ( (LA67_6==IDENTIFIER) ) {
+                            switch ( input.LA(5) ) {
+                            case 65:
+                                {
+                                int LA67_8 = input.LA(6);
+
+                                if ( (LA67_8==IDENTIFIER) ) {
+                                    int LA67_9 = input.LA(7);
+
+                                    if ( (LA67_9==94||LA67_9==98) ) {
+                                        alt67=2;
+                                    }
+                                    else if ( (LA67_9==KEYWORD_FOREIGN) ) {
+                                        alt67=3;
+                                    }
+                                    else {
+                                        if (state.backtracking>0) {state.failed=true; return element;}
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 67, 9, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    if (state.backtracking>0) {state.failed=true; return element;}
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 67, 8, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case 94:
+                            case 98:
+                                {
+                                alt67=2;
+                                }
+                                break;
+                            case KEYWORD_FOREIGN:
+                                {
+                                alt67=3;
+                                }
+                                break;
+                            default:
+                                if (state.backtracking>0) {state.failed=true; return element;}
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 67, 7, input);
+
+                                throw nvae;
+
+                            }
+
+                        }
+                        else {
+                            if (state.backtracking>0) {state.failed=true; return element;}
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 67, 6, input);
+
+                            throw nvae;
+
+                        }
+                        }
+                        break;
+                    case 94:
+                    case 98:
+                        {
+                        alt67=2;
+                        }
+                        break;
+                    case KEYWORD_FOREIGN:
+                        {
+                        alt67=3;
+                        }
+                        break;
+                    default:
                         if (state.backtracking>0) {state.failed=true; return element;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 59, 5, input);
+                            new NoViableAltException("", 67, 5, input);
 
                         throw nvae;
 
                     }
-                }
-                else if ( (LA59_2==SCHEMA_QUALIFIED_NAME) ) {
-                    int LA59_6 = input.LA(3);
 
-                    if ( (LA59_6==101||LA59_6==107) ) {
-                        alt59=2;
-                    }
-                    else if ( (LA59_6==KEYWORD_FOREIGN) ) {
-                        alt59=3;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return element;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 59, 6, input);
-
-                        throw nvae;
-
-                    }
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return element;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 59, 2, input);
+                        new NoViableAltException("", 67, 2, input);
 
                     throw nvae;
 
                 }
                 }
                 break;
-            case 101:
-            case 107:
+            case 94:
+            case 98:
                 {
-                alt59=2;
+                alt67=2;
                 }
                 break;
             case KEYWORD_FOREIGN:
                 {
-                alt59=3;
+                alt67=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 59, 0, input);
+                    new NoViableAltException("", 67, 0, input);
 
                 throw nvae;
 
             }
 
-            switch (alt59) {
+            switch (alt67) {
                 case 1 :
-                    // Sql.g:4730:2: c0= parse_org_emftext_language_sql_schema_Column
+                    // Sql.g:5412:2: c0= parse_org_emftext_language_sql_schema_Column
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_Column_in_parse_org_emftext_language_sql_schema_TableElement5536);
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_Column_in_parse_org_emftext_language_sql_schema_TableElement6403);
                     c0=parse_org_emftext_language_sql_schema_Column();
 
                     state._fsp--;
@@ -8439,9 +9955,9 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Sql.g:4731:4: c1= parse_org_emftext_language_sql_schema_UniqueTableConstraint
+                    // Sql.g:5413:4: c1= parse_org_emftext_language_sql_schema_UniqueTableConstraint
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_UniqueTableConstraint_in_parse_org_emftext_language_sql_schema_TableElement5546);
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_UniqueTableConstraint_in_parse_org_emftext_language_sql_schema_TableElement6413);
                     c1=parse_org_emftext_language_sql_schema_UniqueTableConstraint();
 
                     state._fsp--;
@@ -8452,9 +9968,9 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Sql.g:4732:4: c2= parse_org_emftext_language_sql_schema_ReferentialTableConstraint
+                    // Sql.g:5414:4: c2= parse_org_emftext_language_sql_schema_ReferentialTableConstraint
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_ReferentialTableConstraint_in_parse_org_emftext_language_sql_schema_TableElement5556);
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_ReferentialTableConstraint_in_parse_org_emftext_language_sql_schema_TableElement6423);
                     c2=parse_org_emftext_language_sql_schema_ReferentialTableConstraint();
 
                     state._fsp--;
@@ -8474,7 +9990,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 31, parse_org_emftext_language_sql_schema_TableElement_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 41, parse_org_emftext_language_sql_schema_TableElement_StartIndex); }
 
         }
         return element;
@@ -8484,103 +10000,109 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_sql_datatype_DataType"
-    // Sql.g:4736:1: parse_org_emftext_language_sql_datatype_DataType returns [org.emftext.language.sql.datatype.DataType element = null] : (c0= parse_org_emftext_language_sql_datatype_CharacterStringType |c1= parse_org_emftext_language_sql_datatype_NationalCharacterStringType |c2= parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType |c3= parse_org_emftext_language_sql_datatype_BooleanType |c4= parse_org_emftext_language_sql_datatype_ExactNumericType |c5= parse_org_emftext_language_sql_datatype_ApproximateNumericType |c6= parse_org_emftext_language_sql_datatype_DatetimeType );
+    // Sql.g:5418:1: parse_org_emftext_language_sql_datatype_DataType returns [org.emftext.language.sql.datatype.DataType element = null] : (c0= parse_org_emftext_language_sql_datatype_ExactNumericType |c1= parse_org_emftext_language_sql_datatype_ApproximateNumericType |c2= parse_org_emftext_language_sql_datatype_CharacterStringType |c3= parse_org_emftext_language_sql_datatype_NationalCharacterStringType |c4= parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType |c5= parse_org_emftext_language_sql_datatype_DateType |c6= parse_org_emftext_language_sql_datatype_TimeType |c7= parse_org_emftext_language_sql_datatype_TimestampType |c8= parse_org_emftext_language_sql_datatype_BooleanType );
     public final org.emftext.language.sql.datatype.DataType parse_org_emftext_language_sql_datatype_DataType() throws RecognitionException {
         org.emftext.language.sql.datatype.DataType element =  null;
 
         int parse_org_emftext_language_sql_datatype_DataType_StartIndex = input.index();
 
-        org.emftext.language.sql.datatype.CharacterStringType c0 =null;
+        org.emftext.language.sql.datatype.ExactNumericType c0 =null;
 
-        org.emftext.language.sql.datatype.NationalCharacterStringType c1 =null;
+        org.emftext.language.sql.datatype.ApproximateNumericType c1 =null;
 
-        org.emftext.language.sql.datatype.BinaryLargeObjectStringType c2 =null;
+        org.emftext.language.sql.datatype.CharacterStringType c2 =null;
 
-        org.emftext.language.sql.datatype.BooleanType c3 =null;
+        org.emftext.language.sql.datatype.NationalCharacterStringType c3 =null;
 
-        org.emftext.language.sql.datatype.ExactNumericType c4 =null;
+        org.emftext.language.sql.datatype.BinaryLargeObjectStringType c4 =null;
 
-        org.emftext.language.sql.datatype.ApproximateNumericType c5 =null;
+        org.emftext.language.sql.datatype.DateType c5 =null;
 
-        org.emftext.language.sql.datatype.DatetimeType c6 =null;
+        org.emftext.language.sql.datatype.TimeType c6 =null;
+
+        org.emftext.language.sql.datatype.TimestampType c7 =null;
+
+        org.emftext.language.sql.datatype.BooleanType c8 =null;
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 32) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 42) ) { return element; }
 
-            // Sql.g:4737:2: (c0= parse_org_emftext_language_sql_datatype_CharacterStringType |c1= parse_org_emftext_language_sql_datatype_NationalCharacterStringType |c2= parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType |c3= parse_org_emftext_language_sql_datatype_BooleanType |c4= parse_org_emftext_language_sql_datatype_ExactNumericType |c5= parse_org_emftext_language_sql_datatype_ApproximateNumericType |c6= parse_org_emftext_language_sql_datatype_DatetimeType )
-            int alt60=7;
+            // Sql.g:5419:2: (c0= parse_org_emftext_language_sql_datatype_ExactNumericType |c1= parse_org_emftext_language_sql_datatype_ApproximateNumericType |c2= parse_org_emftext_language_sql_datatype_CharacterStringType |c3= parse_org_emftext_language_sql_datatype_NationalCharacterStringType |c4= parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType |c5= parse_org_emftext_language_sql_datatype_DateType |c6= parse_org_emftext_language_sql_datatype_TimeType |c7= parse_org_emftext_language_sql_datatype_TimestampType |c8= parse_org_emftext_language_sql_datatype_BooleanType )
+            int alt68=9;
             switch ( input.LA(1) ) {
             case 67:
+            case 77:
+            case 78:
+            case 84:
+            case 85:
+            case 92:
+            case 96:
+                {
+                alt68=1;
+                }
+                break;
+            case 79:
+            case 81:
+            case 95:
+                {
+                alt68=2;
+                }
+                break;
+            case 70:
+            case 71:
+            case 99:
+                {
+                alt68=3;
+                }
+                break;
+            case KEYWORD_NATIONAL:
+            case 91:
+                {
+                alt68=4;
+                }
+                break;
             case 68:
             case 69:
-            case 70:
-            case 108:
                 {
-                alt60=1;
+                alt68=5;
                 }
                 break;
-            case 92:
-            case 93:
-            case 94:
-            case 95:
-            case 96:
-            case 97:
+            case KEYWORD_DATE:
                 {
-                alt60=2;
+                alt68=6;
                 }
                 break;
-            case 65:
-            case 66:
+            case KEYWORD_TIME:
                 {
-                alt60=3;
+                alt68=7;
+                }
+                break;
+            case KEYWORD_TIMESTAMP:
+                {
+                alt68=8;
                 }
                 break;
             case KEYWORD_BOOLEAN:
                 {
-                alt60=4;
-                }
-                break;
-            case 64:
-            case 77:
-            case 78:
-            case 85:
-            case 86:
-            case 98:
-            case 103:
-                {
-                alt60=5;
-                }
-                break;
-            case 80:
-            case 82:
-            case 102:
-                {
-                alt60=6;
-                }
-                break;
-            case 76:
-            case 104:
-            case 105:
-                {
-                alt60=7;
+                alt68=9;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 60, 0, input);
+                    new NoViableAltException("", 68, 0, input);
 
                 throw nvae;
 
             }
 
-            switch (alt60) {
+            switch (alt68) {
                 case 1 :
-                    // Sql.g:4738:2: c0= parse_org_emftext_language_sql_datatype_CharacterStringType
+                    // Sql.g:5420:2: c0= parse_org_emftext_language_sql_datatype_ExactNumericType
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_CharacterStringType_in_parse_org_emftext_language_sql_datatype_DataType5577);
-                    c0=parse_org_emftext_language_sql_datatype_CharacterStringType();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_ExactNumericType_in_parse_org_emftext_language_sql_datatype_DataType6444);
+                    c0=parse_org_emftext_language_sql_datatype_ExactNumericType();
 
                     state._fsp--;
                     if (state.failed) return element;
@@ -8590,10 +10112,10 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Sql.g:4739:4: c1= parse_org_emftext_language_sql_datatype_NationalCharacterStringType
+                    // Sql.g:5421:4: c1= parse_org_emftext_language_sql_datatype_ApproximateNumericType
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_NationalCharacterStringType_in_parse_org_emftext_language_sql_datatype_DataType5587);
-                    c1=parse_org_emftext_language_sql_datatype_NationalCharacterStringType();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_ApproximateNumericType_in_parse_org_emftext_language_sql_datatype_DataType6454);
+                    c1=parse_org_emftext_language_sql_datatype_ApproximateNumericType();
 
                     state._fsp--;
                     if (state.failed) return element;
@@ -8603,10 +10125,10 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Sql.g:4740:4: c2= parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType
+                    // Sql.g:5422:4: c2= parse_org_emftext_language_sql_datatype_CharacterStringType
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType_in_parse_org_emftext_language_sql_datatype_DataType5597);
-                    c2=parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_CharacterStringType_in_parse_org_emftext_language_sql_datatype_DataType6464);
+                    c2=parse_org_emftext_language_sql_datatype_CharacterStringType();
 
                     state._fsp--;
                     if (state.failed) return element;
@@ -8616,10 +10138,10 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 4 :
-                    // Sql.g:4741:4: c3= parse_org_emftext_language_sql_datatype_BooleanType
+                    // Sql.g:5423:4: c3= parse_org_emftext_language_sql_datatype_NationalCharacterStringType
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_BooleanType_in_parse_org_emftext_language_sql_datatype_DataType5607);
-                    c3=parse_org_emftext_language_sql_datatype_BooleanType();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_NationalCharacterStringType_in_parse_org_emftext_language_sql_datatype_DataType6474);
+                    c3=parse_org_emftext_language_sql_datatype_NationalCharacterStringType();
 
                     state._fsp--;
                     if (state.failed) return element;
@@ -8629,10 +10151,10 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 5 :
-                    // Sql.g:4742:4: c4= parse_org_emftext_language_sql_datatype_ExactNumericType
+                    // Sql.g:5424:4: c4= parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_ExactNumericType_in_parse_org_emftext_language_sql_datatype_DataType5617);
-                    c4=parse_org_emftext_language_sql_datatype_ExactNumericType();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType_in_parse_org_emftext_language_sql_datatype_DataType6484);
+                    c4=parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType();
 
                     state._fsp--;
                     if (state.failed) return element;
@@ -8642,10 +10164,10 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 6 :
-                    // Sql.g:4743:4: c5= parse_org_emftext_language_sql_datatype_ApproximateNumericType
+                    // Sql.g:5425:4: c5= parse_org_emftext_language_sql_datatype_DateType
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_ApproximateNumericType_in_parse_org_emftext_language_sql_datatype_DataType5627);
-                    c5=parse_org_emftext_language_sql_datatype_ApproximateNumericType();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_DateType_in_parse_org_emftext_language_sql_datatype_DataType6494);
+                    c5=parse_org_emftext_language_sql_datatype_DateType();
 
                     state._fsp--;
                     if (state.failed) return element;
@@ -8655,15 +10177,41 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 7 :
-                    // Sql.g:4744:4: c6= parse_org_emftext_language_sql_datatype_DatetimeType
+                    // Sql.g:5426:4: c6= parse_org_emftext_language_sql_datatype_TimeType
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_DatetimeType_in_parse_org_emftext_language_sql_datatype_DataType5637);
-                    c6=parse_org_emftext_language_sql_datatype_DatetimeType();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_TimeType_in_parse_org_emftext_language_sql_datatype_DataType6504);
+                    c6=parse_org_emftext_language_sql_datatype_TimeType();
 
                     state._fsp--;
                     if (state.failed) return element;
 
                     if ( state.backtracking==0 ) { element = c6; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+                case 8 :
+                    // Sql.g:5427:4: c7= parse_org_emftext_language_sql_datatype_TimestampType
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_TimestampType_in_parse_org_emftext_language_sql_datatype_DataType6514);
+                    c7=parse_org_emftext_language_sql_datatype_TimestampType();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c7; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+                case 9 :
+                    // Sql.g:5428:4: c8= parse_org_emftext_language_sql_datatype_BooleanType
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_datatype_BooleanType_in_parse_org_emftext_language_sql_datatype_DataType6524);
+                    c8=parse_org_emftext_language_sql_datatype_BooleanType();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c8; /* this is a subclass or primitive expression choice */ }
 
                     }
                     break;
@@ -8677,7 +10225,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 32, parse_org_emftext_language_sql_datatype_DataType_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 42, parse_org_emftext_language_sql_datatype_DataType_StartIndex); }
 
         }
         return element;
@@ -8687,7 +10235,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_sql_schema_DefaultOption"
-    // Sql.g:4748:1: parse_org_emftext_language_sql_schema_DefaultOption returns [org.emftext.language.sql.schema.DefaultOption element = null] : (c0= parse_org_emftext_language_sql_schema_LiteralDefaultOption |c1= parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption |c2= parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption );
+    // Sql.g:5432:1: parse_org_emftext_language_sql_schema_DefaultOption returns [org.emftext.language.sql.schema.DefaultOption element = null] : (c0= parse_org_emftext_language_sql_schema_LiteralDefaultOption |c1= parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption |c2= parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption );
     public final org.emftext.language.sql.schema.DefaultOption parse_org_emftext_language_sql_schema_DefaultOption() throws RecognitionException {
         org.emftext.language.sql.schema.DefaultOption element =  null;
 
@@ -8701,58 +10249,63 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 33) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 43) ) { return element; }
 
-            // Sql.g:4749:2: (c0= parse_org_emftext_language_sql_schema_LiteralDefaultOption |c1= parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption |c2= parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption )
-            int alt61=3;
+            // Sql.g:5433:2: (c0= parse_org_emftext_language_sql_schema_LiteralDefaultOption |c1= parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption |c2= parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption )
+            int alt69=3;
             switch ( input.LA(1) ) {
             case EOF:
+            case APPROXIMATE_NUMERIC_LITERAL:
+            case EXACT_NUMERIC_LITERAL:
             case KEYWORD_COLLATE:
             case KEYWORD_CONSTRAINT:
             case KEYWORD_DATE:
-            case KEYWORD_INTERVAL:
+            case KEYWORD_N:
             case KEYWORD_NOT:
             case KEYWORD_REFERENCES:
             case KEYWORD_TIME:
             case KEYWORD_TIMESTAMP:
-            case 59:
-            case 61:
-            case 81:
-            case 101:
-            case 106:
-            case 107:
+            case QUOTED_STRING:
+            case UNSIGNED_INTEGER:
+            case 63:
+            case 64:
+            case 80:
+            case 94:
+            case 97:
+            case 98:
+            case 102:
                 {
-                alt61=1;
+                alt69=1;
                 }
                 break;
-            case 73:
             case 74:
             case 75:
+            case 76:
+            case 88:
             case 89:
-            case 90:
                 {
-                alt61=2;
+                alt69=2;
                 }
                 break;
             case KEYWORD_NULL:
                 {
-                alt61=3;
+                alt69=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 61, 0, input);
+                    new NoViableAltException("", 69, 0, input);
 
                 throw nvae;
 
             }
 
-            switch (alt61) {
+            switch (alt69) {
                 case 1 :
-                    // Sql.g:4750:2: c0= parse_org_emftext_language_sql_schema_LiteralDefaultOption
+                    // Sql.g:5434:2: c0= parse_org_emftext_language_sql_schema_LiteralDefaultOption
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_LiteralDefaultOption_in_parse_org_emftext_language_sql_schema_DefaultOption5658);
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_LiteralDefaultOption_in_parse_org_emftext_language_sql_schema_DefaultOption6545);
                     c0=parse_org_emftext_language_sql_schema_LiteralDefaultOption();
 
                     state._fsp--;
@@ -8763,9 +10316,9 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Sql.g:4751:4: c1= parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption
+                    // Sql.g:5435:4: c1= parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption_in_parse_org_emftext_language_sql_schema_DefaultOption5668);
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption_in_parse_org_emftext_language_sql_schema_DefaultOption6555);
                     c1=parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption();
 
                     state._fsp--;
@@ -8776,9 +10329,9 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Sql.g:4752:4: c2= parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption
+                    // Sql.g:5436:4: c2= parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption_in_parse_org_emftext_language_sql_schema_DefaultOption5678);
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption_in_parse_org_emftext_language_sql_schema_DefaultOption6565);
                     c2=parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption();
 
                     state._fsp--;
@@ -8798,7 +10351,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 33, parse_org_emftext_language_sql_schema_DefaultOption_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 43, parse_org_emftext_language_sql_schema_DefaultOption_StartIndex); }
 
         }
         return element;
@@ -8808,7 +10361,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_sql_schema_ColumnConstraint"
-    // Sql.g:4756:1: parse_org_emftext_language_sql_schema_ColumnConstraint returns [org.emftext.language.sql.schema.ColumnConstraint element = null] : (c0= parse_org_emftext_language_sql_schema_NotNullColumnConstraint |c1= parse_org_emftext_language_sql_schema_UniqueColumnConstraint |c2= parse_org_emftext_language_sql_schema_ReferentialColumnConstraint );
+    // Sql.g:5440:1: parse_org_emftext_language_sql_schema_ColumnConstraint returns [org.emftext.language.sql.schema.ColumnConstraint element = null] : (c0= parse_org_emftext_language_sql_schema_NotNullColumnConstraint |c1= parse_org_emftext_language_sql_schema_UniqueColumnConstraint |c2= parse_org_emftext_language_sql_schema_ReferentialColumnConstraint );
     public final org.emftext.language.sql.schema.ColumnConstraint parse_org_emftext_language_sql_schema_ColumnConstraint() throws RecognitionException {
         org.emftext.language.sql.schema.ColumnConstraint element =  null;
 
@@ -8822,65 +10375,121 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 44) ) { return element; }
 
-            // Sql.g:4757:2: (c0= parse_org_emftext_language_sql_schema_NotNullColumnConstraint |c1= parse_org_emftext_language_sql_schema_UniqueColumnConstraint |c2= parse_org_emftext_language_sql_schema_ReferentialColumnConstraint )
-            int alt62=3;
+            // Sql.g:5441:2: (c0= parse_org_emftext_language_sql_schema_NotNullColumnConstraint |c1= parse_org_emftext_language_sql_schema_UniqueColumnConstraint |c2= parse_org_emftext_language_sql_schema_ReferentialColumnConstraint )
+            int alt70=3;
             switch ( input.LA(1) ) {
             case KEYWORD_CONSTRAINT:
                 {
-                int LA62_1 = input.LA(2);
+                int LA70_1 = input.LA(2);
 
-                if ( (LA62_1==IDENTIFIER) ) {
+                if ( (LA70_1==IDENTIFIER) ) {
                     switch ( input.LA(3) ) {
-                    case KEYWORD_NOT:
+                    case 65:
                         {
-                        alt62=1;
+                        int LA70_6 = input.LA(4);
+
+                        if ( (LA70_6==IDENTIFIER) ) {
+                            switch ( input.LA(5) ) {
+                            case 65:
+                                {
+                                int LA70_8 = input.LA(6);
+
+                                if ( (LA70_8==IDENTIFIER) ) {
+                                    switch ( input.LA(7) ) {
+                                    case KEYWORD_NOT:
+                                        {
+                                        alt70=1;
+                                        }
+                                        break;
+                                    case 94:
+                                    case 98:
+                                        {
+                                        alt70=2;
+                                        }
+                                        break;
+                                    case KEYWORD_REFERENCES:
+                                        {
+                                        alt70=3;
+                                        }
+                                        break;
+                                    default:
+                                        if (state.backtracking>0) {state.failed=true; return element;}
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 70, 9, input);
+
+                                        throw nvae;
+
+                                    }
+
+                                }
+                                else {
+                                    if (state.backtracking>0) {state.failed=true; return element;}
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 70, 8, input);
+
+                                    throw nvae;
+
+                                }
+                                }
+                                break;
+                            case KEYWORD_NOT:
+                                {
+                                alt70=1;
+                                }
+                                break;
+                            case 94:
+                            case 98:
+                                {
+                                alt70=2;
+                                }
+                                break;
+                            case KEYWORD_REFERENCES:
+                                {
+                                alt70=3;
+                                }
+                                break;
+                            default:
+                                if (state.backtracking>0) {state.failed=true; return element;}
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 70, 7, input);
+
+                                throw nvae;
+
+                            }
+
+                        }
+                        else {
+                            if (state.backtracking>0) {state.failed=true; return element;}
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 70, 6, input);
+
+                            throw nvae;
+
+                        }
                         }
                         break;
-                    case 101:
-                    case 107:
+                    case KEYWORD_NOT:
                         {
-                        alt62=2;
+                        alt70=1;
+                        }
+                        break;
+                    case 94:
+                    case 98:
+                        {
+                        alt70=2;
                         }
                         break;
                     case KEYWORD_REFERENCES:
                         {
-                        alt62=3;
+                        alt70=3;
                         }
                         break;
                     default:
                         if (state.backtracking>0) {state.failed=true; return element;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 62, 5, input);
-
-                        throw nvae;
-
-                    }
-
-                }
-                else if ( (LA62_1==SCHEMA_QUALIFIED_NAME) ) {
-                    switch ( input.LA(3) ) {
-                    case KEYWORD_NOT:
-                        {
-                        alt62=1;
-                        }
-                        break;
-                    case 101:
-                    case 107:
-                        {
-                        alt62=2;
-                        }
-                        break;
-                    case KEYWORD_REFERENCES:
-                        {
-                        alt62=3;
-                        }
-                        break;
-                    default:
-                        if (state.backtracking>0) {state.failed=true; return element;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 62, 6, input);
+                            new NoViableAltException("", 70, 5, input);
 
                         throw nvae;
 
@@ -8890,7 +10499,7 @@ public class SqlParser extends SqlANTLRParserBase {
                 else {
                     if (state.backtracking>0) {state.failed=true; return element;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 62, 1, input);
+                        new NoViableAltException("", 70, 1, input);
 
                     throw nvae;
 
@@ -8899,34 +10508,34 @@ public class SqlParser extends SqlANTLRParserBase {
                 break;
             case KEYWORD_NOT:
                 {
-                alt62=1;
+                alt70=1;
                 }
                 break;
-            case 101:
-            case 107:
+            case 94:
+            case 98:
                 {
-                alt62=2;
+                alt70=2;
                 }
                 break;
             case KEYWORD_REFERENCES:
                 {
-                alt62=3;
+                alt70=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 62, 0, input);
+                    new NoViableAltException("", 70, 0, input);
 
                 throw nvae;
 
             }
 
-            switch (alt62) {
+            switch (alt70) {
                 case 1 :
-                    // Sql.g:4758:2: c0= parse_org_emftext_language_sql_schema_NotNullColumnConstraint
+                    // Sql.g:5442:2: c0= parse_org_emftext_language_sql_schema_NotNullColumnConstraint
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_NotNullColumnConstraint_in_parse_org_emftext_language_sql_schema_ColumnConstraint5699);
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_NotNullColumnConstraint_in_parse_org_emftext_language_sql_schema_ColumnConstraint6586);
                     c0=parse_org_emftext_language_sql_schema_NotNullColumnConstraint();
 
                     state._fsp--;
@@ -8937,9 +10546,9 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Sql.g:4759:4: c1= parse_org_emftext_language_sql_schema_UniqueColumnConstraint
+                    // Sql.g:5443:4: c1= parse_org_emftext_language_sql_schema_UniqueColumnConstraint
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_UniqueColumnConstraint_in_parse_org_emftext_language_sql_schema_ColumnConstraint5709);
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_UniqueColumnConstraint_in_parse_org_emftext_language_sql_schema_ColumnConstraint6596);
                     c1=parse_org_emftext_language_sql_schema_UniqueColumnConstraint();
 
                     state._fsp--;
@@ -8950,9 +10559,9 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Sql.g:4760:4: c2= parse_org_emftext_language_sql_schema_ReferentialColumnConstraint
+                    // Sql.g:5444:4: c2= parse_org_emftext_language_sql_schema_ReferentialColumnConstraint
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint_in_parse_org_emftext_language_sql_schema_ColumnConstraint5719);
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint_in_parse_org_emftext_language_sql_schema_ColumnConstraint6606);
                     c2=parse_org_emftext_language_sql_schema_ReferentialColumnConstraint();
 
                     state._fsp--;
@@ -8972,7 +10581,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 34, parse_org_emftext_language_sql_schema_ColumnConstraint_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 44, parse_org_emftext_language_sql_schema_ColumnConstraint_StartIndex); }
 
         }
         return element;
@@ -8982,47 +10591,212 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_sql_literal_Literal"
-    // Sql.g:4764:1: parse_org_emftext_language_sql_literal_Literal returns [org.emftext.language.sql.literal.Literal element = null] : (c0= parse_org_emftext_language_sql_literal_DateLiteral |c1= parse_org_emftext_language_sql_literal_TimeLiteral |c2= parse_org_emftext_language_sql_literal_TimestampLiteral |c3= parse_org_emftext_language_sql_literal_IntervalLiteral |c4= parse_org_emftext_language_sql_literal_BooleanLiteral );
+    // Sql.g:5448:1: parse_org_emftext_language_sql_literal_Literal returns [org.emftext.language.sql.literal.Literal element = null] : (c0= parse_org_emftext_language_sql_literal_ExactNumericLiteral |c1= parse_org_emftext_language_sql_literal_ApproximateNumericLiteral |c2= parse_org_emftext_language_sql_literal_CharacterStringLiteral |c3= parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral |c4= parse_org_emftext_language_sql_literal_DateLiteral |c5= parse_org_emftext_language_sql_literal_TimeLiteral |c6= parse_org_emftext_language_sql_literal_TimestampLiteral |c7= parse_org_emftext_language_sql_literal_BooleanLiteral );
     public final org.emftext.language.sql.literal.Literal parse_org_emftext_language_sql_literal_Literal() throws RecognitionException {
         org.emftext.language.sql.literal.Literal element =  null;
 
         int parse_org_emftext_language_sql_literal_Literal_StartIndex = input.index();
 
-        org.emftext.language.sql.literal.DateLiteral c0 =null;
+        org.emftext.language.sql.literal.ExactNumericLiteral c0 =null;
 
-        org.emftext.language.sql.literal.TimeLiteral c1 =null;
+        org.emftext.language.sql.literal.ApproximateNumericLiteral c1 =null;
 
-        org.emftext.language.sql.literal.TimestampLiteral c2 =null;
+        org.emftext.language.sql.literal.CharacterStringLiteral c2 =null;
 
-        org.emftext.language.sql.literal.IntervalLiteral c3 =null;
+        org.emftext.language.sql.literal.NationalCharacterStringLiteral c3 =null;
 
-        org.emftext.language.sql.literal.BooleanLiteral c4 =null;
+        org.emftext.language.sql.literal.DateLiteral c4 =null;
+
+        org.emftext.language.sql.literal.TimeLiteral c5 =null;
+
+        org.emftext.language.sql.literal.TimestampLiteral c6 =null;
+
+        org.emftext.language.sql.literal.BooleanLiteral c7 =null;
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 35) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 45) ) { return element; }
 
-            // Sql.g:4765:2: (c0= parse_org_emftext_language_sql_literal_DateLiteral |c1= parse_org_emftext_language_sql_literal_TimeLiteral |c2= parse_org_emftext_language_sql_literal_TimestampLiteral |c3= parse_org_emftext_language_sql_literal_IntervalLiteral |c4= parse_org_emftext_language_sql_literal_BooleanLiteral )
-            int alt63=5;
+            // Sql.g:5449:2: (c0= parse_org_emftext_language_sql_literal_ExactNumericLiteral |c1= parse_org_emftext_language_sql_literal_ApproximateNumericLiteral |c2= parse_org_emftext_language_sql_literal_CharacterStringLiteral |c3= parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral |c4= parse_org_emftext_language_sql_literal_DateLiteral |c5= parse_org_emftext_language_sql_literal_TimeLiteral |c6= parse_org_emftext_language_sql_literal_TimestampLiteral |c7= parse_org_emftext_language_sql_literal_BooleanLiteral )
+            int alt71=8;
             switch ( input.LA(1) ) {
+            case EXACT_NUMERIC_LITERAL:
+            case UNSIGNED_INTEGER:
+                {
+                alt71=1;
+                }
+                break;
+            case APPROXIMATE_NUMERIC_LITERAL:
+                {
+                alt71=2;
+                }
+                break;
+            case 102:
+                {
+                int LA71_3 = input.LA(2);
+
+                if ( (LA71_3==IDENTIFIER) ) {
+                    int LA71_10 = input.LA(3);
+
+                    if ( (LA71_10==65) ) {
+                        int LA71_12 = input.LA(4);
+
+                        if ( (LA71_12==IDENTIFIER) ) {
+                            int LA71_13 = input.LA(5);
+
+                            if ( (LA71_13==65) ) {
+                                int LA71_14 = input.LA(6);
+
+                                if ( (LA71_14==IDENTIFIER) ) {
+                                    int LA71_15 = input.LA(7);
+
+                                    if ( (LA71_15==QUOTED_STRING) ) {
+                                        int LA71_4 = input.LA(8);
+
+                                        if ( (synpred96_Sql()) ) {
+                                            alt71=3;
+                                        }
+                                        else if ( (synpred97_Sql()) ) {
+                                            alt71=4;
+                                        }
+                                        else {
+                                            if (state.backtracking>0) {state.failed=true; return element;}
+                                            NoViableAltException nvae =
+                                                new NoViableAltException("", 71, 4, input);
+
+                                            throw nvae;
+
+                                        }
+                                    }
+                                    else {
+                                        if (state.backtracking>0) {state.failed=true; return element;}
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 71, 15, input);
+
+                                        throw nvae;
+
+                                    }
+                                }
+                                else {
+                                    if (state.backtracking>0) {state.failed=true; return element;}
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 71, 14, input);
+
+                                    throw nvae;
+
+                                }
+                            }
+                            else if ( (LA71_13==QUOTED_STRING) ) {
+                                int LA71_4 = input.LA(6);
+
+                                if ( (synpred96_Sql()) ) {
+                                    alt71=3;
+                                }
+                                else if ( (synpred97_Sql()) ) {
+                                    alt71=4;
+                                }
+                                else {
+                                    if (state.backtracking>0) {state.failed=true; return element;}
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 71, 4, input);
+
+                                    throw nvae;
+
+                                }
+                            }
+                            else {
+                                if (state.backtracking>0) {state.failed=true; return element;}
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 71, 13, input);
+
+                                throw nvae;
+
+                            }
+                        }
+                        else {
+                            if (state.backtracking>0) {state.failed=true; return element;}
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 71, 12, input);
+
+                            throw nvae;
+
+                        }
+                    }
+                    else if ( (LA71_10==QUOTED_STRING) ) {
+                        int LA71_4 = input.LA(4);
+
+                        if ( (synpred96_Sql()) ) {
+                            alt71=3;
+                        }
+                        else if ( (synpred97_Sql()) ) {
+                            alt71=4;
+                        }
+                        else {
+                            if (state.backtracking>0) {state.failed=true; return element;}
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 71, 4, input);
+
+                            throw nvae;
+
+                        }
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return element;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 71, 10, input);
+
+                        throw nvae;
+
+                    }
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return element;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 71, 3, input);
+
+                    throw nvae;
+
+                }
+                }
+                break;
+            case QUOTED_STRING:
+                {
+                int LA71_4 = input.LA(2);
+
+                if ( (synpred96_Sql()) ) {
+                    alt71=3;
+                }
+                else if ( (synpred97_Sql()) ) {
+                    alt71=4;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return element;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 71, 4, input);
+
+                    throw nvae;
+
+                }
+                }
+                break;
+            case KEYWORD_N:
+                {
+                alt71=4;
+                }
+                break;
             case KEYWORD_DATE:
                 {
-                alt63=1;
+                alt71=5;
                 }
                 break;
             case KEYWORD_TIME:
                 {
-                alt63=2;
+                alt71=6;
                 }
                 break;
             case KEYWORD_TIMESTAMP:
                 {
-                alt63=3;
-                }
-                break;
-            case KEYWORD_INTERVAL:
-                {
-                alt63=4;
+                alt71=7;
                 }
                 break;
             case EOF:
@@ -9030,31 +10804,31 @@ public class SqlParser extends SqlANTLRParserBase {
             case KEYWORD_CONSTRAINT:
             case KEYWORD_NOT:
             case KEYWORD_REFERENCES:
-            case 59:
-            case 61:
-            case 81:
-            case 101:
-            case 106:
-            case 107:
+            case 63:
+            case 64:
+            case 80:
+            case 94:
+            case 97:
+            case 98:
                 {
-                alt63=5;
+                alt71=8;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 63, 0, input);
+                    new NoViableAltException("", 71, 0, input);
 
                 throw nvae;
 
             }
 
-            switch (alt63) {
+            switch (alt71) {
                 case 1 :
-                    // Sql.g:4766:2: c0= parse_org_emftext_language_sql_literal_DateLiteral
+                    // Sql.g:5450:2: c0= parse_org_emftext_language_sql_literal_ExactNumericLiteral
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_DateLiteral_in_parse_org_emftext_language_sql_literal_Literal5740);
-                    c0=parse_org_emftext_language_sql_literal_DateLiteral();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_ExactNumericLiteral_in_parse_org_emftext_language_sql_literal_Literal6627);
+                    c0=parse_org_emftext_language_sql_literal_ExactNumericLiteral();
 
                     state._fsp--;
                     if (state.failed) return element;
@@ -9064,10 +10838,10 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Sql.g:4767:4: c1= parse_org_emftext_language_sql_literal_TimeLiteral
+                    // Sql.g:5451:4: c1= parse_org_emftext_language_sql_literal_ApproximateNumericLiteral
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_TimeLiteral_in_parse_org_emftext_language_sql_literal_Literal5750);
-                    c1=parse_org_emftext_language_sql_literal_TimeLiteral();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_ApproximateNumericLiteral_in_parse_org_emftext_language_sql_literal_Literal6637);
+                    c1=parse_org_emftext_language_sql_literal_ApproximateNumericLiteral();
 
                     state._fsp--;
                     if (state.failed) return element;
@@ -9077,10 +10851,10 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Sql.g:4768:4: c2= parse_org_emftext_language_sql_literal_TimestampLiteral
+                    // Sql.g:5452:4: c2= parse_org_emftext_language_sql_literal_CharacterStringLiteral
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_TimestampLiteral_in_parse_org_emftext_language_sql_literal_Literal5760);
-                    c2=parse_org_emftext_language_sql_literal_TimestampLiteral();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_CharacterStringLiteral_in_parse_org_emftext_language_sql_literal_Literal6647);
+                    c2=parse_org_emftext_language_sql_literal_CharacterStringLiteral();
 
                     state._fsp--;
                     if (state.failed) return element;
@@ -9090,10 +10864,10 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 4 :
-                    // Sql.g:4769:4: c3= parse_org_emftext_language_sql_literal_IntervalLiteral
+                    // Sql.g:5453:4: c3= parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_IntervalLiteral_in_parse_org_emftext_language_sql_literal_Literal5770);
-                    c3=parse_org_emftext_language_sql_literal_IntervalLiteral();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral_in_parse_org_emftext_language_sql_literal_Literal6657);
+                    c3=parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral();
 
                     state._fsp--;
                     if (state.failed) return element;
@@ -9103,15 +10877,54 @@ public class SqlParser extends SqlANTLRParserBase {
                     }
                     break;
                 case 5 :
-                    // Sql.g:4770:4: c4= parse_org_emftext_language_sql_literal_BooleanLiteral
+                    // Sql.g:5454:4: c4= parse_org_emftext_language_sql_literal_DateLiteral
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_BooleanLiteral_in_parse_org_emftext_language_sql_literal_Literal5780);
-                    c4=parse_org_emftext_language_sql_literal_BooleanLiteral();
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_DateLiteral_in_parse_org_emftext_language_sql_literal_Literal6667);
+                    c4=parse_org_emftext_language_sql_literal_DateLiteral();
 
                     state._fsp--;
                     if (state.failed) return element;
 
                     if ( state.backtracking==0 ) { element = c4; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+                case 6 :
+                    // Sql.g:5455:4: c5= parse_org_emftext_language_sql_literal_TimeLiteral
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_TimeLiteral_in_parse_org_emftext_language_sql_literal_Literal6677);
+                    c5=parse_org_emftext_language_sql_literal_TimeLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c5; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+                case 7 :
+                    // Sql.g:5456:4: c6= parse_org_emftext_language_sql_literal_TimestampLiteral
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_TimestampLiteral_in_parse_org_emftext_language_sql_literal_Literal6687);
+                    c6=parse_org_emftext_language_sql_literal_TimestampLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c6; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+                case 8 :
+                    // Sql.g:5457:4: c7= parse_org_emftext_language_sql_literal_BooleanLiteral
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_BooleanLiteral_in_parse_org_emftext_language_sql_literal_Literal6697);
+                    c7=parse_org_emftext_language_sql_literal_BooleanLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c7; /* this is a subclass or primitive expression choice */ }
 
                     }
                     break;
@@ -9125,7 +10938,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 35, parse_org_emftext_language_sql_literal_Literal_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 45, parse_org_emftext_language_sql_literal_Literal_StartIndex); }
 
         }
         return element;
@@ -9135,7 +10948,7 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification"
-    // Sql.g:4774:1: parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification returns [org.emftext.language.sql.expression.ImplicitlyTypedValueSpecification element = null] : c0= parse_org_emftext_language_sql_expression_NullSpecification ;
+    // Sql.g:5461:1: parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification returns [org.emftext.language.sql.expression.ImplicitlyTypedValueSpecification element = null] : c0= parse_org_emftext_language_sql_expression_NullSpecification ;
     public final org.emftext.language.sql.expression.ImplicitlyTypedValueSpecification parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification() throws RecognitionException {
         org.emftext.language.sql.expression.ImplicitlyTypedValueSpecification element =  null;
 
@@ -9145,12 +10958,12 @@ public class SqlParser extends SqlANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 36) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 46) ) { return element; }
 
-            // Sql.g:4775:2: (c0= parse_org_emftext_language_sql_expression_NullSpecification )
-            // Sql.g:4776:2: c0= parse_org_emftext_language_sql_expression_NullSpecification
+            // Sql.g:5462:2: (c0= parse_org_emftext_language_sql_expression_NullSpecification )
+            // Sql.g:5463:2: c0= parse_org_emftext_language_sql_expression_NullSpecification
             {
-            pushFollow(FOLLOW_parse_org_emftext_language_sql_expression_NullSpecification_in_parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification5801);
+            pushFollow(FOLLOW_parse_org_emftext_language_sql_expression_NullSpecification_in_parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification6718);
             c0=parse_org_emftext_language_sql_expression_NullSpecification();
 
             state._fsp--;
@@ -9168,206 +10981,432 @@ public class SqlParser extends SqlANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 36, parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 46, parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification_StartIndex); }
 
         }
         return element;
     }
     // $ANTLR end "parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification"
 
+    // $ANTLR start synpred13_Sql
+    public final void synpred13_Sql_fragment() throws RecognitionException {
+        // Sql.g:1772:4: ()
+        // Sql.g:1772:4: 
+        {
+        }
+
+    }
+    // $ANTLR end synpred13_Sql
+
+    // $ANTLR start synpred50_Sql
+    public final void synpred50_Sql_fragment() throws RecognitionException {
+        Token a16=null;
+        org.emftext.language.sql.common.SchemaQualifiedName a17_0 =null;
+
+
+        // Sql.g:4093:3: ( (a16= KEYWORD_COLLATE (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )
+        // Sql.g:4093:3: (a16= KEYWORD_COLLATE (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+        {
+        // Sql.g:4093:3: (a16= KEYWORD_COLLATE (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+        // Sql.g:4094:4: a16= KEYWORD_COLLATE (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+        {
+        a16=(Token)match(input,KEYWORD_COLLATE,FOLLOW_KEYWORD_COLLATE_in_synpred50_Sql4505); if (state.failed) return ;
+
+        // Sql.g:4108:4: (a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+        // Sql.g:4109:5: a17_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
+        {
+        pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_synpred50_Sql4531);
+        a17_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+
+
+        }
+
+
+        }
+
+    }
+    // $ANTLR end synpred50_Sql
+
+    // $ANTLR start synpred57_Sql
+    public final void synpred57_Sql_fragment() throws RecognitionException {
+        Token a20=null;
+        org.emftext.language.sql.common.SchemaQualifiedName a21_0 =null;
+
+
+        // Sql.g:4420:3: ( (a20= KEYWORD_COLLATE (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) ) )
+        // Sql.g:4420:3: (a20= KEYWORD_COLLATE (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+        {
+        // Sql.g:4420:3: (a20= KEYWORD_COLLATE (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName ) )
+        // Sql.g:4421:4: a20= KEYWORD_COLLATE (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+        {
+        a20=(Token)match(input,KEYWORD_COLLATE,FOLLOW_KEYWORD_COLLATE_in_synpred57_Sql4997); if (state.failed) return ;
+
+        // Sql.g:4435:4: (a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName )
+        // Sql.g:4436:5: a21_0= parse_org_emftext_language_sql_common_SchemaQualifiedName
+        {
+        pushFollow(FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_synpred57_Sql5023);
+        a21_0=parse_org_emftext_language_sql_common_SchemaQualifiedName();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+
+
+        }
+
+
+        }
+
+    }
+    // $ANTLR end synpred57_Sql
+
+    // $ANTLR start synpred96_Sql
+    public final void synpred96_Sql_fragment() throws RecognitionException {
+        org.emftext.language.sql.literal.CharacterStringLiteral c2 =null;
+
+
+        // Sql.g:5452:4: (c2= parse_org_emftext_language_sql_literal_CharacterStringLiteral )
+        // Sql.g:5452:4: c2= parse_org_emftext_language_sql_literal_CharacterStringLiteral
+        {
+        pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_CharacterStringLiteral_in_synpred96_Sql6647);
+        c2=parse_org_emftext_language_sql_literal_CharacterStringLiteral();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+
+    }
+    // $ANTLR end synpred96_Sql
+
+    // $ANTLR start synpred97_Sql
+    public final void synpred97_Sql_fragment() throws RecognitionException {
+        org.emftext.language.sql.literal.NationalCharacterStringLiteral c3 =null;
+
+
+        // Sql.g:5453:4: (c3= parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral )
+        // Sql.g:5453:4: c3= parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral
+        {
+        pushFollow(FOLLOW_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral_in_synpred97_Sql6657);
+        c3=parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+
+    }
+    // $ANTLR end synpred97_Sql
+
     // Delegated rules
+
+    public final boolean synpred97_Sql() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred97_Sql_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred57_Sql() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred57_Sql_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred96_Sql() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred96_Sql_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred50_Sql() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred50_Sql_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred13_Sql() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred13_Sql_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
 
 
  
 
     public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SQLScript_in_start82 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_start89 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_DirectSQLStatement_in_parse_org_emftext_language_sql_common_SQLScript130 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_common_SQLScript158 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_KEYWORD_CREATE_in_parse_org_emftext_language_sql_schema_TableDefinition206 = new BitSet(new long[]{0x0000000000800000L,0x0000000001100000L});
-    public static final BitSet FOLLOW_84_in_parse_org_emftext_language_sql_schema_TableDefinition242 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_88_in_parse_org_emftext_language_sql_schema_TableDefinition261 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_KEYWORD_TEMPORARY_in_parse_org_emftext_language_sql_schema_TableDefinition292 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_KEYWORD_TABLE_in_parse_org_emftext_language_sql_schema_TableDefinition325 = new BitSet(new long[]{0x0040000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_TableDefinition348 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_TableDefinition386 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_TableContentsSource_in_parse_org_emftext_language_sql_schema_TableDefinition424 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_KEYWORD_ON_in_parse_org_emftext_language_sql_schema_TableDefinition451 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_KEYWORD_COMMIT_in_parse_org_emftext_language_sql_schema_TableDefinition471 = new BitSet(new long[]{0x0000000000000000L,0x0000001000008000L});
-    public static final BitSet FOLLOW_100_in_parse_org_emftext_language_sql_schema_TableDefinition504 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_79_in_parse_org_emftext_language_sql_schema_TableDefinition523 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_KEYWORD_ROWS_in_parse_org_emftext_language_sql_schema_TableDefinition554 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_parse_org_emftext_language_sql_schema_TableElementList602 = new BitSet(new long[]{0x0000000000004420L,0x0000082000000000L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_TableElement_in_parse_org_emftext_language_sql_schema_TableElementList620 = new BitSet(new long[]{0x2800000000000000L});
-    public static final BitSet FOLLOW_61_in_parse_org_emftext_language_sql_schema_TableElementList647 = new BitSet(new long[]{0x0000000000004420L,0x0000082000000000L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_TableElement_in_parse_org_emftext_language_sql_schema_TableElementList673 = new BitSet(new long[]{0x2800000000000000L});
-    public static final BitSet FOLLOW_59_in_parse_org_emftext_language_sql_schema_TableElementList714 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_Column747 = new BitSet(new long[]{0x0000000000000040L,0x000013C7F065707FL});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_DataType_in_parse_org_emftext_language_sql_schema_Column772 = new BitSet(new long[]{0x0000000000122502L,0x0000082000000000L});
-    public static final BitSet FOLLOW_KEYWORD_DEFAULT_in_parse_org_emftext_language_sql_schema_Column799 = new BitSet(new long[]{0x0000000006049000L,0x0000040006020E00L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_DefaultOption_in_parse_org_emftext_language_sql_schema_Column825 = new BitSet(new long[]{0x0000000000120502L,0x0000082000000000L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_ColumnConstraint_in_parse_org_emftext_language_sql_schema_Column875 = new BitSet(new long[]{0x0000000000000102L});
-    public static final BitSet FOLLOW_KEYWORD_COLLATE_in_parse_org_emftext_language_sql_schema_Column910 = new BitSet(new long[]{0x0040000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_Column943 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_Column999 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_Literal_in_parse_org_emftext_language_sql_schema_LiteralDefaultOption1083 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_function_DatetimeValueFunction_in_parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption1120 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification_in_parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption1157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint1199 = new BitSet(new long[]{0x0040000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint1232 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint1288 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_KEYWORD_NOT_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint1353 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_KEYWORD_NULL_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint1367 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint1405 = new BitSet(new long[]{0x0040000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint1438 = new BitSet(new long[]{0x0000000000000000L,0x0000082000000000L});
-    public static final BitSet FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint1494 = new BitSet(new long[]{0x0000000000000000L,0x0000082000000000L});
-    public static final BitSet FOLLOW_107_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint1568 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_101_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint1583 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1628 = new BitSet(new long[]{0x0040000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1661 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1717 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_KEYWORD_REFERENCES_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1782 = new BitSet(new long[]{0x0040000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1805 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1843 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_58_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1886 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1912 = new BitSet(new long[]{0x2800000000000000L});
-    public static final BitSet FOLLOW_61_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1958 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint1992 = new BitSet(new long[]{0x2800000000000000L});
-    public static final BitSet FOLLOW_59_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2060 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2117 = new BitSet(new long[]{0x0040000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2150 = new BitSet(new long[]{0x0000000000000000L,0x0000082000000000L});
-    public static final BitSet FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2206 = new BitSet(new long[]{0x0000000000000000L,0x0000082000000000L});
-    public static final BitSet FOLLOW_107_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2280 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_101_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2295 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_58_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2316 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2334 = new BitSet(new long[]{0x2800000000000000L});
-    public static final BitSet FOLLOW_61_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2364 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2390 = new BitSet(new long[]{0x2800000000000000L});
-    public static final BitSet FOLLOW_59_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2436 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2474 = new BitSet(new long[]{0x0040000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2507 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2563 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_KEYWORD_FOREIGN_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2628 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_KEYWORD_KEY_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2642 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_58_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2656 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2674 = new BitSet(new long[]{0x2800000000000000L});
-    public static final BitSet FOLLOW_61_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2704 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2730 = new BitSet(new long[]{0x2800000000000000L});
-    public static final BitSet FOLLOW_59_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2776 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_KEYWORD_REFERENCES_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2790 = new BitSet(new long[]{0x0040000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2813 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_SCHEMA_QUALIFIED_NAME_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2851 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_58_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2894 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2920 = new BitSet(new long[]{0x2800000000000000L});
-    public static final BitSet FOLLOW_61_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint2966 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3000 = new BitSet(new long[]{0x2800000000000000L});
-    public static final BitSet FOLLOW_59_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3068 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_DATE_in_parse_org_emftext_language_sql_literal_DateLiteral3116 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_TEXT_in_parse_org_emftext_language_sql_literal_DateLiteral3134 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_TIME_in_parse_org_emftext_language_sql_literal_TimeLiteral3170 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_TEXT_in_parse_org_emftext_language_sql_literal_TimeLiteral3188 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_TIMESTAMP_in_parse_org_emftext_language_sql_literal_TimestampLiteral3224 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_TEXT_in_parse_org_emftext_language_sql_literal_TimestampLiteral3242 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_INTERVAL_in_parse_org_emftext_language_sql_literal_IntervalLiteral3278 = new BitSet(new long[]{0x5000000000000000L});
-    public static final BitSet FOLLOW_60_in_parse_org_emftext_language_sql_literal_IntervalLiteral3301 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_literal_IntervalLiteral3316 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_106_in_parse_org_emftext_language_sql_literal_BooleanLiteral3367 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_81_in_parse_org_emftext_language_sql_literal_BooleanLiteral3384 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_70_in_parse_org_emftext_language_sql_datatype_CharacterStringType3437 = new BitSet(new long[]{0x0400000000000182L});
-    public static final BitSet FOLLOW_68_in_parse_org_emftext_language_sql_datatype_CharacterStringType3452 = new BitSet(new long[]{0x0400000000000182L});
-    public static final BitSet FOLLOW_108_in_parse_org_emftext_language_sql_datatype_CharacterStringType3467 = new BitSet(new long[]{0x0400000000000182L});
-    public static final BitSet FOLLOW_69_in_parse_org_emftext_language_sql_datatype_CharacterStringType3482 = new BitSet(new long[]{0x0400000000000182L});
-    public static final BitSet FOLLOW_67_in_parse_org_emftext_language_sql_datatype_CharacterStringType3497 = new BitSet(new long[]{0x0400000000000182L});
-    public static final BitSet FOLLOW_58_in_parse_org_emftext_language_sql_datatype_CharacterStringType3527 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_CharacterStringType3553 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_59_in_parse_org_emftext_language_sql_datatype_CharacterStringType3586 = new BitSet(new long[]{0x0000000000000182L});
-    public static final BitSet FOLLOW_KEYWORD_CHARACTER_in_parse_org_emftext_language_sql_datatype_CharacterStringType3628 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_KEYWORD_SET_in_parse_org_emftext_language_sql_datatype_CharacterStringType3648 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_TEXT_in_parse_org_emftext_language_sql_datatype_CharacterStringType3674 = new BitSet(new long[]{0x0000000000000102L});
-    public static final BitSet FOLLOW_KEYWORD_COLLATE_in_parse_org_emftext_language_sql_datatype_CharacterStringType3729 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_TEXT_in_parse_org_emftext_language_sql_datatype_CharacterStringType3755 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_95_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3825 = new BitSet(new long[]{0x0400000000000102L});
-    public static final BitSet FOLLOW_93_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3840 = new BitSet(new long[]{0x0400000000000102L});
-    public static final BitSet FOLLOW_97_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3855 = new BitSet(new long[]{0x0400000000000102L});
-    public static final BitSet FOLLOW_94_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3870 = new BitSet(new long[]{0x0400000000000102L});
-    public static final BitSet FOLLOW_92_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3885 = new BitSet(new long[]{0x0400000000000102L});
-    public static final BitSet FOLLOW_96_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3900 = new BitSet(new long[]{0x0400000000000102L});
-    public static final BitSet FOLLOW_58_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3930 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3956 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_59_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType3989 = new BitSet(new long[]{0x0000000000000102L});
-    public static final BitSet FOLLOW_KEYWORD_COLLATE_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4031 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_TEXT_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4057 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType4127 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_66_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType4142 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_58_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType4172 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_LargeObjectLength_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType4198 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_59_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType4226 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4278 = new BitSet(new long[]{0x0000000000000002L,0x0000000808880180L});
-    public static final BitSet FOLLOW_87_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4314 = new BitSet(new long[]{0x0000000000000002L,0x0000000800000180L});
-    public static final BitSet FOLLOW_91_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4331 = new BitSet(new long[]{0x0000000000000002L,0x0000000800000180L});
-    public static final BitSet FOLLOW_83_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4348 = new BitSet(new long[]{0x0000000000000002L,0x0000000800000180L});
-    public static final BitSet FOLLOW_71_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4392 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4409 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_99_in_parse_org_emftext_language_sql_datatype_LargeObjectLength4426 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_BOOLEAN_in_parse_org_emftext_language_sql_datatype_BooleanType4470 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_98_in_parse_org_emftext_language_sql_datatype_ExactNumericType4508 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_78_in_parse_org_emftext_language_sql_datatype_ExactNumericType4523 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_77_in_parse_org_emftext_language_sql_datatype_ExactNumericType4538 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_103_in_parse_org_emftext_language_sql_datatype_ExactNumericType4553 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_86_in_parse_org_emftext_language_sql_datatype_ExactNumericType4568 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_85_in_parse_org_emftext_language_sql_datatype_ExactNumericType4583 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_64_in_parse_org_emftext_language_sql_datatype_ExactNumericType4598 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_58_in_parse_org_emftext_language_sql_datatype_ExactNumericType4628 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_ExactNumericType4654 = new BitSet(new long[]{0x2800000000000000L});
-    public static final BitSet FOLLOW_61_in_parse_org_emftext_language_sql_datatype_ExactNumericType4700 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_ExactNumericType4734 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_59_in_parse_org_emftext_language_sql_datatype_ExactNumericType4802 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_82_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4859 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_102_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4874 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_80_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4889 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_58_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4919 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4945 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_59_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_parse_org_emftext_language_sql_datatype_DatetimeType5035 = new BitSet(new long[]{0x0400000000000002L,0x0000600000000000L});
-    public static final BitSet FOLLOW_104_in_parse_org_emftext_language_sql_datatype_DatetimeType5050 = new BitSet(new long[]{0x0400000000000002L,0x0000600000000000L});
-    public static final BitSet FOLLOW_105_in_parse_org_emftext_language_sql_datatype_DatetimeType5065 = new BitSet(new long[]{0x0400000000000002L,0x0000600000000000L});
-    public static final BitSet FOLLOW_58_in_parse_org_emftext_language_sql_datatype_DatetimeType5095 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_DatetimeType5121 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_59_in_parse_org_emftext_language_sql_datatype_DatetimeType5154 = new BitSet(new long[]{0x0000000000000002L,0x0000600000000000L});
-    public static final BitSet FOLLOW_109_in_parse_org_emftext_language_sql_datatype_DatetimeType5202 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_110_in_parse_org_emftext_language_sql_datatype_DatetimeType5219 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_73_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5272 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_74_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5287 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_89_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5302 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_75_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5317 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_90_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5332 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_58_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5362 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_TEXT_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5388 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_59_in_parse_org_emftext_language_sql_function_DatetimeValueFunction5421 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_NULL_in_parse_org_emftext_language_sql_expression_NullSpecification5469 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_TableDefinition_in_parse_org_emftext_language_sql_common_DirectSQLStatement5494 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_TableElementList_in_parse_org_emftext_language_sql_schema_TableContentsSource5515 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_Column_in_parse_org_emftext_language_sql_schema_TableElement5536 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_UniqueTableConstraint_in_parse_org_emftext_language_sql_schema_TableElement5546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_ReferentialTableConstraint_in_parse_org_emftext_language_sql_schema_TableElement5556 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_CharacterStringType_in_parse_org_emftext_language_sql_datatype_DataType5577 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_NationalCharacterStringType_in_parse_org_emftext_language_sql_datatype_DataType5587 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType_in_parse_org_emftext_language_sql_datatype_DataType5597 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_BooleanType_in_parse_org_emftext_language_sql_datatype_DataType5607 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_ExactNumericType_in_parse_org_emftext_language_sql_datatype_DataType5617 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_ApproximateNumericType_in_parse_org_emftext_language_sql_datatype_DataType5627 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_DatetimeType_in_parse_org_emftext_language_sql_datatype_DataType5637 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_LiteralDefaultOption_in_parse_org_emftext_language_sql_schema_DefaultOption5658 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption_in_parse_org_emftext_language_sql_schema_DefaultOption5668 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption_in_parse_org_emftext_language_sql_schema_DefaultOption5678 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_NotNullColumnConstraint_in_parse_org_emftext_language_sql_schema_ColumnConstraint5699 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_UniqueColumnConstraint_in_parse_org_emftext_language_sql_schema_ColumnConstraint5709 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint_in_parse_org_emftext_language_sql_schema_ColumnConstraint5719 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_DateLiteral_in_parse_org_emftext_language_sql_literal_Literal5740 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_TimeLiteral_in_parse_org_emftext_language_sql_literal_Literal5750 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_TimestampLiteral_in_parse_org_emftext_language_sql_literal_Literal5760 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_IntervalLiteral_in_parse_org_emftext_language_sql_literal_Literal5770 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_BooleanLiteral_in_parse_org_emftext_language_sql_literal_Literal5780 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_sql_expression_NullSpecification_in_parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification5801 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_Statement_in_parse_org_emftext_language_sql_common_SQLScript130 = new BitSet(new long[]{0x0800000000001022L});
+    public static final BitSet FOLLOW_SIMPLE_COMMENT_in_parse_org_emftext_language_sql_common_SimpleComment190 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BRACKETED_COMMENT_in_parse_org_emftext_language_sql_common_BracketedComment230 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_common_SchemaQualifiedName296 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_parse_org_emftext_language_sql_common_SchemaQualifiedName341 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_common_SchemaQualifiedName396 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_parse_org_emftext_language_sql_common_SchemaQualifiedName429 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_common_SchemaQualifiedName466 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EXACT_NUMERIC_LITERAL_in_parse_org_emftext_language_sql_literal_ExactNumericLiteral506 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_literal_ExactNumericLiteral535 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_APPROXIMATE_NUMERIC_LITERAL_in_parse_org_emftext_language_sql_literal_ApproximateNumericLiteral575 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_102_in_parse_org_emftext_language_sql_literal_CharacterStringLiteral620 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_literal_CharacterStringLiteral646 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_CharacterStringLiteral691 = new BitSet(new long[]{0x0800000000000022L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_Separator_in_parse_org_emftext_language_sql_literal_CharacterStringLiteral727 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_CharacterStringLiteral761 = new BitSet(new long[]{0x0800000000000022L});
+    public static final BitSet FOLLOW_KEYWORD_N_in_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral822 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral840 = new BitSet(new long[]{0x0800000000000022L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_Separator_in_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral876 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral910 = new BitSet(new long[]{0x0800000000000022L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_CharacterStringLiteral_in_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral961 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_DATE_in_parse_org_emftext_language_sql_literal_DateLiteral986 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_DateLiteral1004 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_TIME_in_parse_org_emftext_language_sql_literal_TimeLiteral1040 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_TimeLiteral1058 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_TIMESTAMP_in_parse_org_emftext_language_sql_literal_TimestampLiteral1094 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_QUOTED_STRING_in_parse_org_emftext_language_sql_literal_TimestampLiteral1112 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_97_in_parse_org_emftext_language_sql_literal_BooleanLiteral1163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_80_in_parse_org_emftext_language_sql_literal_BooleanLiteral1180 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_TableReference1254 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_parse_org_emftext_language_sql_schema_TableReference1299 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_TableReference1354 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_parse_org_emftext_language_sql_schema_TableReference1387 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_TableReference1424 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_CREATE_in_parse_org_emftext_language_sql_schema_TableDefinition1460 = new BitSet(new long[]{0x0000000004000000L,0x0000000000880000L});
+    public static final BitSet FOLLOW_83_in_parse_org_emftext_language_sql_schema_TableDefinition1520 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_87_in_parse_org_emftext_language_sql_schema_TableDefinition1537 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_KEYWORD_TEMPORARY_in_parse_org_emftext_language_sql_schema_TableDefinition1563 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_KEYWORD_TABLE_in_parse_org_emftext_language_sql_schema_TableDefinition1587 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_TableDefinition1605 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_TableContentsSource_in_parse_org_emftext_language_sql_schema_TableDefinition1627 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_66_in_parse_org_emftext_language_sql_schema_TableDefinition1645 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_schema_TableElementList1674 = new BitSet(new long[]{0x0000000000008880L,0x0000000440000000L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_TableElement_in_parse_org_emftext_language_sql_schema_TableElementList1692 = new BitSet(new long[]{0x8000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_64_in_parse_org_emftext_language_sql_schema_TableElementList1719 = new BitSet(new long[]{0x0000000000008880L,0x0000000440000000L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_TableElement_in_parse_org_emftext_language_sql_schema_TableElementList1745 = new BitSet(new long[]{0x8000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_schema_TableElementList1786 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_Column1819 = new BitSet(new long[]{0x0000000030082100L,0x000000099832E0F8L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_DataType_in_parse_org_emftext_language_sql_schema_Column1844 = new BitSet(new long[]{0x0000000001104C02L,0x0000000440000000L});
+    public static final BitSet FOLLOW_KEYWORD_DEFAULT_in_parse_org_emftext_language_sql_schema_Column1871 = new BitSet(new long[]{0x1400000030242050L,0x0000004203011C00L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_DefaultOption_in_parse_org_emftext_language_sql_schema_Column1897 = new BitSet(new long[]{0x0000000001100C02L,0x0000000440000000L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_ColumnConstraint_in_parse_org_emftext_language_sql_schema_Column1947 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_KEYWORD_COLLATE_in_parse_org_emftext_language_sql_schema_Column1982 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_Column2008 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_Literal_in_parse_org_emftext_language_sql_schema_LiteralDefaultOption2068 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_function_DatetimeValueFunction_in_parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption2105 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification_in_parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption2142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint2184 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint2210 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_KEYWORD_NOT_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint2251 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_KEYWORD_NULL_in_parse_org_emftext_language_sql_schema_NotNullColumnConstraint2265 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint2303 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint2329 = new BitSet(new long[]{0x0000000000000000L,0x0000000440000000L});
+    public static final BitSet FOLLOW_98_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint2379 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_94_in_parse_org_emftext_language_sql_schema_UniqueColumnConstraint2394 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2439 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2465 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_KEYWORD_REFERENCES_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2506 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_TableReference_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2524 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2551 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2577 = new BitSet(new long[]{0x8000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_64_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2623 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2657 = new BitSet(new long[]{0x8000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint2725 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2782 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2808 = new BitSet(new long[]{0x0000000000000000L,0x0000000440000000L});
+    public static final BitSet FOLLOW_98_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2858 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_94_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2873 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2894 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2912 = new BitSet(new long[]{0x8000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_64_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2942 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint2968 = new BitSet(new long[]{0x8000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_schema_UniqueTableConstraint3014 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_CONSTRAINT_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3052 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3078 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_KEYWORD_FOREIGN_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3119 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_KEYWORD_KEY_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3133 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3147 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3165 = new BitSet(new long[]{0x8000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_64_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3195 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3221 = new BitSet(new long[]{0x8000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3267 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_KEYWORD_REFERENCES_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3281 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_TableReference_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3299 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3326 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3352 = new BitSet(new long[]{0x8000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_64_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3398 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3432 = new BitSet(new long[]{0x8000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_schema_ReferentialTableConstraint3500 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_92_in_parse_org_emftext_language_sql_datatype_ExactNumericType3557 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_78_in_parse_org_emftext_language_sql_datatype_ExactNumericType3572 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_77_in_parse_org_emftext_language_sql_datatype_ExactNumericType3587 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_96_in_parse_org_emftext_language_sql_datatype_ExactNumericType3602 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_85_in_parse_org_emftext_language_sql_datatype_ExactNumericType3617 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_84_in_parse_org_emftext_language_sql_datatype_ExactNumericType3632 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_67_in_parse_org_emftext_language_sql_datatype_ExactNumericType3647 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_datatype_ExactNumericType3677 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_ExactNumericType3703 = new BitSet(new long[]{0x8000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_64_in_parse_org_emftext_language_sql_datatype_ExactNumericType3749 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_ExactNumericType3783 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_datatype_ExactNumericType3851 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_81_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType3914 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_95_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType3931 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_79_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType3974 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_KEYWORD_PRECISION_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4000 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4033 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4059 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_datatype_ApproximateNumericType4092 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_parse_org_emftext_language_sql_datatype_CharacterStringType4155 = new BitSet(new long[]{0x4000000000000602L});
+    public static final BitSet FOLLOW_70_in_parse_org_emftext_language_sql_datatype_CharacterStringType4172 = new BitSet(new long[]{0x4000000000000602L});
+    public static final BitSet FOLLOW_99_in_parse_org_emftext_language_sql_datatype_CharacterStringType4189 = new BitSet(new long[]{0x4000000000000602L});
+    public static final BitSet FOLLOW_71_in_parse_org_emftext_language_sql_datatype_CharacterStringType4232 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_70_in_parse_org_emftext_language_sql_datatype_CharacterStringType4249 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_KEYWORD_VARYING_in_parse_org_emftext_language_sql_datatype_CharacterStringType4275 = new BitSet(new long[]{0x4000000000000602L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_datatype_CharacterStringType4308 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_CharacterStringType4334 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_datatype_CharacterStringType4367 = new BitSet(new long[]{0x0000000000000602L});
+    public static final BitSet FOLLOW_KEYWORD_CHARACTER_in_parse_org_emftext_language_sql_datatype_CharacterStringType4409 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_KEYWORD_SET_in_parse_org_emftext_language_sql_datatype_CharacterStringType4429 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_datatype_CharacterStringType4455 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_KEYWORD_COLLATE_in_parse_org_emftext_language_sql_datatype_CharacterStringType4505 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_datatype_CharacterStringType4531 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_NATIONAL_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4591 = new BitSet(new long[]{0x0000000000000000L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_71_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4626 = new BitSet(new long[]{0x4000000000000402L});
+    public static final BitSet FOLLOW_70_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4645 = new BitSet(new long[]{0x4000000000000402L});
+    public static final BitSet FOLLOW_71_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4697 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_70_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4716 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_KEYWORD_VARYING_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4747 = new BitSet(new long[]{0x4000000000000402L});
+    public static final BitSet FOLLOW_91_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4794 = new BitSet(new long[]{0x4000000000000402L});
+    public static final BitSet FOLLOW_91_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4837 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_KEYWORD_VARYING_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4863 = new BitSet(new long[]{0x4000000000000402L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4896 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4922 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4955 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_KEYWORD_COLLATE_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType4997 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_parse_org_emftext_language_sql_datatype_NationalCharacterStringType5023 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5094 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_KEYWORD_LARGE_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5120 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_KEYWORD_OBJECT_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5137 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_69_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5171 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5213 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_LargeObjectLength_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5239 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType5267 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5319 = new BitSet(new long[]{0x0000000000000002L,0x0000000024440300L});
+    public static final BitSet FOLLOW_86_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5355 = new BitSet(new long[]{0x0000000000000002L,0x0000000020000300L});
+    public static final BitSet FOLLOW_90_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5372 = new BitSet(new long[]{0x0000000000000002L,0x0000000020000300L});
+    public static final BitSet FOLLOW_82_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5389 = new BitSet(new long[]{0x0000000000000002L,0x0000000020000300L});
+    public static final BitSet FOLLOW_72_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5433 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5450 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_93_in_parse_org_emftext_language_sql_datatype_LargeObjectLength5467 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_DATE_in_parse_org_emftext_language_sql_datatype_DateType5511 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_TIME_in_parse_org_emftext_language_sql_datatype_TimeType5540 = new BitSet(new long[]{0x4000000000000002L,0x0000003000000000L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_datatype_TimeType5563 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_TimeType5589 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_datatype_TimeType5622 = new BitSet(new long[]{0x0000000000000002L,0x0000003000000000L});
+    public static final BitSet FOLLOW_100_in_parse_org_emftext_language_sql_datatype_TimeType5677 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_101_in_parse_org_emftext_language_sql_datatype_TimeType5696 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_KEYWORD_TIME_in_parse_org_emftext_language_sql_datatype_TimeType5727 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_KEYWORD_ZONE_in_parse_org_emftext_language_sql_datatype_TimeType5747 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_TIMESTAMP_in_parse_org_emftext_language_sql_datatype_TimestampType5795 = new BitSet(new long[]{0x4000000000000002L,0x0000003000000000L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_datatype_TimestampType5818 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_datatype_TimestampType5844 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_datatype_TimestampType5877 = new BitSet(new long[]{0x0000000000000002L,0x0000003000000000L});
+    public static final BitSet FOLLOW_100_in_parse_org_emftext_language_sql_datatype_TimestampType5932 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_101_in_parse_org_emftext_language_sql_datatype_TimestampType5951 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_KEYWORD_TIME_in_parse_org_emftext_language_sql_datatype_TimestampType5982 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_KEYWORD_ZONE_in_parse_org_emftext_language_sql_datatype_TimestampType6002 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_BOOLEAN_in_parse_org_emftext_language_sql_datatype_BooleanType6050 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_74_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6088 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_75_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6103 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_88_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6118 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_76_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6133 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_89_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6148 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_62_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6178 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_UNSIGNED_INTEGER_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6204 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_63_in_parse_org_emftext_language_sql_function_DatetimeValueFunction6237 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_NULL_in_parse_org_emftext_language_sql_expression_NullSpecification6285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SimpleComment_in_parse_org_emftext_language_sql_common_Statement6310 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_BracketedComment_in_parse_org_emftext_language_sql_common_Statement6320 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_TableDefinition_in_parse_org_emftext_language_sql_common_Statement6330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SimpleComment_in_parse_org_emftext_language_sql_common_Separator6351 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_BracketedComment_in_parse_org_emftext_language_sql_common_Separator6361 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_TableElementList_in_parse_org_emftext_language_sql_schema_TableContentsSource6382 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_Column_in_parse_org_emftext_language_sql_schema_TableElement6403 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_UniqueTableConstraint_in_parse_org_emftext_language_sql_schema_TableElement6413 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_ReferentialTableConstraint_in_parse_org_emftext_language_sql_schema_TableElement6423 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_ExactNumericType_in_parse_org_emftext_language_sql_datatype_DataType6444 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_ApproximateNumericType_in_parse_org_emftext_language_sql_datatype_DataType6454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_CharacterStringType_in_parse_org_emftext_language_sql_datatype_DataType6464 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_NationalCharacterStringType_in_parse_org_emftext_language_sql_datatype_DataType6474 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType_in_parse_org_emftext_language_sql_datatype_DataType6484 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_DateType_in_parse_org_emftext_language_sql_datatype_DataType6494 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_TimeType_in_parse_org_emftext_language_sql_datatype_DataType6504 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_TimestampType_in_parse_org_emftext_language_sql_datatype_DataType6514 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_datatype_BooleanType_in_parse_org_emftext_language_sql_datatype_DataType6524 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_LiteralDefaultOption_in_parse_org_emftext_language_sql_schema_DefaultOption6545 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption_in_parse_org_emftext_language_sql_schema_DefaultOption6555 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOption_in_parse_org_emftext_language_sql_schema_DefaultOption6565 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_NotNullColumnConstraint_in_parse_org_emftext_language_sql_schema_ColumnConstraint6586 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_UniqueColumnConstraint_in_parse_org_emftext_language_sql_schema_ColumnConstraint6596 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_schema_ReferentialColumnConstraint_in_parse_org_emftext_language_sql_schema_ColumnConstraint6606 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_ExactNumericLiteral_in_parse_org_emftext_language_sql_literal_Literal6627 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_ApproximateNumericLiteral_in_parse_org_emftext_language_sql_literal_Literal6637 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_CharacterStringLiteral_in_parse_org_emftext_language_sql_literal_Literal6647 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral_in_parse_org_emftext_language_sql_literal_Literal6657 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_DateLiteral_in_parse_org_emftext_language_sql_literal_Literal6667 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_TimeLiteral_in_parse_org_emftext_language_sql_literal_Literal6677 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_TimestampLiteral_in_parse_org_emftext_language_sql_literal_Literal6687 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_BooleanLiteral_in_parse_org_emftext_language_sql_literal_Literal6697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_expression_NullSpecification_in_parse_org_emftext_language_sql_expression_ImplicitlyTypedValueSpecification6718 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_COLLATE_in_synpred50_Sql4505 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_synpred50_Sql4531 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_COLLATE_in_synpred57_Sql4997 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_common_SchemaQualifiedName_in_synpred57_Sql5023 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_CharacterStringLiteral_in_synpred96_Sql6647 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_sql_literal_NationalCharacterStringLiteral_in_synpred97_Sql6657 = new BitSet(new long[]{0x0000000000000002L});
 
 }

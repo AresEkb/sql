@@ -31,6 +31,33 @@ public interface CommonFactory extends EFactory {
     SQLScript createSQLScript();
 
     /**
+     * Returns a new object of class '<em>Simple Comment</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Simple Comment</em>'.
+     * @generated
+     */
+    SimpleComment createSimpleComment();
+
+    /**
+     * Returns a new object of class '<em>Bracketed Comment</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Bracketed Comment</em>'.
+     * @generated
+     */
+    BracketedComment createBracketedComment();
+
+    /**
+     * Returns a new object of class '<em>Schema Qualified Name</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Schema Qualified Name</em>'.
+     * @generated
+     */
+    SchemaQualifiedName createSchemaQualifiedName();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

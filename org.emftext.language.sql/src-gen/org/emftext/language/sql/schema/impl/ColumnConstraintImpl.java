@@ -9,11 +9,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import org.emftext.language.sql.SchemaQualifiedName;
+import org.emftext.language.sql.common.SchemaQualifiedName;
 
 import org.emftext.language.sql.schema.Column;
 import org.emftext.language.sql.schema.ColumnConstraint;
@@ -28,31 +28,21 @@ import org.emftext.language.sql.schema.SchemaPackage;
  * </p>
  * <ul>
  *   <li>{@link org.emftext.language.sql.schema.impl.ColumnConstraintImpl#getOwner <em>Owner</em>}</li>
- *   <li>{@link org.emftext.language.sql.schema.impl.ColumnConstraintImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.emftext.language.sql.schema.impl.ColumnConstraintImpl#getSchemaQualifiedName <em>Schema Qualified Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class ColumnConstraintImpl extends MinimalEObjectImpl.Container implements ColumnConstraint {
+public abstract class ColumnConstraintImpl extends EObjectImpl implements ColumnConstraint {
     /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * The cached value of the '{@link #getSchemaQualifiedName() <em>Schema Qualified Name</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getName()
+     * @see #getSchemaQualifiedName()
      * @generated
      * @ordered
      */
-    protected static final SchemaQualifiedName NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected SchemaQualifiedName name = NAME_EDEFAULT;
+    protected SchemaQualifiedName schemaQualifiedName;
 
     /**
      * <!-- begin-user-doc -->
@@ -123,8 +113,8 @@ public abstract class ColumnConstraintImpl extends MinimalEObjectImpl.Container 
      * <!-- end-user-doc -->
      * @generated
      */
-    public SchemaQualifiedName getName() {
-        return name;
+    public SchemaQualifiedName getSchemaQualifiedName() {
+        return schemaQualifiedName;
     }
 
     /**
@@ -132,12 +122,43 @@ public abstract class ColumnConstraintImpl extends MinimalEObjectImpl.Container 
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName(SchemaQualifiedName newName) {
-        SchemaQualifiedName oldName = name;
-        name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SchemaPackage.COLUMN_CONSTRAINT__NAME, oldName,
-                    name));
+    public NotificationChain basicSetSchemaQualifiedName(SchemaQualifiedName newSchemaQualifiedName,
+            NotificationChain msgs) {
+        SchemaQualifiedName oldSchemaQualifiedName = schemaQualifiedName;
+        schemaQualifiedName = newSchemaQualifiedName;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    SchemaPackage.COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME, oldSchemaQualifiedName,
+                    newSchemaQualifiedName);
+            if (msgs == null)
+                msgs = notification;
+            else
+                msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSchemaQualifiedName(SchemaQualifiedName newSchemaQualifiedName) {
+        if (newSchemaQualifiedName != schemaQualifiedName) {
+            NotificationChain msgs = null;
+            if (schemaQualifiedName != null)
+                msgs = ((InternalEObject) schemaQualifiedName).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - SchemaPackage.COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME, null, msgs);
+            if (newSchemaQualifiedName != null)
+                msgs = ((InternalEObject) newSchemaQualifiedName).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - SchemaPackage.COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME, null, msgs);
+            msgs = basicSetSchemaQualifiedName(newSchemaQualifiedName, msgs);
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    SchemaPackage.COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME, newSchemaQualifiedName,
+                    newSchemaQualifiedName));
     }
 
     /**
@@ -166,6 +187,8 @@ public abstract class ColumnConstraintImpl extends MinimalEObjectImpl.Container 
         switch (featureID) {
         case SchemaPackage.COLUMN_CONSTRAINT__OWNER:
             return basicSetOwner(null, msgs);
+        case SchemaPackage.COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME:
+            return basicSetSchemaQualifiedName(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -195,8 +218,8 @@ public abstract class ColumnConstraintImpl extends MinimalEObjectImpl.Container 
         switch (featureID) {
         case SchemaPackage.COLUMN_CONSTRAINT__OWNER:
             return getOwner();
-        case SchemaPackage.COLUMN_CONSTRAINT__NAME:
-            return getName();
+        case SchemaPackage.COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME:
+            return getSchemaQualifiedName();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -212,8 +235,8 @@ public abstract class ColumnConstraintImpl extends MinimalEObjectImpl.Container 
         case SchemaPackage.COLUMN_CONSTRAINT__OWNER:
             setOwner((Column) newValue);
             return;
-        case SchemaPackage.COLUMN_CONSTRAINT__NAME:
-            setName((SchemaQualifiedName) newValue);
+        case SchemaPackage.COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME:
+            setSchemaQualifiedName((SchemaQualifiedName) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -230,8 +253,8 @@ public abstract class ColumnConstraintImpl extends MinimalEObjectImpl.Container 
         case SchemaPackage.COLUMN_CONSTRAINT__OWNER:
             setOwner((Column) null);
             return;
-        case SchemaPackage.COLUMN_CONSTRAINT__NAME:
-            setName(NAME_EDEFAULT);
+        case SchemaPackage.COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME:
+            setSchemaQualifiedName((SchemaQualifiedName) null);
             return;
         }
         super.eUnset(featureID);
@@ -247,27 +270,10 @@ public abstract class ColumnConstraintImpl extends MinimalEObjectImpl.Container 
         switch (featureID) {
         case SchemaPackage.COLUMN_CONSTRAINT__OWNER:
             return getOwner() != null;
-        case SchemaPackage.COLUMN_CONSTRAINT__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+        case SchemaPackage.COLUMN_CONSTRAINT__SCHEMA_QUALIFIED_NAME:
+            return schemaQualifiedName != null;
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy())
-            return super.toString();
-
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: ");
-        result.append(name);
-        result.append(')');
-        return result.toString();
     }
 
 } //ColumnConstraintImpl

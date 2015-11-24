@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.emftext.language.sql.common.DirectSQLStatement;
+import org.emftext.language.sql.common.Statement;
 
 import org.emftext.language.sql.schema.*;
 
@@ -167,6 +168,21 @@ public class SchemaAdapterFactory extends AdapterFactoryImpl {
         @Override
         public Adapter caseReferentialConstraint(ReferentialConstraint object) {
             return createReferentialConstraintAdapter();
+        }
+
+        @Override
+        public Adapter caseTableReference(TableReference object) {
+            return createTableReferenceAdapter();
+        }
+
+        @Override
+        public Adapter caseTableColumnsConstraint(TableColumnsConstraint object) {
+            return createTableColumnsConstraintAdapter();
+        }
+
+        @Override
+        public Adapter caseStatement(Statement object) {
+            return createStatementAdapter();
         }
 
         @Override
@@ -470,6 +486,48 @@ public class SchemaAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createReferentialConstraintAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.schema.TableReference <em>Table Reference</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.schema.TableReference
+     * @generated
+     */
+    public Adapter createTableReferenceAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.schema.TableColumnsConstraint <em>Table Columns Constraint</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.schema.TableColumnsConstraint
+     * @generated
+     */
+    public Adapter createTableColumnsConstraintAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.common.Statement <em>Statement</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.common.Statement
+     * @generated
+     */
+    public Adapter createStatementAdapter() {
         return null;
     }
 

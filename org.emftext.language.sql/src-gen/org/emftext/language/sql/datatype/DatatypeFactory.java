@@ -58,15 +58,6 @@ public interface DatatypeFactory extends EFactory {
     BooleanType createBooleanType();
 
     /**
-     * Returns a new object of class '<em>Datetime Type</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Datetime Type</em>'.
-     * @generated
-     */
-    DatetimeType createDatetimeType();
-
-    /**
      * Returns a new object of class '<em>Exact Numeric Type</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -92,6 +83,33 @@ public interface DatatypeFactory extends EFactory {
      * @generated
      */
     LargeObjectLength createLargeObjectLength();
+
+    /**
+     * Returns a new object of class '<em>Date Type</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Date Type</em>'.
+     * @generated
+     */
+    DateType createDateType();
+
+    /**
+     * Returns a new object of class '<em>Time Type</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Time Type</em>'.
+     * @generated
+     */
+    TimeType createTimeType();
+
+    /**
+     * Returns a new object of class '<em>Timestamp Type</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Timestamp Type</em>'.
+     * @generated
+     */
+    TimestampType createTimestampType();
 
     /**
      * Returns the package supported by this factory.

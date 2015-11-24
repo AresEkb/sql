@@ -122,6 +122,21 @@ public class DatatypeAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
+        public Adapter caseDateType(DateType object) {
+            return createDateTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseTimeType(TimeType object) {
+            return createTimeTypeAdapter();
+        }
+
+        @Override
+        public Adapter caseTimestampType(TimestampType object) {
+            return createTimestampTypeAdapter();
+        }
+
+        @Override
         public Adapter defaultCase(EObject object) {
             return createEObjectAdapter();
         }
@@ -291,6 +306,48 @@ public class DatatypeAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createLargeObjectLengthAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.datatype.DateType <em>Date Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.datatype.DateType
+     * @generated
+     */
+    public Adapter createDateTypeAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.datatype.TimeType <em>Time Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.datatype.TimeType
+     * @generated
+     */
+    public Adapter createTimeTypeAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.datatype.TimestampType <em>Timestamp Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.datatype.TimestampType
+     * @generated
+     */
+    public Adapter createTimestampTypeAdapter() {
         return null;
     }
 

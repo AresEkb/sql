@@ -77,6 +77,36 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
+        public Adapter caseSeparator(Separator object) {
+            return createSeparatorAdapter();
+        }
+
+        @Override
+        public Adapter caseComment(Comment object) {
+            return createCommentAdapter();
+        }
+
+        @Override
+        public Adapter caseSimpleComment(SimpleComment object) {
+            return createSimpleCommentAdapter();
+        }
+
+        @Override
+        public Adapter caseBracketedComment(BracketedComment object) {
+            return createBracketedCommentAdapter();
+        }
+
+        @Override
+        public Adapter caseStatement(Statement object) {
+            return createStatementAdapter();
+        }
+
+        @Override
+        public Adapter caseSchemaQualifiedName(SchemaQualifiedName object) {
+            return createSchemaQualifiedNameAdapter();
+        }
+
+        @Override
         public Adapter defaultCase(EObject object) {
             return createEObjectAdapter();
         }
@@ -120,6 +150,90 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createDirectSQLStatementAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.common.Separator <em>Separator</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.common.Separator
+     * @generated
+     */
+    public Adapter createSeparatorAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.common.Comment <em>Comment</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.common.Comment
+     * @generated
+     */
+    public Adapter createCommentAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.common.SimpleComment <em>Simple Comment</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.common.SimpleComment
+     * @generated
+     */
+    public Adapter createSimpleCommentAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.common.BracketedComment <em>Bracketed Comment</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.common.BracketedComment
+     * @generated
+     */
+    public Adapter createBracketedCommentAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.common.Statement <em>Statement</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.common.Statement
+     * @generated
+     */
+    public Adapter createStatementAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.common.SchemaQualifiedName <em>Schema Qualified Name</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.common.SchemaQualifiedName
+     * @generated
+     */
+    public Adapter createSchemaQualifiedNameAdapter() {
         return null;
     }
 

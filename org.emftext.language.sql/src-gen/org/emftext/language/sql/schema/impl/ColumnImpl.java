@@ -10,8 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.emftext.language.sql.Identifier;
-import org.emftext.language.sql.SchemaQualifiedName;
+import org.emftext.language.sql.common.SchemaQualifiedName;
 
 import org.emftext.language.sql.datatype.DataType;
 
@@ -46,7 +45,7 @@ public class ColumnImpl extends TableElementImpl implements Column {
      * @generated
      * @ordered
      */
-    protected static final Identifier NAME_EDEFAULT = null;
+    protected static final String NAME_EDEFAULT = null;
 
     /**
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -56,7 +55,7 @@ public class ColumnImpl extends TableElementImpl implements Column {
      * @generated
      * @ordered
      */
-    protected Identifier name = NAME_EDEFAULT;
+    protected String name = NAME_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getDataType() <em>Data Type</em>}' containment reference.
@@ -89,24 +88,14 @@ public class ColumnImpl extends TableElementImpl implements Column {
     protected ColumnConstraint constraintDefinition;
 
     /**
-     * The default value of the '{@link #getCollationName() <em>Collation Name</em>}' attribute.
+     * The cached value of the '{@link #getCollationName() <em>Collation Name</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getCollationName()
      * @generated
      * @ordered
      */
-    protected static final SchemaQualifiedName COLLATION_NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getCollationName() <em>Collation Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getCollationName()
-     * @generated
-     * @ordered
-     */
-    protected SchemaQualifiedName collationName = COLLATION_NAME_EDEFAULT;
+    protected SchemaQualifiedName collationName;
 
     /**
      * <!-- begin-user-doc -->
@@ -132,7 +121,7 @@ public class ColumnImpl extends TableElementImpl implements Column {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Identifier getName() {
+    public String getName() {
         return name;
     }
 
@@ -141,8 +130,8 @@ public class ColumnImpl extends TableElementImpl implements Column {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName(Identifier newName) {
-        Identifier oldName = name;
+    public void setName(String newName) {
+        String oldName = name;
         name = newName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SchemaPackage.COLUMN__NAME, oldName, name));
@@ -313,12 +302,40 @@ public class ColumnImpl extends TableElementImpl implements Column {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCollationName(SchemaQualifiedName newCollationName) {
+    public NotificationChain basicSetCollationName(SchemaQualifiedName newCollationName, NotificationChain msgs) {
         SchemaQualifiedName oldCollationName = collationName;
         collationName = newCollationName;
-        if (eNotificationRequired())
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    SchemaPackage.COLUMN__COLLATION_NAME, oldCollationName, newCollationName);
+            if (msgs == null)
+                msgs = notification;
+            else
+                msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCollationName(SchemaQualifiedName newCollationName) {
+        if (newCollationName != collationName) {
+            NotificationChain msgs = null;
+            if (collationName != null)
+                msgs = ((InternalEObject) collationName).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - SchemaPackage.COLUMN__COLLATION_NAME, null, msgs);
+            if (newCollationName != null)
+                msgs = ((InternalEObject) newCollationName).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - SchemaPackage.COLUMN__COLLATION_NAME, null, msgs);
+            msgs = basicSetCollationName(newCollationName, msgs);
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SchemaPackage.COLUMN__COLLATION_NAME,
-                    oldCollationName, collationName));
+                    newCollationName, newCollationName));
     }
 
     /**
@@ -357,6 +374,8 @@ public class ColumnImpl extends TableElementImpl implements Column {
             return basicSetDefaultOption(null, msgs);
         case SchemaPackage.COLUMN__CONSTRAINT_DEFINITION:
             return basicSetConstraintDefinition(null, msgs);
+        case SchemaPackage.COLUMN__COLLATION_NAME:
+            return basicSetCollationName(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -392,7 +411,7 @@ public class ColumnImpl extends TableElementImpl implements Column {
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SchemaPackage.COLUMN__NAME:
-            setName((Identifier) newValue);
+            setName((String) newValue);
             return;
         case SchemaPackage.COLUMN__DATA_TYPE:
             setDataType((DataType) newValue);
@@ -431,7 +450,7 @@ public class ColumnImpl extends TableElementImpl implements Column {
             setConstraintDefinition((ColumnConstraint) null);
             return;
         case SchemaPackage.COLUMN__COLLATION_NAME:
-            setCollationName(COLLATION_NAME_EDEFAULT);
+            setCollationName((SchemaQualifiedName) null);
             return;
         }
         super.eUnset(featureID);
@@ -454,8 +473,7 @@ public class ColumnImpl extends TableElementImpl implements Column {
         case SchemaPackage.COLUMN__CONSTRAINT_DEFINITION:
             return constraintDefinition != null;
         case SchemaPackage.COLUMN__COLLATION_NAME:
-            return COLLATION_NAME_EDEFAULT == null ? collationName != null
-                    : !COLLATION_NAME_EDEFAULT.equals(collationName);
+            return collationName != null;
         }
         return super.eIsSet(featureID);
     }
@@ -473,8 +491,6 @@ public class ColumnImpl extends TableElementImpl implements Column {
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (name: ");
         result.append(name);
-        result.append(", collationName: ");
-        result.append(collationName);
         result.append(')');
         return result.toString();
     }

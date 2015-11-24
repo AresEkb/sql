@@ -2,8 +2,7 @@
  */
 package org.emftext.language.sql.schema;
 
-import org.emftext.language.sql.Identifier;
-import org.emftext.language.sql.SchemaQualifiedName;
+import org.emftext.language.sql.common.SchemaQualifiedName;
 
 import org.emftext.language.sql.datatype.DataType;
 
@@ -37,12 +36,12 @@ public interface Column extends TableElement {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(Identifier)
+     * @see #setName(String)
      * @see org.emftext.language.sql.schema.SchemaPackage#getColumn_Name()
-     * @model id="true" dataType="org.emftext.language.sql.common.Identifier" required="true"
+     * @model id="true" required="true"
      * @generated
      */
-    Identifier getName();
+    String getName();
 
     /**
      * Sets the value of the '{@link org.emftext.language.sql.schema.Column#getName <em>Name</em>}' attribute.
@@ -52,7 +51,7 @@ public interface Column extends TableElement {
      * @see #getName()
      * @generated
      */
-    void setName(Identifier value);
+    void setName(String value);
 
     /**
      * Returns the value of the '<em><b>Data Type</b></em>' containment reference.
@@ -137,26 +136,26 @@ public interface Column extends TableElement {
     void setConstraintDefinition(ColumnConstraint value);
 
     /**
-     * Returns the value of the '<em><b>Collation Name</b></em>' attribute.
+     * Returns the value of the '<em><b>Collation Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Collation Name</em>' attribute isn't clear,
+     * If the meaning of the '<em>Collation Name</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Collation Name</em>' attribute.
+     * @return the value of the '<em>Collation Name</em>' containment reference.
      * @see #setCollationName(SchemaQualifiedName)
      * @see org.emftext.language.sql.schema.SchemaPackage#getColumn_CollationName()
-     * @model dataType="org.emftext.language.sql.common.SchemaQualifiedName"
+     * @model containment="true"
      * @generated
      */
     SchemaQualifiedName getCollationName();
 
     /**
-     * Sets the value of the '{@link org.emftext.language.sql.schema.Column#getCollationName <em>Collation Name</em>}' attribute.
+     * Sets the value of the '{@link org.emftext.language.sql.schema.Column#getCollationName <em>Collation Name</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Collation Name</em>' attribute.
+     * @param value the new value of the '<em>Collation Name</em>' containment reference.
      * @see #getCollationName()
      * @generated
      */

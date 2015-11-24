@@ -26,7 +26,7 @@ public enum NationalCharacterStringTypeKind implements Enumerator {
      * @generated
      * @ordered
      */
-    NATIONAL_CHARACTER(0, "NATIONAL_CHARACTER", "NATIONAL CHARACTER"),
+    NATIONAL_CHARACTER(0, "NATIONAL_CHARACTER", "NATIONAL_CHARACTER"),
 
     /**
      * The '<em><b>NATIONAL CHAR</b></em>' literal object.
@@ -36,7 +36,7 @@ public enum NationalCharacterStringTypeKind implements Enumerator {
      * @generated
      * @ordered
      */
-    NATIONAL_CHAR(1, "NATIONAL_CHAR", "NATIONAL CHAR"),
+    NATIONAL_CHAR(1, "NATIONAL_CHAR", "NATIONAL_CHAR"),
 
     /**
      * The '<em><b>NCHAR</b></em>' literal object.
@@ -87,7 +87,7 @@ public enum NationalCharacterStringTypeKind implements Enumerator {
      * </p>
      * <!-- end-user-doc -->
      * @see #NATIONAL_CHARACTER
-     * @model literal="NATIONAL CHARACTER"
+     * @model
      * @generated
      * @ordered
      */
@@ -102,7 +102,7 @@ public enum NationalCharacterStringTypeKind implements Enumerator {
      * </p>
      * <!-- end-user-doc -->
      * @see #NATIONAL_CHAR
-     * @model literal="NATIONAL CHAR"
+     * @model
      * @generated
      * @ordered
      */

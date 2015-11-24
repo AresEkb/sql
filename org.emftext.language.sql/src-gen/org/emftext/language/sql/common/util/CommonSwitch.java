@@ -77,6 +77,68 @@ public class CommonSwitch<T> extends Switch<T> {
             DirectSQLStatement directSQLStatement = (DirectSQLStatement) theEObject;
             T result = caseDirectSQLStatement(directSQLStatement);
             if (result == null)
+                result = caseStatement(directSQLStatement);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case CommonPackage.SEPARATOR: {
+            Separator separator = (Separator) theEObject;
+            T result = caseSeparator(separator);
+            if (result == null)
+                result = caseStatement(separator);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case CommonPackage.COMMENT: {
+            Comment comment = (Comment) theEObject;
+            T result = caseComment(comment);
+            if (result == null)
+                result = caseSeparator(comment);
+            if (result == null)
+                result = caseStatement(comment);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case CommonPackage.SIMPLE_COMMENT: {
+            SimpleComment simpleComment = (SimpleComment) theEObject;
+            T result = caseSimpleComment(simpleComment);
+            if (result == null)
+                result = caseComment(simpleComment);
+            if (result == null)
+                result = caseSeparator(simpleComment);
+            if (result == null)
+                result = caseStatement(simpleComment);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case CommonPackage.BRACKETED_COMMENT: {
+            BracketedComment bracketedComment = (BracketedComment) theEObject;
+            T result = caseBracketedComment(bracketedComment);
+            if (result == null)
+                result = caseComment(bracketedComment);
+            if (result == null)
+                result = caseSeparator(bracketedComment);
+            if (result == null)
+                result = caseStatement(bracketedComment);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case CommonPackage.STATEMENT: {
+            Statement statement = (Statement) theEObject;
+            T result = caseStatement(statement);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case CommonPackage.SCHEMA_QUALIFIED_NAME: {
+            SchemaQualifiedName schemaQualifiedName = (SchemaQualifiedName) theEObject;
+            T result = caseSchemaQualifiedName(schemaQualifiedName);
+            if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
@@ -112,6 +174,96 @@ public class CommonSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseDirectSQLStatement(DirectSQLStatement object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Separator</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Separator</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSeparator(Separator object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Comment</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Comment</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseComment(Comment object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Simple Comment</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Simple Comment</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSimpleComment(SimpleComment object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Bracketed Comment</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Bracketed Comment</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBracketedComment(BracketedComment object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseStatement(Statement object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Schema Qualified Name</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Schema Qualified Name</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSchemaQualifiedName(SchemaQualifiedName object) {
         return null;
     }
 

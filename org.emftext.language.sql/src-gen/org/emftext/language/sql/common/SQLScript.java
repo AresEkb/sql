@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface SQLScript extends EObject {
     /**
      * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
-     * The list contents are of type {@link org.emftext.language.sql.common.DirectSQLStatement}.
+     * The list contents are of type {@link org.emftext.language.sql.common.Statement}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,
@@ -37,6 +37,6 @@ public interface SQLScript extends EObject {
      * @model containment="true"
      * @generated
      */
-    EList<DirectSQLStatement> getStatements();
+    EList<Statement> getStatements();
 
 } // SQLScript

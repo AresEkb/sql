@@ -217,108 +217,144 @@ public class SqlPrinter2 implements org.emftext.language.sql.resource.sql.ISqlTe
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_0, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.schema.TableDefinition) {
+		if (element instanceof org.emftext.language.sql.common.SimpleComment) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_1, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.schema.TableElementList) {
+		if (element instanceof org.emftext.language.sql.common.BracketedComment) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_2, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.schema.Column) {
+		if (element instanceof org.emftext.language.sql.common.SchemaQualifiedName) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_3, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.schema.LiteralDefaultOption) {
+		if (element instanceof org.emftext.language.sql.literal.ExactNumericLiteral) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_4, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.schema.DatetimeValueFunctionDefaultOption) {
+		if (element instanceof org.emftext.language.sql.literal.ApproximateNumericLiteral) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_5, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.schema.ImplicitlyTypedValueSpecificationDefaultOption) {
+		if (element instanceof org.emftext.language.sql.literal.CharacterStringLiteral) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_6, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.schema.NotNullColumnConstraint) {
+		if (element instanceof org.emftext.language.sql.literal.NationalCharacterStringLiteral) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_7, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.schema.UniqueColumnConstraint) {
+		if (element instanceof org.emftext.language.sql.literal.DateLiteral) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_8, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.schema.ReferentialColumnConstraint) {
+		if (element instanceof org.emftext.language.sql.literal.TimeLiteral) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_9, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.schema.UniqueTableConstraint) {
+		if (element instanceof org.emftext.language.sql.literal.TimestampLiteral) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_10, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.schema.ReferentialTableConstraint) {
+		if (element instanceof org.emftext.language.sql.literal.BooleanLiteral) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_11, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.literal.DateLiteral) {
+		if (element instanceof org.emftext.language.sql.schema.TableReference) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_12, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.literal.TimeLiteral) {
+		if (element instanceof org.emftext.language.sql.schema.TableDefinition) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_13, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.literal.TimestampLiteral) {
+		if (element instanceof org.emftext.language.sql.schema.TableElementList) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_14, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.literal.IntervalLiteral) {
+		if (element instanceof org.emftext.language.sql.schema.Column) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_15, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.literal.BooleanLiteral) {
+		if (element instanceof org.emftext.language.sql.schema.LiteralDefaultOption) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_16, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.datatype.CharacterStringType) {
+		if (element instanceof org.emftext.language.sql.schema.DatetimeValueFunctionDefaultOption) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_17, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.datatype.NationalCharacterStringType) {
+		if (element instanceof org.emftext.language.sql.schema.ImplicitlyTypedValueSpecificationDefaultOption) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_18, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.datatype.BinaryLargeObjectStringType) {
+		if (element instanceof org.emftext.language.sql.schema.NotNullColumnConstraint) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_19, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.datatype.LargeObjectLength) {
+		if (element instanceof org.emftext.language.sql.schema.UniqueColumnConstraint) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_20, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.datatype.BooleanType) {
+		if (element instanceof org.emftext.language.sql.schema.ReferentialColumnConstraint) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_21, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.datatype.ExactNumericType) {
+		if (element instanceof org.emftext.language.sql.schema.UniqueTableConstraint) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_22, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.datatype.ApproximateNumericType) {
+		if (element instanceof org.emftext.language.sql.schema.ReferentialTableConstraint) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_23, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.datatype.DatetimeType) {
+		if (element instanceof org.emftext.language.sql.datatype.ExactNumericType) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_24, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.function.DatetimeValueFunction) {
+		if (element instanceof org.emftext.language.sql.datatype.ApproximateNumericType) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.sql.expression.NullSpecification) {
+		if (element instanceof org.emftext.language.sql.datatype.CharacterStringType) {
 			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.sql.datatype.NationalCharacterStringType) {
+			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.sql.datatype.BinaryLargeObjectStringType) {
+			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.sql.datatype.LargeObjectLength) {
+			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_29, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.sql.datatype.DateType) {
+			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_30, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.sql.datatype.TimeType) {
+			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_31, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.sql.datatype.TimestampType) {
+			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_32, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.sql.datatype.BooleanType) {
+			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_33, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.sql.function.DatetimeValueFunction) {
+			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_34, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.sql.expression.NullSpecification) {
+			printInternal(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_35, foundFormattingElements);
 			return;
 		}
 		

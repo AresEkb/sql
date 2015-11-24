@@ -4,8 +4,6 @@ package org.emftext.language.sql.common.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.emftext.language.sql.common.CommonPackage;
 import org.emftext.language.sql.common.DirectSQLStatement;
 
@@ -16,7 +14,7 @@ import org.emftext.language.sql.common.DirectSQLStatement;
  *
  * @generated
  */
-public abstract class DirectSQLStatementImpl extends MinimalEObjectImpl.Container implements DirectSQLStatement {
+public abstract class DirectSQLStatementImpl extends StatementImpl implements DirectSQLStatement {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

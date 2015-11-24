@@ -56,41 +56,25 @@ public class LiteralFactoryImpl extends EFactoryImpl implements LiteralFactory {
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-        case LiteralPackage.SIGNED_NUMERIC_LITERAL:
-            return createSignedNumericLiteral();
         case LiteralPackage.CHARACTER_STRING_LITERAL:
             return createCharacterStringLiteral();
         case LiteralPackage.NATIONAL_CHARACTER_STRING_LITERAL:
             return createNationalCharacterStringLiteral();
-        case LiteralPackage.UNICODE_CHARACTER_STRING_LITERAL:
-            return createUnicodeCharacterStringLiteral();
-        case LiteralPackage.BINARY_STRING_LITERAL:
-            return createBinaryStringLiteral();
-        case LiteralPackage.INTERVAL_LITERAL:
-            return createIntervalLiteral();
         case LiteralPackage.BOOLEAN_LITERAL:
             return createBooleanLiteral();
-        case LiteralPackage.UNSIGNED_NUMERIC_LITERAL:
-            return createUnsignedNumericLiteral();
         case LiteralPackage.DATE_LITERAL:
             return createDateLiteral();
         case LiteralPackage.TIME_LITERAL:
             return createTimeLiteral();
         case LiteralPackage.TIMESTAMP_LITERAL:
             return createTimestampLiteral();
+        case LiteralPackage.EXACT_NUMERIC_LITERAL:
+            return createExactNumericLiteral();
+        case LiteralPackage.APPROXIMATE_NUMERIC_LITERAL:
+            return createApproximateNumericLiteral();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public SignedNumericLiteral createSignedNumericLiteral() {
-        SignedNumericLiteralImpl signedNumericLiteral = new SignedNumericLiteralImpl();
-        return signedNumericLiteral;
     }
 
     /**
@@ -118,49 +102,9 @@ public class LiteralFactoryImpl extends EFactoryImpl implements LiteralFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public UnicodeCharacterStringLiteral createUnicodeCharacterStringLiteral() {
-        UnicodeCharacterStringLiteralImpl unicodeCharacterStringLiteral = new UnicodeCharacterStringLiteralImpl();
-        return unicodeCharacterStringLiteral;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public BinaryStringLiteral createBinaryStringLiteral() {
-        BinaryStringLiteralImpl binaryStringLiteral = new BinaryStringLiteralImpl();
-        return binaryStringLiteral;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public IntervalLiteral createIntervalLiteral() {
-        IntervalLiteralImpl intervalLiteral = new IntervalLiteralImpl();
-        return intervalLiteral;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public BooleanLiteral createBooleanLiteral() {
         BooleanLiteralImpl booleanLiteral = new BooleanLiteralImpl();
         return booleanLiteral;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public UnsignedNumericLiteral createUnsignedNumericLiteral() {
-        UnsignedNumericLiteralImpl unsignedNumericLiteral = new UnsignedNumericLiteralImpl();
-        return unsignedNumericLiteral;
     }
 
     /**
@@ -191,6 +135,26 @@ public class LiteralFactoryImpl extends EFactoryImpl implements LiteralFactory {
     public TimestampLiteral createTimestampLiteral() {
         TimestampLiteralImpl timestampLiteral = new TimestampLiteralImpl();
         return timestampLiteral;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ExactNumericLiteral createExactNumericLiteral() {
+        ExactNumericLiteralImpl exactNumericLiteral = new ExactNumericLiteralImpl();
+        return exactNumericLiteral;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ApproximateNumericLiteral createApproximateNumericLiteral() {
+        ApproximateNumericLiteralImpl approximateNumericLiteral = new ApproximateNumericLiteralImpl();
+        return approximateNumericLiteral;
     }
 
     /**

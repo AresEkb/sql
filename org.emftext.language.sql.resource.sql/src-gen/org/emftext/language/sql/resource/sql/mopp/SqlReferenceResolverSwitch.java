@@ -20,25 +20,20 @@ public class SqlReferenceResolverSwitch implements org.emftext.language.sql.reso
 	 */
 	private Map<Object, Object> options;
 	
-	protected org.emftext.language.sql.resource.sql.analysis.ReferentialConstraintReferencedTableReferenceResolver referentialConstraintReferencedTableReferenceResolver = new org.emftext.language.sql.resource.sql.analysis.ReferentialConstraintReferencedTableReferenceResolver();
+	protected org.emftext.language.sql.resource.sql.analysis.TableReferenceTargetReferenceResolver tableReferenceTargetReferenceResolver = new org.emftext.language.sql.resource.sql.analysis.TableReferenceTargetReferenceResolver();
 	protected org.emftext.language.sql.resource.sql.analysis.ReferentialConstraintReferencedColumnsReferenceResolver referentialConstraintReferencedColumnsReferenceResolver = new org.emftext.language.sql.resource.sql.analysis.ReferentialConstraintReferencedColumnsReferenceResolver();
-	protected org.emftext.language.sql.resource.sql.analysis.UniqueTableConstraintColumnsReferenceResolver uniqueTableConstraintColumnsReferenceResolver = new org.emftext.language.sql.resource.sql.analysis.UniqueTableConstraintColumnsReferenceResolver();
-	protected org.emftext.language.sql.resource.sql.analysis.ReferentialTableConstraintColumnsReferenceResolver referentialTableConstraintColumnsReferenceResolver = new org.emftext.language.sql.resource.sql.analysis.ReferentialTableConstraintColumnsReferenceResolver();
+	protected org.emftext.language.sql.resource.sql.analysis.TableColumnsConstraintColumnsReferenceResolver tableColumnsConstraintColumnsReferenceResolver = new org.emftext.language.sql.resource.sql.analysis.TableColumnsConstraintColumnsReferenceResolver();
 	
-	public org.emftext.language.sql.resource.sql.ISqlReferenceResolver<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.TableDefinition> getReferentialConstraintReferencedTableReferenceResolver() {
-		return getResolverChain(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialConstraint_ReferencedTable(), referentialConstraintReferencedTableReferenceResolver);
+	public org.emftext.language.sql.resource.sql.ISqlReferenceResolver<org.emftext.language.sql.schema.TableReference, org.emftext.language.sql.schema.TableDefinition> getTableReferenceTargetReferenceResolver() {
+		return getResolverChain(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableReference_Target(), tableReferenceTargetReferenceResolver);
 	}
 	
 	public org.emftext.language.sql.resource.sql.ISqlReferenceResolver<org.emftext.language.sql.schema.ReferentialConstraint, org.emftext.language.sql.schema.Column> getReferentialConstraintReferencedColumnsReferenceResolver() {
 		return getResolverChain(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialConstraint_ReferencedColumns(), referentialConstraintReferencedColumnsReferenceResolver);
 	}
 	
-	public org.emftext.language.sql.resource.sql.ISqlReferenceResolver<org.emftext.language.sql.schema.UniqueTableConstraint, org.emftext.language.sql.schema.Column> getUniqueTableConstraintColumnsReferenceResolver() {
-		return getResolverChain(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueTableConstraint_Columns(), uniqueTableConstraintColumnsReferenceResolver);
-	}
-	
-	public org.emftext.language.sql.resource.sql.ISqlReferenceResolver<org.emftext.language.sql.schema.ReferentialTableConstraint, org.emftext.language.sql.schema.Column> getReferentialTableConstraintColumnsReferenceResolver() {
-		return getResolverChain(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialTableConstraint_Columns(), referentialTableConstraintColumnsReferenceResolver);
+	public org.emftext.language.sql.resource.sql.ISqlReferenceResolver<org.emftext.language.sql.schema.TableColumnsConstraint, org.emftext.language.sql.schema.Column> getTableColumnsConstraintColumnsReferenceResolver() {
+		return getResolverChain(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableColumnsConstraint_Columns(), tableColumnsConstraintColumnsReferenceResolver);
 	}
 	
 	public void setOptions(Map<?, ?> options) {
@@ -46,22 +41,21 @@ public class SqlReferenceResolverSwitch implements org.emftext.language.sql.reso
 			this.options = new LinkedHashMap<Object, Object>();
 			this.options.putAll(options);
 		}
-		referentialConstraintReferencedTableReferenceResolver.setOptions(options);
+		tableReferenceTargetReferenceResolver.setOptions(options);
 		referentialConstraintReferencedColumnsReferenceResolver.setOptions(options);
-		uniqueTableConstraintColumnsReferenceResolver.setOptions(options);
-		referentialTableConstraintColumnsReferenceResolver.setOptions(options);
+		tableColumnsConstraintColumnsReferenceResolver.setOptions(options);
 	}
 	
 	public void resolveFuzzy(String identifier, EObject container, EReference reference, int position, org.emftext.language.sql.resource.sql.ISqlReferenceResolveResult<EObject> result) {
 		if (container == null) {
 			return;
 		}
-		if (org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialConstraint().isInstance(container)) {
+		if (org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableReference().isInstance(container)) {
 			SqlFuzzyResolveResult<org.emftext.language.sql.schema.TableDefinition> frr = new SqlFuzzyResolveResult<org.emftext.language.sql.schema.TableDefinition>(result);
 			String referenceName = reference.getName();
 			EStructuralFeature feature = container.eClass().getEStructuralFeature(referenceName);
-			if (feature != null && feature instanceof EReference && referenceName != null && referenceName.equals("referencedTable")) {
-				referentialConstraintReferencedTableReferenceResolver.resolve(identifier, (org.emftext.language.sql.schema.ReferentialConstraint) container, (EReference) feature, position, true, frr);
+			if (feature != null && feature instanceof EReference && referenceName != null && referenceName.equals("target")) {
+				tableReferenceTargetReferenceResolver.resolve(identifier, (org.emftext.language.sql.schema.TableReference) container, (EReference) feature, position, true, frr);
 			}
 		}
 		if (org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialConstraint().isInstance(container)) {
@@ -72,36 +66,25 @@ public class SqlReferenceResolverSwitch implements org.emftext.language.sql.reso
 				referentialConstraintReferencedColumnsReferenceResolver.resolve(identifier, (org.emftext.language.sql.schema.ReferentialConstraint) container, (EReference) feature, position, true, frr);
 			}
 		}
-		if (org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueTableConstraint().isInstance(container)) {
+		if (org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableColumnsConstraint().isInstance(container)) {
 			SqlFuzzyResolveResult<org.emftext.language.sql.schema.Column> frr = new SqlFuzzyResolveResult<org.emftext.language.sql.schema.Column>(result);
 			String referenceName = reference.getName();
 			EStructuralFeature feature = container.eClass().getEStructuralFeature(referenceName);
 			if (feature != null && feature instanceof EReference && referenceName != null && referenceName.equals("columns")) {
-				uniqueTableConstraintColumnsReferenceResolver.resolve(identifier, (org.emftext.language.sql.schema.UniqueTableConstraint) container, (EReference) feature, position, true, frr);
-			}
-		}
-		if (org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialTableConstraint().isInstance(container)) {
-			SqlFuzzyResolveResult<org.emftext.language.sql.schema.Column> frr = new SqlFuzzyResolveResult<org.emftext.language.sql.schema.Column>(result);
-			String referenceName = reference.getName();
-			EStructuralFeature feature = container.eClass().getEStructuralFeature(referenceName);
-			if (feature != null && feature instanceof EReference && referenceName != null && referenceName.equals("columns")) {
-				referentialTableConstraintColumnsReferenceResolver.resolve(identifier, (org.emftext.language.sql.schema.ReferentialTableConstraint) container, (EReference) feature, position, true, frr);
+				tableColumnsConstraintColumnsReferenceResolver.resolve(identifier, (org.emftext.language.sql.schema.TableColumnsConstraint) container, (EReference) feature, position, true, frr);
 			}
 		}
 	}
 	
 	public org.emftext.language.sql.resource.sql.ISqlReferenceResolver<? extends EObject, ? extends EObject> getResolver(EStructuralFeature reference) {
-		if (reference == org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialConstraint_ReferencedTable()) {
-			return getResolverChain(reference, referentialConstraintReferencedTableReferenceResolver);
+		if (reference == org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableReference_Target()) {
+			return getResolverChain(reference, tableReferenceTargetReferenceResolver);
 		}
 		if (reference == org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialConstraint_ReferencedColumns()) {
 			return getResolverChain(reference, referentialConstraintReferencedColumnsReferenceResolver);
 		}
-		if (reference == org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueTableConstraint_Columns()) {
-			return getResolverChain(reference, uniqueTableConstraintColumnsReferenceResolver);
-		}
-		if (reference == org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialTableConstraint_Columns()) {
-			return getResolverChain(reference, referentialTableConstraintColumnsReferenceResolver);
+		if (reference == org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableColumnsConstraint_Columns()) {
+			return getResolverChain(reference, tableColumnsConstraintColumnsReferenceResolver);
 		}
 		return null;
 	}

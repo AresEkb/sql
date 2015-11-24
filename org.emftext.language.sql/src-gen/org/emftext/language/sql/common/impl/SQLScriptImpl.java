@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.emftext.language.sql.common.CommonPackage;
-import org.emftext.language.sql.common.DirectSQLStatement;
 import org.emftext.language.sql.common.SQLScript;
+import org.emftext.language.sql.common.Statement;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +42,7 @@ public class SQLScriptImpl extends MinimalEObjectImpl.Container implements SQLSc
      * @generated
      * @ordered
      */
-    protected EList<DirectSQLStatement> statements;
+    protected EList<Statement> statements;
 
     /**
      * <!-- begin-user-doc -->
@@ -68,9 +68,9 @@ public class SQLScriptImpl extends MinimalEObjectImpl.Container implements SQLSc
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<DirectSQLStatement> getStatements() {
+    public EList<Statement> getStatements() {
         if (statements == null) {
-            statements = new EObjectContainmentEList<DirectSQLStatement>(DirectSQLStatement.class, this,
+            statements = new EObjectContainmentEList<Statement>(Statement.class, this,
                     CommonPackage.SQL_SCRIPT__STATEMENTS);
         }
         return statements;
@@ -115,7 +115,7 @@ public class SQLScriptImpl extends MinimalEObjectImpl.Container implements SQLSc
         switch (featureID) {
         case CommonPackage.SQL_SCRIPT__STATEMENTS:
             getStatements().clear();
-            getStatements().addAll((Collection<? extends DirectSQLStatement>) newValue);
+            getStatements().addAll((Collection<? extends Statement>) newValue);
             return;
         }
         super.eSet(featureID, newValue);

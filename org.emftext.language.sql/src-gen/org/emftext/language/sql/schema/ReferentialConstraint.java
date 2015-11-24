@@ -41,29 +41,29 @@ public interface ReferentialConstraint extends EObject {
     EList<Column> getReferencedColumns();
 
     /**
-     * Returns the value of the '<em><b>Referenced Table</b></em>' reference.
+     * Returns the value of the '<em><b>Referenced Table</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Referenced Table</em>' reference isn't clear,
+     * If the meaning of the '<em>Referenced Table</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Referenced Table</em>' reference.
-     * @see #setReferencedTable(TableDefinition)
+     * @return the value of the '<em>Referenced Table</em>' containment reference.
+     * @see #setReferencedTable(TableReference)
      * @see org.emftext.language.sql.schema.SchemaPackage#getReferentialConstraint_ReferencedTable()
-     * @model required="true"
+     * @model containment="true" required="true"
      * @generated
      */
-    TableDefinition getReferencedTable();
+    TableReference getReferencedTable();
 
     /**
-     * Sets the value of the '{@link org.emftext.language.sql.schema.ReferentialConstraint#getReferencedTable <em>Referenced Table</em>}' reference.
+     * Sets the value of the '{@link org.emftext.language.sql.schema.ReferentialConstraint#getReferencedTable <em>Referenced Table</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Referenced Table</em>' reference.
+     * @param value the new value of the '<em>Referenced Table</em>' containment reference.
      * @see #getReferencedTable()
      * @generated
      */
-    void setReferencedTable(TableDefinition value);
+    void setReferencedTable(TableReference value);
 
 } // ReferentialConstraint

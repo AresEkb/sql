@@ -2,8 +2,6 @@
  */
 package org.emftext.language.sql.common;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Direct SQL Statement</b></em>'.
@@ -14,5 +12,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface DirectSQLStatement extends EObject {
+public interface DirectSQLStatement extends Statement {
 } // DirectSQLStatement

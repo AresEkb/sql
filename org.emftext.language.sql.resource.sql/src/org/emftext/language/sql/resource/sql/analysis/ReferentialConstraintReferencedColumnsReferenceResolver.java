@@ -22,17 +22,20 @@ public class ReferentialConstraintReferencedColumnsReferenceResolver
 
     public void resolve(String identifier, ReferentialConstraint container, EReference reference, int position,
             boolean resolveFuzzy, final ISqlReferenceResolveResult<Column> result) {
-        Stream<Column> columns = Stream.of(container.getReferencedTable())
+        
+        Stream<Column> columns = Stream.of(container.getReferencedTable().getTarget())
+            .filter(table -> table != null)
             .map(table -> table.getContentsSource())
             .filter(src -> src instanceof TableElementList)
             .flatMap(list -> ((TableElementList) list).getElements().stream())
             .filter(element -> element instanceof Column)
             .map(col -> (Column) col);
 
-        Consumer<Column> addMapping = col -> result.addMapping(col.getName().toString(), col);
+        Consumer<Column> addMapping = col -> result.addMapping(col.getName(), col);
         
         if (resolveFuzzy) {
             columns
+                .filter(col -> !container.getReferencedColumns().contains(col))
                 .filter(col -> col.getName().startsWith(identifier))
                 .forEach(addMapping);
         } else {
@@ -40,11 +43,23 @@ public class ReferentialConstraintReferencedColumnsReferenceResolver
                 .filter(col -> col.getName().equals(identifier))
                 .findFirst()
                 .ifPresent(addMapping);
+//                .ifPresent(new Consumer<Column>() {
+//                    @Override
+//                    public void accept(Column col) {
+//                        int pos = container.getReferencedColumns().indexOf(col);
+//                        if (pos >= 0 && pos >= position) {
+//                            result.setErrorMessage("Referenced columns must be unique");
+//                        }
+//                        else {
+//                            addMapping.accept(col);
+//                        }
+//                    }
+//                });
         }
     }
     
     public String deResolve(Column element, ReferentialConstraint container, EReference reference) {
-        return element.getName().toString();
+        return element.getName();
     }
 
     public void setOptions(Map<?, ?> options) {

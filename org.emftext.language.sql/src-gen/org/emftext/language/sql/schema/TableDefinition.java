@@ -2,7 +2,9 @@
  */
 package org.emftext.language.sql.schema;
 
-import org.emftext.language.sql.SchemaQualifiedName;
+import org.eclipse.emf.ecore.EObject;
+
+import org.emftext.language.sql.common.SchemaQualifiedName;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,43 +15,17 @@ import org.emftext.language.sql.SchemaQualifiedName;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.emftext.language.sql.schema.TableDefinition#getName <em>Name</em>}</li>
- *   <li>{@link org.emftext.language.sql.schema.TableDefinition#getContentsSource <em>Contents Source</em>}</li>
+ *   <li>{@link org.emftext.language.sql.schema.TableDefinition#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.emftext.language.sql.schema.TableDefinition#getSchemaQualifiedName <em>Schema Qualified Name</em>}</li>
  *   <li>{@link org.emftext.language.sql.schema.TableDefinition#getScope <em>Scope</em>}</li>
- *   <li>{@link org.emftext.language.sql.schema.TableDefinition#getCommitAction <em>Commit Action</em>}</li>
+ *   <li>{@link org.emftext.language.sql.schema.TableDefinition#getContentsSource <em>Contents Source</em>}</li>
  * </ul>
  *
  * @see org.emftext.language.sql.schema.SchemaPackage#getTableDefinition()
  * @model
  * @generated
  */
-public interface TableDefinition extends SQLSchemaDefinitionStatement {
-    /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(SchemaQualifiedName)
-     * @see org.emftext.language.sql.schema.SchemaPackage#getTableDefinition_Name()
-     * @model dataType="org.emftext.language.sql.common.LocalOrSchemaQualifiedName" required="true"
-     * @generated
-     */
-    SchemaQualifiedName getName();
-
-    /**
-     * Sets the value of the '{@link org.emftext.language.sql.schema.TableDefinition#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
-    void setName(SchemaQualifiedName value);
-
+public interface TableDefinition extends SQLSchemaDefinitionStatement, EObject {
     /**
      * Returns the value of the '<em><b>Contents Source</b></em>' containment reference.
      * It is bidirectional and its opposite is '{@link org.emftext.language.sql.schema.TableContentsSource#getOwner <em>Owner</em>}'.
@@ -93,7 +69,7 @@ public interface TableDefinition extends SQLSchemaDefinitionStatement {
      * @see #unsetScope()
      * @see #setScope(TableScope)
      * @see org.emftext.language.sql.schema.SchemaPackage#getTableDefinition_Scope()
-     * @model unsettable="true"
+     * @model unsettable="true" required="true"
      * @generated
      */
     TableScope getScope();
@@ -135,32 +111,56 @@ public interface TableDefinition extends SQLSchemaDefinitionStatement {
     boolean isSetScope();
 
     /**
-     * Returns the value of the '<em><b>Commit Action</b></em>' attribute.
-     * The literals are from the enumeration {@link org.emftext.language.sql.schema.TableCommitAction}.
+     * Returns the value of the '<em><b>Schema Qualified Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Commit Action</em>' attribute isn't clear,
+     * If the meaning of the '<em>Schema Qualified Name</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Commit Action</em>' attribute.
-     * @see org.emftext.language.sql.schema.TableCommitAction
-     * @see #setCommitAction(TableCommitAction)
-     * @see org.emftext.language.sql.schema.SchemaPackage#getTableDefinition_CommitAction()
-     * @model
+     * @return the value of the '<em>Schema Qualified Name</em>' containment reference.
+     * @see #setSchemaQualifiedName(SchemaQualifiedName)
+     * @see org.emftext.language.sql.schema.SchemaPackage#getTableDefinition_SchemaQualifiedName()
+     * @model containment="true" required="true"
      * @generated
      */
-    TableCommitAction getCommitAction();
+    SchemaQualifiedName getSchemaQualifiedName();
 
     /**
-     * Sets the value of the '{@link org.emftext.language.sql.schema.TableDefinition#getCommitAction <em>Commit Action</em>}' attribute.
+     * Sets the value of the '{@link org.emftext.language.sql.schema.TableDefinition#getSchemaQualifiedName <em>Schema Qualified Name</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Commit Action</em>' attribute.
-     * @see org.emftext.language.sql.schema.TableCommitAction
-     * @see #getCommitAction()
+     * @param value the new value of the '<em>Schema Qualified Name</em>' containment reference.
+     * @see #getSchemaQualifiedName()
      * @generated
      */
-    void setCommitAction(TableCommitAction value);
+    void setSchemaQualifiedName(SchemaQualifiedName value);
+
+    /**
+     * Returns the value of the '<em><b>Label</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Label</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Label</em>' attribute.
+     * @see #setLabel(String)
+     * @see org.emftext.language.sql.schema.SchemaPackage#getTableDefinition_Label()
+     * @model required="true" transient="true" volatile="true" derived="true"
+     *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if schemaQualifiedName.oclIsUndefined() then \'\' else schemaQualifiedName.name endif'"
+     * @generated
+     */
+    String getLabel();
+
+    /**
+     * Sets the value of the '{@link org.emftext.language.sql.schema.TableDefinition#getLabel <em>Label</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Label</em>' attribute.
+     * @see #getLabel()
+     * @generated
+     */
+    void setLabel(String value);
 
 } // TableDefinition

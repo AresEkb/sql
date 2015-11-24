@@ -4,12 +4,15 @@ package org.emftext.language.sql.datatype.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.emftext.language.sql.UnsignedInteger;
 
+import org.emftext.language.sql.common.SchemaQualifiedName;
 import org.emftext.language.sql.datatype.DatatypePackage;
 import org.emftext.language.sql.datatype.NationalCharacterStringType;
 import org.emftext.language.sql.datatype.NationalCharacterStringTypeKind;
@@ -71,24 +74,14 @@ public class NationalCharacterStringTypeImpl extends PredefinedTypeImpl implemen
     protected UnsignedInteger length = LENGTH_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getCollationName() <em>Collation Name</em>}' attribute.
+     * The cached value of the '{@link #getCollationName() <em>Collation Name</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getCollationName()
      * @generated
      * @ordered
      */
-    protected static final String COLLATION_NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getCollationName() <em>Collation Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getCollationName()
-     * @generated
-     * @ordered
-     */
-    protected String collationName = COLLATION_NAME_EDEFAULT;
+    protected SchemaQualifiedName collationName;
 
     /**
      * <!-- begin-user-doc -->
@@ -158,7 +151,7 @@ public class NationalCharacterStringTypeImpl extends PredefinedTypeImpl implemen
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getCollationName() {
+    public SchemaQualifiedName getCollationName() {
         return collationName;
     }
 
@@ -167,12 +160,57 @@ public class NationalCharacterStringTypeImpl extends PredefinedTypeImpl implemen
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCollationName(String newCollationName) {
-        String oldCollationName = collationName;
+    public NotificationChain basicSetCollationName(SchemaQualifiedName newCollationName, NotificationChain msgs) {
+        SchemaQualifiedName oldCollationName = collationName;
         collationName = newCollationName;
-        if (eNotificationRequired())
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME, oldCollationName, newCollationName);
+            if (msgs == null)
+                msgs = notification;
+            else
+                msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCollationName(SchemaQualifiedName newCollationName) {
+        if (newCollationName != collationName) {
+            NotificationChain msgs = null;
+            if (collationName != null)
+                msgs = ((InternalEObject) collationName).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME, null,
+                        msgs);
+            if (newCollationName != null)
+                msgs = ((InternalEObject) newCollationName).eInverseAdd(this,
+                        EOPPOSITE_FEATURE_BASE - DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME, null,
+                        msgs);
+            msgs = basicSetCollationName(newCollationName, msgs);
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET,
-                    DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME, oldCollationName, collationName));
+                    DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME, newCollationName,
+                    newCollationName));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+        case DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME:
+            return basicSetCollationName(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
@@ -208,7 +246,7 @@ public class NationalCharacterStringTypeImpl extends PredefinedTypeImpl implemen
             setLength((UnsignedInteger) newValue);
             return;
         case DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME:
-            setCollationName((String) newValue);
+            setCollationName((SchemaQualifiedName) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -229,7 +267,7 @@ public class NationalCharacterStringTypeImpl extends PredefinedTypeImpl implemen
             setLength(LENGTH_EDEFAULT);
             return;
         case DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME:
-            setCollationName(COLLATION_NAME_EDEFAULT);
+            setCollationName((SchemaQualifiedName) null);
             return;
         }
         super.eUnset(featureID);
@@ -248,8 +286,7 @@ public class NationalCharacterStringTypeImpl extends PredefinedTypeImpl implemen
         case DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__LENGTH:
             return LENGTH_EDEFAULT == null ? length != null : !LENGTH_EDEFAULT.equals(length);
         case DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME:
-            return COLLATION_NAME_EDEFAULT == null ? collationName != null
-                    : !COLLATION_NAME_EDEFAULT.equals(collationName);
+            return collationName != null;
         }
         return super.eIsSet(featureID);
     }
@@ -269,8 +306,6 @@ public class NationalCharacterStringTypeImpl extends PredefinedTypeImpl implemen
         result.append(kind);
         result.append(", length: ");
         result.append(length);
-        result.append(", collationName: ");
-        result.append(collationName);
         result.append(')');
         return result.toString();
     }

@@ -46,7 +46,7 @@ public enum CharacterStringTypeKind implements Enumerator {
      * @generated
      * @ordered
      */
-    CHARACTER_VARYING(2, "CHARACTER_VARYING", "CHARACTER VARYING"),
+    CHARACTER_VARYING(2, "CHARACTER_VARYING", "CHARACTER_VARYING"),
 
     /**
      * The '<em><b>CHAR VARYING</b></em>' literal object.
@@ -56,7 +56,7 @@ public enum CharacterStringTypeKind implements Enumerator {
      * @generated
      * @ordered
      */
-    CHAR_VARYING(3, "CHAR_VARYING", "CHAR VARYING"),
+    CHAR_VARYING(3, "CHAR_VARYING", "CHAR_VARYING"),
 
     /**
      * The '<em><b>VARCHAR</b></em>' literal object.
@@ -107,7 +107,7 @@ public enum CharacterStringTypeKind implements Enumerator {
      * </p>
      * <!-- end-user-doc -->
      * @see #CHARACTER_VARYING
-     * @model literal="CHARACTER VARYING"
+     * @model
      * @generated
      * @ordered
      */
@@ -122,7 +122,7 @@ public enum CharacterStringTypeKind implements Enumerator {
      * </p>
      * <!-- end-user-doc -->
      * @see #CHAR_VARYING
-     * @model literal="CHAR VARYING"
+     * @model
      * @generated
      * @ordered
      */

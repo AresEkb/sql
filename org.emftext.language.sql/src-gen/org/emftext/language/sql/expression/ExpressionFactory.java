@@ -22,15 +22,6 @@ public interface ExpressionFactory extends EFactory {
     ExpressionFactory eINSTANCE = org.emftext.language.sql.expression.impl.ExpressionFactoryImpl.init();
 
     /**
-     * Returns a new object of class '<em>Implicitly Typed Value Specification</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Implicitly Typed Value Specification</em>'.
-     * @generated
-     */
-    ImplicitlyTypedValueSpecification createImplicitlyTypedValueSpecification();
-
-    /**
      * Returns a new object of class '<em>Null Specification</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

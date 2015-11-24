@@ -3,6 +3,7 @@
 package org.emftext.language.sql.datatype;
 
 import org.emftext.language.sql.UnsignedInteger;
+import org.emftext.language.sql.common.SchemaQualifiedName;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,29 +80,29 @@ public interface NationalCharacterStringType extends PredefinedType {
     void setLength(UnsignedInteger value);
 
     /**
-     * Returns the value of the '<em><b>Collation Name</b></em>' attribute.
+     * Returns the value of the '<em><b>Collation Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Collation Name</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Collation Name</em>' attribute.
-     * @see #setCollationName(String)
+     * @return the value of the '<em>Collation Name</em>' containment reference.
+     * @see #setCollationName(SchemaQualifiedName)
      * @see org.emftext.language.sql.datatype.DatatypePackage#getNationalCharacterStringType_CollationName()
-     * @model
+     * @model containment="true"
      * @generated
      */
-    String getCollationName();
+    SchemaQualifiedName getCollationName();
 
     /**
-     * Sets the value of the '{@link org.emftext.language.sql.datatype.NationalCharacterStringType#getCollationName <em>Collation Name</em>}' attribute.
+     * Sets the value of the '{@link org.emftext.language.sql.datatype.NationalCharacterStringType#getCollationName <em>Collation Name</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Collation Name</em>' attribute.
+     * @param value the new value of the '<em>Collation Name</em>' containment reference.
      * @see #getCollationName()
      * @generated
      */
-    void setCollationName(String value);
+    void setCollationName(SchemaQualifiedName value);
 
 } // NationalCharacterStringType

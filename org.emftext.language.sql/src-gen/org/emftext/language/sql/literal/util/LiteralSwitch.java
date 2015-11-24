@@ -73,22 +73,11 @@ public class LiteralSwitch<T> extends Switch<T> {
                 result = defaultCase(theEObject);
             return result;
         }
-        case LiteralPackage.SIGNED_NUMERIC_LITERAL: {
-            SignedNumericLiteral signedNumericLiteral = (SignedNumericLiteral) theEObject;
-            T result = caseSignedNumericLiteral(signedNumericLiteral);
-            if (result == null)
-                result = caseLiteral(signedNumericLiteral);
-            if (result == null)
-                result = defaultCase(theEObject);
-            return result;
-        }
         case LiteralPackage.GENERAL_LITERAL: {
             GeneralLiteral generalLiteral = (GeneralLiteral) theEObject;
             T result = caseGeneralLiteral(generalLiteral);
             if (result == null)
                 result = caseLiteral(generalLiteral);
-            if (result == null)
-                result = caseUnsignedLiteral(generalLiteral);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -97,11 +86,11 @@ public class LiteralSwitch<T> extends Switch<T> {
             CharacterStringLiteral characterStringLiteral = (CharacterStringLiteral) theEObject;
             T result = caseCharacterStringLiteral(characterStringLiteral);
             if (result == null)
+                result = caseNationalCharacterStringLiteral(characterStringLiteral);
+            if (result == null)
                 result = caseGeneralLiteral(characterStringLiteral);
             if (result == null)
                 result = caseLiteral(characterStringLiteral);
-            if (result == null)
-                result = caseUnsignedLiteral(characterStringLiteral);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -114,34 +103,6 @@ public class LiteralSwitch<T> extends Switch<T> {
             if (result == null)
                 result = caseLiteral(nationalCharacterStringLiteral);
             if (result == null)
-                result = caseUnsignedLiteral(nationalCharacterStringLiteral);
-            if (result == null)
-                result = defaultCase(theEObject);
-            return result;
-        }
-        case LiteralPackage.UNICODE_CHARACTER_STRING_LITERAL: {
-            UnicodeCharacterStringLiteral unicodeCharacterStringLiteral = (UnicodeCharacterStringLiteral) theEObject;
-            T result = caseUnicodeCharacterStringLiteral(unicodeCharacterStringLiteral);
-            if (result == null)
-                result = caseGeneralLiteral(unicodeCharacterStringLiteral);
-            if (result == null)
-                result = caseLiteral(unicodeCharacterStringLiteral);
-            if (result == null)
-                result = caseUnsignedLiteral(unicodeCharacterStringLiteral);
-            if (result == null)
-                result = defaultCase(theEObject);
-            return result;
-        }
-        case LiteralPackage.BINARY_STRING_LITERAL: {
-            BinaryStringLiteral binaryStringLiteral = (BinaryStringLiteral) theEObject;
-            T result = caseBinaryStringLiteral(binaryStringLiteral);
-            if (result == null)
-                result = caseGeneralLiteral(binaryStringLiteral);
-            if (result == null)
-                result = caseLiteral(binaryStringLiteral);
-            if (result == null)
-                result = caseUnsignedLiteral(binaryStringLiteral);
-            if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
@@ -153,21 +114,6 @@ public class LiteralSwitch<T> extends Switch<T> {
             if (result == null)
                 result = caseLiteral(datetimeLiteral);
             if (result == null)
-                result = caseUnsignedLiteral(datetimeLiteral);
-            if (result == null)
-                result = defaultCase(theEObject);
-            return result;
-        }
-        case LiteralPackage.INTERVAL_LITERAL: {
-            IntervalLiteral intervalLiteral = (IntervalLiteral) theEObject;
-            T result = caseIntervalLiteral(intervalLiteral);
-            if (result == null)
-                result = caseGeneralLiteral(intervalLiteral);
-            if (result == null)
-                result = caseLiteral(intervalLiteral);
-            if (result == null)
-                result = caseUnsignedLiteral(intervalLiteral);
-            if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
@@ -178,24 +124,6 @@ public class LiteralSwitch<T> extends Switch<T> {
                 result = caseGeneralLiteral(booleanLiteral);
             if (result == null)
                 result = caseLiteral(booleanLiteral);
-            if (result == null)
-                result = caseUnsignedLiteral(booleanLiteral);
-            if (result == null)
-                result = defaultCase(theEObject);
-            return result;
-        }
-        case LiteralPackage.UNSIGNED_LITERAL: {
-            UnsignedLiteral unsignedLiteral = (UnsignedLiteral) theEObject;
-            T result = caseUnsignedLiteral(unsignedLiteral);
-            if (result == null)
-                result = defaultCase(theEObject);
-            return result;
-        }
-        case LiteralPackage.UNSIGNED_NUMERIC_LITERAL: {
-            UnsignedNumericLiteral unsignedNumericLiteral = (UnsignedNumericLiteral) theEObject;
-            T result = caseUnsignedNumericLiteral(unsignedNumericLiteral);
-            if (result == null)
-                result = caseUnsignedLiteral(unsignedNumericLiteral);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -210,8 +138,6 @@ public class LiteralSwitch<T> extends Switch<T> {
             if (result == null)
                 result = caseLiteral(dateLiteral);
             if (result == null)
-                result = caseUnsignedLiteral(dateLiteral);
-            if (result == null)
                 result = defaultCase(theEObject);
             return result;
         }
@@ -224,8 +150,6 @@ public class LiteralSwitch<T> extends Switch<T> {
                 result = caseGeneralLiteral(timeLiteral);
             if (result == null)
                 result = caseLiteral(timeLiteral);
-            if (result == null)
-                result = caseUnsignedLiteral(timeLiteral);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -240,7 +164,36 @@ public class LiteralSwitch<T> extends Switch<T> {
             if (result == null)
                 result = caseLiteral(timestampLiteral);
             if (result == null)
-                result = caseUnsignedLiteral(timestampLiteral);
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case LiteralPackage.EXACT_NUMERIC_LITERAL: {
+            ExactNumericLiteral exactNumericLiteral = (ExactNumericLiteral) theEObject;
+            T result = caseExactNumericLiteral(exactNumericLiteral);
+            if (result == null)
+                result = caseNumericLiteral(exactNumericLiteral);
+            if (result == null)
+                result = caseLiteral(exactNumericLiteral);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case LiteralPackage.APPROXIMATE_NUMERIC_LITERAL: {
+            ApproximateNumericLiteral approximateNumericLiteral = (ApproximateNumericLiteral) theEObject;
+            T result = caseApproximateNumericLiteral(approximateNumericLiteral);
+            if (result == null)
+                result = caseNumericLiteral(approximateNumericLiteral);
+            if (result == null)
+                result = caseLiteral(approximateNumericLiteral);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case LiteralPackage.NUMERIC_LITERAL: {
+            NumericLiteral numericLiteral = (NumericLiteral) theEObject;
+            T result = caseNumericLiteral(numericLiteral);
+            if (result == null)
+                result = caseLiteral(numericLiteral);
             if (result == null)
                 result = defaultCase(theEObject);
             return result;
@@ -262,21 +215,6 @@ public class LiteralSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseLiteral(Literal object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Signed Numeric Literal</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Signed Numeric Literal</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseSignedNumericLiteral(SignedNumericLiteral object) {
         return null;
     }
 
@@ -326,36 +264,6 @@ public class LiteralSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Unicode Character String Literal</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Unicode Character String Literal</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseUnicodeCharacterStringLiteral(UnicodeCharacterStringLiteral object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Binary String Literal</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Binary String Literal</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseBinaryStringLiteral(BinaryStringLiteral object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Datetime Literal</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -371,21 +279,6 @@ public class LiteralSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Interval Literal</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Interval Literal</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseIntervalLiteral(IntervalLiteral object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -397,36 +290,6 @@ public class LiteralSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseBooleanLiteral(BooleanLiteral object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Unsigned Literal</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Unsigned Literal</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseUnsignedLiteral(UnsignedLiteral object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Unsigned Numeric Literal</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Unsigned Numeric Literal</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseUnsignedNumericLiteral(UnsignedNumericLiteral object) {
         return null;
     }
 
@@ -472,6 +335,51 @@ public class LiteralSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseTimestampLiteral(TimestampLiteral object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Exact Numeric Literal</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Exact Numeric Literal</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseExactNumericLiteral(ExactNumericLiteral object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Approximate Numeric Literal</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Approximate Numeric Literal</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseApproximateNumericLiteral(ApproximateNumericLiteral object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Numeric Literal</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Numeric Literal</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseNumericLiteral(NumericLiteral object) {
         return null;
     }
 

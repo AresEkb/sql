@@ -65,14 +65,18 @@ public class DatatypeFactoryImpl extends EFactoryImpl implements DatatypeFactory
             return createBinaryLargeObjectStringType();
         case DatatypePackage.BOOLEAN_TYPE:
             return createBooleanType();
-        case DatatypePackage.DATETIME_TYPE:
-            return createDatetimeType();
         case DatatypePackage.EXACT_NUMERIC_TYPE:
             return createExactNumericType();
         case DatatypePackage.APPROXIMATE_NUMERIC_TYPE:
             return createApproximateNumericType();
         case DatatypePackage.LARGE_OBJECT_LENGTH:
             return createLargeObjectLength();
+        case DatatypePackage.DATE_TYPE:
+            return createDateType();
+        case DatatypePackage.TIME_TYPE:
+            return createTimeType();
+        case DatatypePackage.TIMESTAMP_TYPE:
+            return createTimestampType();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -181,16 +185,6 @@ public class DatatypeFactoryImpl extends EFactoryImpl implements DatatypeFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public DatetimeType createDatetimeType() {
-        DatetimeTypeImpl datetimeType = new DatetimeTypeImpl();
-        return datetimeType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public ExactNumericType createExactNumericType() {
         ExactNumericTypeImpl exactNumericType = new ExactNumericTypeImpl();
         return exactNumericType;
@@ -214,6 +208,36 @@ public class DatatypeFactoryImpl extends EFactoryImpl implements DatatypeFactory
     public LargeObjectLength createLargeObjectLength() {
         LargeObjectLengthImpl largeObjectLength = new LargeObjectLengthImpl();
         return largeObjectLength;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DateType createDateType() {
+        DateTypeImpl dateType = new DateTypeImpl();
+        return dateType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TimeType createTimeType() {
+        TimeTypeImpl timeType = new TimeTypeImpl();
+        return timeType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TimestampType createTimestampType() {
+        TimestampTypeImpl timestampType = new TimestampTypeImpl();
+        return timestampType;
     }
 
     /**

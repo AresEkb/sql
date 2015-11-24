@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see org.emftext.language.sql.expression.ExpressionPackage#getImplicitlyTypedValueSpecification()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ImplicitlyTypedValueSpecification extends EObject {

@@ -25,6 +25,7 @@ import org.emftext.language.sql.datatype.CharacterStringTypeKind;
 import org.emftext.language.sql.datatype.DataType;
 import org.emftext.language.sql.datatype.DatatypeFactory;
 import org.emftext.language.sql.datatype.DatatypePackage;
+import org.emftext.language.sql.datatype.DateType;
 import org.emftext.language.sql.datatype.DatetimeType;
 import org.emftext.language.sql.datatype.DatetimeTypeKind;
 import org.emftext.language.sql.datatype.ExactNumericType;
@@ -36,6 +37,8 @@ import org.emftext.language.sql.datatype.NationalCharacterStringTypeKind;
 import org.emftext.language.sql.datatype.NumericType;
 import org.emftext.language.sql.datatype.PredefinedType;
 
+import org.emftext.language.sql.datatype.TimeType;
+import org.emftext.language.sql.datatype.TimestampType;
 import org.emftext.language.sql.expression.ExpressionPackage;
 
 import org.emftext.language.sql.expression.impl.ExpressionPackageImpl;
@@ -135,6 +138,27 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
      * @generated
      */
     private EClass largeObjectLengthEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass dateTypeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass timeTypeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass timestampTypeEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -324,8 +348,8 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getCharacterStringType_CharacterSetName() {
-        return (EAttribute) characterStringTypeEClass.getEStructuralFeatures().get(1);
+    public EReference getCharacterStringType_CharacterSetName() {
+        return (EReference) characterStringTypeEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -333,8 +357,8 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getCharacterStringType_CollationName() {
-        return (EAttribute) characterStringTypeEClass.getEStructuralFeatures().get(2);
+    public EReference getCharacterStringType_CollationName() {
+        return (EReference) characterStringTypeEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -343,7 +367,7 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
      * @generated
      */
     public EAttribute getCharacterStringType_Length() {
-        return (EAttribute) characterStringTypeEClass.getEStructuralFeatures().get(3);
+        return (EAttribute) characterStringTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -378,8 +402,8 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getNationalCharacterStringType_CollationName() {
-        return (EAttribute) nationalCharacterStringTypeEClass.getEStructuralFeatures().get(2);
+    public EReference getNationalCharacterStringType_CollationName() {
+        return (EReference) nationalCharacterStringTypeEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -434,33 +458,6 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
      */
     public EClass getDatetimeType() {
         return datetimeTypeEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getDatetimeType_Kind() {
-        return (EAttribute) datetimeTypeEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getDatetimeType_Precision() {
-        return (EAttribute) datetimeTypeEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getDatetimeType_WithTimeZone() {
-        return (EAttribute) datetimeTypeEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -560,6 +557,69 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
      */
     public EAttribute getLargeObjectLength_Units() {
         return (EAttribute) largeObjectLengthEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDateType() {
+        return dateTypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getTimeType() {
+        return timeTypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTimeType_Precision() {
+        return (EAttribute) timeTypeEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTimeType_WithTimeZone() {
+        return (EAttribute) timeTypeEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getTimestampType() {
+        return timestampTypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTimestampType_Precision() {
+        return (EAttribute) timestampTypeEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTimestampType_WithTimeZone() {
+        return (EAttribute) timestampTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -669,14 +729,14 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
 
         characterStringTypeEClass = createEClass(CHARACTER_STRING_TYPE);
         createEAttribute(characterStringTypeEClass, CHARACTER_STRING_TYPE__KIND);
-        createEAttribute(characterStringTypeEClass, CHARACTER_STRING_TYPE__CHARACTER_SET_NAME);
-        createEAttribute(characterStringTypeEClass, CHARACTER_STRING_TYPE__COLLATION_NAME);
         createEAttribute(characterStringTypeEClass, CHARACTER_STRING_TYPE__LENGTH);
+        createEReference(characterStringTypeEClass, CHARACTER_STRING_TYPE__CHARACTER_SET_NAME);
+        createEReference(characterStringTypeEClass, CHARACTER_STRING_TYPE__COLLATION_NAME);
 
         nationalCharacterStringTypeEClass = createEClass(NATIONAL_CHARACTER_STRING_TYPE);
         createEAttribute(nationalCharacterStringTypeEClass, NATIONAL_CHARACTER_STRING_TYPE__KIND);
         createEAttribute(nationalCharacterStringTypeEClass, NATIONAL_CHARACTER_STRING_TYPE__LENGTH);
-        createEAttribute(nationalCharacterStringTypeEClass, NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME);
+        createEReference(nationalCharacterStringTypeEClass, NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME);
 
         binaryLargeObjectStringTypeEClass = createEClass(BINARY_LARGE_OBJECT_STRING_TYPE);
         createEAttribute(binaryLargeObjectStringTypeEClass, BINARY_LARGE_OBJECT_STRING_TYPE__KIND);
@@ -687,9 +747,6 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
         booleanTypeEClass = createEClass(BOOLEAN_TYPE);
 
         datetimeTypeEClass = createEClass(DATETIME_TYPE);
-        createEAttribute(datetimeTypeEClass, DATETIME_TYPE__KIND);
-        createEAttribute(datetimeTypeEClass, DATETIME_TYPE__PRECISION);
-        createEAttribute(datetimeTypeEClass, DATETIME_TYPE__WITH_TIME_ZONE);
 
         exactNumericTypeEClass = createEClass(EXACT_NUMERIC_TYPE);
         createEAttribute(exactNumericTypeEClass, EXACT_NUMERIC_TYPE__KIND);
@@ -704,6 +761,16 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
         createEAttribute(largeObjectLengthEClass, LARGE_OBJECT_LENGTH__VALUE);
         createEAttribute(largeObjectLengthEClass, LARGE_OBJECT_LENGTH__MULTIPLIER);
         createEAttribute(largeObjectLengthEClass, LARGE_OBJECT_LENGTH__UNITS);
+
+        dateTypeEClass = createEClass(DATE_TYPE);
+
+        timeTypeEClass = createEClass(TIME_TYPE);
+        createEAttribute(timeTypeEClass, TIME_TYPE__PRECISION);
+        createEAttribute(timeTypeEClass, TIME_TYPE__WITH_TIME_ZONE);
+
+        timestampTypeEClass = createEClass(TIMESTAMP_TYPE);
+        createEAttribute(timestampTypeEClass, TIMESTAMP_TYPE__PRECISION);
+        createEAttribute(timestampTypeEClass, TIMESTAMP_TYPE__WITH_TIME_ZONE);
 
         // Create enums
         characterStringTypeKindEEnum = createEEnum(CHARACTER_STRING_TYPE_KIND);
@@ -757,6 +824,9 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
         datetimeTypeEClass.getESuperTypes().add(this.getPredefinedType());
         exactNumericTypeEClass.getESuperTypes().add(this.getNumericType());
         approximateNumericTypeEClass.getESuperTypes().add(this.getNumericType());
+        dateTypeEClass.getESuperTypes().add(this.getDatetimeType());
+        timeTypeEClass.getESuperTypes().add(this.getDatetimeType());
+        timestampTypeEClass.getESuperTypes().add(this.getDatetimeType());
 
         // Initialize classes, features, and operations; add parameters
         initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -769,15 +839,15 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
         initEAttribute(getCharacterStringType_Kind(), this.getCharacterStringTypeKind(), "kind", null, 1, 1,
                 CharacterStringType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getCharacterStringType_CharacterSetName(), ecorePackage.getEString(), "characterSetName", null,
-                0, 1, CharacterStringType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getCharacterStringType_CollationName(), ecorePackage.getEString(), "collationName", null, 0, 1,
-                CharacterStringType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getCharacterStringType_Length(), theCommonPackage.getUnsignedInteger(), "length", null, 0, 1,
                 CharacterStringType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getCharacterStringType_CharacterSetName(), theCommonPackage.getSchemaQualifiedName(), null,
+                "characterSetName", null, 0, 1, CharacterStringType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getCharacterStringType_CollationName(), theCommonPackage.getSchemaQualifiedName(), null,
+                "collationName", null, 0, 1, CharacterStringType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(nationalCharacterStringTypeEClass, NationalCharacterStringType.class, "NationalCharacterStringType",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -787,9 +857,9 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
         initEAttribute(getNationalCharacterStringType_Length(), theCommonPackage.getUnsignedInteger(), "length", null,
                 0, 1, NationalCharacterStringType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
                 !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getNationalCharacterStringType_CollationName(), ecorePackage.getEString(), "collationName", null,
-                0, 1, NationalCharacterStringType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getNationalCharacterStringType_CollationName(), theCommonPackage.getSchemaQualifiedName(), null,
+                "collationName", null, 0, 1, NationalCharacterStringType.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(binaryLargeObjectStringTypeEClass, BinaryLargeObjectStringType.class, "BinaryLargeObjectStringType",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -806,16 +876,8 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
         initEClass(booleanTypeEClass, BooleanType.class, "BooleanType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(datetimeTypeEClass, DatetimeType.class, "DatetimeType", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(datetimeTypeEClass, DatetimeType.class, "DatetimeType", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getDatetimeType_Kind(), this.getDatetimeTypeKind(), "kind", null, 1, 1, DatetimeType.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDatetimeType_Precision(), theCommonPackage.getUnsignedInteger(), "precision", null, 0, 1,
-                DatetimeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDatetimeType_WithTimeZone(), ecorePackage.getEBooleanObject(), "withTimeZone", null, 0, 1,
-                DatetimeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
 
         initEClass(exactNumericTypeEClass, ExactNumericType.class, "ExactNumericType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -848,6 +910,27 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
                 !IS_DERIVED, IS_ORDERED);
         initEAttribute(getLargeObjectLength_Units(), this.getCharLengthUnits(), "units", null, 0, 1,
                 LargeObjectLength.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED);
+
+        initEClass(dateTypeEClass, DateType.class, "DateType", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(timeTypeEClass, TimeType.class, "TimeType", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getTimeType_Precision(), theCommonPackage.getUnsignedInteger(), "precision", "0", 0, 1,
+                TimeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getTimeType_WithTimeZone(), ecorePackage.getEBooleanObject(), "withTimeZone", null, 0, 1,
+                TimeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED);
+
+        initEClass(timestampTypeEClass, TimestampType.class, "TimestampType", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getTimestampType_Precision(), theCommonPackage.getUnsignedInteger(), "precision", "6", 0, 1,
+                TimestampType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getTimestampType_WithTimeZone(), ecorePackage.getEBooleanObject(), "withTimeZone", null, 0, 1,
+                TimestampType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals

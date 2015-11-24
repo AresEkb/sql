@@ -72,11 +72,6 @@ public class LiteralAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseSignedNumericLiteral(SignedNumericLiteral object) {
-            return createSignedNumericLiteralAdapter();
-        }
-
-        @Override
         public Adapter caseGeneralLiteral(GeneralLiteral object) {
             return createGeneralLiteralAdapter();
         }
@@ -92,38 +87,13 @@ public class LiteralAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseUnicodeCharacterStringLiteral(UnicodeCharacterStringLiteral object) {
-            return createUnicodeCharacterStringLiteralAdapter();
-        }
-
-        @Override
-        public Adapter caseBinaryStringLiteral(BinaryStringLiteral object) {
-            return createBinaryStringLiteralAdapter();
-        }
-
-        @Override
         public Adapter caseDatetimeLiteral(DatetimeLiteral object) {
             return createDatetimeLiteralAdapter();
         }
 
         @Override
-        public Adapter caseIntervalLiteral(IntervalLiteral object) {
-            return createIntervalLiteralAdapter();
-        }
-
-        @Override
         public Adapter caseBooleanLiteral(BooleanLiteral object) {
             return createBooleanLiteralAdapter();
-        }
-
-        @Override
-        public Adapter caseUnsignedLiteral(UnsignedLiteral object) {
-            return createUnsignedLiteralAdapter();
-        }
-
-        @Override
-        public Adapter caseUnsignedNumericLiteral(UnsignedNumericLiteral object) {
-            return createUnsignedNumericLiteralAdapter();
         }
 
         @Override
@@ -139,6 +109,21 @@ public class LiteralAdapterFactory extends AdapterFactoryImpl {
         @Override
         public Adapter caseTimestampLiteral(TimestampLiteral object) {
             return createTimestampLiteralAdapter();
+        }
+
+        @Override
+        public Adapter caseExactNumericLiteral(ExactNumericLiteral object) {
+            return createExactNumericLiteralAdapter();
+        }
+
+        @Override
+        public Adapter caseApproximateNumericLiteral(ApproximateNumericLiteral object) {
+            return createApproximateNumericLiteralAdapter();
+        }
+
+        @Override
+        public Adapter caseNumericLiteral(NumericLiteral object) {
+            return createNumericLiteralAdapter();
         }
 
         @Override
@@ -171,20 +156,6 @@ public class LiteralAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createLiteralAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.literal.SignedNumericLiteral <em>Signed Numeric Literal</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.emftext.language.sql.literal.SignedNumericLiteral
-     * @generated
-     */
-    public Adapter createSignedNumericLiteralAdapter() {
         return null;
     }
 
@@ -231,34 +202,6 @@ public class LiteralAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.literal.UnicodeCharacterStringLiteral <em>Unicode Character String Literal</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.emftext.language.sql.literal.UnicodeCharacterStringLiteral
-     * @generated
-     */
-    public Adapter createUnicodeCharacterStringLiteralAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.literal.BinaryStringLiteral <em>Binary String Literal</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.emftext.language.sql.literal.BinaryStringLiteral
-     * @generated
-     */
-    public Adapter createBinaryStringLiteralAdapter() {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link org.emftext.language.sql.literal.DatetimeLiteral <em>Datetime Literal</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -273,20 +216,6 @@ public class LiteralAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.literal.IntervalLiteral <em>Interval Literal</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.emftext.language.sql.literal.IntervalLiteral
-     * @generated
-     */
-    public Adapter createIntervalLiteralAdapter() {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link org.emftext.language.sql.literal.BooleanLiteral <em>Boolean Literal</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -297,34 +226,6 @@ public class LiteralAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createBooleanLiteralAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.literal.UnsignedLiteral <em>Unsigned Literal</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.emftext.language.sql.literal.UnsignedLiteral
-     * @generated
-     */
-    public Adapter createUnsignedLiteralAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.literal.UnsignedNumericLiteral <em>Unsigned Numeric Literal</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.emftext.language.sql.literal.UnsignedNumericLiteral
-     * @generated
-     */
-    public Adapter createUnsignedNumericLiteralAdapter() {
         return null;
     }
 
@@ -367,6 +268,48 @@ public class LiteralAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createTimestampLiteralAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.literal.ExactNumericLiteral <em>Exact Numeric Literal</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.literal.ExactNumericLiteral
+     * @generated
+     */
+    public Adapter createExactNumericLiteralAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.literal.ApproximateNumericLiteral <em>Approximate Numeric Literal</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.literal.ApproximateNumericLiteral
+     * @generated
+     */
+    public Adapter createApproximateNumericLiteralAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.emftext.language.sql.literal.NumericLiteral <em>Numeric Literal</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.emftext.language.sql.literal.NumericLiteral
+     * @generated
+     */
+    public Adapter createNumericLiteralAdapter() {
         return null;
     }
 
