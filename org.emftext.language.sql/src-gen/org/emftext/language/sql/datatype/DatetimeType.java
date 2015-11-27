@@ -13,5 +13,4 @@ package org.emftext.language.sql.datatype;
  * @generated
  */
 public interface DatetimeType extends PredefinedType {
-
 } // DatetimeType

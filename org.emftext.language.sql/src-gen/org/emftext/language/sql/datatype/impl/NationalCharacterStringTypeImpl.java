@@ -3,16 +3,17 @@
 package org.emftext.language.sql.datatype.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.emftext.language.sql.UnsignedInteger;
 
 import org.emftext.language.sql.common.SchemaQualifiedName;
+
 import org.emftext.language.sql.datatype.DatatypePackage;
 import org.emftext.language.sql.datatype.NationalCharacterStringType;
 import org.emftext.language.sql.datatype.NationalCharacterStringTypeKind;

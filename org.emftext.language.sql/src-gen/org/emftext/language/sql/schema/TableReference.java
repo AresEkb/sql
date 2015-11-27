@@ -86,7 +86,7 @@ public interface TableReference extends EObject {
      * @return the value of the '<em>Target</em>' reference.
      * @see #setTarget(TableDefinition)
      * @see org.emftext.language.sql.schema.SchemaPackage#getTableReference_Target()
-     * @model
+     * @model required="true"
      * @generated
      */
     TableDefinition getTarget();

@@ -10,8 +10,9 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.emftext.language.sql.resource.sql.ISqlTokenResolveResult;
+import org.emftext.language.sql.resource.sql.ISqlTokenResolver;
 
-public class SqlSIMPLE_COMMENTTokenResolver implements org.emftext.language.sql.resource.sql.ISqlTokenResolver {
+public class SqlSIMPLE_COMMENTTokenResolver implements ISqlTokenResolver {
 
     public String deResolve(Object value, EStructuralFeature feature, EObject container) {
         return "--" + ((String) value);

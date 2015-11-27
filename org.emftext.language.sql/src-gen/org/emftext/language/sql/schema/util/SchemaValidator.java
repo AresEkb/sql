@@ -7,10 +7,6 @@ import java.util.Map;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
@@ -44,20 +40,12 @@ public class SchemaValidator extends EObjectValidator {
     public static final String DIAGNOSTIC_SOURCE = "org.emftext.language.sql.schema";
 
     /**
-     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Columns Must Be Compatible2' of 'Referential Table Constraint'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static final int REFERENTIAL_TABLE_CONSTRAINT__COLUMNS_MUST_BE_COMPATIBLE2 = 1;
-
-    /**
      * A constant with a fixed name that can be used as the base value for additional hand written constants.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
+    private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 0;
 
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -66,19 +54,6 @@ public class SchemaValidator extends EObjectValidator {
      * @generated
      */
     protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
-
-    /**
-     * Delegates evaluation of the given invariant expression against the object in the given context.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static boolean validate(EClass eClass, EObject eObject, DiagnosticChain diagnostics,
-            Map<Object, Object> context, String validationDelegate, EOperation invariant, String expression,
-            int severity, String source, int code) {
-        return EObjectValidator.validate(eClass, eObject, diagnostics, context, validationDelegate, invariant,
-                expression, severity, source, code);
-    }
 
     /**
      * Creates an instance of the switch.
@@ -364,9 +339,6 @@ public class SchemaValidator extends EObjectValidator {
         if (result || diagnostics != null)
             result &= validateReferentialTableConstraint_columnsMustBeCompatible(referentialTableConstraint,
                     diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateReferentialTableConstraint_columnsMustBeCompatible2(referentialTableConstraint,
-                    diagnostics, context);
         return result;
     }
 
@@ -391,18 +363,6 @@ public class SchemaValidator extends EObjectValidator {
                 context, "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "columnsMustBeCompatible",
                 REFERENTIAL_TABLE_CONSTRAINT__COLUMNS_MUST_BE_COMPATIBLE__EEXPRESSION, Diagnostic.ERROR,
                 DIAGNOSTIC_SOURCE, 0);
-    }
-
-    /**
-     * Validates the columnsMustBeCompatible2 constraint of '<em>Referential Table Constraint</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateReferentialTableConstraint_columnsMustBeCompatible2(
-            ReferentialTableConstraint referentialTableConstraint, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        return referentialTableConstraint.columnsMustBeCompatible2(diagnostics, context);
     }
 
     /**

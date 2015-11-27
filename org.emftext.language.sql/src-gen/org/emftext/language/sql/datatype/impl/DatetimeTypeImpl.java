@@ -3,6 +3,7 @@
 package org.emftext.language.sql.datatype.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.emftext.language.sql.datatype.DatatypePackage;
 import org.emftext.language.sql.datatype.DatetimeType;
 

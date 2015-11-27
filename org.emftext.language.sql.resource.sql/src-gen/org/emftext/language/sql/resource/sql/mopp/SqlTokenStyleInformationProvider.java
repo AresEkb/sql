@@ -120,10 +120,7 @@ public class SqlTokenStyleInformationProvider {
 		if ("REAL".equals(tokenName)) {
 			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
-		if ("DOUBLE".equals(tokenName)) {
-			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
-		}
-		if ("KEYWORD_PRECISION".equals(tokenName)) {
+		if ("DOUBLE PRECISION".equals(tokenName)) {
 			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
 		if ("KEYWORD_CHARACTER".equals(tokenName)) {
@@ -135,25 +132,34 @@ public class SqlTokenStyleInformationProvider {
 		if ("VARCHAR".equals(tokenName)) {
 			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
-		if ("KEYWORD_VARYING".equals(tokenName)) {
+		if ("CHARACTER VARYING".equals(tokenName)) {
+			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
+		}
+		if ("CHAR VARYING".equals(tokenName)) {
 			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
 		if ("KEYWORD_SET".equals(tokenName)) {
 			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
-		if ("KEYWORD_NATIONAL".equals(tokenName)) {
+		if ("NATIONAL CHARACTER".equals(tokenName)) {
+			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
+		}
+		if ("NATIONAL CHAR".equals(tokenName)) {
+			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
+		}
+		if ("NATIONAL CHARACTER VARYING".equals(tokenName)) {
+			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
+		}
+		if ("NATIONAL CHAR VARYING".equals(tokenName)) {
 			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
 		if ("NCHAR".equals(tokenName)) {
 			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
-		if ("BINARY".equals(tokenName)) {
+		if ("NCHAR VARYING".equals(tokenName)) {
 			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
-		if ("KEYWORD_LARGE".equals(tokenName)) {
-			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
-		}
-		if ("KEYWORD_OBJECT".equals(tokenName)) {
+		if ("BINARY LARGE OBJECT".equals(tokenName)) {
 			return new org.emftext.language.sql.resource.sql.mopp.SqlTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
 		if ("BLOB".equals(tokenName)) {

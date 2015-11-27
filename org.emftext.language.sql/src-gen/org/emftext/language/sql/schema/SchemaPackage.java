@@ -5,7 +5,6 @@ package org.emftext.language.sql.schema;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -2108,23 +2107,13 @@ public interface SchemaPackage extends EPackage {
     int REFERENTIAL_TABLE_CONSTRAINT___EINVOKE__EOPERATION_ELIST = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 14;
 
     /**
-     * The operation id for the '<em>Columns Must Be Compatible2</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int REFERENTIAL_TABLE_CONSTRAINT___COLUMNS_MUST_BE_COMPATIBLE2__DIAGNOSTICCHAIN_MAP = REFERENTIAL_CONSTRAINT_OPERATION_COUNT
-            + 15;
-
-    /**
      * The number of operations of the '<em>Referential Table Constraint</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REFERENTIAL_TABLE_CONSTRAINT_OPERATION_COUNT = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 16;
+    int REFERENTIAL_TABLE_CONSTRAINT_OPERATION_COUNT = REFERENTIAL_CONSTRAINT_OPERATION_COUNT + 15;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.schema.impl.TableReferenceImpl <em>Table Reference</em>}' class.
@@ -2781,16 +2770,6 @@ public interface SchemaPackage extends EPackage {
     EClass getReferentialTableConstraint();
 
     /**
-     * Returns the meta object for the '{@link org.emftext.language.sql.schema.ReferentialTableConstraint#columnsMustBeCompatible2(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Columns Must Be Compatible2</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Columns Must Be Compatible2</em>' operation.
-     * @see org.emftext.language.sql.schema.ReferentialTableConstraint#columnsMustBeCompatible2(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * @generated
-     */
-    EOperation getReferentialTableConstraint__ColumnsMustBeCompatible2__DiagnosticChain_Map();
-
-    /**
      * Returns the meta object for class '{@link org.emftext.language.sql.schema.UniqueConstraint <em>Unique Constraint</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3284,15 +3263,6 @@ public interface SchemaPackage extends EPackage {
         	 * @generated
         	 */
         EClass REFERENTIAL_TABLE_CONSTRAINT = eINSTANCE.getReferentialTableConstraint();
-
-        /**
-        	 * The meta object literal for the '<em><b>Columns Must Be Compatible2</b></em>' operation.
-        	 * <!-- begin-user-doc -->
-        	 * <!-- end-user-doc -->
-        	 * @generated
-        	 */
-        EOperation REFERENTIAL_TABLE_CONSTRAINT___COLUMNS_MUST_BE_COMPATIBLE2__DIAGNOSTICCHAIN_MAP = eINSTANCE
-                .getReferentialTableConstraint__ColumnsMustBeCompatible2__DiagnosticChain_Map();
 
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.schema.UniqueConstraint <em>Unique Constraint</em>}' class.

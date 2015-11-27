@@ -2,15 +2,9 @@
  */
 package org.emftext.language.sql.schema.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
-import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -33,7 +27,6 @@ import org.emftext.language.sql.schema.TableConstraint;
 import org.emftext.language.sql.schema.TableElement;
 import org.emftext.language.sql.schema.TableElementList;
 import org.emftext.language.sql.schema.TableReference;
-import org.emftext.language.sql.schema.util.SchemaValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -293,30 +286,6 @@ public class ReferentialTableConstraintImpl extends MinimalEObjectImpl.Container
     }
 
     /**
-     * The cached validation expression for the '{@link #columnsMustBeCompatible2(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Columns Must Be Compatible2</em>}' invariant operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #columnsMustBeCompatible2(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * @generated
-     * @ordered
-     */
-    protected static final String COLUMNS_MUST_BE_COMPATIBLE2_DIAGNOSTIC_CHAIN_MAP__EEXPRESSION = "columns->size() = referencedColumns->size()";
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean columnsMustBeCompatible2(DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return SchemaValidator.validate(SchemaPackage.Literals.REFERENTIAL_TABLE_CONSTRAINT, this, diagnostics, context,
-                "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                SchemaPackage.Literals.REFERENTIAL_TABLE_CONSTRAINT___COLUMNS_MUST_BE_COMPATIBLE2__DIAGNOSTICCHAIN_MAP,
-                COLUMNS_MUST_BE_COMPATIBLE2_DIAGNOSTIC_CHAIN_MAP__EEXPRESSION, Diagnostic.ERROR,
-                SchemaValidator.DIAGNOSTIC_SOURCE,
-                SchemaValidator.REFERENTIAL_TABLE_CONSTRAINT__COLUMNS_MUST_BE_COMPATIBLE2);
-    }
-
-    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -544,21 +513,6 @@ public class ReferentialTableConstraintImpl extends MinimalEObjectImpl.Container
             }
         }
         return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-        switch (operationID) {
-        case SchemaPackage.REFERENTIAL_TABLE_CONSTRAINT___COLUMNS_MUST_BE_COMPATIBLE2__DIAGNOSTICCHAIN_MAP:
-            return columnsMustBeCompatible2((DiagnosticChain) arguments.get(0), (Map<Object, Object>) arguments.get(1));
-        }
-        return super.eInvoke(operationID, arguments);
     }
 
 } //ReferentialTableConstraintImpl

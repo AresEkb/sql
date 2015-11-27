@@ -153,7 +153,6 @@ RULES {
         ("CONSTRAINT" schemaQualifiedName)?
         kind[ UNIQUE : "UNIQUE" , PRIMARY_KEY : "PRIMARY KEY" ];
 
-    @SuppressWarnings(explicitSyntaxChoice)
     Schema.ReferentialColumnConstraint ::=
         ("CONSTRAINT" schemaQualifiedName)?
         "REFERENCES" referencedTable
@@ -164,7 +163,6 @@ RULES {
         kind[ UNIQUE : "UNIQUE" , PRIMARY_KEY : "PRIMARY KEY" ]
         "(" columns[IDENTIFIER] ("," columns[IDENTIFIER])* ")";
 
-    @SuppressWarnings(explicitSyntaxChoice)
     Schema.ReferentialTableConstraint ::=
         ("CONSTRAINT" schemaQualifiedName)?
         "FOREIGN" "KEY" "(" columns[IDENTIFIER] ("," columns[IDENTIFIER])* ")"
@@ -178,34 +176,27 @@ RULES {
               INTEGER : "INTEGER", INT : "INT", BIGINT : "BIGINT" ]
         ("(" precision[UNSIGNED_INTEGER] ("," scale[UNSIGNED_INTEGER])? ")")?;
 
-    @SuppressWarnings(explicitSyntaxChoice)
     Datatype.ApproximateNumericType ::=
-        ( kind[ FLOAT : "FLOAT", REAL : "REAL" ]
-        | kind[ DOUBLE_PRECISION : "DOUBLE" ] "PRECISION" )
+        kind[ FLOAT : "FLOAT", REAL : "REAL", DOUBLE_PRECISION : "DOUBLE PRECISION" ]
         ("(" precision[UNSIGNED_INTEGER] ")")?;
 
-    @SuppressWarnings(explicitSyntaxChoice)
     Datatype.CharacterStringType ::=
-        ( kind[ CHARACTER : "CHARACTER", CHAR : "CHAR", VARCHAR : "VARCHAR" ]
-        | kind[ CHARACTER_VARYING : "CHARACTER", CHAR_VARYING : "CHAR" ] "VARYING" )
+        kind[ CHARACTER : "CHARACTER", CHAR : "CHAR", VARCHAR : "VARCHAR",
+              CHARACTER_VARYING : "CHARACTER VARYING", CHAR_VARYING : "CHAR VARYING" ]
         ("(" length[UNSIGNED_INTEGER] ")")?
         ("CHARACTER" "SET" characterSetName)?
         ("COLLATE" collationName)?;
 
-    @SuppressWarnings(explicitSyntaxChoice)
     Datatype.NationalCharacterStringType ::= 
-        ( "NATIONAL"
-            ( kind[ NATIONAL_CHARACTER : "CHARACTER", NATIONAL_CHAR : "CHAR" ]
-            | kind[ NATIONAL_CHARACTER_VARYING : "CHARACTER", NATIONAL_CHAR_VARYING : "CHAR" ] "VARYING")
-        | kind[ NCHAR : "NCHAR" ]
-        | kind[ NCHAR_VARYING : "NCHAR" ] "VARYING")
+        kind[ NATIONAL_CHARACTER : "NATIONAL CHARACTER", NATIONAL_CHAR : "NATIONAL CHAR",
+              NATIONAL_CHARACTER_VARYING : "NATIONAL CHARACTER VARYING",
+              NATIONAL_CHAR_VARYING : "NATIONAL CHAR VARYING",
+              NCHAR : "NCHAR", NCHAR_VARYING : "NCHAR VARYING" ]
         ("(" length[UNSIGNED_INTEGER] ")")?
         ("COLLATE" collationName)?;
 
-    @SuppressWarnings(explicitSyntaxChoice)
     Datatype.BinaryLargeObjectStringType ::=
-        ( kind[ BINARY_LARGE_OBJECT : "BINARY" ] "LARGE" "OBJECT"
-        | kind[ BLOB : "BLOB" ] )
+        kind[ BINARY_LARGE_OBJECT : "BINARY LARGE OBJECT", BLOB : "BLOB" ]
         ("(" length ")")?;
 
     Datatype.LargeObjectLength ::= value[UNSIGNED_INTEGER]

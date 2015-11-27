@@ -46,10 +46,12 @@ public class TableReferenceTargetReferenceResolver implements ISqlReferenceResol
 
         if (resolveFuzzy) {
             tables.filter(table -> table.getSchemaQualifiedName() != null &&
+                                   table.getSchemaQualifiedName().getName() != null &&
                                    table.getSchemaQualifiedName().getName().toUpperCase().startsWith(identifier.toUpperCase()))
                   .forEach(addMapping);
         } else {
             tables.filter(table -> table.getSchemaQualifiedName() != null &&
+                                   table.getSchemaQualifiedName().getName() != null &&
                                    table.getSchemaQualifiedName().getName().equals(identifier))
                   .findFirst()
                   .ifPresent(addMapping);

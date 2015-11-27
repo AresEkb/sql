@@ -689,16 +689,6 @@ public interface DatatypePackage extends EPackage {
     int APPROXIMATE_NUMERIC_TYPE_KIND = 18;
 
     /**
-     * The meta object id for the '{@link org.emftext.language.sql.datatype.DatetimeTypeKind <em>Datetime Type Kind</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.emftext.language.sql.datatype.DatetimeTypeKind
-     * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getDatetimeTypeKind()
-     * @generated
-     */
-    int DATETIME_TYPE_KIND = 19;
-
-    /**
      * The meta object id for the '{@link org.emftext.language.sql.datatype.Multiplier <em>Multiplier</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -706,7 +696,7 @@ public interface DatatypePackage extends EPackage {
      * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getMultiplier()
      * @generated
      */
-    int MULTIPLIER = 20;
+    int MULTIPLIER = 19;
 
     /**
      * The meta object id for the '{@link org.emftext.language.sql.datatype.CharLengthUnits <em>Char Length Units</em>}' enum.
@@ -716,7 +706,7 @@ public interface DatatypePackage extends EPackage {
      * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getCharLengthUnits()
      * @generated
      */
-    int CHAR_LENGTH_UNITS = 21;
+    int CHAR_LENGTH_UNITS = 20;
 
     /**
      * Returns the meta object for class '{@link org.emftext.language.sql.datatype.DataType <em>Data Type</em>}'.
@@ -760,6 +750,17 @@ public interface DatatypePackage extends EPackage {
     EAttribute getCharacterStringType_Kind();
 
     /**
+     * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.CharacterStringType#getLength <em>Length</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Length</em>'.
+     * @see org.emftext.language.sql.datatype.CharacterStringType#getLength()
+     * @see #getCharacterStringType()
+     * @generated
+     */
+    EAttribute getCharacterStringType_Length();
+
+    /**
      * Returns the meta object for the containment reference '{@link org.emftext.language.sql.datatype.CharacterStringType#getCharacterSetName <em>Character Set Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -780,17 +781,6 @@ public interface DatatypePackage extends EPackage {
      * @generated
      */
     EReference getCharacterStringType_CollationName();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.emftext.language.sql.datatype.CharacterStringType#getLength <em>Length</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Length</em>'.
-     * @see org.emftext.language.sql.datatype.CharacterStringType#getLength()
-     * @see #getCharacterStringType()
-     * @generated
-     */
-    EAttribute getCharacterStringType_Length();
 
     /**
      * Returns the meta object for class '{@link org.emftext.language.sql.datatype.NationalCharacterStringType <em>National Character String Type</em>}'.
@@ -1140,16 +1130,6 @@ public interface DatatypePackage extends EPackage {
     EEnum getApproximateNumericTypeKind();
 
     /**
-     * Returns the meta object for enum '{@link org.emftext.language.sql.datatype.DatetimeTypeKind <em>Datetime Type Kind</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for enum '<em>Datetime Type Kind</em>'.
-     * @see org.emftext.language.sql.datatype.DatetimeTypeKind
-     * @generated
-     */
-    EEnum getDatetimeTypeKind();
-
-    /**
      * Returns the meta object for enum '{@link org.emftext.language.sql.datatype.Multiplier <em>Multiplier</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1231,6 +1211,14 @@ public interface DatatypePackage extends EPackage {
         EAttribute CHARACTER_STRING_TYPE__KIND = eINSTANCE.getCharacterStringType_Kind();
 
         /**
+        	 * The meta object literal for the '<em><b>Length</b></em>' attribute feature.
+        	 * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+        	 * @generated
+        	 */
+        EAttribute CHARACTER_STRING_TYPE__LENGTH = eINSTANCE.getCharacterStringType_Length();
+
+        /**
         	 * The meta object literal for the '<em><b>Character Set Name</b></em>' containment reference feature.
         	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1245,14 +1233,6 @@ public interface DatatypePackage extends EPackage {
         	 * @generated
         	 */
         EReference CHARACTER_STRING_TYPE__COLLATION_NAME = eINSTANCE.getCharacterStringType_CollationName();
-
-        /**
-        	 * The meta object literal for the '<em><b>Length</b></em>' attribute feature.
-        	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-        	 * @generated
-        	 */
-        EAttribute CHARACTER_STRING_TYPE__LENGTH = eINSTANCE.getCharacterStringType_Length();
 
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.datatype.impl.NationalCharacterStringTypeImpl <em>National Character String Type</em>}' class.
@@ -1442,7 +1422,7 @@ public interface DatatypePackage extends EPackage {
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.datatype.impl.DateTypeImpl <em>Date Type</em>}' class.
         	 * <!-- begin-user-doc -->
-        	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
         	 * @see org.emftext.language.sql.datatype.impl.DateTypeImpl
         	 * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getDateType()
         	 * @generated
@@ -1452,7 +1432,7 @@ public interface DatatypePackage extends EPackage {
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.datatype.impl.TimeTypeImpl <em>Time Type</em>}' class.
         	 * <!-- begin-user-doc -->
-        	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
         	 * @see org.emftext.language.sql.datatype.impl.TimeTypeImpl
         	 * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getTimeType()
         	 * @generated
@@ -1462,7 +1442,7 @@ public interface DatatypePackage extends EPackage {
         /**
         	 * The meta object literal for the '<em><b>Precision</b></em>' attribute feature.
         	 * <!-- begin-user-doc -->
-        	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
         	 * @generated
         	 */
         EAttribute TIME_TYPE__PRECISION = eINSTANCE.getTimeType_Precision();
@@ -1470,7 +1450,7 @@ public interface DatatypePackage extends EPackage {
         /**
         	 * The meta object literal for the '<em><b>With Time Zone</b></em>' attribute feature.
         	 * <!-- begin-user-doc -->
-        	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
         	 * @generated
         	 */
         EAttribute TIME_TYPE__WITH_TIME_ZONE = eINSTANCE.getTimeType_WithTimeZone();
@@ -1478,7 +1458,7 @@ public interface DatatypePackage extends EPackage {
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.datatype.impl.TimestampTypeImpl <em>Timestamp Type</em>}' class.
         	 * <!-- begin-user-doc -->
-        	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
         	 * @see org.emftext.language.sql.datatype.impl.TimestampTypeImpl
         	 * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getTimestampType()
         	 * @generated
@@ -1488,7 +1468,7 @@ public interface DatatypePackage extends EPackage {
         /**
         	 * The meta object literal for the '<em><b>Precision</b></em>' attribute feature.
         	 * <!-- begin-user-doc -->
-        	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
         	 * @generated
         	 */
         EAttribute TIMESTAMP_TYPE__PRECISION = eINSTANCE.getTimestampType_Precision();
@@ -1496,7 +1476,7 @@ public interface DatatypePackage extends EPackage {
         /**
         	 * The meta object literal for the '<em><b>With Time Zone</b></em>' attribute feature.
         	 * <!-- begin-user-doc -->
-        	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
         	 * @generated
         	 */
         EAttribute TIMESTAMP_TYPE__WITH_TIME_ZONE = eINSTANCE.getTimestampType_WithTimeZone();
@@ -1550,16 +1530,6 @@ public interface DatatypePackage extends EPackage {
         	 * @generated
         	 */
         EEnum APPROXIMATE_NUMERIC_TYPE_KIND = eINSTANCE.getApproximateNumericTypeKind();
-
-        /**
-        	 * The meta object literal for the '{@link org.emftext.language.sql.datatype.DatetimeTypeKind <em>Datetime Type Kind</em>}' enum.
-        	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-        	 * @see org.emftext.language.sql.datatype.DatetimeTypeKind
-        	 * @see org.emftext.language.sql.datatype.impl.DatatypePackageImpl#getDatetimeTypeKind()
-        	 * @generated
-        	 */
-        EEnum DATETIME_TYPE_KIND = eINSTANCE.getDatetimeTypeKind();
 
         /**
         	 * The meta object literal for the '{@link org.emftext.language.sql.datatype.Multiplier <em>Multiplier</em>}' enum.

@@ -141,11 +141,6 @@
       <eLiterals name="REAL" value="1"/>
       <eLiterals name="DOUBLE_PRECISION" value="2"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="DatetimeTypeKind">
-      <eLiterals name="DATE"/>
-      <eLiterals name="TIME" value="1"/>
-      <eLiterals name="TIMESTAMP" value="2"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExactNumericType" eSuperTypes="#//datatype/NumericType">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1"
           eType="#//datatype/ExactNumericTypeKind"/>
@@ -237,8 +232,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//schema/TableElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataType" lowerBound="1"
           eType="#//datatype/DataType" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="defaultOption" eType="#//schema/DefaultOption"
@@ -305,18 +299,6 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
         <details key="columnsMustBeCompatible" value="columns->size() = referencedColumns->size()"/>
       </eAnnotations>
-      <eOperations name="columnsMustBeCompatible2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="body" value="columns->size() = referencedColumns->size()"/>
-        </eAnnotations>
-        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
-        <eParameters name="context">
-          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-          </eGenericType>
-        </eParameters>
-      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UniqueConstraint" abstract="true"
         interface="true">

@@ -1415,39 +1415,9 @@ public class SqlGrammarInformationProvider {
 		return new org.emftext.language.sql.resource.sql.grammar.SqlRule(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getExactNumericType(), SQL_24_0, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
 	}
 	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_25_0_0_0_0_0_0 = INSTANCE.getSQL_25_0_0_0_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_25_0_0_0_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), new String[] {"FLOAT", "FLOAT", "REAL", "REAL", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlSequence SQL_25_0_0_0_0_0 = INSTANCE.getSQL_25_0_0_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlSequence getSQL_25_0_0_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlSequence(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_25_0_0_0_0_0_0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_25_0_0_0_0_1_0 = INSTANCE.getSQL_25_0_0_0_0_1_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_25_0_0_0_0_1_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), new String[] {"DOUBLE_PRECISION", "DOUBLE", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlKeyword SQL_25_0_0_0_0_1_1 = INSTANCE.getSQL_25_0_0_0_0_1_1();
-	private org.emftext.language.sql.resource.sql.grammar.SqlKeyword getSQL_25_0_0_0_0_1_1() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlKeyword("PRECISION", org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlSequence SQL_25_0_0_0_0_1 = INSTANCE.getSQL_25_0_0_0_0_1();
-	private org.emftext.language.sql.resource.sql.grammar.SqlSequence getSQL_25_0_0_0_0_1() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlSequence(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_25_0_0_0_0_1_0, SQL_25_0_0_0_0_1_1);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlChoice SQL_25_0_0_0_0 = INSTANCE.getSQL_25_0_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlChoice getSQL_25_0_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlChoice(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_25_0_0_0_0_0, SQL_25_0_0_0_0_1);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlCompound SQL_25_0_0_0 = INSTANCE.getSQL_25_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlCompound getSQL_25_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlCompound(SQL_25_0_0_0_0, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
+	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_25_0_0_0 = INSTANCE.getSQL_25_0_0_0();
+	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_25_0_0_0() {
+		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), new String[] {"FLOAT", "FLOAT", "REAL", "REAL", "DOUBLE_PRECISION", "DOUBLE PRECISION", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
 	}
 	
 	public final static org.emftext.language.sql.resource.sql.grammar.SqlKeyword SQL_25_0_0_1_0_0_0 = INSTANCE.getSQL_25_0_0_1_0_0_0();
@@ -1499,39 +1469,9 @@ public class SqlGrammarInformationProvider {
 		return new org.emftext.language.sql.resource.sql.grammar.SqlRule(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericType(), SQL_25_0, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
 	}
 	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_26_0_0_0_0_0_0 = INSTANCE.getSQL_26_0_0_0_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_26_0_0_0_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), new String[] {"CHARACTER", "CHARACTER", "CHAR", "CHAR", "VARCHAR", "VARCHAR", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlSequence SQL_26_0_0_0_0_0 = INSTANCE.getSQL_26_0_0_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlSequence getSQL_26_0_0_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlSequence(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_26_0_0_0_0_0_0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_26_0_0_0_0_1_0 = INSTANCE.getSQL_26_0_0_0_0_1_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_26_0_0_0_0_1_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), new String[] {"CHARACTER_VARYING", "CHARACTER", "CHAR_VARYING", "CHAR", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlKeyword SQL_26_0_0_0_0_1_1 = INSTANCE.getSQL_26_0_0_0_0_1_1();
-	private org.emftext.language.sql.resource.sql.grammar.SqlKeyword getSQL_26_0_0_0_0_1_1() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlKeyword("VARYING", org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlSequence SQL_26_0_0_0_0_1 = INSTANCE.getSQL_26_0_0_0_0_1();
-	private org.emftext.language.sql.resource.sql.grammar.SqlSequence getSQL_26_0_0_0_0_1() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlSequence(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_26_0_0_0_0_1_0, SQL_26_0_0_0_0_1_1);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlChoice SQL_26_0_0_0_0 = INSTANCE.getSQL_26_0_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlChoice getSQL_26_0_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlChoice(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_26_0_0_0_0_0, SQL_26_0_0_0_0_1);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlCompound SQL_26_0_0_0 = INSTANCE.getSQL_26_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlCompound getSQL_26_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlCompound(SQL_26_0_0_0_0, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
+	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_26_0_0_0 = INSTANCE.getSQL_26_0_0_0();
+	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_26_0_0_0() {
+		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), new String[] {"CHARACTER", "CHARACTER", "CHAR", "CHAR", "VARCHAR", "VARCHAR", "CHARACTER_VARYING", "CHARACTER VARYING", "CHAR_VARYING", "CHAR VARYING", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
 	}
 	
 	public final static org.emftext.language.sql.resource.sql.grammar.SqlKeyword SQL_26_0_0_1_0_0_0 = INSTANCE.getSQL_26_0_0_1_0_0_0();
@@ -1638,84 +1578,9 @@ public class SqlGrammarInformationProvider {
 		return new org.emftext.language.sql.resource.sql.grammar.SqlRule(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringType(), SQL_26_0, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
 	}
 	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlKeyword SQL_27_0_0_0_0_0_0 = INSTANCE.getSQL_27_0_0_0_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlKeyword getSQL_27_0_0_0_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlKeyword("NATIONAL", org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_27_0_0_0_0_0_1_0_0_0 = INSTANCE.getSQL_27_0_0_0_0_0_1_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_27_0_0_0_0_0_1_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), new String[] {"NATIONAL_CHARACTER", "CHARACTER", "NATIONAL_CHAR", "CHAR", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlSequence SQL_27_0_0_0_0_0_1_0_0 = INSTANCE.getSQL_27_0_0_0_0_0_1_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlSequence getSQL_27_0_0_0_0_0_1_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlSequence(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_27_0_0_0_0_0_1_0_0_0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_27_0_0_0_0_0_1_0_1_0 = INSTANCE.getSQL_27_0_0_0_0_0_1_0_1_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_27_0_0_0_0_0_1_0_1_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), new String[] {"NATIONAL_CHARACTER_VARYING", "CHARACTER", "NATIONAL_CHAR_VARYING", "CHAR", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlKeyword SQL_27_0_0_0_0_0_1_0_1_1 = INSTANCE.getSQL_27_0_0_0_0_0_1_0_1_1();
-	private org.emftext.language.sql.resource.sql.grammar.SqlKeyword getSQL_27_0_0_0_0_0_1_0_1_1() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlKeyword("VARYING", org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlSequence SQL_27_0_0_0_0_0_1_0_1 = INSTANCE.getSQL_27_0_0_0_0_0_1_0_1();
-	private org.emftext.language.sql.resource.sql.grammar.SqlSequence getSQL_27_0_0_0_0_0_1_0_1() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlSequence(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_27_0_0_0_0_0_1_0_1_0, SQL_27_0_0_0_0_0_1_0_1_1);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlChoice SQL_27_0_0_0_0_0_1_0 = INSTANCE.getSQL_27_0_0_0_0_0_1_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlChoice getSQL_27_0_0_0_0_0_1_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlChoice(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_27_0_0_0_0_0_1_0_0, SQL_27_0_0_0_0_0_1_0_1);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlCompound SQL_27_0_0_0_0_0_1 = INSTANCE.getSQL_27_0_0_0_0_0_1();
-	private org.emftext.language.sql.resource.sql.grammar.SqlCompound getSQL_27_0_0_0_0_0_1() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlCompound(SQL_27_0_0_0_0_0_1_0, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlSequence SQL_27_0_0_0_0_0 = INSTANCE.getSQL_27_0_0_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlSequence getSQL_27_0_0_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlSequence(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_27_0_0_0_0_0_0, SQL_27_0_0_0_0_0_1);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_27_0_0_0_0_1_0 = INSTANCE.getSQL_27_0_0_0_0_1_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_27_0_0_0_0_1_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), new String[] {"NCHAR", "NCHAR", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlSequence SQL_27_0_0_0_0_1 = INSTANCE.getSQL_27_0_0_0_0_1();
-	private org.emftext.language.sql.resource.sql.grammar.SqlSequence getSQL_27_0_0_0_0_1() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlSequence(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_27_0_0_0_0_1_0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_27_0_0_0_0_2_0 = INSTANCE.getSQL_27_0_0_0_0_2_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_27_0_0_0_0_2_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), new String[] {"NCHAR_VARYING", "NCHAR", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlKeyword SQL_27_0_0_0_0_2_1 = INSTANCE.getSQL_27_0_0_0_0_2_1();
-	private org.emftext.language.sql.resource.sql.grammar.SqlKeyword getSQL_27_0_0_0_0_2_1() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlKeyword("VARYING", org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlSequence SQL_27_0_0_0_0_2 = INSTANCE.getSQL_27_0_0_0_0_2();
-	private org.emftext.language.sql.resource.sql.grammar.SqlSequence getSQL_27_0_0_0_0_2() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlSequence(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_27_0_0_0_0_2_0, SQL_27_0_0_0_0_2_1);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlChoice SQL_27_0_0_0_0 = INSTANCE.getSQL_27_0_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlChoice getSQL_27_0_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlChoice(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_27_0_0_0_0_0, SQL_27_0_0_0_0_1, SQL_27_0_0_0_0_2);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlCompound SQL_27_0_0_0 = INSTANCE.getSQL_27_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlCompound getSQL_27_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlCompound(SQL_27_0_0_0_0, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
+	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_27_0_0_0 = INSTANCE.getSQL_27_0_0_0();
+	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_27_0_0_0() {
+		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), new String[] {"NATIONAL_CHARACTER", "NATIONAL CHARACTER", "NATIONAL_CHAR", "NATIONAL CHAR", "NATIONAL_CHARACTER_VARYING", "NATIONAL CHARACTER VARYING", "NATIONAL_CHAR_VARYING", "NATIONAL CHAR VARYING", "NCHAR", "NCHAR", "NCHAR_VARYING", "NCHAR VARYING", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
 	}
 	
 	public final static org.emftext.language.sql.resource.sql.grammar.SqlKeyword SQL_27_0_0_1_0_0_0 = INSTANCE.getSQL_27_0_0_1_0_0_0();
@@ -1792,44 +1657,9 @@ public class SqlGrammarInformationProvider {
 		return new org.emftext.language.sql.resource.sql.grammar.SqlRule(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringType(), SQL_27_0, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
 	}
 	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_28_0_0_0_0_0_0 = INSTANCE.getSQL_28_0_0_0_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_28_0_0_0_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND), new String[] {"BINARY_LARGE_OBJECT", "BINARY", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlKeyword SQL_28_0_0_0_0_0_1 = INSTANCE.getSQL_28_0_0_0_0_0_1();
-	private org.emftext.language.sql.resource.sql.grammar.SqlKeyword getSQL_28_0_0_0_0_0_1() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlKeyword("LARGE", org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlKeyword SQL_28_0_0_0_0_0_2 = INSTANCE.getSQL_28_0_0_0_0_0_2();
-	private org.emftext.language.sql.resource.sql.grammar.SqlKeyword getSQL_28_0_0_0_0_0_2() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlKeyword("OBJECT", org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlSequence SQL_28_0_0_0_0_0 = INSTANCE.getSQL_28_0_0_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlSequence getSQL_28_0_0_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlSequence(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_28_0_0_0_0_0_0, SQL_28_0_0_0_0_0_1, SQL_28_0_0_0_0_0_2);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_28_0_0_0_0_1_0 = INSTANCE.getSQL_28_0_0_0_0_1_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_28_0_0_0_0_1_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND), new String[] {"BLOB", "BLOB", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlSequence SQL_28_0_0_0_0_1 = INSTANCE.getSQL_28_0_0_0_0_1();
-	private org.emftext.language.sql.resource.sql.grammar.SqlSequence getSQL_28_0_0_0_0_1() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlSequence(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_28_0_0_0_0_1_0);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlChoice SQL_28_0_0_0_0 = INSTANCE.getSQL_28_0_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlChoice getSQL_28_0_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlChoice(org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, SQL_28_0_0_0_0_0, SQL_28_0_0_0_0_1);
-	}
-	
-	public final static org.emftext.language.sql.resource.sql.grammar.SqlCompound SQL_28_0_0_0 = INSTANCE.getSQL_28_0_0_0();
-	private org.emftext.language.sql.resource.sql.grammar.SqlCompound getSQL_28_0_0_0() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlCompound(SQL_28_0_0_0_0, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE);
+	public final static org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal SQL_28_0_0_0 = INSTANCE.getSQL_28_0_0_0();
+	private org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal getSQL_28_0_0_0() {
+		return new org.emftext.language.sql.resource.sql.grammar.SqlEnumerationTerminal(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringType().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND), new String[] {"BINARY_LARGE_OBJECT", "BINARY LARGE OBJECT", "BLOB", "BLOB", }, org.emftext.language.sql.resource.sql.grammar.SqlCardinality.ONE, 0);
 	}
 	
 	public final static org.emftext.language.sql.resource.sql.grammar.SqlKeyword SQL_28_0_0_1_0_0_0 = INSTANCE.getSQL_28_0_0_1_0_0_0();

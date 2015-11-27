@@ -9,7 +9,8 @@
   <foreignModel>sql.ecore</foreignModel>
   <genPackages prefix="SQL" basePackage="org.emftext.language" disposableProviderFactory="true"
       ecorePackage="sql.ecore#/">
-    <nestedGenPackages prefix="Common" disposableProviderFactory="true" ecorePackage="sql.ecore#//common">
+    <nestedGenPackages prefix="Common" basePackage="org.emftext.language.sql" disposableProviderFactory="true"
+        ecorePackage="sql.ecore#//common">
       <genDataTypes ecoreDataType="sql.ecore#//common/UnsignedInteger"/>
       <genDataTypes ecoreDataType="sql.ecore#//common/DateType"/>
       <genDataTypes ecoreDataType="sql.ecore#//common/TimeType"/>
@@ -31,7 +32,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//common/SchemaQualifiedName/name"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Literal" disposableProviderFactory="true" ecorePackage="sql.ecore#//literal">
+    <nestedGenPackages prefix="Literal" basePackage="org.emftext.language.sql" disposableProviderFactory="true"
+        ecorePackage="sql.ecore#//literal">
       <genClasses image="false" ecoreClass="sql.ecore#//literal/Literal"/>
       <genClasses image="false" ecoreClass="sql.ecore#//literal/GeneralLiteral"/>
       <genClasses ecoreClass="sql.ecore#//literal/CharacterStringLiteral">
@@ -62,7 +64,8 @@
       </genClasses>
       <genClasses image="false" ecoreClass="sql.ecore#//literal/NumericLiteral"/>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Datatype" disposableProviderFactory="true" ecorePackage="sql.ecore#//datatype">
+    <nestedGenPackages prefix="Datatype" basePackage="org.emftext.language.sql" disposableProviderFactory="true"
+        ecorePackage="sql.ecore#//datatype">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="sql.ecore#//datatype/CharacterStringTypeKind">
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//datatype/CharacterStringTypeKind/CHARACTER"/>
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//datatype/CharacterStringTypeKind/CHAR"/>
@@ -95,11 +98,6 @@
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//datatype/ApproximateNumericTypeKind/FLOAT"/>
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//datatype/ApproximateNumericTypeKind/REAL"/>
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//datatype/ApproximateNumericTypeKind/DOUBLE_PRECISION"/>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="sql.ecore#//datatype/DatetimeTypeKind">
-        <genEnumLiterals ecoreEnumLiteral="sql.ecore#//datatype/DatetimeTypeKind/DATE"/>
-        <genEnumLiterals ecoreEnumLiteral="sql.ecore#//datatype/DatetimeTypeKind/TIME"/>
-        <genEnumLiterals ecoreEnumLiteral="sql.ecore#//datatype/DatetimeTypeKind/TIMESTAMP"/>
       </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="sql.ecore#//datatype/Multiplier">
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//datatype/Multiplier/K"/>
@@ -156,7 +154,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//datatype/TimestampType/withTimeZone"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Function" disposableProviderFactory="true" ecorePackage="sql.ecore#//function">
+    <nestedGenPackages prefix="Function" basePackage="org.emftext.language.sql" disposableProviderFactory="true"
+        ecorePackage="sql.ecore#//function">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="sql.ecore#//function/DatetimeValueFunctionKind">
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//function/DatetimeValueFunctionKind/CURRENT_DATE"/>
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//function/DatetimeValueFunctionKind/CURRENT_TIME"/>
@@ -169,11 +168,13 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//function/DatetimeValueFunction/precision"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Expression" disposableProviderFactory="true" ecorePackage="sql.ecore#//expression">
+    <nestedGenPackages prefix="Expression" basePackage="org.emftext.language.sql"
+        disposableProviderFactory="true" ecorePackage="sql.ecore#//expression">
       <genClasses ecoreClass="sql.ecore#//expression/ImplicitlyTypedValueSpecification"/>
       <genClasses ecoreClass="sql.ecore#//expression/NullSpecification"/>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Schema" disposableProviderFactory="true" ecorePackage="sql.ecore#//schema">
+    <nestedGenPackages prefix="Schema" basePackage="org.emftext.language.sql" disposableProviderFactory="true"
+        ecorePackage="sql.ecore#//schema">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="sql.ecore#//schema/TableScope">
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//schema/TableScope/PERSISTENT"/>
         <genEnumLiterals ecoreEnumLiteral="sql.ecore#//schema/TableScope/GLOBAL_TEMPORARY"/>
@@ -230,12 +231,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/ImplicitlyTypedValueSpecificationDefaultOption/specification"/>
       </genClasses>
       <genClasses ecoreClass="sql.ecore#//schema/UniqueTableConstraint"/>
-      <genClasses ecoreClass="sql.ecore#//schema/ReferentialTableConstraint">
-        <genOperations ecoreOperation="sql.ecore#//schema/ReferentialTableConstraint/columnsMustBeCompatible2">
-          <genParameters ecoreParameter="sql.ecore#//schema/ReferentialTableConstraint/columnsMustBeCompatible2/diagnostics"/>
-          <genParameters ecoreParameter="sql.ecore#//schema/ReferentialTableConstraint/columnsMustBeCompatible2/context"/>
-        </genOperations>
-      </genClasses>
+      <genClasses ecoreClass="sql.ecore#//schema/ReferentialTableConstraint"/>
       <genClasses image="false" ecoreClass="sql.ecore#//schema/UniqueConstraint">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//schema/UniqueConstraint/kind"/>
       </genClasses>

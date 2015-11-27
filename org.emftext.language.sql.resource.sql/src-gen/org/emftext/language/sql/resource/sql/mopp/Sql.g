@@ -488,7 +488,7 @@ import org.eclipse.emf.ecore.EReference;
 				break;
 			}
 		}
-		int followSetID = 204;
+		int followSetID = 186;
 		int i;
 		for (i = tokenIndexOfLastCompleteElement; i < tokenStream.size(); i++) {
 			CommonToken nextToken = (CommonToken) tokenStream.get(i);
@@ -2086,7 +2086,7 @@ parse_org_emftext_language_sql_schema_Column returns [org.emftext.language.sql.s
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 218, 231);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 218, 226);
 	}
 	
 	(
@@ -2112,9 +2112,9 @@ parse_org_emftext_language_sql_schema_Column returns [org.emftext.language.sql.s
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 232);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 233, 238);
-		addExpectedElement(null, 239, 241);
+		addExpectedElement(null, 227);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 228, 233);
+		addExpectedElement(null, 234, 236);
 	}
 	
 	(
@@ -2130,8 +2130,8 @@ parse_org_emftext_language_sql_schema_Column returns [org.emftext.language.sql.s
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 242, 259);
-				addExpectedElement(null, 260, 262);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 237, 254);
+				addExpectedElement(null, 255, 257);
 			}
 			
 			(
@@ -2157,16 +2157,16 @@ parse_org_emftext_language_sql_schema_Column returns [org.emftext.language.sql.s
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 263, 268);
-				addExpectedElement(null, 269, 271);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 258, 263);
+				addExpectedElement(null, 264, 266);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 272, 277);
-		addExpectedElement(null, 278, 280);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 267, 272);
+		addExpectedElement(null, 273, 275);
 	}
 	
 	(
@@ -2194,7 +2194,7 @@ parse_org_emftext_language_sql_schema_Column returns [org.emftext.language.sql.s
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(null, 281, 283);
+		addExpectedElement(null, 276, 278);
 	}
 	
 	(
@@ -2210,7 +2210,7 @@ parse_org_emftext_language_sql_schema_Column returns [org.emftext.language.sql.s
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 284, 286);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 279, 281);
 			}
 			
 			(
@@ -2239,7 +2239,7 @@ parse_org_emftext_language_sql_schema_Column returns [org.emftext.language.sql.s
 				// We've found the last token for this rule. The constructed EObject is now
 				// complete.
 				completedElement(element, true);
-				addExpectedElement(null, 287, 288);
+				addExpectedElement(null, 282, 283);
 			}
 			
 		)
@@ -2249,7 +2249,7 @@ parse_org_emftext_language_sql_schema_Column returns [org.emftext.language.sql.s
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 289, 290);
+		addExpectedElement(null, 284, 285);
 	}
 	
 ;
@@ -2284,8 +2284,8 @@ parse_org_emftext_language_sql_schema_LiteralDefaultOption returns [org.emftext.
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 291, 296);
-		addExpectedElement(null, 297, 299);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 286, 291);
+		addExpectedElement(null, 292, 294);
 	}
 	
 ;
@@ -2320,8 +2320,8 @@ parse_org_emftext_language_sql_schema_DatetimeValueFunctionDefaultOption returns
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 300, 305);
-		addExpectedElement(null, 306, 308);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 295, 300);
+		addExpectedElement(null, 301, 303);
 	}
 	
 ;
@@ -2356,8 +2356,8 @@ parse_org_emftext_language_sql_schema_ImplicitlyTypedValueSpecificationDefaultOp
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 309, 314);
-		addExpectedElement(null, 315, 317);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 304, 309);
+		addExpectedElement(null, 310, 312);
 	}
 	
 ;
@@ -2379,7 +2379,7 @@ parse_org_emftext_language_sql_schema_NotNullColumnConstraint returns [org.emfte
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getNotNullColumnConstraint(), 318, 320);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getNotNullColumnConstraint(), 313, 315);
 			}
 			
 			(
@@ -2405,14 +2405,14 @@ parse_org_emftext_language_sql_schema_NotNullColumnConstraint returns [org.emfte
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 321);
+				addExpectedElement(null, 316);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(null, 322);
+		addExpectedElement(null, 317);
 	}
 	
 	a2 = KEYWORD_NOT {
@@ -2426,7 +2426,7 @@ parse_org_emftext_language_sql_schema_NotNullColumnConstraint returns [org.emfte
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 323);
+		addExpectedElement(null, 318);
 	}
 	
 	a3 = KEYWORD_NULL {
@@ -2443,7 +2443,7 @@ parse_org_emftext_language_sql_schema_NotNullColumnConstraint returns [org.emfte
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 324, 326);
+		addExpectedElement(null, 319, 321);
 	}
 	
 ;
@@ -2465,7 +2465,7 @@ parse_org_emftext_language_sql_schema_UniqueColumnConstraint returns [org.emftex
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueColumnConstraint(), 327, 329);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueColumnConstraint(), 322, 324);
 			}
 			
 			(
@@ -2491,14 +2491,14 @@ parse_org_emftext_language_sql_schema_UniqueColumnConstraint returns [org.emftex
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 330);
+				addExpectedElement(null, 325);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(null, 331);
+		addExpectedElement(null, 326);
 	}
 	
 	(
@@ -2536,7 +2536,7 @@ parse_org_emftext_language_sql_schema_UniqueColumnConstraint returns [org.emftex
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 332, 334);
+		addExpectedElement(null, 327, 329);
 	}
 	
 ;
@@ -2558,7 +2558,7 @@ parse_org_emftext_language_sql_schema_ReferentialColumnConstraint returns [org.e
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialColumnConstraint(), 335, 337);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialColumnConstraint(), 330, 332);
 			}
 			
 			(
@@ -2584,14 +2584,14 @@ parse_org_emftext_language_sql_schema_ReferentialColumnConstraint returns [org.e
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 338);
+				addExpectedElement(null, 333);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(null, 339);
+		addExpectedElement(null, 334);
 	}
 	
 	a2 = KEYWORD_REFERENCES {
@@ -2605,7 +2605,7 @@ parse_org_emftext_language_sql_schema_ReferentialColumnConstraint returns [org.e
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialColumnConstraint(), 340, 342);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialColumnConstraint(), 335, 337);
 	}
 	
 	(
@@ -2631,7 +2631,7 @@ parse_org_emftext_language_sql_schema_ReferentialColumnConstraint returns [org.e
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 343, 346);
+		addExpectedElement(null, 338, 341);
 	}
 	
 	(
@@ -2647,7 +2647,7 @@ parse_org_emftext_language_sql_schema_ReferentialColumnConstraint returns [org.e
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 347);
+				addExpectedElement(null, 342);
 			}
 			
 			(
@@ -2687,7 +2687,7 @@ parse_org_emftext_language_sql_schema_ReferentialColumnConstraint returns [org.e
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 348, 349);
+				addExpectedElement(null, 343, 344);
 			}
 			
 			(
@@ -2703,7 +2703,7 @@ parse_org_emftext_language_sql_schema_ReferentialColumnConstraint returns [org.e
 					}
 					{
 						// expected elements (follow set)
-						addExpectedElement(null, 350);
+						addExpectedElement(null, 345);
 					}
 					
 					(
@@ -2743,14 +2743,14 @@ parse_org_emftext_language_sql_schema_ReferentialColumnConstraint returns [org.e
 					)
 					{
 						// expected elements (follow set)
-						addExpectedElement(null, 351, 352);
+						addExpectedElement(null, 346, 347);
 					}
 					
 				)
 				
 			)*			{
 				// expected elements (follow set)
-				addExpectedElement(null, 353, 354);
+				addExpectedElement(null, 348, 349);
 			}
 			
 			a8 = ')' {
@@ -2767,7 +2767,7 @@ parse_org_emftext_language_sql_schema_ReferentialColumnConstraint returns [org.e
 				// We've found the last token for this rule. The constructed EObject is now
 				// complete.
 				completedElement(element, true);
-				addExpectedElement(null, 355, 357);
+				addExpectedElement(null, 350, 352);
 			}
 			
 		)
@@ -2777,7 +2777,7 @@ parse_org_emftext_language_sql_schema_ReferentialColumnConstraint returns [org.e
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 358, 360);
+		addExpectedElement(null, 353, 355);
 	}
 	
 ;
@@ -2799,7 +2799,7 @@ parse_org_emftext_language_sql_schema_UniqueTableConstraint returns [org.emftext
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueTableConstraint(), 361, 363);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getUniqueTableConstraint(), 356, 358);
 			}
 			
 			(
@@ -2825,14 +2825,14 @@ parse_org_emftext_language_sql_schema_UniqueTableConstraint returns [org.emftext
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 364);
+				addExpectedElement(null, 359);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(null, 365);
+		addExpectedElement(null, 360);
 	}
 	
 	(
@@ -2867,7 +2867,7 @@ parse_org_emftext_language_sql_schema_UniqueTableConstraint returns [org.emftext
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 366);
+		addExpectedElement(null, 361);
 	}
 	
 	a6 = '(' {
@@ -2881,7 +2881,7 @@ parse_org_emftext_language_sql_schema_UniqueTableConstraint returns [org.emftext
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 367);
+		addExpectedElement(null, 362);
 	}
 	
 	(
@@ -2921,7 +2921,7 @@ parse_org_emftext_language_sql_schema_UniqueTableConstraint returns [org.emftext
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 368, 369);
+		addExpectedElement(null, 363, 364);
 	}
 	
 	(
@@ -2937,7 +2937,7 @@ parse_org_emftext_language_sql_schema_UniqueTableConstraint returns [org.emftext
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 370);
+				addExpectedElement(null, 365);
 			}
 			
 			(
@@ -2977,14 +2977,14 @@ parse_org_emftext_language_sql_schema_UniqueTableConstraint returns [org.emftext
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 371, 372);
+				addExpectedElement(null, 366, 367);
 			}
 			
 		)
 		
 	)*	{
 		// expected elements (follow set)
-		addExpectedElement(null, 373, 374);
+		addExpectedElement(null, 368, 369);
 	}
 	
 	a10 = ')' {
@@ -3001,7 +3001,7 @@ parse_org_emftext_language_sql_schema_UniqueTableConstraint returns [org.emftext
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 375, 376);
+		addExpectedElement(null, 370, 371);
 	}
 	
 ;
@@ -3023,7 +3023,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialTableConstraint(), 377, 379);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialTableConstraint(), 372, 374);
 			}
 			
 			(
@@ -3049,14 +3049,14 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 380);
+				addExpectedElement(null, 375);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(null, 381);
+		addExpectedElement(null, 376);
 	}
 	
 	a2 = KEYWORD_FOREIGN {
@@ -3070,7 +3070,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 382);
+		addExpectedElement(null, 377);
 	}
 	
 	a3 = KEYWORD_KEY {
@@ -3084,7 +3084,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 383);
+		addExpectedElement(null, 378);
 	}
 	
 	a4 = '(' {
@@ -3098,7 +3098,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 384);
+		addExpectedElement(null, 379);
 	}
 	
 	(
@@ -3138,7 +3138,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 385, 386);
+		addExpectedElement(null, 380, 381);
 	}
 	
 	(
@@ -3154,7 +3154,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 387);
+				addExpectedElement(null, 382);
 			}
 			
 			(
@@ -3194,14 +3194,14 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 388, 389);
+				addExpectedElement(null, 383, 384);
 			}
 			
 		)
 		
 	)*	{
 		// expected elements (follow set)
-		addExpectedElement(null, 390, 391);
+		addExpectedElement(null, 385, 386);
 	}
 	
 	a8 = ')' {
@@ -3215,7 +3215,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 392);
+		addExpectedElement(null, 387);
 	}
 	
 	a9 = KEYWORD_REFERENCES {
@@ -3229,7 +3229,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialTableConstraint(), 393, 395);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getReferentialTableConstraint(), 388, 390);
 	}
 	
 	(
@@ -3255,7 +3255,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 396, 398);
+		addExpectedElement(null, 391, 393);
 	}
 	
 	(
@@ -3271,7 +3271,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 399);
+				addExpectedElement(null, 394);
 			}
 			
 			(
@@ -3311,7 +3311,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 400, 401);
+				addExpectedElement(null, 395, 396);
 			}
 			
 			(
@@ -3327,7 +3327,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 					}
 					{
 						// expected elements (follow set)
-						addExpectedElement(null, 402);
+						addExpectedElement(null, 397);
 					}
 					
 					(
@@ -3367,14 +3367,14 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 					)
 					{
 						// expected elements (follow set)
-						addExpectedElement(null, 403, 404);
+						addExpectedElement(null, 398, 399);
 					}
 					
 				)
 				
 			)*			{
 				// expected elements (follow set)
-				addExpectedElement(null, 405, 406);
+				addExpectedElement(null, 400, 401);
 			}
 			
 			a15 = ')' {
@@ -3391,7 +3391,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 				// We've found the last token for this rule. The constructed EObject is now
 				// complete.
 				completedElement(element, true);
-				addExpectedElement(null, 407, 408);
+				addExpectedElement(null, 402, 403);
 			}
 			
 		)
@@ -3401,7 +3401,7 @@ parse_org_emftext_language_sql_schema_ReferentialTableConstraint returns [org.em
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 409, 410);
+		addExpectedElement(null, 404, 405);
 	}
 	
 ;
@@ -3507,9 +3507,9 @@ parse_org_emftext_language_sql_datatype_ExactNumericType returns [org.emftext.la
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 411, 412);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 413, 418);
-		addExpectedElement(null, 419, 421);
+		addExpectedElement(null, 406, 407);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 408, 413);
+		addExpectedElement(null, 414, 416);
 	}
 	
 	(
@@ -3525,7 +3525,7 @@ parse_org_emftext_language_sql_datatype_ExactNumericType returns [org.emftext.la
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 422);
+				addExpectedElement(null, 417);
 			}
 			
 			(
@@ -3561,7 +3561,7 @@ parse_org_emftext_language_sql_datatype_ExactNumericType returns [org.emftext.la
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 423, 424);
+				addExpectedElement(null, 418, 419);
 			}
 			
 			(
@@ -3577,7 +3577,7 @@ parse_org_emftext_language_sql_datatype_ExactNumericType returns [org.emftext.la
 					}
 					{
 						// expected elements (follow set)
-						addExpectedElement(null, 425);
+						addExpectedElement(null, 420);
 					}
 					
 					(
@@ -3613,14 +3613,14 @@ parse_org_emftext_language_sql_datatype_ExactNumericType returns [org.emftext.la
 					)
 					{
 						// expected elements (follow set)
-						addExpectedElement(null, 426);
+						addExpectedElement(null, 421);
 					}
 					
 				)
 				
 			)?			{
 				// expected elements (follow set)
-				addExpectedElement(null, 427);
+				addExpectedElement(null, 422);
 			}
 			
 			a13 = ')' {
@@ -3637,9 +3637,9 @@ parse_org_emftext_language_sql_datatype_ExactNumericType returns [org.emftext.la
 				// We've found the last token for this rule. The constructed EObject is now
 				// complete.
 				completedElement(element, true);
-				addExpectedElement(null, 428);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 429, 434);
-				addExpectedElement(null, 435, 437);
+				addExpectedElement(null, 423);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 424, 429);
+				addExpectedElement(null, 430, 432);
 			}
 			
 		)
@@ -3649,9 +3649,9 @@ parse_org_emftext_language_sql_datatype_ExactNumericType returns [org.emftext.la
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 438);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 439, 444);
-		addExpectedElement(null, 445, 447);
+		addExpectedElement(null, 433);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 434, 439);
+		addExpectedElement(null, 440, 442);
 	}
 	
 ;
@@ -3662,107 +3662,72 @@ parse_org_emftext_language_sql_datatype_ApproximateNumericType returns [org.emft
 :
 	(
 		(
-			(
-				a0 = 'FLOAT' {
-					if (element == null) {
-						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
-						startIncompleteElement(element);
-					}
-					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0_0_0_0, null, true);
-					copyLocalizationInfos((CommonToken)a0, element);
-					// set value of enumeration attribute
-					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ApproximateNumericTypeKind.FLOAT_VALUE).getInstance();
-					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), value);
-					completedElement(value, false);
+			a0 = 'FLOAT' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
+					startIncompleteElement(element);
 				}
-				|				a1 = 'REAL' {
-					if (element == null) {
-						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
-						startIncompleteElement(element);
-					}
-					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0_0_0_0, null, true);
-					copyLocalizationInfos((CommonToken)a1, element);
-					// set value of enumeration attribute
-					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ApproximateNumericTypeKind.REAL_VALUE).getInstance();
-					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), value);
-					completedElement(value, false);
-				}
-			)
-		)
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 448, 449);
-			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 450, 455);
-			addExpectedElement(null, 456, 458);
-		}
-		
-		
-		|		(
-			(
-				a4 = 'DOUBLE' {
-					if (element == null) {
-						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
-						startIncompleteElement(element);
-					}
-					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0_0_1_0, null, true);
-					copyLocalizationInfos((CommonToken)a4, element);
-					// set value of enumeration attribute
-					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ApproximateNumericTypeKind.DOUBLE_PRECISION_VALUE).getInstance();
-					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), value);
-					completedElement(value, false);
-				}
-			)
-		)
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 459);
-		}
-		
-		a7 = KEYWORD_PRECISION {
-			if (element == null) {
-				element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
-				startIncompleteElement(element);
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a0, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ApproximateNumericTypeKind.FLOAT_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), value);
+				completedElement(value, false);
 			}
-			collectHiddenTokens(element);
-			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0_0_1_1, null, true);
-			copyLocalizationInfos((CommonToken)a7, element);
-		}
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 460, 461);
-			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 462, 467);
-			addExpectedElement(null, 468, 470);
-		}
-		
+			|			a1 = 'REAL' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
+					startIncompleteElement(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a1, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ApproximateNumericTypeKind.REAL_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), value);
+				completedElement(value, false);
+			}
+			|			a2 = 'DOUBLE PRECISION' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
+					startIncompleteElement(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a2, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getApproximateNumericTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.ApproximateNumericTypeKind.DOUBLE_PRECISION_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND), value);
+				completedElement(value, false);
+			}
+		)
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 471, 472);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 473, 478);
-		addExpectedElement(null, 479, 481);
+		addExpectedElement(null, 443, 444);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 445, 450);
+		addExpectedElement(null, 451, 453);
 	}
 	
 	(
 		(
-			a8 = '(' {
+			a5 = '(' {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
 				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_1_0_0_0, null, true);
-				copyLocalizationInfos((CommonToken)a8, element);
+				copyLocalizationInfos((CommonToken)a5, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 482);
+				addExpectedElement(null, 454);
 			}
 			
 			(
-				a9 = UNSIGNED_INTEGER				
+				a6 = UNSIGNED_INTEGER				
 				{
 					if (terminateParsing) {
 						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
@@ -3771,14 +3736,14 @@ parse_org_emftext_language_sql_datatype_ApproximateNumericType returns [org.emft
 						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
 						startIncompleteElement(element);
 					}
-					if (a9 != null) {
+					if (a6 != null) {
 						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
 						tokenResolver.setOptions(getOptions());
 						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-						tokenResolver.resolve(a9.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__PRECISION), result);
+						tokenResolver.resolve(a6.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__PRECISION), result);
 						Object resolvedObject = result.getResolvedToken();
 						if (resolvedObject == null) {
-							addErrorToResource(result.getErrorMessage(), ((CommonToken) a9).getLine(), ((CommonToken) a9).getCharPositionInLine(), ((CommonToken) a9).getStartIndex(), ((CommonToken) a9).getStopIndex());
+							addErrorToResource(result.getErrorMessage(), ((CommonToken) a6).getLine(), ((CommonToken) a6).getCharPositionInLine(), ((CommonToken) a6).getStartIndex(), ((CommonToken) a6).getStopIndex());
 						}
 						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
 						if (resolved != null) {
@@ -3788,32 +3753,32 @@ parse_org_emftext_language_sql_datatype_ApproximateNumericType returns [org.emft
 						}
 						collectHiddenTokens(element);
 						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_1_0_0_1, resolved, true);
-						copyLocalizationInfos((CommonToken) a9, element);
+						copyLocalizationInfos((CommonToken) a6, element);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 483);
+				addExpectedElement(null, 455);
 			}
 			
-			a10 = ')' {
+			a7 = ')' {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createApproximateNumericType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
 				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_25_0_0_1_0_0_2, null, true);
-				copyLocalizationInfos((CommonToken)a10, element);
+				copyLocalizationInfos((CommonToken)a7, element);
 			}
 			{
 				// expected elements (follow set)
 				// We've found the last token for this rule. The constructed EObject is now
 				// complete.
 				completedElement(element, true);
-				addExpectedElement(null, 484);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 485, 490);
-				addExpectedElement(null, 491, 493);
+				addExpectedElement(null, 456);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 457, 462);
+				addExpectedElement(null, 463, 465);
 			}
 			
 		)
@@ -3823,9 +3788,9 @@ parse_org_emftext_language_sql_datatype_ApproximateNumericType returns [org.emft
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 494);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 495, 500);
-		addExpectedElement(null, 501, 503);
+		addExpectedElement(null, 466);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 467, 472);
+		addExpectedElement(null, 473, 475);
 	}
 	
 ;
@@ -3836,133 +3801,98 @@ parse_org_emftext_language_sql_datatype_CharacterStringType returns [org.emftext
 :
 	(
 		(
-			(
-				a0 = 'CHARACTER' {
-					if (element == null) {
-						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-						startIncompleteElement(element);
-					}
-					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0_0_0_0, null, true);
-					copyLocalizationInfos((CommonToken)a0, element);
-					// set value of enumeration attribute
-					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHARACTER_VALUE).getInstance();
-					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
-					completedElement(value, false);
+			a0 = 'CHARACTER' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+					startIncompleteElement(element);
 				}
-				|				a1 = 'CHAR' {
-					if (element == null) {
-						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-						startIncompleteElement(element);
-					}
-					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0_0_0_0, null, true);
-					copyLocalizationInfos((CommonToken)a1, element);
-					// set value of enumeration attribute
-					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHAR_VALUE).getInstance();
-					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
-					completedElement(value, false);
-				}
-				|				a2 = 'VARCHAR' {
-					if (element == null) {
-						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-						startIncompleteElement(element);
-					}
-					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0_0_0_0, null, true);
-					copyLocalizationInfos((CommonToken)a2, element);
-					// set value of enumeration attribute
-					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.VARCHAR_VALUE).getInstance();
-					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
-					completedElement(value, false);
-				}
-			)
-		)
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 504, 507);
-			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 508, 513);
-			addExpectedElement(null, 514, 516);
-		}
-		
-		
-		|		(
-			(
-				a5 = 'CHARACTER' {
-					if (element == null) {
-						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-						startIncompleteElement(element);
-					}
-					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0_0_1_0, null, true);
-					copyLocalizationInfos((CommonToken)a5, element);
-					// set value of enumeration attribute
-					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHARACTER_VARYING_VALUE).getInstance();
-					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
-					completedElement(value, false);
-				}
-				|				a6 = 'CHAR' {
-					if (element == null) {
-						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-						startIncompleteElement(element);
-					}
-					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0_0_1_0, null, true);
-					copyLocalizationInfos((CommonToken)a6, element);
-					// set value of enumeration attribute
-					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHAR_VARYING_VALUE).getInstance();
-					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
-					completedElement(value, false);
-				}
-			)
-		)
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 517);
-		}
-		
-		a9 = KEYWORD_VARYING {
-			if (element == null) {
-				element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
-				startIncompleteElement(element);
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a0, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHARACTER_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
+				completedElement(value, false);
 			}
-			collectHiddenTokens(element);
-			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0_0_1_1, null, true);
-			copyLocalizationInfos((CommonToken)a9, element);
-		}
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 518, 521);
-			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 522, 527);
-			addExpectedElement(null, 528, 530);
-		}
-		
+			|			a1 = 'CHAR' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+					startIncompleteElement(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a1, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHAR_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
+				completedElement(value, false);
+			}
+			|			a2 = 'VARCHAR' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+					startIncompleteElement(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a2, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.VARCHAR_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
+				completedElement(value, false);
+			}
+			|			a3 = 'CHARACTER VARYING' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+					startIncompleteElement(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a3, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHARACTER_VARYING_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
+				completedElement(value, false);
+			}
+			|			a4 = 'CHAR VARYING' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
+					startIncompleteElement(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a4, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.CharacterStringTypeKind.CHAR_VARYING_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND), value);
+				completedElement(value, false);
+			}
+		)
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 531, 534);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 535, 540);
-		addExpectedElement(null, 541, 543);
+		addExpectedElement(null, 476, 479);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 480, 485);
+		addExpectedElement(null, 486, 488);
 	}
 	
 	(
 		(
-			a10 = '(' {
+			a7 = '(' {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
 				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_1_0_0_0, null, true);
-				copyLocalizationInfos((CommonToken)a10, element);
+				copyLocalizationInfos((CommonToken)a7, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 544);
+				addExpectedElement(null, 489);
 			}
 			
 			(
-				a11 = UNSIGNED_INTEGER				
+				a8 = UNSIGNED_INTEGER				
 				{
 					if (terminateParsing) {
 						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
@@ -3971,14 +3901,14 @@ parse_org_emftext_language_sql_datatype_CharacterStringType returns [org.emftext
 						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
 						startIncompleteElement(element);
 					}
-					if (a11 != null) {
+					if (a8 != null) {
 						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
 						tokenResolver.setOptions(getOptions());
 						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-						tokenResolver.resolve(a11.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__LENGTH), result);
+						tokenResolver.resolve(a8.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__LENGTH), result);
 						Object resolvedObject = result.getResolvedToken();
 						if (resolvedObject == null) {
-							addErrorToResource(result.getErrorMessage(), ((CommonToken) a11).getLine(), ((CommonToken) a11).getCharPositionInLine(), ((CommonToken) a11).getStartIndex(), ((CommonToken) a11).getStopIndex());
+							addErrorToResource(result.getErrorMessage(), ((CommonToken) a8).getLine(), ((CommonToken) a8).getCharPositionInLine(), ((CommonToken) a8).getStartIndex(), ((CommonToken) a8).getStopIndex());
 						}
 						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
 						if (resolved != null) {
@@ -3988,72 +3918,72 @@ parse_org_emftext_language_sql_datatype_CharacterStringType returns [org.emftext
 						}
 						collectHiddenTokens(element);
 						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_1_0_0_1, resolved, true);
-						copyLocalizationInfos((CommonToken) a11, element);
+						copyLocalizationInfos((CommonToken) a8, element);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 545);
+				addExpectedElement(null, 490);
 			}
 			
-			a12 = ')' {
+			a9 = ')' {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
 				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_1_0_0_2, null, true);
-				copyLocalizationInfos((CommonToken)a12, element);
+				copyLocalizationInfos((CommonToken)a9, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 546, 548);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 549, 554);
-				addExpectedElement(null, 555, 557);
+				addExpectedElement(null, 491, 493);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 494, 499);
+				addExpectedElement(null, 500, 502);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(null, 558, 560);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 561, 566);
-		addExpectedElement(null, 567, 569);
+		addExpectedElement(null, 503, 505);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 506, 511);
+		addExpectedElement(null, 512, 514);
 	}
 	
 	(
 		(
-			a13 = KEYWORD_CHARACTER {
+			a10 = KEYWORD_CHARACTER {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
 				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_2_0_0_0, null, true);
-				copyLocalizationInfos((CommonToken)a13, element);
+				copyLocalizationInfos((CommonToken)a10, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 570);
+				addExpectedElement(null, 515);
 			}
 			
-			a14 = KEYWORD_SET {
+			a11 = KEYWORD_SET {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
 				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_2_0_0_1, null, true);
-				copyLocalizationInfos((CommonToken)a14, element);
+				copyLocalizationInfos((CommonToken)a11, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringType(), 571, 573);
+				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringType(), 516, 518);
 			}
 			
 			(
-				a15_0 = parse_org_emftext_language_sql_common_SchemaQualifiedName				{
+				a12_0 = parse_org_emftext_language_sql_common_SchemaQualifiedName				{
 					if (terminateParsing) {
 						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
 					}
@@ -4061,52 +3991,52 @@ parse_org_emftext_language_sql_datatype_CharacterStringType returns [org.emftext
 						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
 						startIncompleteElement(element);
 					}
-					if (a15_0 != null) {
-						if (a15_0 != null) {
-							Object value = a15_0;
+					if (a12_0 != null) {
+						if (a12_0 != null) {
+							Object value = a12_0;
 							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__CHARACTER_SET_NAME), value);
 							completedElement(value, true);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_2_0_0_2, a15_0, true);
-						copyLocalizationInfos(a15_0, element);
+						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_2_0_0_2, a12_0, true);
+						copyLocalizationInfos(a12_0, element);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 574, 575);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 576, 581);
-				addExpectedElement(null, 582, 584);
+				addExpectedElement(null, 519, 520);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 521, 526);
+				addExpectedElement(null, 527, 529);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(null, 585, 586);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 587, 592);
-		addExpectedElement(null, 593, 595);
+		addExpectedElement(null, 530, 531);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 532, 537);
+		addExpectedElement(null, 538, 540);
 	}
 	
 	(
 		(
-			a16 = KEYWORD_COLLATE {
+			a13 = KEYWORD_COLLATE {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
 				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_3_0_0_0, null, true);
-				copyLocalizationInfos((CommonToken)a16, element);
+				copyLocalizationInfos((CommonToken)a13, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringType(), 596, 598);
+				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getCharacterStringType(), 541, 543);
 			}
 			
 			(
-				a17_0 = parse_org_emftext_language_sql_common_SchemaQualifiedName				{
+				a14_0 = parse_org_emftext_language_sql_common_SchemaQualifiedName				{
 					if (terminateParsing) {
 						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
 					}
@@ -4114,15 +4044,15 @@ parse_org_emftext_language_sql_datatype_CharacterStringType returns [org.emftext
 						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createCharacterStringType();
 						startIncompleteElement(element);
 					}
-					if (a17_0 != null) {
-						if (a17_0 != null) {
-							Object value = a17_0;
+					if (a14_0 != null) {
+						if (a14_0 != null) {
+							Object value = a14_0;
 							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__COLLATION_NAME), value);
 							completedElement(value, true);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_3_0_0_1, a17_0, true);
-						copyLocalizationInfos(a17_0, element);
+						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_26_0_0_3_0_0_1, a14_0, true);
+						copyLocalizationInfos(a14_0, element);
 					}
 				}
 			)
@@ -4131,9 +4061,9 @@ parse_org_emftext_language_sql_datatype_CharacterStringType returns [org.emftext
 				// We've found the last token for this rule. The constructed EObject is now
 				// complete.
 				completedElement(element, true);
-				addExpectedElement(null, 599);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 600, 605);
-				addExpectedElement(null, 606, 608);
+				addExpectedElement(null, 544);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 545, 550);
+				addExpectedElement(null, 551, 553);
 			}
 			
 		)
@@ -4143,9 +4073,9 @@ parse_org_emftext_language_sql_datatype_CharacterStringType returns [org.emftext
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 609);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 610, 615);
-		addExpectedElement(null, 616, 618);
+		addExpectedElement(null, 554);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 555, 560);
+		addExpectedElement(null, 561, 563);
 	}
 	
 ;
@@ -4155,208 +4085,112 @@ parse_org_emftext_language_sql_datatype_NationalCharacterStringType returns [org
 }
 :
 	(
-		a0 = KEYWORD_NATIONAL {
-			if (element == null) {
-				element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-				startIncompleteElement(element);
-			}
-			collectHiddenTokens(element);
-			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_0_0, null, true);
-			copyLocalizationInfos((CommonToken)a0, element);
-		}
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 619, 620);
-		}
-		
 		(
-			(
-				(
-					a1 = 'CHARACTER' {
-						if (element == null) {
-							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-							startIncompleteElement(element);
-						}
-						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_0_1_0_0_0, null, true);
-						copyLocalizationInfos((CommonToken)a1, element);
-						// set value of enumeration attribute
-						Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHARACTER_VALUE).getInstance();
-						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
-						completedElement(value, false);
-					}
-					|					a2 = 'CHAR' {
-						if (element == null) {
-							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-							startIncompleteElement(element);
-						}
-						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_0_1_0_0_0, null, true);
-						copyLocalizationInfos((CommonToken)a2, element);
-						// set value of enumeration attribute
-						Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHAR_VALUE).getInstance();
-						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
-						completedElement(value, false);
-					}
-				)
-			)
-			{
-				// expected elements (follow set)
-				addExpectedElement(null, 621, 623);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 624, 629);
-				addExpectedElement(null, 630, 632);
-			}
-			
-			
-			|			(
-				(
-					a5 = 'CHARACTER' {
-						if (element == null) {
-							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-							startIncompleteElement(element);
-						}
-						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_0_1_0_1_0, null, true);
-						copyLocalizationInfos((CommonToken)a5, element);
-						// set value of enumeration attribute
-						Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHARACTER_VARYING_VALUE).getInstance();
-						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
-						completedElement(value, false);
-					}
-					|					a6 = 'CHAR' {
-						if (element == null) {
-							element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-							startIncompleteElement(element);
-						}
-						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_0_1_0_1_0, null, true);
-						copyLocalizationInfos((CommonToken)a6, element);
-						// set value of enumeration attribute
-						Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHAR_VARYING_VALUE).getInstance();
-						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
-						completedElement(value, false);
-					}
-				)
-			)
-			{
-				// expected elements (follow set)
-				addExpectedElement(null, 633);
-			}
-			
-			a9 = KEYWORD_VARYING {
+			a0 = 'NATIONAL CHARACTER' {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_0_1_0_1_1, null, true);
-				copyLocalizationInfos((CommonToken)a9, element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a0, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHARACTER_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+				completedElement(value, false);
 			}
-			{
-				// expected elements (follow set)
-				addExpectedElement(null, 634, 636);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 637, 642);
-				addExpectedElement(null, 643, 645);
-			}
-			
-		)
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 646, 648);
-			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 649, 654);
-			addExpectedElement(null, 655, 657);
-		}
-		
-		
-		|		(
-			(
-				a10 = 'NCHAR' {
-					if (element == null) {
-						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-						startIncompleteElement(element);
-					}
-					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_1_0, null, true);
-					copyLocalizationInfos((CommonToken)a10, element);
-					// set value of enumeration attribute
-					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NCHAR_VALUE).getInstance();
-					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
-					completedElement(value, false);
+			|			a1 = 'NATIONAL CHAR' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+					startIncompleteElement(element);
 				}
-			)
-		)
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 658, 660);
-			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 661, 666);
-			addExpectedElement(null, 667, 669);
-		}
-		
-		
-		|		(
-			(
-				a13 = 'NCHAR' {
-					if (element == null) {
-						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-						startIncompleteElement(element);
-					}
-					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_2_0, null, true);
-					copyLocalizationInfos((CommonToken)a13, element);
-					// set value of enumeration attribute
-					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NCHAR_VARYING_VALUE).getInstance();
-					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
-					completedElement(value, false);
-				}
-			)
-		)
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 670);
-		}
-		
-		a16 = KEYWORD_VARYING {
-			if (element == null) {
-				element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
-				startIncompleteElement(element);
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a1, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHAR_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+				completedElement(value, false);
 			}
-			collectHiddenTokens(element);
-			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0_0_2_1, null, true);
-			copyLocalizationInfos((CommonToken)a16, element);
-		}
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 671, 673);
-			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 674, 679);
-			addExpectedElement(null, 680, 682);
-		}
-		
+			|			a2 = 'NATIONAL CHARACTER VARYING' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+					startIncompleteElement(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a2, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHARACTER_VARYING_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+				completedElement(value, false);
+			}
+			|			a3 = 'NATIONAL CHAR VARYING' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+					startIncompleteElement(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a3, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NATIONAL_CHAR_VARYING_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+				completedElement(value, false);
+			}
+			|			a4 = 'NCHAR' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+					startIncompleteElement(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a4, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NCHAR_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+				completedElement(value, false);
+			}
+			|			a5 = 'NCHAR VARYING' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
+					startIncompleteElement(element);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a5, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.NationalCharacterStringTypeKind.NCHAR_VARYING_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND), value);
+				completedElement(value, false);
+			}
+		)
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 683, 685);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 686, 691);
-		addExpectedElement(null, 692, 694);
+		addExpectedElement(null, 564, 566);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 567, 572);
+		addExpectedElement(null, 573, 575);
 	}
 	
 	(
 		(
-			a17 = '(' {
+			a8 = '(' {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
 				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_1_0_0_0, null, true);
-				copyLocalizationInfos((CommonToken)a17, element);
+				copyLocalizationInfos((CommonToken)a8, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 695);
+				addExpectedElement(null, 576);
 			}
 			
 			(
-				a18 = UNSIGNED_INTEGER				
+				a9 = UNSIGNED_INTEGER				
 				{
 					if (terminateParsing) {
 						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
@@ -4365,14 +4199,14 @@ parse_org_emftext_language_sql_datatype_NationalCharacterStringType returns [org
 						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
 						startIncompleteElement(element);
 					}
-					if (a18 != null) {
+					if (a9 != null) {
 						org.emftext.language.sql.resource.sql.ISqlTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("UNSIGNED_INTEGER");
 						tokenResolver.setOptions(getOptions());
 						org.emftext.language.sql.resource.sql.ISqlTokenResolveResult result = getFreshTokenResolveResult();
-						tokenResolver.resolve(a18.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__LENGTH), result);
+						tokenResolver.resolve(a9.getText(), element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__LENGTH), result);
 						Object resolvedObject = result.getResolvedToken();
 						if (resolvedObject == null) {
-							addErrorToResource(result.getErrorMessage(), ((CommonToken) a18).getLine(), ((CommonToken) a18).getCharPositionInLine(), ((CommonToken) a18).getStartIndex(), ((CommonToken) a18).getStopIndex());
+							addErrorToResource(result.getErrorMessage(), ((CommonToken) a9).getLine(), ((CommonToken) a9).getCharPositionInLine(), ((CommonToken) a9).getStartIndex(), ((CommonToken) a9).getStopIndex());
 						}
 						org.emftext.language.sql.UnsignedInteger resolved = (org.emftext.language.sql.UnsignedInteger) resolvedObject;
 						if (resolved != null) {
@@ -4382,58 +4216,58 @@ parse_org_emftext_language_sql_datatype_NationalCharacterStringType returns [org
 						}
 						collectHiddenTokens(element);
 						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_1_0_0_1, resolved, true);
-						copyLocalizationInfos((CommonToken) a18, element);
+						copyLocalizationInfos((CommonToken) a9, element);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 696);
+				addExpectedElement(null, 577);
 			}
 			
-			a19 = ')' {
+			a10 = ')' {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
 				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_1_0_0_2, null, true);
-				copyLocalizationInfos((CommonToken)a19, element);
+				copyLocalizationInfos((CommonToken)a10, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 697, 698);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 699, 704);
-				addExpectedElement(null, 705, 707);
+				addExpectedElement(null, 578, 579);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 580, 585);
+				addExpectedElement(null, 586, 588);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(null, 708, 709);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 710, 715);
-		addExpectedElement(null, 716, 718);
+		addExpectedElement(null, 589, 590);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 591, 596);
+		addExpectedElement(null, 597, 599);
 	}
 	
 	(
 		(
-			a20 = KEYWORD_COLLATE {
+			a11 = KEYWORD_COLLATE {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
 				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_2_0_0_0, null, true);
-				copyLocalizationInfos((CommonToken)a20, element);
+				copyLocalizationInfos((CommonToken)a11, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringType(), 719, 721);
+				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getNationalCharacterStringType(), 600, 602);
 			}
 			
 			(
-				a21_0 = parse_org_emftext_language_sql_common_SchemaQualifiedName				{
+				a12_0 = parse_org_emftext_language_sql_common_SchemaQualifiedName				{
 					if (terminateParsing) {
 						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
 					}
@@ -4441,15 +4275,15 @@ parse_org_emftext_language_sql_datatype_NationalCharacterStringType returns [org
 						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createNationalCharacterStringType();
 						startIncompleteElement(element);
 					}
-					if (a21_0 != null) {
-						if (a21_0 != null) {
-							Object value = a21_0;
+					if (a12_0 != null) {
+						if (a12_0 != null) {
+							Object value = a12_0;
 							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME), value);
 							completedElement(value, true);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_2_0_0_1, a21_0, true);
-						copyLocalizationInfos(a21_0, element);
+						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_27_0_0_2_0_0_1, a12_0, true);
+						copyLocalizationInfos(a12_0, element);
 					}
 				}
 			)
@@ -4458,9 +4292,9 @@ parse_org_emftext_language_sql_datatype_NationalCharacterStringType returns [org
 				// We've found the last token for this rule. The constructed EObject is now
 				// complete.
 				completedElement(element, true);
-				addExpectedElement(null, 722);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 723, 728);
-				addExpectedElement(null, 729, 731);
+				addExpectedElement(null, 603);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 604, 609);
+				addExpectedElement(null, 610, 612);
 			}
 			
 		)
@@ -4470,9 +4304,9 @@ parse_org_emftext_language_sql_datatype_NationalCharacterStringType returns [org
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 732);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 733, 738);
-		addExpectedElement(null, 739, 741);
+		addExpectedElement(null, 613);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 614, 619);
+		addExpectedElement(null, 620, 622);
 	}
 	
 ;
@@ -4483,108 +4317,59 @@ parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType returns [org
 :
 	(
 		(
-			(
-				a0 = 'BINARY' {
-					if (element == null) {
-						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
-						startIncompleteElement(element);
-					}
-					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_0_0_0_0, null, true);
-					copyLocalizationInfos((CommonToken)a0, element);
-					// set value of enumeration attribute
-					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.BinaryLargeObjectStringTypeKind.BINARY_LARGE_OBJECT_VALUE).getInstance();
-					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND), value);
-					completedElement(value, false);
+			a0 = 'BINARY LARGE OBJECT' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
+					startIncompleteElement(element);
 				}
-			)
-		)
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 742);
-		}
-		
-		a3 = KEYWORD_LARGE {
-			if (element == null) {
-				element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
-				startIncompleteElement(element);
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a0, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.BinaryLargeObjectStringTypeKind.BINARY_LARGE_OBJECT_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND), value);
+				completedElement(value, false);
 			}
-			collectHiddenTokens(element);
-			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_0_0_0_1, null, true);
-			copyLocalizationInfos((CommonToken)a3, element);
-		}
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 743);
-		}
-		
-		a4 = KEYWORD_OBJECT {
-			if (element == null) {
-				element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
-				startIncompleteElement(element);
-			}
-			collectHiddenTokens(element);
-			retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_0_0_0_2, null, true);
-			copyLocalizationInfos((CommonToken)a4, element);
-		}
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 744, 745);
-			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 746, 751);
-			addExpectedElement(null, 752, 754);
-		}
-		
-		
-		|		(
-			(
-				a5 = 'BLOB' {
-					if (element == null) {
-						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
-						startIncompleteElement(element);
-					}
-					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_0_0_1_0, null, true);
-					copyLocalizationInfos((CommonToken)a5, element);
-					// set value of enumeration attribute
-					Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.BinaryLargeObjectStringTypeKind.BLOB_VALUE).getInstance();
-					element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND), value);
-					completedElement(value, false);
+			|			a1 = 'BLOB' {
+				if (element == null) {
+					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
+					startIncompleteElement(element);
 				}
-			)
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_0, null, true);
+				copyLocalizationInfos((CommonToken)a1, element);
+				// set value of enumeration attribute
+				Object value = org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringTypeKind().getEEnumLiteral(org.emftext.language.sql.datatype.BinaryLargeObjectStringTypeKind.BLOB_VALUE).getInstance();
+				element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND), value);
+				completedElement(value, false);
+			}
 		)
-		{
-			// expected elements (follow set)
-			addExpectedElement(null, 755, 756);
-			addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 757, 762);
-			addExpectedElement(null, 763, 765);
-		}
-		
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 766, 767);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 768, 773);
-		addExpectedElement(null, 774, 776);
+		addExpectedElement(null, 623, 624);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 625, 630);
+		addExpectedElement(null, 631, 633);
 	}
 	
 	(
 		(
-			a8 = '(' {
+			a4 = '(' {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
 				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_1_0_0_0, null, true);
-				copyLocalizationInfos((CommonToken)a8, element);
+				copyLocalizationInfos((CommonToken)a4, element);
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringType(), 777);
+				addExpectedElement(org.emftext.language.sql.datatype.DatatypePackage.eINSTANCE.getBinaryLargeObjectStringType(), 634);
 			}
 			
 			(
-				a9_0 = parse_org_emftext_language_sql_datatype_LargeObjectLength				{
+				a5_0 = parse_org_emftext_language_sql_datatype_LargeObjectLength				{
 					if (terminateParsing) {
 						throw new org.emftext.language.sql.resource.sql.mopp.SqlTerminateParsingException();
 					}
@@ -4592,40 +4377,40 @@ parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType returns [org
 						element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
 						startIncompleteElement(element);
 					}
-					if (a9_0 != null) {
-						if (a9_0 != null) {
-							Object value = a9_0;
+					if (a5_0 != null) {
+						if (a5_0 != null) {
+							Object value = a5_0;
 							element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__LENGTH), value);
 							completedElement(value, true);
 						}
 						collectHiddenTokens(element);
-						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_1_0_0_1, a9_0, true);
-						copyLocalizationInfos(a9_0, element);
+						retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_1_0_0_1, a5_0, true);
+						copyLocalizationInfos(a5_0, element);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 778);
+				addExpectedElement(null, 635);
 			}
 			
-			a10 = ')' {
+			a6 = ')' {
 				if (element == null) {
 					element = org.emftext.language.sql.datatype.DatatypeFactory.eINSTANCE.createBinaryLargeObjectStringType();
 					startIncompleteElement(element);
 				}
 				collectHiddenTokens(element);
 				retrieveLayoutInformation(element, org.emftext.language.sql.resource.sql.grammar.SqlGrammarInformationProvider.SQL_28_0_0_1_0_0_2, null, true);
-				copyLocalizationInfos((CommonToken)a10, element);
+				copyLocalizationInfos((CommonToken)a6, element);
 			}
 			{
 				// expected elements (follow set)
 				// We've found the last token for this rule. The constructed EObject is now
 				// complete.
 				completedElement(element, true);
-				addExpectedElement(null, 779);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 780, 785);
-				addExpectedElement(null, 786, 788);
+				addExpectedElement(null, 636);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 637, 642);
+				addExpectedElement(null, 643, 645);
 			}
 			
 		)
@@ -4635,9 +4420,9 @@ parse_org_emftext_language_sql_datatype_BinaryLargeObjectStringType returns [org
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 789);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 790, 795);
-		addExpectedElement(null, 796, 798);
+		addExpectedElement(null, 646);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 647, 652);
+		addExpectedElement(null, 653, 655);
 	}
 	
 ;
@@ -4679,7 +4464,7 @@ parse_org_emftext_language_sql_datatype_LargeObjectLength returns [org.emftext.l
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 799, 801);
+		addExpectedElement(null, 656, 658);
 	}
 	
 	(
@@ -4729,7 +4514,7 @@ parse_org_emftext_language_sql_datatype_LargeObjectLength returns [org.emftext.l
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(null, 802, 803);
+		addExpectedElement(null, 659, 660);
 	}
 	
 	(
@@ -4782,7 +4567,7 @@ parse_org_emftext_language_sql_datatype_LargeObjectLength returns [org.emftext.l
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 804);
+		addExpectedElement(null, 661);
 	}
 	
 ;
@@ -4805,9 +4590,9 @@ parse_org_emftext_language_sql_datatype_DateType returns [org.emftext.language.s
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 805);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 806, 811);
-		addExpectedElement(null, 812, 814);
+		addExpectedElement(null, 662);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 663, 668);
+		addExpectedElement(null, 669, 671);
 	}
 	
 ;
@@ -4827,9 +4612,9 @@ parse_org_emftext_language_sql_datatype_TimeType returns [org.emftext.language.s
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 815, 817);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 818, 823);
-		addExpectedElement(null, 824, 826);
+		addExpectedElement(null, 672, 674);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 675, 680);
+		addExpectedElement(null, 681, 683);
 	}
 	
 	(
@@ -4845,7 +4630,7 @@ parse_org_emftext_language_sql_datatype_TimeType returns [org.emftext.language.s
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 827);
+				addExpectedElement(null, 684);
 			}
 			
 			(
@@ -4881,7 +4666,7 @@ parse_org_emftext_language_sql_datatype_TimeType returns [org.emftext.language.s
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 828);
+				addExpectedElement(null, 685);
 			}
 			
 			a3 = ')' {
@@ -4895,18 +4680,18 @@ parse_org_emftext_language_sql_datatype_TimeType returns [org.emftext.language.s
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 829, 830);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 831, 836);
-				addExpectedElement(null, 837, 839);
+				addExpectedElement(null, 686, 687);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 688, 693);
+				addExpectedElement(null, 694, 696);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(null, 840, 841);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 842, 847);
-		addExpectedElement(null, 848, 850);
+		addExpectedElement(null, 697, 698);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 699, 704);
+		addExpectedElement(null, 705, 707);
 	}
 	
 	(
@@ -4943,7 +4728,7 @@ parse_org_emftext_language_sql_datatype_TimeType returns [org.emftext.language.s
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 851);
+				addExpectedElement(null, 708);
 			}
 			
 			a7 = KEYWORD_TIME {
@@ -4957,7 +4742,7 @@ parse_org_emftext_language_sql_datatype_TimeType returns [org.emftext.language.s
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 852);
+				addExpectedElement(null, 709);
 			}
 			
 			a8 = KEYWORD_ZONE {
@@ -4974,9 +4759,9 @@ parse_org_emftext_language_sql_datatype_TimeType returns [org.emftext.language.s
 				// We've found the last token for this rule. The constructed EObject is now
 				// complete.
 				completedElement(element, true);
-				addExpectedElement(null, 853);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 854, 859);
-				addExpectedElement(null, 860, 862);
+				addExpectedElement(null, 710);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 711, 716);
+				addExpectedElement(null, 717, 719);
 			}
 			
 		)
@@ -4986,9 +4771,9 @@ parse_org_emftext_language_sql_datatype_TimeType returns [org.emftext.language.s
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 863);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 864, 869);
-		addExpectedElement(null, 870, 872);
+		addExpectedElement(null, 720);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 721, 726);
+		addExpectedElement(null, 727, 729);
 	}
 	
 ;
@@ -5008,9 +4793,9 @@ parse_org_emftext_language_sql_datatype_TimestampType returns [org.emftext.langu
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 873, 875);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 876, 881);
-		addExpectedElement(null, 882, 884);
+		addExpectedElement(null, 730, 732);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 733, 738);
+		addExpectedElement(null, 739, 741);
 	}
 	
 	(
@@ -5026,7 +4811,7 @@ parse_org_emftext_language_sql_datatype_TimestampType returns [org.emftext.langu
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 885);
+				addExpectedElement(null, 742);
 			}
 			
 			(
@@ -5062,7 +4847,7 @@ parse_org_emftext_language_sql_datatype_TimestampType returns [org.emftext.langu
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 886);
+				addExpectedElement(null, 743);
 			}
 			
 			a3 = ')' {
@@ -5076,18 +4861,18 @@ parse_org_emftext_language_sql_datatype_TimestampType returns [org.emftext.langu
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 887, 888);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 889, 894);
-				addExpectedElement(null, 895, 897);
+				addExpectedElement(null, 744, 745);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 746, 751);
+				addExpectedElement(null, 752, 754);
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(null, 898, 899);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 900, 905);
-		addExpectedElement(null, 906, 908);
+		addExpectedElement(null, 755, 756);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 757, 762);
+		addExpectedElement(null, 763, 765);
 	}
 	
 	(
@@ -5124,7 +4909,7 @@ parse_org_emftext_language_sql_datatype_TimestampType returns [org.emftext.langu
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 909);
+				addExpectedElement(null, 766);
 			}
 			
 			a7 = KEYWORD_TIME {
@@ -5138,7 +4923,7 @@ parse_org_emftext_language_sql_datatype_TimestampType returns [org.emftext.langu
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 910);
+				addExpectedElement(null, 767);
 			}
 			
 			a8 = KEYWORD_ZONE {
@@ -5155,9 +4940,9 @@ parse_org_emftext_language_sql_datatype_TimestampType returns [org.emftext.langu
 				// We've found the last token for this rule. The constructed EObject is now
 				// complete.
 				completedElement(element, true);
-				addExpectedElement(null, 911);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 912, 917);
-				addExpectedElement(null, 918, 920);
+				addExpectedElement(null, 768);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 769, 774);
+				addExpectedElement(null, 775, 777);
 			}
 			
 		)
@@ -5167,9 +4952,9 @@ parse_org_emftext_language_sql_datatype_TimestampType returns [org.emftext.langu
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 921);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 922, 927);
-		addExpectedElement(null, 928, 930);
+		addExpectedElement(null, 778);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 779, 784);
+		addExpectedElement(null, 785, 787);
 	}
 	
 ;
@@ -5192,9 +4977,9 @@ parse_org_emftext_language_sql_datatype_BooleanType returns [org.emftext.languag
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(null, 931);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 932, 937);
-		addExpectedElement(null, 938, 940);
+		addExpectedElement(null, 788);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 789, 794);
+		addExpectedElement(null, 795, 797);
 	}
 	
 ;
@@ -5274,9 +5059,9 @@ parse_org_emftext_language_sql_function_DatetimeValueFunction returns [org.emfte
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, 941);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 942, 947);
-		addExpectedElement(null, 948, 950);
+		addExpectedElement(null, 798);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 799, 804);
+		addExpectedElement(null, 805, 807);
 	}
 	
 	(
@@ -5292,7 +5077,7 @@ parse_org_emftext_language_sql_function_DatetimeValueFunction returns [org.emfte
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 951);
+				addExpectedElement(null, 808);
 			}
 			
 			(
@@ -5328,7 +5113,7 @@ parse_org_emftext_language_sql_function_DatetimeValueFunction returns [org.emfte
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(null, 952);
+				addExpectedElement(null, 809);
 			}
 			
 			a9 = ')' {
@@ -5345,8 +5130,8 @@ parse_org_emftext_language_sql_function_DatetimeValueFunction returns [org.emfte
 				// We've found the last token for this rule. The constructed EObject is now
 				// complete.
 				completedElement(element, true);
-				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 953, 958);
-				addExpectedElement(null, 959, 961);
+				addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 810, 815);
+				addExpectedElement(null, 816, 818);
 			}
 			
 		)
@@ -5356,8 +5141,8 @@ parse_org_emftext_language_sql_function_DatetimeValueFunction returns [org.emfte
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 962, 967);
-		addExpectedElement(null, 968, 970);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 819, 824);
+		addExpectedElement(null, 825, 827);
 	}
 	
 ;
@@ -5380,8 +5165,8 @@ parse_org_emftext_language_sql_expression_NullSpecification returns [org.emftext
 		// We've found the last token for this rule. The constructed EObject is now
 		// complete.
 		completedElement(element, true);
-		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 971, 976);
-		addExpectedElement(null, 977, 979);
+		addExpectedElement(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn(), 828, 833);
+		addExpectedElement(null, 834, 836);
 	}
 	
 ;
@@ -5521,19 +5306,9 @@ KEYWORD_FOREIGN: (LETTER_F LETTER_O LETTER_R LETTER_E LETTER_I LETTER_G LETTER_N
 
 KEYWORD_KEY: (LETTER_K LETTER_E LETTER_Y);
 
-KEYWORD_PRECISION: (LETTER_P LETTER_R LETTER_E LETTER_C LETTER_I LETTER_S LETTER_I LETTER_O LETTER_N);
-
-KEYWORD_VARYING: (LETTER_V LETTER_A LETTER_R LETTER_Y LETTER_I LETTER_N LETTER_G);
-
 KEYWORD_CHARACTER: (LETTER_C LETTER_H LETTER_A LETTER_R LETTER_A LETTER_C LETTER_T LETTER_E LETTER_R);
 
 KEYWORD_SET: (LETTER_S LETTER_E LETTER_T);
-
-KEYWORD_NATIONAL: (LETTER_N LETTER_A LETTER_T LETTER_I LETTER_O LETTER_N LETTER_A LETTER_L);
-
-KEYWORD_LARGE: (LETTER_L LETTER_A LETTER_R LETTER_G LETTER_E);
-
-KEYWORD_OBJECT: (LETTER_O LETTER_B LETTER_J LETTER_E LETTER_C LETTER_T);
 
 KEYWORD_ZONE: (LETTER_Z LETTER_O LETTER_N LETTER_E);
 

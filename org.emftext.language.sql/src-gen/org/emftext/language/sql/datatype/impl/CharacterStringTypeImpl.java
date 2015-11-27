@@ -3,16 +3,17 @@
 package org.emftext.language.sql.datatype.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.emftext.language.sql.UnsignedInteger;
 
 import org.emftext.language.sql.common.SchemaQualifiedName;
+
 import org.emftext.language.sql.datatype.CharacterStringType;
 import org.emftext.language.sql.datatype.CharacterStringTypeKind;
 import org.emftext.language.sql.datatype.DatatypePackage;
@@ -140,6 +141,28 @@ public class CharacterStringTypeImpl extends PredefinedTypeImpl implements Chara
      * <!-- end-user-doc -->
      * @generated
      */
+    public UnsignedInteger getLength() {
+        return length;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLength(UnsignedInteger newLength) {
+        UnsignedInteger oldLength = length;
+        length = newLength;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DatatypePackage.CHARACTER_STRING_TYPE__LENGTH,
+                    oldLength, length));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public SchemaQualifiedName getCharacterSetName() {
         return characterSetName;
     }
@@ -251,28 +274,6 @@ public class CharacterStringTypeImpl extends PredefinedTypeImpl implements Chara
             return basicSetCollationName(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public UnsignedInteger getLength() {
-        return length;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLength(UnsignedInteger newLength) {
-        UnsignedInteger oldLength = length;
-        length = newLength;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DatatypePackage.CHARACTER_STRING_TYPE__LENGTH,
-                    oldLength, length));
     }
 
     /**

@@ -100,8 +100,6 @@ public class DatatypeFactoryImpl extends EFactoryImpl implements DatatypeFactory
             return createExactNumericTypeKindFromString(eDataType, initialValue);
         case DatatypePackage.APPROXIMATE_NUMERIC_TYPE_KIND:
             return createApproximateNumericTypeKindFromString(eDataType, initialValue);
-        case DatatypePackage.DATETIME_TYPE_KIND:
-            return createDatetimeTypeKindFromString(eDataType, initialValue);
         case DatatypePackage.MULTIPLIER:
             return createMultiplierFromString(eDataType, initialValue);
         case DatatypePackage.CHAR_LENGTH_UNITS:
@@ -129,8 +127,6 @@ public class DatatypeFactoryImpl extends EFactoryImpl implements DatatypeFactory
             return convertExactNumericTypeKindToString(eDataType, instanceValue);
         case DatatypePackage.APPROXIMATE_NUMERIC_TYPE_KIND:
             return convertApproximateNumericTypeKindToString(eDataType, instanceValue);
-        case DatatypePackage.DATETIME_TYPE_KIND:
-            return convertDatetimeTypeKindToString(eDataType, instanceValue);
         case DatatypePackage.MULTIPLIER:
             return convertMultiplierToString(eDataType, instanceValue);
         case DatatypePackage.CHAR_LENGTH_UNITS:
@@ -350,28 +346,6 @@ public class DatatypeFactoryImpl extends EFactoryImpl implements DatatypeFactory
      * @generated
      */
     public String convertApproximateNumericTypeKindToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public DatetimeTypeKind createDatetimeTypeKindFromString(EDataType eDataType, String initialValue) {
-        DatetimeTypeKind result = DatetimeTypeKind.get(initialValue);
-        if (result == null)
-            throw new IllegalArgumentException(
-                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertDatetimeTypeKindToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 

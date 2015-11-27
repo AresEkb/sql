@@ -3,6 +3,7 @@
 package org.emftext.language.sql.datatype;
 
 import org.emftext.language.sql.UnsignedInteger;
+
 import org.emftext.language.sql.common.SchemaQualifiedName;
 
 /**
@@ -55,10 +56,36 @@ public interface CharacterStringType extends PredefinedType {
     void setKind(CharacterStringTypeKind value);
 
     /**
+     * Returns the value of the '<em><b>Length</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Length</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Length</em>' attribute.
+     * @see #setLength(UnsignedInteger)
+     * @see org.emftext.language.sql.datatype.DatatypePackage#getCharacterStringType_Length()
+     * @model dataType="org.emftext.language.sql.common.UnsignedInteger"
+     * @generated
+     */
+    UnsignedInteger getLength();
+
+    /**
+     * Sets the value of the '{@link org.emftext.language.sql.datatype.CharacterStringType#getLength <em>Length</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Length</em>' attribute.
+     * @see #getLength()
+     * @generated
+     */
+    void setLength(UnsignedInteger value);
+
+    /**
      * Returns the value of the '<em><b>Character Set Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Character Set Name</em>' attribute isn't clear,
+     * If the meaning of the '<em>Character Set Name</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
@@ -84,7 +111,7 @@ public interface CharacterStringType extends PredefinedType {
      * Returns the value of the '<em><b>Collation Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Collation Name</em>' attribute isn't clear,
+     * If the meaning of the '<em>Collation Name</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
@@ -105,31 +132,5 @@ public interface CharacterStringType extends PredefinedType {
      * @generated
      */
     void setCollationName(SchemaQualifiedName value);
-
-    /**
-     * Returns the value of the '<em><b>Length</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Length</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Length</em>' attribute.
-     * @see #setLength(UnsignedInteger)
-     * @see org.emftext.language.sql.datatype.DatatypePackage#getCharacterStringType_Length()
-     * @model dataType="org.emftext.language.sql.common.UnsignedInteger"
-     * @generated
-     */
-    UnsignedInteger getLength();
-
-    /**
-     * Sets the value of the '{@link org.emftext.language.sql.datatype.CharacterStringType#getLength <em>Length</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Length</em>' attribute.
-     * @see #getLength()
-     * @generated
-     */
-    void setLength(UnsignedInteger value);
 
 } // CharacterStringType

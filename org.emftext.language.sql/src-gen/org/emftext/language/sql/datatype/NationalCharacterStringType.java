@@ -3,6 +3,7 @@
 package org.emftext.language.sql.datatype;
 
 import org.emftext.language.sql.UnsignedInteger;
+
 import org.emftext.language.sql.common.SchemaQualifiedName;
 
 /**
@@ -83,7 +84,7 @@ public interface NationalCharacterStringType extends PredefinedType {
      * Returns the value of the '<em><b>Collation Name</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Collation Name</em>' attribute isn't clear,
+     * If the meaning of the '<em>Collation Name</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->

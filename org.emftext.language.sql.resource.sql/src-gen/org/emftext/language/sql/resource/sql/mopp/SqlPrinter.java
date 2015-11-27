@@ -1019,12 +1019,12 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 		// 0 (if the feature is null).
 		Map<String, Integer> printCountingMap = new LinkedHashMap<String, Integer>(4);
 		Object temp;
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__CONTENTS_SOURCE));
-		printCountingMap.put("contentsSource", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE));
-		printCountingMap.put("scope", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCHEMA_QUALIFIED_NAME));
 		printCountingMap.put("schemaQualifiedName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCOPE));
+		printCountingMap.put("scope", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__CONTENTS_SOURCE));
+		printCountingMap.put("contentsSource", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (CsString)
@@ -2154,16 +2154,23 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__PRECISION));
 		printCountingMap.put("precision", temp == null ? 0 : 1);
 		// print collected hidden tokens
+		int count;
 		java.io.StringWriter sWriter = null;
 		PrintWriter out1 = null;
 		Map<String, Integer> printCountingMap1 = null;
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		print_org_emftext_language_sql_datatype_ApproximateNumericType_0(element, localtab, out, printCountingMap);
+		// DEFINITION PART BEGINS (EnumTerminal)
+		count = printCountingMap.get("kind");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND));
+			if (o != null) {
+			}
+			printCountingMap.put("kind", count - 1);
+		}
 		// DEFINITION PART BEGINS (CompoundDefinition)
 		sWriter = new StringWriter();
 		out1 = new PrintWriter(sWriter);
 		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-		print_org_emftext_language_sql_datatype_ApproximateNumericType_1(element, localtab, out1, printCountingMap1);
+		print_org_emftext_language_sql_datatype_ApproximateNumericType_0(element, localtab, out1, printCountingMap1);
 		if (printCountingMap.equals(printCountingMap1)) {
 			out1.close();
 		} else {
@@ -2175,43 +2182,6 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 	}
 	
 	public void print_org_emftext_language_sql_datatype_ApproximateNumericType_0(org.emftext.language.sql.datatype.ApproximateNumericType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		int count;
-		int alt = -1;
-		alt = 0;
-		int matches = 		matchCount(printCountingMap, Arrays.asList(		"kind"		));
-		int tempMatchCount;
-		tempMatchCount = 		matchCount(printCountingMap, Arrays.asList(		"kind"		));
-		if (tempMatchCount > matches) {
-			alt = 1;
-			matches = tempMatchCount;
-		}
-		switch(alt) {
-			case 1:			{
-				// DEFINITION PART BEGINS (EnumTerminal)
-				count = printCountingMap.get("kind");
-				if (count > 0) {
-					Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND));
-					if (o != null) {
-					}
-					printCountingMap.put("kind", count - 1);
-				}
-				// DEFINITION PART BEGINS (CsString)
-				out.print("PRECISION");
-				out.print(" ");
-			}
-			break;
-			default:			// DEFINITION PART BEGINS (EnumTerminal)
-			count = printCountingMap.get("kind");
-			if (count > 0) {
-				Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.APPROXIMATE_NUMERIC_TYPE__KIND));
-				if (o != null) {
-				}
-				printCountingMap.put("kind", count - 1);
-			}
-		}
-	}
-	
-	public void print_org_emftext_language_sql_datatype_ApproximateNumericType_1(org.emftext.language.sql.datatype.ApproximateNumericType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
 		int count;
 		// DEFINITION PART BEGINS (CsString)
 		out.print("(");
@@ -2252,11 +2222,31 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__COLLATION_NAME));
 		printCountingMap.put("collationName", temp == null ? 0 : 1);
 		// print collected hidden tokens
+		int count;
 		java.io.StringWriter sWriter = null;
 		PrintWriter out1 = null;
 		Map<String, Integer> printCountingMap1 = null;
+		// DEFINITION PART BEGINS (EnumTerminal)
+		count = printCountingMap.get("kind");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND));
+			if (o != null) {
+			}
+			printCountingMap.put("kind", count - 1);
+		}
 		// DEFINITION PART BEGINS (CompoundDefinition)
-		print_org_emftext_language_sql_datatype_CharacterStringType_0(element, localtab, out, printCountingMap);
+		sWriter = new StringWriter();
+		out1 = new PrintWriter(sWriter);
+		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_emftext_language_sql_datatype_CharacterStringType_0(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
+		}
 		// DEFINITION PART BEGINS (CompoundDefinition)
 		sWriter = new StringWriter();
 		out1 = new PrintWriter(sWriter);
@@ -2283,59 +2273,9 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 			out.print(sWriter.toString());
 			printCountingMap.putAll(printCountingMap1);
 		}
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		sWriter = new StringWriter();
-		out1 = new PrintWriter(sWriter);
-		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-		print_org_emftext_language_sql_datatype_CharacterStringType_3(element, localtab, out1, printCountingMap1);
-		if (printCountingMap.equals(printCountingMap1)) {
-			out1.close();
-		} else {
-			out1.flush();
-			out1.close();
-			out.print(sWriter.toString());
-			printCountingMap.putAll(printCountingMap1);
-		}
 	}
 	
 	public void print_org_emftext_language_sql_datatype_CharacterStringType_0(org.emftext.language.sql.datatype.CharacterStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		int count;
-		int alt = -1;
-		alt = 0;
-		int matches = 		matchCount(printCountingMap, Arrays.asList(		"kind"		));
-		int tempMatchCount;
-		tempMatchCount = 		matchCount(printCountingMap, Arrays.asList(		"kind"		));
-		if (tempMatchCount > matches) {
-			alt = 1;
-			matches = tempMatchCount;
-		}
-		switch(alt) {
-			case 1:			{
-				// DEFINITION PART BEGINS (EnumTerminal)
-				count = printCountingMap.get("kind");
-				if (count > 0) {
-					Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND));
-					if (o != null) {
-					}
-					printCountingMap.put("kind", count - 1);
-				}
-				// DEFINITION PART BEGINS (CsString)
-				out.print("VARYING");
-				out.print(" ");
-			}
-			break;
-			default:			// DEFINITION PART BEGINS (EnumTerminal)
-			count = printCountingMap.get("kind");
-			if (count > 0) {
-				Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.CHARACTER_STRING_TYPE__KIND));
-				if (o != null) {
-				}
-				printCountingMap.put("kind", count - 1);
-			}
-		}
-	}
-	
-	public void print_org_emftext_language_sql_datatype_CharacterStringType_1(org.emftext.language.sql.datatype.CharacterStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
 		int count;
 		// DEFINITION PART BEGINS (CsString)
 		out.print("(");
@@ -2357,7 +2297,7 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 		out.print(" ");
 	}
 	
-	public void print_org_emftext_language_sql_datatype_CharacterStringType_2(org.emftext.language.sql.datatype.CharacterStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
+	public void print_org_emftext_language_sql_datatype_CharacterStringType_1(org.emftext.language.sql.datatype.CharacterStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
 		String localtab = outertab;
 		int count;
 		// DEFINITION PART BEGINS (CsString)
@@ -2377,7 +2317,7 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 		}
 	}
 	
-	public void print_org_emftext_language_sql_datatype_CharacterStringType_3(org.emftext.language.sql.datatype.CharacterStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
+	public void print_org_emftext_language_sql_datatype_CharacterStringType_2(org.emftext.language.sql.datatype.CharacterStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
 		String localtab = outertab;
 		int count;
 		// DEFINITION PART BEGINS (CsString)
@@ -2411,11 +2351,31 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__COLLATION_NAME));
 		printCountingMap.put("collationName", temp == null ? 0 : 1);
 		// print collected hidden tokens
+		int count;
 		java.io.StringWriter sWriter = null;
 		PrintWriter out1 = null;
 		Map<String, Integer> printCountingMap1 = null;
+		// DEFINITION PART BEGINS (EnumTerminal)
+		count = printCountingMap.get("kind");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND));
+			if (o != null) {
+			}
+			printCountingMap.put("kind", count - 1);
+		}
 		// DEFINITION PART BEGINS (CompoundDefinition)
-		print_org_emftext_language_sql_datatype_NationalCharacterStringType_0(element, localtab, out, printCountingMap);
+		sWriter = new StringWriter();
+		out1 = new PrintWriter(sWriter);
+		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_emftext_language_sql_datatype_NationalCharacterStringType_0(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
+		}
 		// DEFINITION PART BEGINS (CompoundDefinition)
 		sWriter = new StringWriter();
 		out1 = new PrintWriter(sWriter);
@@ -2429,110 +2389,9 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 			out.print(sWriter.toString());
 			printCountingMap.putAll(printCountingMap1);
 		}
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		sWriter = new StringWriter();
-		out1 = new PrintWriter(sWriter);
-		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-		print_org_emftext_language_sql_datatype_NationalCharacterStringType_2(element, localtab, out1, printCountingMap1);
-		if (printCountingMap.equals(printCountingMap1)) {
-			out1.close();
-		} else {
-			out1.flush();
-			out1.close();
-			out.print(sWriter.toString());
-			printCountingMap.putAll(printCountingMap1);
-		}
 	}
 	
 	public void print_org_emftext_language_sql_datatype_NationalCharacterStringType_0(org.emftext.language.sql.datatype.NationalCharacterStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		String localtab = outertab;
-		int count;
-		int alt = -1;
-		alt = 0;
-		int matches = 		matchCount(printCountingMap, Arrays.asList(		"kind"		));
-		int tempMatchCount;
-		tempMatchCount = 		matchCount(printCountingMap, Arrays.asList(		"kind"		));
-		if (tempMatchCount > matches) {
-			alt = 1;
-			matches = tempMatchCount;
-		}
-		tempMatchCount = 		matchCount(printCountingMap, Arrays.asList(		"kind"		));
-		if (tempMatchCount > matches) {
-			alt = 2;
-			matches = tempMatchCount;
-		}
-		switch(alt) {
-			case 1:			{
-				// DEFINITION PART BEGINS (EnumTerminal)
-				count = printCountingMap.get("kind");
-				if (count > 0) {
-					Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND));
-					if (o != null) {
-					}
-					printCountingMap.put("kind", count - 1);
-				}
-			}
-			break;
-			case 2:			{
-				// DEFINITION PART BEGINS (EnumTerminal)
-				count = printCountingMap.get("kind");
-				if (count > 0) {
-					Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND));
-					if (o != null) {
-					}
-					printCountingMap.put("kind", count - 1);
-				}
-				// DEFINITION PART BEGINS (CsString)
-				out.print("VARYING");
-				out.print(" ");
-			}
-			break;
-			default:			// DEFINITION PART BEGINS (CsString)
-			out.print("NATIONAL");
-			out.print(" ");
-			// DEFINITION PART BEGINS (CompoundDefinition)
-			print_org_emftext_language_sql_datatype_NationalCharacterStringType_0_0(element, localtab, out, printCountingMap);
-		}
-	}
-	
-	public void print_org_emftext_language_sql_datatype_NationalCharacterStringType_0_0(org.emftext.language.sql.datatype.NationalCharacterStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		int count;
-		int alt = -1;
-		alt = 0;
-		int matches = 		matchCount(printCountingMap, Arrays.asList(		"kind"		));
-		int tempMatchCount;
-		tempMatchCount = 		matchCount(printCountingMap, Arrays.asList(		"kind"		));
-		if (tempMatchCount > matches) {
-			alt = 1;
-			matches = tempMatchCount;
-		}
-		switch(alt) {
-			case 1:			{
-				// DEFINITION PART BEGINS (EnumTerminal)
-				count = printCountingMap.get("kind");
-				if (count > 0) {
-					Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND));
-					if (o != null) {
-					}
-					printCountingMap.put("kind", count - 1);
-				}
-				// DEFINITION PART BEGINS (CsString)
-				out.print("VARYING");
-				out.print(" ");
-			}
-			break;
-			default:			// DEFINITION PART BEGINS (EnumTerminal)
-			count = printCountingMap.get("kind");
-			if (count > 0) {
-				Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.NATIONAL_CHARACTER_STRING_TYPE__KIND));
-				if (o != null) {
-				}
-				printCountingMap.put("kind", count - 1);
-			}
-		}
-	}
-	
-	public void print_org_emftext_language_sql_datatype_NationalCharacterStringType_1(org.emftext.language.sql.datatype.NationalCharacterStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
 		int count;
 		// DEFINITION PART BEGINS (CsString)
 		out.print("(");
@@ -2554,7 +2413,7 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 		out.print(" ");
 	}
 	
-	public void print_org_emftext_language_sql_datatype_NationalCharacterStringType_2(org.emftext.language.sql.datatype.NationalCharacterStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
+	public void print_org_emftext_language_sql_datatype_NationalCharacterStringType_1(org.emftext.language.sql.datatype.NationalCharacterStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
 		String localtab = outertab;
 		int count;
 		// DEFINITION PART BEGINS (CsString)
@@ -2586,16 +2445,23 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__LENGTH));
 		printCountingMap.put("length", temp == null ? 0 : 1);
 		// print collected hidden tokens
+		int count;
 		java.io.StringWriter sWriter = null;
 		PrintWriter out1 = null;
 		Map<String, Integer> printCountingMap1 = null;
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		print_org_emftext_language_sql_datatype_BinaryLargeObjectStringType_0(element, localtab, out, printCountingMap);
+		// DEFINITION PART BEGINS (EnumTerminal)
+		count = printCountingMap.get("kind");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND));
+			if (o != null) {
+			}
+			printCountingMap.put("kind", count - 1);
+		}
 		// DEFINITION PART BEGINS (CompoundDefinition)
 		sWriter = new StringWriter();
 		out1 = new PrintWriter(sWriter);
 		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-		print_org_emftext_language_sql_datatype_BinaryLargeObjectStringType_1(element, localtab, out1, printCountingMap1);
+		print_org_emftext_language_sql_datatype_BinaryLargeObjectStringType_0(element, localtab, out1, printCountingMap1);
 		if (printCountingMap.equals(printCountingMap1)) {
 			out1.close();
 		} else {
@@ -2607,46 +2473,6 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 	}
 	
 	public void print_org_emftext_language_sql_datatype_BinaryLargeObjectStringType_0(org.emftext.language.sql.datatype.BinaryLargeObjectStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		int count;
-		int alt = -1;
-		alt = 0;
-		int matches = 		matchCount(printCountingMap, Arrays.asList(		"kind"		));
-		int tempMatchCount;
-		tempMatchCount = 		matchCount(printCountingMap, Arrays.asList(		"kind"		));
-		if (tempMatchCount > matches) {
-			alt = 1;
-			matches = tempMatchCount;
-		}
-		switch(alt) {
-			case 1:			{
-				// DEFINITION PART BEGINS (EnumTerminal)
-				count = printCountingMap.get("kind");
-				if (count > 0) {
-					Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND));
-					if (o != null) {
-					}
-					printCountingMap.put("kind", count - 1);
-				}
-			}
-			break;
-			default:			// DEFINITION PART BEGINS (EnumTerminal)
-			count = printCountingMap.get("kind");
-			if (count > 0) {
-				Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.datatype.DatatypePackage.BINARY_LARGE_OBJECT_STRING_TYPE__KIND));
-				if (o != null) {
-				}
-				printCountingMap.put("kind", count - 1);
-			}
-			// DEFINITION PART BEGINS (CsString)
-			out.print("LARGE");
-			out.print(" ");
-			// DEFINITION PART BEGINS (CsString)
-			out.print("OBJECT");
-			out.print(" ");
-		}
-	}
-	
-	public void print_org_emftext_language_sql_datatype_BinaryLargeObjectStringType_1(org.emftext.language.sql.datatype.BinaryLargeObjectStringType element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
 		String localtab = outertab;
 		int count;
 		// DEFINITION PART BEGINS (CsString)

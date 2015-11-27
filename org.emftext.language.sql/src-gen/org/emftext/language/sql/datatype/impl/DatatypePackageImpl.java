@@ -27,7 +27,6 @@ import org.emftext.language.sql.datatype.DatatypeFactory;
 import org.emftext.language.sql.datatype.DatatypePackage;
 import org.emftext.language.sql.datatype.DateType;
 import org.emftext.language.sql.datatype.DatetimeType;
-import org.emftext.language.sql.datatype.DatetimeTypeKind;
 import org.emftext.language.sql.datatype.ExactNumericType;
 import org.emftext.language.sql.datatype.ExactNumericTypeKind;
 import org.emftext.language.sql.datatype.LargeObjectLength;
@@ -36,9 +35,9 @@ import org.emftext.language.sql.datatype.NationalCharacterStringType;
 import org.emftext.language.sql.datatype.NationalCharacterStringTypeKind;
 import org.emftext.language.sql.datatype.NumericType;
 import org.emftext.language.sql.datatype.PredefinedType;
-
 import org.emftext.language.sql.datatype.TimeType;
 import org.emftext.language.sql.datatype.TimestampType;
+
 import org.emftext.language.sql.expression.ExpressionPackage;
 
 import org.emftext.language.sql.expression.impl.ExpressionPackageImpl;
@@ -200,13 +199,6 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
      * <!-- end-user-doc -->
      * @generated
      */
-    private EEnum datetimeTypeKindEEnum = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EEnum multiplierEEnum = null;
 
     /**
@@ -348,6 +340,15 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getCharacterStringType_Length() {
+        return (EAttribute) characterStringTypeEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EReference getCharacterStringType_CharacterSetName() {
         return (EReference) characterStringTypeEClass.getEStructuralFeatures().get(2);
     }
@@ -359,15 +360,6 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
      */
     public EReference getCharacterStringType_CollationName() {
         return (EReference) characterStringTypeEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getCharacterStringType_Length() {
-        return (EAttribute) characterStringTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -672,15 +664,6 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EEnum getDatetimeTypeKind() {
-        return datetimeTypeKindEEnum;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EEnum getMultiplier() {
         return multiplierEEnum;
     }
@@ -778,7 +761,6 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
         binaryLargeObjectStringTypeKindEEnum = createEEnum(BINARY_LARGE_OBJECT_STRING_TYPE_KIND);
         exactNumericTypeKindEEnum = createEEnum(EXACT_NUMERIC_TYPE_KIND);
         approximateNumericTypeKindEEnum = createEEnum(APPROXIMATE_NUMERIC_TYPE_KIND);
-        datetimeTypeKindEEnum = createEEnum(DATETIME_TYPE_KIND);
         multiplierEEnum = createEEnum(MULTIPLIER);
         charLengthUnitsEEnum = createEEnum(CHAR_LENGTH_UNITS);
     }
@@ -969,11 +951,6 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
         addEEnumLiteral(approximateNumericTypeKindEEnum, ApproximateNumericTypeKind.FLOAT);
         addEEnumLiteral(approximateNumericTypeKindEEnum, ApproximateNumericTypeKind.REAL);
         addEEnumLiteral(approximateNumericTypeKindEEnum, ApproximateNumericTypeKind.DOUBLE_PRECISION);
-
-        initEEnum(datetimeTypeKindEEnum, DatetimeTypeKind.class, "DatetimeTypeKind");
-        addEEnumLiteral(datetimeTypeKindEEnum, DatetimeTypeKind.DATE);
-        addEEnumLiteral(datetimeTypeKindEEnum, DatetimeTypeKind.TIME);
-        addEEnumLiteral(datetimeTypeKindEEnum, DatetimeTypeKind.TIMESTAMP);
 
         initEEnum(multiplierEEnum, Multiplier.class, "Multiplier");
         addEEnumLiteral(multiplierEEnum, Multiplier.K);

@@ -38,7 +38,7 @@ public interface Column extends TableElement {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see org.emftext.language.sql.schema.SchemaPackage#getColumn_Name()
-     * @model id="true" required="true"
+     * @model required="true"
      * @generated
      */
     String getName();
