@@ -26,7 +26,7 @@ import org.emftext.language.sql.common.SchemaQualifiedName;
 public interface ColumnConstraint extends EObject {
     /**
      * Returns the value of the '<em><b>Owner</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link org.emftext.language.sql.schema.Column#getConstraintDefinition <em>Constraint Definition</em>}'.
+     * It is bidirectional and its opposite is '{@link org.emftext.language.sql.schema.Column#getConstraint <em>Constraint</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Owner</em>' container reference isn't clear,
@@ -36,8 +36,8 @@ public interface ColumnConstraint extends EObject {
      * @return the value of the '<em>Owner</em>' container reference.
      * @see #setOwner(Column)
      * @see org.emftext.language.sql.schema.SchemaPackage#getColumnConstraint_Owner()
-     * @see org.emftext.language.sql.schema.Column#getConstraintDefinition
-     * @model opposite="constraintDefinition" required="true" transient="false"
+     * @see org.emftext.language.sql.schema.Column#getConstraint
+     * @model opposite="constraint" required="true" transient="false"
      * @generated
      */
     Column getOwner();

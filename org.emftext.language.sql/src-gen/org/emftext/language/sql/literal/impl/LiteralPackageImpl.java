@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.emftext.language.sql.SQLPackage;
 import org.emftext.language.sql.common.CommonPackage;
 
 import org.emftext.language.sql.common.impl.CommonPackageImpl;
@@ -25,6 +26,7 @@ import org.emftext.language.sql.function.FunctionPackage;
 
 import org.emftext.language.sql.function.impl.FunctionPackageImpl;
 
+import org.emftext.language.sql.impl.SQLPackageImpl;
 import org.emftext.language.sql.literal.ApproximateNumericLiteral;
 import org.emftext.language.sql.literal.BooleanLiteral;
 import org.emftext.language.sql.literal.CharacterStringLiteral;
@@ -185,6 +187,9 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
         isInited = true;
 
         // Obtain or create and register interdependencies
+        SQLPackageImpl theSQLPackage = (SQLPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(SQLPackage.eNS_URI) instanceof SQLPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(SQLPackage.eNS_URI) : SQLPackage.eINSTANCE);
         CommonPackageImpl theCommonPackage = (CommonPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl
                         ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
@@ -204,6 +209,7 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
 
         // Create package meta-data objects
         theLiteralPackage.createPackageContents();
+        theSQLPackage.createPackageContents();
         theCommonPackage.createPackageContents();
         theDatatypePackage.createPackageContents();
         theFunctionPackage.createPackageContents();
@@ -212,6 +218,7 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
 
         // Initialize created meta-data
         theLiteralPackage.initializePackageContents();
+        theSQLPackage.initializePackageContents();
         theCommonPackage.initializePackageContents();
         theDatatypePackage.initializePackageContents();
         theFunctionPackage.initializePackageContents();
@@ -582,9 +589,6 @@ public class LiteralPackageImpl extends EPackageImpl implements LiteralPackage {
 
         initEClass(numericLiteralEClass, NumericLiteral.class, "NumericLiteral", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-
-        // Create resource
-        createResource(eNS_URI);
     }
 
 } //LiteralPackageImpl

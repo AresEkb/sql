@@ -200,7 +200,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//schema/Column/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/Column/dataType"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/Column/defaultOption"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/Column/constraintDefinition"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//schema/Column/constraint"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EReference sql.ecore#//schema/Column/collationName"/>
       </genClasses>
       <genClasses image="false" ecoreClass="sql.ecore#//schema/TableConstraint">

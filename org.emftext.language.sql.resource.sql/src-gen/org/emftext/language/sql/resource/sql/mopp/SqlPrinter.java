@@ -1215,8 +1215,8 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 		printCountingMap.put("dataType", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__DEFAULT_OPTION));
 		printCountingMap.put("defaultOption", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__CONSTRAINT_DEFINITION));
-		printCountingMap.put("constraintDefinition", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__CONSTRAINT));
+		printCountingMap.put("constraint", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__COLLATION_NAME));
 		printCountingMap.put("collationName", temp == null ? 0 : 1);
 		// print collected hidden tokens
@@ -1259,13 +1259,13 @@ public class SqlPrinter implements org.emftext.language.sql.resource.sql.ISqlTex
 			printCountingMap.putAll(printCountingMap1);
 		}
 		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("constraintDefinition");
+		count = printCountingMap.get("constraint");
 		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__CONSTRAINT_DEFINITION));
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__CONSTRAINT));
 			if (o != null) {
 				doPrint((EObject) o, out, localtab);
 			}
-			printCountingMap.put("constraintDefinition", count - 1);
+			printCountingMap.put("constraint", count - 1);
 		}
 		// DEFINITION PART BEGINS (CompoundDefinition)
 		sWriter = new StringWriter();

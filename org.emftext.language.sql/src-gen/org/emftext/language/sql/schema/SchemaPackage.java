@@ -483,13 +483,13 @@ public interface SchemaPackage extends EPackage {
     int COLUMN__DEFAULT_OPTION = TABLE_ELEMENT_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Constraint Definition</b></em>' containment reference.
+     * The feature id for the '<em><b>Constraint</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COLUMN__CONSTRAINT_DEFINITION = TABLE_ELEMENT_FEATURE_COUNT + 3;
+    int COLUMN__CONSTRAINT = TABLE_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Collation Name</b></em>' containment reference.
@@ -2520,15 +2520,15 @@ public interface SchemaPackage extends EPackage {
     EReference getColumn_DefaultOption();
 
     /**
-     * Returns the meta object for the containment reference '{@link org.emftext.language.sql.schema.Column#getConstraintDefinition <em>Constraint Definition</em>}'.
+     * Returns the meta object for the containment reference '{@link org.emftext.language.sql.schema.Column#getConstraint <em>Constraint</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Constraint Definition</em>'.
-     * @see org.emftext.language.sql.schema.Column#getConstraintDefinition()
+     * @return the meta object for the containment reference '<em>Constraint</em>'.
+     * @see org.emftext.language.sql.schema.Column#getConstraint()
      * @see #getColumn()
      * @generated
      */
-    EReference getColumn_ConstraintDefinition();
+    EReference getColumn_Constraint();
 
     /**
      * Returns the meta object for the containment reference '{@link org.emftext.language.sql.schema.Column#getCollationName <em>Collation Name</em>}'.
@@ -3042,12 +3042,12 @@ public interface SchemaPackage extends EPackage {
         EReference COLUMN__DEFAULT_OPTION = eINSTANCE.getColumn_DefaultOption();
 
         /**
-        	 * The meta object literal for the '<em><b>Constraint Definition</b></em>' containment reference feature.
+        	 * The meta object literal for the '<em><b>Constraint</b></em>' containment reference feature.
         	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+        	 * <!-- end-user-doc -->
         	 * @generated
         	 */
-        EReference COLUMN__CONSTRAINT_DEFINITION = eINSTANCE.getColumn_ConstraintDefinition();
+        EReference COLUMN__CONSTRAINT = eINSTANCE.getColumn_Constraint();
 
         /**
         	 * The meta object literal for the '<em><b>Collation Name</b></em>' containment reference feature.

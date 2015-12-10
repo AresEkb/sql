@@ -30,7 +30,7 @@ import org.emftext.language.sql.schema.SchemaPackage;
  *   <li>{@link org.emftext.language.sql.schema.impl.ColumnImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.emftext.language.sql.schema.impl.ColumnImpl#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.emftext.language.sql.schema.impl.ColumnImpl#getDefaultOption <em>Default Option</em>}</li>
- *   <li>{@link org.emftext.language.sql.schema.impl.ColumnImpl#getConstraintDefinition <em>Constraint Definition</em>}</li>
+ *   <li>{@link org.emftext.language.sql.schema.impl.ColumnImpl#getConstraint <em>Constraint</em>}</li>
  *   <li>{@link org.emftext.language.sql.schema.impl.ColumnImpl#getCollationName <em>Collation Name</em>}</li>
  * </ul>
  *
@@ -78,14 +78,14 @@ public class ColumnImpl extends TableElementImpl implements Column {
     protected DefaultOption defaultOption;
 
     /**
-     * The cached value of the '{@link #getConstraintDefinition() <em>Constraint Definition</em>}' containment reference.
+     * The cached value of the '{@link #getConstraint() <em>Constraint</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getConstraintDefinition()
+     * @see #getConstraint()
      * @generated
      * @ordered
      */
-    protected ColumnConstraint constraintDefinition;
+    protected ColumnConstraint constraint;
 
     /**
      * The cached value of the '{@link #getCollationName() <em>Collation Name</em>}' containment reference.
@@ -242,8 +242,8 @@ public class ColumnImpl extends TableElementImpl implements Column {
      * <!-- end-user-doc -->
      * @generated
      */
-    public ColumnConstraint getConstraintDefinition() {
-        return constraintDefinition;
+    public ColumnConstraint getConstraint() {
+        return constraint;
     }
 
     /**
@@ -251,13 +251,12 @@ public class ColumnImpl extends TableElementImpl implements Column {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetConstraintDefinition(ColumnConstraint newConstraintDefinition,
-            NotificationChain msgs) {
-        ColumnConstraint oldConstraintDefinition = constraintDefinition;
-        constraintDefinition = newConstraintDefinition;
+    public NotificationChain basicSetConstraint(ColumnConstraint newConstraint, NotificationChain msgs) {
+        ColumnConstraint oldConstraint = constraint;
+        constraint = newConstraint;
         if (eNotificationRequired()) {
             ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    SchemaPackage.COLUMN__CONSTRAINT_DEFINITION, oldConstraintDefinition, newConstraintDefinition);
+                    SchemaPackage.COLUMN__CONSTRAINT, oldConstraint, newConstraint);
             if (msgs == null)
                 msgs = notification;
             else
@@ -271,21 +270,21 @@ public class ColumnImpl extends TableElementImpl implements Column {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setConstraintDefinition(ColumnConstraint newConstraintDefinition) {
-        if (newConstraintDefinition != constraintDefinition) {
+    public void setConstraint(ColumnConstraint newConstraint) {
+        if (newConstraint != constraint) {
             NotificationChain msgs = null;
-            if (constraintDefinition != null)
-                msgs = ((InternalEObject) constraintDefinition).eInverseRemove(this,
-                        SchemaPackage.COLUMN_CONSTRAINT__OWNER, ColumnConstraint.class, msgs);
-            if (newConstraintDefinition != null)
-                msgs = ((InternalEObject) newConstraintDefinition).eInverseAdd(this,
-                        SchemaPackage.COLUMN_CONSTRAINT__OWNER, ColumnConstraint.class, msgs);
-            msgs = basicSetConstraintDefinition(newConstraintDefinition, msgs);
+            if (constraint != null)
+                msgs = ((InternalEObject) constraint).eInverseRemove(this, SchemaPackage.COLUMN_CONSTRAINT__OWNER,
+                        ColumnConstraint.class, msgs);
+            if (newConstraint != null)
+                msgs = ((InternalEObject) newConstraint).eInverseAdd(this, SchemaPackage.COLUMN_CONSTRAINT__OWNER,
+                        ColumnConstraint.class, msgs);
+            msgs = basicSetConstraint(newConstraint, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SchemaPackage.COLUMN__CONSTRAINT_DEFINITION,
-                    newConstraintDefinition, newConstraintDefinition));
+            eNotify(new ENotificationImpl(this, Notification.SET, SchemaPackage.COLUMN__CONSTRAINT, newConstraint,
+                    newConstraint));
     }
 
     /**
@@ -351,11 +350,11 @@ public class ColumnImpl extends TableElementImpl implements Column {
                 msgs = ((InternalEObject) defaultOption).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE - SchemaPackage.COLUMN__DEFAULT_OPTION, null, msgs);
             return basicSetDefaultOption((DefaultOption) otherEnd, msgs);
-        case SchemaPackage.COLUMN__CONSTRAINT_DEFINITION:
-            if (constraintDefinition != null)
-                msgs = ((InternalEObject) constraintDefinition).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE - SchemaPackage.COLUMN__CONSTRAINT_DEFINITION, null, msgs);
-            return basicSetConstraintDefinition((ColumnConstraint) otherEnd, msgs);
+        case SchemaPackage.COLUMN__CONSTRAINT:
+            if (constraint != null)
+                msgs = ((InternalEObject) constraint).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - SchemaPackage.COLUMN__CONSTRAINT, null, msgs);
+            return basicSetConstraint((ColumnConstraint) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -372,8 +371,8 @@ public class ColumnImpl extends TableElementImpl implements Column {
             return basicSetDataType(null, msgs);
         case SchemaPackage.COLUMN__DEFAULT_OPTION:
             return basicSetDefaultOption(null, msgs);
-        case SchemaPackage.COLUMN__CONSTRAINT_DEFINITION:
-            return basicSetConstraintDefinition(null, msgs);
+        case SchemaPackage.COLUMN__CONSTRAINT:
+            return basicSetConstraint(null, msgs);
         case SchemaPackage.COLUMN__COLLATION_NAME:
             return basicSetCollationName(null, msgs);
         }
@@ -394,8 +393,8 @@ public class ColumnImpl extends TableElementImpl implements Column {
             return getDataType();
         case SchemaPackage.COLUMN__DEFAULT_OPTION:
             return getDefaultOption();
-        case SchemaPackage.COLUMN__CONSTRAINT_DEFINITION:
-            return getConstraintDefinition();
+        case SchemaPackage.COLUMN__CONSTRAINT:
+            return getConstraint();
         case SchemaPackage.COLUMN__COLLATION_NAME:
             return getCollationName();
         }
@@ -419,8 +418,8 @@ public class ColumnImpl extends TableElementImpl implements Column {
         case SchemaPackage.COLUMN__DEFAULT_OPTION:
             setDefaultOption((DefaultOption) newValue);
             return;
-        case SchemaPackage.COLUMN__CONSTRAINT_DEFINITION:
-            setConstraintDefinition((ColumnConstraint) newValue);
+        case SchemaPackage.COLUMN__CONSTRAINT:
+            setConstraint((ColumnConstraint) newValue);
             return;
         case SchemaPackage.COLUMN__COLLATION_NAME:
             setCollationName((SchemaQualifiedName) newValue);
@@ -446,8 +445,8 @@ public class ColumnImpl extends TableElementImpl implements Column {
         case SchemaPackage.COLUMN__DEFAULT_OPTION:
             setDefaultOption((DefaultOption) null);
             return;
-        case SchemaPackage.COLUMN__CONSTRAINT_DEFINITION:
-            setConstraintDefinition((ColumnConstraint) null);
+        case SchemaPackage.COLUMN__CONSTRAINT:
+            setConstraint((ColumnConstraint) null);
             return;
         case SchemaPackage.COLUMN__COLLATION_NAME:
             setCollationName((SchemaQualifiedName) null);
@@ -470,8 +469,8 @@ public class ColumnImpl extends TableElementImpl implements Column {
             return dataType != null;
         case SchemaPackage.COLUMN__DEFAULT_OPTION:
             return defaultOption != null;
-        case SchemaPackage.COLUMN__CONSTRAINT_DEFINITION:
-            return constraintDefinition != null;
+        case SchemaPackage.COLUMN__CONSTRAINT:
+            return constraint != null;
         case SchemaPackage.COLUMN__COLLATION_NAME:
             return collationName != null;
         }

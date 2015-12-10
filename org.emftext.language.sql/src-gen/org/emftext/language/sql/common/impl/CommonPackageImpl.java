@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.emftext.language.sql.SQLPackage;
 import org.emftext.language.sql.UnsignedInteger;
 
 import org.emftext.language.sql.common.BracketedComment;
@@ -38,6 +39,7 @@ import org.emftext.language.sql.function.FunctionPackage;
 
 import org.emftext.language.sql.function.impl.FunctionPackageImpl;
 
+import org.emftext.language.sql.impl.SQLPackageImpl;
 import org.emftext.language.sql.literal.LiteralPackage;
 
 import org.emftext.language.sql.literal.impl.LiteralPackageImpl;
@@ -187,6 +189,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
         isInited = true;
 
         // Obtain or create and register interdependencies
+        SQLPackageImpl theSQLPackage = (SQLPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(SQLPackage.eNS_URI) instanceof SQLPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(SQLPackage.eNS_URI) : SQLPackage.eINSTANCE);
         LiteralPackageImpl theLiteralPackage = (LiteralPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(LiteralPackage.eNS_URI) instanceof LiteralPackageImpl
                         ? EPackage.Registry.INSTANCE.getEPackage(LiteralPackage.eNS_URI) : LiteralPackage.eINSTANCE);
@@ -206,6 +211,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 
         // Create package meta-data objects
         theCommonPackage.createPackageContents();
+        theSQLPackage.createPackageContents();
         theLiteralPackage.createPackageContents();
         theDatatypePackage.createPackageContents();
         theFunctionPackage.createPackageContents();
@@ -214,6 +220,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 
         // Initialize created meta-data
         theCommonPackage.initializePackageContents();
+        theSQLPackage.initializePackageContents();
         theLiteralPackage.initializePackageContents();
         theDatatypePackage.initializePackageContents();
         theFunctionPackage.initializePackageContents();
@@ -518,9 +525,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
         initEDataType(timeTypeEDataType, LocalTime.class, "TimeType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
         initEDataType(timestampTypeEDataType, ZonedDateTime.class, "TimestampType", IS_SERIALIZABLE,
                 !IS_GENERATED_INSTANCE_CLASS);
-
-        // Create resource
-        createResource(eNS_URI);
 
         // Create annotations
         // http://www.eclipse.org/emf/2002/Ecore

@@ -11,6 +11,8 @@ OPTIONS {
     disableLaunchSupport = "true";
     disableTokenSorting = "true";
     overrideProposalPostProcessor = "false";
+    overrideManifest = "false";
+    overrideUIManifest = "false";
 }
 
 TOKENS {
@@ -18,7 +20,6 @@ TOKENS {
     DEFINE WHITESPACE $('\u0009'|'\u000A'|'\u000B'|'\u000C'|'\u000D'|'\u0020'|'\u00A0'|'\u2000'|'\u2001'$ +
                       $|'\u2002'|'\u2003'|'\u2004'|'\u2005'|'\u2006'|'\u2007'|'\u2008'|'\u2009'|'\u200A'$ +
                       $|'\u200B'|'\u200C'|'\u200D'|'\u200E'|'\u200F'|'\u2028'|'\u2029'|'\u3000'|'\uFEFF')$;
-
 
     // Single characters
     DEFINE FRAGMENT SIMPLE_LATIN_LETTER $($ + SIMPLE_LATIN_UPPER_CASE_LETTER + $|$ + SIMPLE_LATIN_LOWER_CASE_LETTER + $)$;
@@ -43,7 +44,6 @@ TOKENS {
     DEFINE FRAGMENT NONDOUBLEQUOTE_CHARACTER $~($ + DOUBLE_QUOTE + $|$ + NEWLINE + $)$;
     DEFINE FRAGMENT NEWLINE $('\r\n'|'\r'|'\n')$;
 
-
     // Comments
     DEFINE SIMPLE_COMMENT SIMPLE_COMMENT_INTRODUCER + $($ + COMMENT_CHARACTER + $)*$;
     DEFINE FRAGMENT SIMPLE_COMMENT_INTRODUCER MINUS_SIGN + MINUS_SIGN;
@@ -53,7 +53,6 @@ TOKENS {
     DEFINE FRAGMENT BRACKETED_COMMENT_INTRODUCER SLASH + ASTERISK;
     DEFINE FRAGMENT BRACKETED_COMMENT_TERMINATOR ASTERISK + SLASH;
     DEFINE FRAGMENT BRACKETED_COMMENT_CONTENTS $.*$; // TODO: Nested comments
-
 
     // Literals
     DEFINE UNSIGNED_INTEGER $($ + DIGIT + $)+$;
@@ -66,7 +65,6 @@ TOKENS {
 
     DEFINE QUOTED_STRING QUOTE + CHARACTER_REPRESENTATION + $*$ + QUOTE;
     DEFINE FRAGMENT CHARACTER_REPRESENTATION $($ + NONQUOTE_CHARACTER + $|$ + QUOTE_SYMBOL + $)$;
-
 
     // Names and identifiers
     DEFINE IDENTIFIER ACTUAL_IDENTIFIER;
@@ -136,7 +134,7 @@ RULES {
 
     Schema.Column ::= name[IDENTIFIER] dataType
         ("DEFAULT" defaultOption)?
-        constraintDefinition?
+        constraint?
         ("COLLATE" collationName)?;
 
     Schema.LiteralDefaultOption ::= literal;

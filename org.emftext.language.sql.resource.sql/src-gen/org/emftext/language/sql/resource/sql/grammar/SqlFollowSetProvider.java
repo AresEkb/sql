@@ -158,7 +158,7 @@ public class SqlFollowSetProvider {
 		featureIndex = 0;
 		FEATURES[featureIndex++] = org.emftext.language.sql.common.CommonPackage.eINSTANCE.getSQLScript().getEStructuralFeature(org.emftext.language.sql.common.CommonPackage.SQL_SCRIPT__STATEMENTS);
 		FEATURES[featureIndex++] = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableDefinition().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__CONTENTS_SOURCE);
-		FEATURES[featureIndex++] = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__CONSTRAINT_DEFINITION);
+		FEATURES[featureIndex++] = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__CONSTRAINT);
 		FEATURES[featureIndex++] = org.emftext.language.sql.literal.LiteralPackage.eINSTANCE.getCharacterStringLiteral().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.CHARACTER_STRING_LITERAL__CHARACTER_SET_NAME);
 		FEATURES[featureIndex++] = org.emftext.language.sql.literal.LiteralPackage.eINSTANCE.getNationalCharacterStringLiteral().getEStructuralFeature(org.emftext.language.sql.literal.LiteralPackage.NATIONAL_CHARACTER_STRING_LITERAL__SEPARATORS);
 		FEATURES[featureIndex++] = org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getTableDefinition().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.TABLE_DEFINITION__SCHEMA_QUALIFIED_NAME);

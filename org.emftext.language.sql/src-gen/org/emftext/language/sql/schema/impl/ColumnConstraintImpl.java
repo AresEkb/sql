@@ -98,8 +98,8 @@ public abstract class ColumnConstraintImpl extends EObjectImpl implements Column
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newOwner != null)
-                msgs = ((InternalEObject) newOwner).eInverseAdd(this, SchemaPackage.COLUMN__CONSTRAINT_DEFINITION,
-                        Column.class, msgs);
+                msgs = ((InternalEObject) newOwner).eInverseAdd(this, SchemaPackage.COLUMN__CONSTRAINT, Column.class,
+                        msgs);
             msgs = basicSetOwner(newOwner, msgs);
             if (msgs != null)
                 msgs.dispatch();
@@ -202,8 +202,7 @@ public abstract class ColumnConstraintImpl extends EObjectImpl implements Column
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case SchemaPackage.COLUMN_CONSTRAINT__OWNER:
-            return eInternalContainer().eInverseRemove(this, SchemaPackage.COLUMN__CONSTRAINT_DEFINITION, Column.class,
-                    msgs);
+            return eInternalContainer().eInverseRemove(this, SchemaPackage.COLUMN__CONSTRAINT, Column.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }

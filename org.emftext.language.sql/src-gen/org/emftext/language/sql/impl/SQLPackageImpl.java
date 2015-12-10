@@ -1,15 +1,16 @@
 /**
  */
-package org.emftext.language.sql.function.impl;
+package org.emftext.language.sql.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.emftext.language.sql.Dummy;
+import org.emftext.language.sql.SQLFactory;
 import org.emftext.language.sql.SQLPackage;
+
 import org.emftext.language.sql.common.CommonPackage;
 
 import org.emftext.language.sql.common.impl.CommonPackageImpl;
@@ -22,12 +23,10 @@ import org.emftext.language.sql.expression.ExpressionPackage;
 
 import org.emftext.language.sql.expression.impl.ExpressionPackageImpl;
 
-import org.emftext.language.sql.function.DatetimeValueFunction;
-import org.emftext.language.sql.function.DatetimeValueFunctionKind;
-import org.emftext.language.sql.function.FunctionFactory;
 import org.emftext.language.sql.function.FunctionPackage;
 
-import org.emftext.language.sql.impl.SQLPackageImpl;
+import org.emftext.language.sql.function.impl.FunctionPackageImpl;
+
 import org.emftext.language.sql.literal.LiteralPackage;
 
 import org.emftext.language.sql.literal.impl.LiteralPackageImpl;
@@ -42,20 +41,13 @@ import org.emftext.language.sql.schema.impl.SchemaPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FunctionPackageImpl extends EPackageImpl implements FunctionPackage {
+public class SQLPackageImpl extends EPackageImpl implements SQLPackage {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass datetimeValueFunctionEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EEnum datetimeValueFunctionKindEEnum = null;
+    private EClass dummyEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -68,12 +60,12 @@ public class FunctionPackageImpl extends EPackageImpl implements FunctionPackage
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see org.eclipse.emf.ecore.EPackage.Registry
-     * @see org.emftext.language.sql.function.FunctionPackage#eNS_URI
+     * @see org.emftext.language.sql.SQLPackage#eNS_URI
      * @see #init()
      * @generated
      */
-    private FunctionPackageImpl() {
-        super(eNS_URI, FunctionFactory.eINSTANCE);
+    private SQLPackageImpl() {
+        super(eNS_URI, SQLFactory.eINSTANCE);
     }
 
     /**
@@ -86,7 +78,7 @@ public class FunctionPackageImpl extends EPackageImpl implements FunctionPackage
     /**
      * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
      * 
-     * <p>This method is used to initialize {@link FunctionPackage#eINSTANCE} when that field is accessed.
+     * <p>This method is used to initialize {@link SQLPackage#eINSTANCE} when that field is accessed.
      * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -95,21 +87,18 @@ public class FunctionPackageImpl extends EPackageImpl implements FunctionPackage
      * @see #initializePackageContents()
      * @generated
      */
-    public static FunctionPackage init() {
+    public static SQLPackage init() {
         if (isInited)
-            return (FunctionPackage) EPackage.Registry.INSTANCE.getEPackage(FunctionPackage.eNS_URI);
+            return (SQLPackage) EPackage.Registry.INSTANCE.getEPackage(SQLPackage.eNS_URI);
 
         // Obtain or create and register package
-        FunctionPackageImpl theFunctionPackage = (FunctionPackageImpl) (EPackage.Registry.INSTANCE
-                .get(eNS_URI) instanceof FunctionPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                        : new FunctionPackageImpl());
+        SQLPackageImpl theSQLPackage = (SQLPackageImpl) (EPackage.Registry.INSTANCE
+                .get(eNS_URI) instanceof SQLPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
+                        : new SQLPackageImpl());
 
         isInited = true;
 
         // Obtain or create and register interdependencies
-        SQLPackageImpl theSQLPackage = (SQLPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SQLPackage.eNS_URI) instanceof SQLPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SQLPackage.eNS_URI) : SQLPackage.eINSTANCE);
         CommonPackageImpl theCommonPackage = (CommonPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl
                         ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
@@ -119,6 +108,9 @@ public class FunctionPackageImpl extends EPackageImpl implements FunctionPackage
         DatatypePackageImpl theDatatypePackage = (DatatypePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(DatatypePackage.eNS_URI) instanceof DatatypePackageImpl
                         ? EPackage.Registry.INSTANCE.getEPackage(DatatypePackage.eNS_URI) : DatatypePackage.eINSTANCE);
+        FunctionPackageImpl theFunctionPackage = (FunctionPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(FunctionPackage.eNS_URI) instanceof FunctionPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(FunctionPackage.eNS_URI) : FunctionPackage.eINSTANCE);
         ExpressionPackageImpl theExpressionPackage = (ExpressionPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ExpressionPackage.eNS_URI) instanceof ExpressionPackageImpl
                         ? EPackage.Registry.INSTANCE.getEPackage(ExpressionPackage.eNS_URI)
@@ -128,29 +120,29 @@ public class FunctionPackageImpl extends EPackageImpl implements FunctionPackage
                         ? EPackage.Registry.INSTANCE.getEPackage(SchemaPackage.eNS_URI) : SchemaPackage.eINSTANCE);
 
         // Create package meta-data objects
-        theFunctionPackage.createPackageContents();
         theSQLPackage.createPackageContents();
         theCommonPackage.createPackageContents();
         theLiteralPackage.createPackageContents();
         theDatatypePackage.createPackageContents();
+        theFunctionPackage.createPackageContents();
         theExpressionPackage.createPackageContents();
         theSchemaPackage.createPackageContents();
 
         // Initialize created meta-data
-        theFunctionPackage.initializePackageContents();
         theSQLPackage.initializePackageContents();
         theCommonPackage.initializePackageContents();
         theLiteralPackage.initializePackageContents();
         theDatatypePackage.initializePackageContents();
+        theFunctionPackage.initializePackageContents();
         theExpressionPackage.initializePackageContents();
         theSchemaPackage.initializePackageContents();
 
         // Mark meta-data to indicate it can't be changed
-        theFunctionPackage.freeze();
+        theSQLPackage.freeze();
 
         // Update the registry and return the package
-        EPackage.Registry.INSTANCE.put(FunctionPackage.eNS_URI, theFunctionPackage);
-        return theFunctionPackage;
+        EPackage.Registry.INSTANCE.put(SQLPackage.eNS_URI, theSQLPackage);
+        return theSQLPackage;
     }
 
     /**
@@ -158,8 +150,8 @@ public class FunctionPackageImpl extends EPackageImpl implements FunctionPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getDatetimeValueFunction() {
-        return datetimeValueFunctionEClass;
+    public EClass getDummy() {
+        return dummyEClass;
     }
 
     /**
@@ -167,35 +159,8 @@ public class FunctionPackageImpl extends EPackageImpl implements FunctionPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getDatetimeValueFunction_Kind() {
-        return (EAttribute) datetimeValueFunctionEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getDatetimeValueFunction_Precision() {
-        return (EAttribute) datetimeValueFunctionEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EEnum getDatetimeValueFunctionKind() {
-        return datetimeValueFunctionKindEEnum;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public FunctionFactory getFunctionFactory() {
-        return (FunctionFactory) getEFactoryInstance();
+    public SQLFactory getSQLFactory() {
+        return (SQLFactory) getEFactoryInstance();
     }
 
     /**
@@ -218,12 +183,7 @@ public class FunctionPackageImpl extends EPackageImpl implements FunctionPackage
         isCreated = true;
 
         // Create classes and their features
-        datetimeValueFunctionEClass = createEClass(DATETIME_VALUE_FUNCTION);
-        createEAttribute(datetimeValueFunctionEClass, DATETIME_VALUE_FUNCTION__KIND);
-        createEAttribute(datetimeValueFunctionEClass, DATETIME_VALUE_FUNCTION__PRECISION);
-
-        // Create enums
-        datetimeValueFunctionKindEEnum = createEEnum(DATETIME_VALUE_FUNCTION_KIND);
+        dummyEClass = createEClass(DUMMY);
     }
 
     /**
@@ -252,6 +212,23 @@ public class FunctionPackageImpl extends EPackageImpl implements FunctionPackage
 
         // Obtain other dependent packages
         CommonPackage theCommonPackage = (CommonPackage) EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
+        LiteralPackage theLiteralPackage = (LiteralPackage) EPackage.Registry.INSTANCE
+                .getEPackage(LiteralPackage.eNS_URI);
+        DatatypePackage theDatatypePackage = (DatatypePackage) EPackage.Registry.INSTANCE
+                .getEPackage(DatatypePackage.eNS_URI);
+        FunctionPackage theFunctionPackage = (FunctionPackage) EPackage.Registry.INSTANCE
+                .getEPackage(FunctionPackage.eNS_URI);
+        ExpressionPackage theExpressionPackage = (ExpressionPackage) EPackage.Registry.INSTANCE
+                .getEPackage(ExpressionPackage.eNS_URI);
+        SchemaPackage theSchemaPackage = (SchemaPackage) EPackage.Registry.INSTANCE.getEPackage(SchemaPackage.eNS_URI);
+
+        // Add subpackages
+        getESubpackages().add(theCommonPackage);
+        getESubpackages().add(theLiteralPackage);
+        getESubpackages().add(theDatatypePackage);
+        getESubpackages().add(theFunctionPackage);
+        getESubpackages().add(theExpressionPackage);
+        getESubpackages().add(theSchemaPackage);
 
         // Create type parameters
 
@@ -260,22 +237,25 @@ public class FunctionPackageImpl extends EPackageImpl implements FunctionPackage
         // Add supertypes to classes
 
         // Initialize classes, features, and operations; add parameters
-        initEClass(datetimeValueFunctionEClass, DatetimeValueFunction.class, "DatetimeValueFunction", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getDatetimeValueFunction_Kind(), this.getDatetimeValueFunctionKind(), "kind", null, 1, 1,
-                DatetimeValueFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDatetimeValueFunction_Precision(), theCommonPackage.getUnsignedInteger(), "precision", null,
-                0, 1, DatetimeValueFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(dummyEClass, Dummy.class, "Dummy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        // Initialize enums and add enum literals
-        initEEnum(datetimeValueFunctionKindEEnum, DatetimeValueFunctionKind.class, "DatetimeValueFunctionKind");
-        addEEnumLiteral(datetimeValueFunctionKindEEnum, DatetimeValueFunctionKind.CURRENT_DATE);
-        addEEnumLiteral(datetimeValueFunctionKindEEnum, DatetimeValueFunctionKind.CURRENT_TIME);
-        addEEnumLiteral(datetimeValueFunctionKindEEnum, DatetimeValueFunctionKind.LOCALTIME);
-        addEEnumLiteral(datetimeValueFunctionKindEEnum, DatetimeValueFunctionKind.CURRENT_TIMESTAMP);
-        addEEnumLiteral(datetimeValueFunctionKindEEnum, DatetimeValueFunctionKind.LOCALTIMESTAMP);
+        // Create resource
+        createResource(eNS_URI);
+
+        // Create annotations
+        // http://www.eclipse.org/OCL/Import
+        createImportAnnotations();
     }
 
-} //FunctionPackageImpl
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/OCL/Import</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createImportAnnotations() {
+        String source = "http://www.eclipse.org/OCL/Import";
+        addAnnotation(this, source, new String[] { "ecore", "http://www.eclipse.org/emf/2002/Ecore" });
+    }
+
+} //SQLPackageImpl

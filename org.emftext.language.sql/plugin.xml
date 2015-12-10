@@ -25,6 +25,14 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated sql -->
       <package
+            uri="http://www.emftext.org/language/sql"
+            class="org.emftext.language.sql.SQLPackage"
+            genModel="model/sql.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sql -->
+      <package
             uri="http://www.emftext.org/language/sql/common"
             class="org.emftext.language.sql.common.CommonPackage"
             genModel="model/sql.genmodel"/>

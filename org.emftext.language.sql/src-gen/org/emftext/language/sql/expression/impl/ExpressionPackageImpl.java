@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.emftext.language.sql.SQLPackage;
 import org.emftext.language.sql.common.CommonPackage;
 
 import org.emftext.language.sql.common.impl.CommonPackageImpl;
@@ -24,6 +25,7 @@ import org.emftext.language.sql.function.FunctionPackage;
 
 import org.emftext.language.sql.function.impl.FunctionPackageImpl;
 
+import org.emftext.language.sql.impl.SQLPackageImpl;
 import org.emftext.language.sql.literal.LiteralPackage;
 
 import org.emftext.language.sql.literal.impl.LiteralPackageImpl;
@@ -103,6 +105,9 @@ public class ExpressionPackageImpl extends EPackageImpl implements ExpressionPac
         isInited = true;
 
         // Obtain or create and register interdependencies
+        SQLPackageImpl theSQLPackage = (SQLPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(SQLPackage.eNS_URI) instanceof SQLPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(SQLPackage.eNS_URI) : SQLPackage.eINSTANCE);
         CommonPackageImpl theCommonPackage = (CommonPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl
                         ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
@@ -121,6 +126,7 @@ public class ExpressionPackageImpl extends EPackageImpl implements ExpressionPac
 
         // Create package meta-data objects
         theExpressionPackage.createPackageContents();
+        theSQLPackage.createPackageContents();
         theCommonPackage.createPackageContents();
         theLiteralPackage.createPackageContents();
         theDatatypePackage.createPackageContents();
@@ -129,6 +135,7 @@ public class ExpressionPackageImpl extends EPackageImpl implements ExpressionPac
 
         // Initialize created meta-data
         theExpressionPackage.initializePackageContents();
+        theSQLPackage.initializePackageContents();
         theCommonPackage.initializePackageContents();
         theLiteralPackage.initializePackageContents();
         theDatatypePackage.initializePackageContents();
@@ -232,9 +239,6 @@ public class ExpressionPackageImpl extends EPackageImpl implements ExpressionPac
 
         initEClass(nullSpecificationEClass, NullSpecification.class, "NullSpecification", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-
-        // Create resource
-        createResource(eNS_URI);
     }
 
 } //ExpressionPackageImpl

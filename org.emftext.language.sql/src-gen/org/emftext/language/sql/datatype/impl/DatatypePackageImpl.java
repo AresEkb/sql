@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.emftext.language.sql.SQLPackage;
 import org.emftext.language.sql.common.CommonPackage;
 
 import org.emftext.language.sql.common.impl.CommonPackageImpl;
@@ -46,6 +47,7 @@ import org.emftext.language.sql.function.FunctionPackage;
 
 import org.emftext.language.sql.function.impl.FunctionPackageImpl;
 
+import org.emftext.language.sql.impl.SQLPackageImpl;
 import org.emftext.language.sql.literal.LiteralPackage;
 
 import org.emftext.language.sql.literal.impl.LiteralPackageImpl;
@@ -258,6 +260,9 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
         isInited = true;
 
         // Obtain or create and register interdependencies
+        SQLPackageImpl theSQLPackage = (SQLPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(SQLPackage.eNS_URI) instanceof SQLPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(SQLPackage.eNS_URI) : SQLPackage.eINSTANCE);
         CommonPackageImpl theCommonPackage = (CommonPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl
                         ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
@@ -277,6 +282,7 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
 
         // Create package meta-data objects
         theDatatypePackage.createPackageContents();
+        theSQLPackage.createPackageContents();
         theCommonPackage.createPackageContents();
         theLiteralPackage.createPackageContents();
         theFunctionPackage.createPackageContents();
@@ -285,6 +291,7 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
 
         // Initialize created meta-data
         theDatatypePackage.initializePackageContents();
+        theSQLPackage.initializePackageContents();
         theCommonPackage.initializePackageContents();
         theLiteralPackage.initializePackageContents();
         theFunctionPackage.initializePackageContents();
@@ -961,9 +968,6 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
         addEEnumLiteral(charLengthUnitsEEnum, CharLengthUnits.CHARACTERS);
         addEEnumLiteral(charLengthUnitsEEnum, CharLengthUnits.CODE_UNITS);
         addEEnumLiteral(charLengthUnitsEEnum, CharLengthUnits.OCTETS);
-
-        // Create resource
-        createResource(eNS_URI);
     }
 
 } //DatatypePackageImpl

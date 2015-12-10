@@ -20,12 +20,14 @@ Export-Package: org.emftext.language.sql,
  org.emftext.language.sql.function,
  org.emftext.language.sql.function.impl,
  org.emftext.language.sql.function.util,
+ org.emftext.language.sql.impl,
  org.emftext.language.sql.literal,
  org.emftext.language.sql.literal.impl,
  org.emftext.language.sql.literal.util,
  org.emftext.language.sql.schema,
  org.emftext.language.sql.schema.impl,
- org.emftext.language.sql.schema.util
+ org.emftext.language.sql.schema.util,
+ org.emftext.language.sql.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

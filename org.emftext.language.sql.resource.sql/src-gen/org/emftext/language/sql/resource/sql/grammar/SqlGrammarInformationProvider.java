@@ -758,7 +758,7 @@ public class SqlGrammarInformationProvider {
 	
 	public final static org.emftext.language.sql.resource.sql.grammar.SqlContainment SQL_15_0_0_3 = INSTANCE.getSQL_15_0_0_3();
 	private org.emftext.language.sql.resource.sql.grammar.SqlContainment getSQL_15_0_0_3() {
-		return new org.emftext.language.sql.resource.sql.grammar.SqlContainment(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__CONSTRAINT_DEFINITION), org.emftext.language.sql.resource.sql.grammar.SqlCardinality.QUESTIONMARK, new EClass[] {org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumnConstraint(), }, 0);
+		return new org.emftext.language.sql.resource.sql.grammar.SqlContainment(org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumn().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__CONSTRAINT), org.emftext.language.sql.resource.sql.grammar.SqlCardinality.QUESTIONMARK, new EClass[] {org.emftext.language.sql.schema.SchemaPackage.eINSTANCE.getColumnConstraint(), }, 0);
 	}
 	
 	public final static org.emftext.language.sql.resource.sql.grammar.SqlKeyword SQL_15_0_0_4_0_0_0 = INSTANCE.getSQL_15_0_0_4_0_0_0();

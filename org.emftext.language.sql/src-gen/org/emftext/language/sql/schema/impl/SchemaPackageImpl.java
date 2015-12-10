@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.emftext.language.sql.SQLPackage;
 import org.emftext.language.sql.common.CommonPackage;
 
 import org.emftext.language.sql.common.impl.CommonPackageImpl;
@@ -26,6 +27,7 @@ import org.emftext.language.sql.function.FunctionPackage;
 
 import org.emftext.language.sql.function.impl.FunctionPackageImpl;
 
+import org.emftext.language.sql.impl.SQLPackageImpl;
 import org.emftext.language.sql.literal.LiteralPackage;
 
 import org.emftext.language.sql.literal.impl.LiteralPackageImpl;
@@ -283,6 +285,9 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
         isInited = true;
 
         // Obtain or create and register interdependencies
+        SQLPackageImpl theSQLPackage = (SQLPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(SQLPackage.eNS_URI) instanceof SQLPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(SQLPackage.eNS_URI) : SQLPackage.eINSTANCE);
         CommonPackageImpl theCommonPackage = (CommonPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl
                         ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
@@ -302,6 +307,7 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
 
         // Create package meta-data objects
         theSchemaPackage.createPackageContents();
+        theSQLPackage.createPackageContents();
         theCommonPackage.createPackageContents();
         theLiteralPackage.createPackageContents();
         theDatatypePackage.createPackageContents();
@@ -310,6 +316,7 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
 
         // Initialize created meta-data
         theSchemaPackage.initializePackageContents();
+        theSQLPackage.initializePackageContents();
         theCommonPackage.initializePackageContents();
         theLiteralPackage.initializePackageContents();
         theDatatypePackage.initializePackageContents();
@@ -453,7 +460,7 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getColumn_ConstraintDefinition() {
+    public EReference getColumn_Constraint() {
         return (EReference) columnEClass.getEStructuralFeatures().get(3);
     }
 
@@ -826,7 +833,7 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
         createEAttribute(columnEClass, COLUMN__NAME);
         createEReference(columnEClass, COLUMN__DATA_TYPE);
         createEReference(columnEClass, COLUMN__DEFAULT_OPTION);
-        createEReference(columnEClass, COLUMN__CONSTRAINT_DEFINITION);
+        createEReference(columnEClass, COLUMN__CONSTRAINT);
         createEReference(columnEClass, COLUMN__COLLATION_NAME);
 
         tableConstraintEClass = createEClass(TABLE_CONSTRAINT);
@@ -987,9 +994,9 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
         initEReference(getColumn_DefaultOption(), this.getDefaultOption(), this.getDefaultOption_Owner(),
                 "defaultOption", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getColumn_ConstraintDefinition(), this.getColumnConstraint(), this.getColumnConstraint_Owner(),
-                "constraintDefinition", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getColumn_Constraint(), this.getColumnConstraint(), this.getColumnConstraint_Owner(),
+                "constraint", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getColumn_CollationName(), theCommonPackage.getSchemaQualifiedName(), null, "collationName",
                 null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1015,9 +1022,9 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
 
         initEClass(columnConstraintEClass, ColumnConstraint.class, "ColumnConstraint", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getColumnConstraint_Owner(), this.getColumn(), this.getColumn_ConstraintDefinition(), "owner",
-                null, 1, 1, ColumnConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getColumnConstraint_Owner(), this.getColumn(), this.getColumn_Constraint(), "owner", null, 1, 1,
+                ColumnConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getColumnConstraint_SchemaQualifiedName(), theCommonPackage.getSchemaQualifiedName(), null,
                 "schemaQualifiedName", null, 0, 1, ColumnConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1105,9 +1112,6 @@ public class SchemaPackageImpl extends EPackageImpl implements SchemaPackage {
         initEEnum(uniqueSpecificationKindEEnum, UniqueSpecificationKind.class, "UniqueSpecificationKind");
         addEEnumLiteral(uniqueSpecificationKindEEnum, UniqueSpecificationKind.UNIQUE);
         addEEnumLiteral(uniqueSpecificationKindEEnum, UniqueSpecificationKind.PRIMARY_KEY);
-
-        // Create resource
-        createResource(eNS_URI);
 
         // Create annotations
         // http://www.eclipse.org/emf/2002/Ecore

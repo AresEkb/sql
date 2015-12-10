@@ -18,7 +18,7 @@ import org.emftext.language.sql.datatype.DataType;
  *   <li>{@link org.emftext.language.sql.schema.Column#getName <em>Name</em>}</li>
  *   <li>{@link org.emftext.language.sql.schema.Column#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.emftext.language.sql.schema.Column#getDefaultOption <em>Default Option</em>}</li>
- *   <li>{@link org.emftext.language.sql.schema.Column#getConstraintDefinition <em>Constraint Definition</em>}</li>
+ *   <li>{@link org.emftext.language.sql.schema.Column#getConstraint <em>Constraint</em>}</li>
  *   <li>{@link org.emftext.language.sql.schema.Column#getCollationName <em>Collation Name</em>}</li>
  * </ul>
  *
@@ -108,32 +108,32 @@ public interface Column extends TableElement {
     void setDefaultOption(DefaultOption value);
 
     /**
-     * Returns the value of the '<em><b>Constraint Definition</b></em>' containment reference.
+     * Returns the value of the '<em><b>Constraint</b></em>' containment reference.
      * It is bidirectional and its opposite is '{@link org.emftext.language.sql.schema.ColumnConstraint#getOwner <em>Owner</em>}'.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Constraint Definition</em>' containment reference isn't clear,
+     * If the meaning of the '<em>Constraint</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Constraint Definition</em>' containment reference.
-     * @see #setConstraintDefinition(ColumnConstraint)
-     * @see org.emftext.language.sql.schema.SchemaPackage#getColumn_ConstraintDefinition()
+     * @return the value of the '<em>Constraint</em>' containment reference.
+     * @see #setConstraint(ColumnConstraint)
+     * @see org.emftext.language.sql.schema.SchemaPackage#getColumn_Constraint()
      * @see org.emftext.language.sql.schema.ColumnConstraint#getOwner
      * @model opposite="owner" containment="true"
      * @generated
      */
-    ColumnConstraint getConstraintDefinition();
+    ColumnConstraint getConstraint();
 
     /**
-     * Sets the value of the '{@link org.emftext.language.sql.schema.Column#getConstraintDefinition <em>Constraint Definition</em>}' containment reference.
+     * Sets the value of the '{@link org.emftext.language.sql.schema.Column#getConstraint <em>Constraint</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Constraint Definition</em>' containment reference.
-     * @see #getConstraintDefinition()
+     * @param value the new value of the '<em>Constraint</em>' containment reference.
+     * @see #getConstraint()
      * @generated
      */
-    void setConstraintDefinition(ColumnConstraint value);
+    void setConstraint(ColumnConstraint value);
 
     /**
      * Returns the value of the '<em><b>Collation Name</b></em>' containment reference.

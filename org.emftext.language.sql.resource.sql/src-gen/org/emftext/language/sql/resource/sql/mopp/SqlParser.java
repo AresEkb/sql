@@ -3603,7 +3603,7 @@ public class SqlParser extends SqlANTLRParserBase {
                     				if (a4_0 != null) {
                     					if (a4_0 != null) {
                     						Object value = a4_0;
-                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__CONSTRAINT_DEFINITION), value);
+                    						element.eSet(element.eClass().getEStructuralFeature(org.emftext.language.sql.schema.SchemaPackage.COLUMN__CONSTRAINT), value);
                     						completedElement(value, true);
                     					}
                     					collectHiddenTokens(element);

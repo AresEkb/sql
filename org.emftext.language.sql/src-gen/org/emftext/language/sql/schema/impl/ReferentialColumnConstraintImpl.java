@@ -196,8 +196,8 @@ public class ReferentialColumnConstraintImpl extends MinimalEObjectImpl.Containe
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newOwner != null)
-                msgs = ((InternalEObject) newOwner).eInverseAdd(this, SchemaPackage.COLUMN__CONSTRAINT_DEFINITION,
-                        Column.class, msgs);
+                msgs = ((InternalEObject) newOwner).eInverseAdd(this, SchemaPackage.COLUMN__CONSTRAINT, Column.class,
+                        msgs);
             msgs = basicSetOwner(newOwner, msgs);
             if (msgs != null)
                 msgs.dispatch();
@@ -304,8 +304,7 @@ public class ReferentialColumnConstraintImpl extends MinimalEObjectImpl.Containe
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
         case SchemaPackage.REFERENTIAL_COLUMN_CONSTRAINT__OWNER:
-            return eInternalContainer().eInverseRemove(this, SchemaPackage.COLUMN__CONSTRAINT_DEFINITION, Column.class,
-                    msgs);
+            return eInternalContainer().eInverseRemove(this, SchemaPackage.COLUMN__CONSTRAINT, Column.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }

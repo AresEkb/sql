@@ -4,6 +4,7 @@
   <eAnnotations source="http://www.eclipse.org/OCL/Import">
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
   </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Dummy"/>
   <eSubpackages name="common" nsURI="http://www.emftext.org/language/sql/common" nsPrefix="common">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="conversionDelegates" value="org.emftext.language.sql.conversionDelegateFactory"/>
@@ -237,8 +238,8 @@
           eType="#//datatype/DataType" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="defaultOption" eType="#//schema/DefaultOption"
           containment="true" eOpposite="#//schema/DefaultOption/owner"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="constraintDefinition"
-          eType="#//schema/ColumnConstraint" containment="true" eOpposite="#//schema/ColumnConstraint/owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//schema/ColumnConstraint"
+          containment="true" eOpposite="#//schema/ColumnConstraint/owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="collationName" eType="#//common/SchemaQualifiedName"
           containment="true"/>
     </eClassifiers>
@@ -257,7 +258,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="ColumnConstraint" abstract="true"
         eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EObject">
       <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1"
-          eType="#//schema/Column" eOpposite="#//schema/Column/constraintDefinition"/>
+          eType="#//schema/Column" eOpposite="#//schema/Column/constraint"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="schemaQualifiedName"
           eType="#//common/SchemaQualifiedName" containment="true"/>
     </eClassifiers>
